@@ -3,6 +3,6 @@
   "buildCommand": "next build",
   "installCommand": "npm install",
   "env": {
-    "NEXT_PUBLIC_APP_URL": "https://your-domain.vercel.app"
+    "NEXT_PUBLIC_APP_URL": "https://dbd-build-randomaizer.vercel.app"
   }
 }
