@@ -88,7 +88,7 @@ export function RollClient() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const updateUrl = useCallback((newBuild: Build, _newPins: typeof EMPTY_PINS) => {
+  const updateUrl = useCallback((newBuild: Build) => {
     const charParam = newBuild.role === 'killer'
       ? (newBuild.killerId ?? 'any')
       : (newBuild.survivorId ?? 'any');
@@ -128,7 +128,7 @@ export function RollClient() {
 
     setBuild(newBuild);
     setPins(nextPins);
-    updateUrl(newBuild, nextPins);
+    updateUrl(newBuild);
 
     if (newBuild.fallback) {
       toast.warning('Ядро недоступно — выдан полный рандом');
