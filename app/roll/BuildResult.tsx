@@ -4,6 +4,7 @@ import { RefreshCw, Copy, Check, Info } from 'lucide-react';
 import { useState } from 'react';
 import { PerkCard } from './PerkCard';
 import { AddonCard } from './AddonCard';
+import { SaveBuildButton } from './SaveBuildButton';
 import { Tooltip, TooltipTrigger, TooltipContent } from '@/components/ui/tooltip';
 import type { Build } from '@/lib/data';
 import { cn } from '@/lib/utils';
@@ -196,8 +197,9 @@ export function BuildResult({
         </button>
       </section>
 
-      {/* Copy link */}
-      <div className="flex justify-end">
+      {/* Actions: save + copy link */}
+      <div className="flex items-center justify-between gap-3">
+        <SaveBuildButton build={build} />
         <Tooltip>
           <TooltipTrigger
             render={
@@ -218,3 +220,4 @@ export function BuildResult({
     </div>
   );
 }
+
