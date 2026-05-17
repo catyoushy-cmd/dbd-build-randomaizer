@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { mulberry32, pickOne, pickN, weightedPick } from '../prng';
+import { mulberry32, pickN, weightedPick } from '../prng';
 
 describe('mulberry32', () => {
   it('same seed produces same sequence', () => {

@@ -1,6 +1,6 @@
 import { mulberry32, pickOne, pickN, weightedPick } from './prng';
 import {
-  PERKS, KILLERS, SURVIVORS, ITEMS, ADDONS, OFFERINGS, BUILD_CORES,
+  PERKS, ITEMS, ADDONS, OFFERINGS, BUILD_CORES,
 } from '@/lib/data';
 import type { Perk, Item, Addon, Offering, BuildCore, Build, PerkRole, ItemType } from '@/lib/data';
 

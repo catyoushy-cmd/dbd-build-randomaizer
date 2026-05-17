@@ -6,7 +6,7 @@ import { Dices, Zap, PartyPopper } from 'lucide-react';
 import { toast } from 'sonner';
 import { rollBuild, type BuildInput } from '@/lib/random/algorithm';
 import { applyPins, type Pins } from '@/lib/random/pinning';
-import { encodeShort, encodeLong, decode } from '@/lib/url/encode';
+import { encodeShort } from '@/lib/url/encode';
 import { KILLERS, SURVIVORS, PERKS, ITEMS, ADDONS, OFFERINGS } from '@/lib/data';
 import { pushHistory } from '@/lib/history';
 import {
@@ -14,7 +14,6 @@ import {
   SelectContent,
   SelectItem,
   SelectTrigger,
-  SelectValue,
 } from '@/components/ui/select';
 import { BuildResult } from './BuildResult';
 import type { Build, BuildMode } from '@/lib/data';
@@ -89,7 +88,7 @@ export function RollClient() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const updateUrl = useCallback((newBuild: Build, newPins: typeof EMPTY_PINS) => {
+  const updateUrl = useCallback((newBuild: Build, _newPins: typeof EMPTY_PINS) => {
     const charParam = newBuild.role === 'killer'
       ? (newBuild.killerId ?? 'any')
       : (newBuild.survivorId ?? 'any');

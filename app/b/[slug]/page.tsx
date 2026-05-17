@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import { createServiceClient } from '@/lib/supabase/server';
 import { rollBuild } from '@/lib/random/algorithm';
 import { applyPins } from '@/lib/random/pinning';
-import { KILLERS, SURVIVORS, PERKS, ITEMS, ADDONS, OFFERINGS } from '@/lib/data';
+import { KILLERS, PERKS, ITEMS, ADDONS, OFFERINGS } from '@/lib/data';
 import { ShareBuildView } from '@/app/build/[code]/ShareBuildView';
 import type { Pins } from '@/lib/random/pinning';
 

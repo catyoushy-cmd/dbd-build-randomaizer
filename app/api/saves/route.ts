@@ -1,7 +1,6 @@
 import { NextResponse } from 'next/server';
 import { nanoid } from 'nanoid';
 import { createClient } from '@/lib/supabase/server';
-import type { BuildInput } from '@/lib/random/algorithm';
 
 export type SaveBuildRequest = {
   role: 'survivor' | 'killer';

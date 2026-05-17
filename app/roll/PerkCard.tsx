@@ -19,7 +19,7 @@ type Props = {
   index: number;
 };
 
-export function PerkCard({ perk, pinned = false, onTogglePin, index }: Props) {
+export function PerkCard({ perk, pinned = false, onTogglePin, index: _index }: Props) {
   return (
     <Tooltip>
       <TooltipTrigger
