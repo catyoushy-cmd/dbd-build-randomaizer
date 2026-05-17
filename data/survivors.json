@@ -1,0 +1,52 @@
+[
+  {
+    "id": "dwight-fairfield",
+    "name": { "en": "Dwight Fairfield", "ru": "Дуайт Фэйрфилд" },
+    "icon": "/icons/survivors/dwight-fairfield.png"
+  },
+  {
+    "id": "meg-thomas",
+    "name": { "en": "Meg Thomas", "ru": "Мэг Томас" },
+    "icon": "/icons/survivors/meg-thomas.png"
+  },
+  {
+    "id": "claudette-morel",
+    "name": { "en": "Claudette Morel", "ru": "Клодетт Морель" },
+    "icon": "/icons/survivors/claudette-morel.png"
+  },
+  {
+    "id": "jake-park",
+    "name": { "en": "Jake Park", "ru": "Джейк Парк" },
+    "icon": "/icons/survivors/jake-park.png"
+  },
+  {
+    "id": "nea-karlsson",
+    "name": { "en": "Nea Karlsson", "ru": "Неа Карлссон" },
+    "icon": "/icons/survivors/nea-karlsson.png"
+  },
+  {
+    "id": "laurie-strode",
+    "name": { "en": "Laurie Strode", "ru": "Лори Строд" },
+    "icon": "/icons/survivors/laurie-strode.png"
+  },
+  {
+    "id": "bill-overbeck",
+    "name": { "en": "Bill Overbeck", "ru": "Билл Овербек" },
+    "icon": "/icons/survivors/bill-overbeck.png"
+  },
+  {
+    "id": "feng-min",
+    "name": { "en": "Feng Min", "ru": "Фэн Минь" },
+    "icon": "/icons/survivors/feng-min.png"
+  },
+  {
+    "id": "david-king",
+    "name": { "en": "David King", "ru": "Дэвид Кинг" },
+    "icon": "/icons/survivors/david-king.png"
+  },
+  {
+    "id": "kate-denson",
+    "name": { "en": "Kate Denson", "ru": "Кейт Денсон" },
+    "icon": "/icons/survivors/kate-denson.png"
+  }
+]

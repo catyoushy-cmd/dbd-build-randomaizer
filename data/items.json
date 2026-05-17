@@ -1,0 +1,58 @@
+[
+  {
+    "id": "flashlight-standard",
+    "type": "flashlight",
+    "name": { "en": "Flashlight", "ru": "Фонарик" },
+    "rarity": "common",
+    "icon": "/icons/items/flashlight-standard.png"
+  },
+  {
+    "id": "flashlight-sport",
+    "type": "flashlight",
+    "name": { "en": "Sport Flashlight", "ru": "Спортивный фонарик" },
+    "rarity": "uncommon",
+    "icon": "/icons/items/flashlight-sport.png"
+  },
+  {
+    "id": "medkit-standard",
+    "type": "medkit",
+    "name": { "en": "First Aid Kit", "ru": "Аптечка первой помощи" },
+    "rarity": "common",
+    "icon": "/icons/items/medkit-standard.png"
+  },
+  {
+    "id": "medkit-ranger",
+    "type": "medkit",
+    "name": { "en": "Ranger Med-Kit", "ru": "Аптечка рейнджера" },
+    "rarity": "rare",
+    "icon": "/icons/items/medkit-ranger.png"
+  },
+  {
+    "id": "toolbox-commodious",
+    "type": "toolbox",
+    "name": { "en": "Commodious Toolbox", "ru": "Удобный ящик с инструментами" },
+    "rarity": "uncommon",
+    "icon": "/icons/items/toolbox-commodious.png"
+  },
+  {
+    "id": "toolbox-engineers",
+    "type": "toolbox",
+    "name": { "en": "Engineer's Toolbox", "ru": "Ящик инженера" },
+    "rarity": "rare",
+    "icon": "/icons/items/toolbox-engineers.png"
+  },
+  {
+    "id": "map-hand-drawn",
+    "type": "map",
+    "name": { "en": "Hand-drawn Map", "ru": "Нарисованная от руки карта" },
+    "rarity": "common",
+    "icon": "/icons/items/map-hand-drawn.png"
+  },
+  {
+    "id": "key-broken",
+    "type": "key",
+    "name": { "en": "Broken Key", "ru": "Сломанный ключ" },
+    "rarity": "uncommon",
+    "icon": "/icons/items/key-broken.png"
+  }
+]

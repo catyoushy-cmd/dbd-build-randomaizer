@@ -1,0 +1,83 @@
+[
+  { "id": "trapper-addon-honing-stone", "name": { "en": "Honing Stone", "ru": "Точильный камень" }, "scope": { "type": "killer", "killerId": "trapper" }, "rarity": "uncommon", "tags": ["efficient"], "icon": "/icons/addons/honing-stone.png" },
+  { "id": "trapper-addon-spiked-jaws", "name": { "en": "Spiked Jaws", "ru": "Зубчатые челюсти" }, "scope": { "type": "killer", "killerId": "trapper" }, "rarity": "rare", "tags": ["efficient"], "icon": "/icons/addons/spiked-jaws.png" },
+  { "id": "trapper-addon-tar-bottle", "name": { "en": "Tar Bottle", "ru": "Бутылка дёгтя" }, "scope": { "type": "killer", "killerId": "trapper" }, "rarity": "uncommon", "tags": ["meme"], "icon": "/icons/addons/tar-bottle.png" },
+  { "id": "trapper-addon-iridescent-stone", "name": { "en": "Iridescent Stone", "ru": "Переливающийся камень" }, "scope": { "type": "killer", "killerId": "trapper" }, "rarity": "ultra-rare", "tags": ["efficient"], "icon": "/icons/addons/iridescent-stone.png" },
+  { "id": "trapper-addon-bloody-coil", "name": { "en": "Bloody Coil", "ru": "Окровавленная катушка" }, "scope": { "type": "killer", "killerId": "trapper" }, "rarity": "rare", "tags": ["efficient"], "icon": "/icons/addons/bloody-coil.png" },
+
+  { "id": "wraith-addon-cold-dirt", "name": { "en": "Cold Dirt", "ru": "Холодная земля" }, "scope": { "type": "killer", "killerId": "wraith" }, "rarity": "common", "tags": [], "icon": "/icons/addons/cold-dirt.png" },
+  { "id": "wraith-addon-shadow-dance-brooch", "name": { "en": "Shadow Dance Brooch", "ru": "Брошь танца теней" }, "scope": { "type": "killer", "killerId": "wraith" }, "rarity": "ultra-rare", "tags": ["efficient"], "icon": "/icons/addons/shadow-dance-brooch.png" },
+  { "id": "wraith-addon-bone-clapper", "name": { "en": "Bone Clapper", "ru": "Костяная трещотка" }, "scope": { "type": "killer", "killerId": "wraith" }, "rarity": "rare", "tags": ["efficient"], "icon": "/icons/addons/bone-clapper.png" },
+  { "id": "wraith-addon-coxcombed-clapper", "name": { "en": "Coxcombed Clapper", "ru": "Хохлатая трещотка" }, "scope": { "type": "killer", "killerId": "wraith" }, "rarity": "uncommon", "tags": [], "icon": "/icons/addons/coxcombed-clapper.png" },
+  { "id": "wraith-addon-windstorm", "name": { "en": "Windstorm (White)", "ru": "Буря (белая)" }, "scope": { "type": "killer", "killerId": "wraith" }, "rarity": "uncommon", "tags": ["efficient"], "icon": "/icons/addons/windstorm-white.png" },
+
+  { "id": "hillbilly-addon-primer-bulb", "name": { "en": "Primer Bulb", "ru": "Праймерная лампа" }, "scope": { "type": "killer", "killerId": "hillbilly" }, "rarity": "common", "tags": [], "icon": "/icons/addons/primer-bulb.png" },
+  { "id": "hillbilly-addon-lopro-chains", "name": { "en": "Lopro Chains", "ru": "Цепи LoPro" }, "scope": { "type": "killer", "killerId": "hillbilly" }, "rarity": "uncommon", "tags": ["efficient"], "icon": "/icons/addons/lopro-chains.png" },
+  { "id": "hillbilly-addon-engravings", "name": { "en": "Engravings", "ru": "Гравировки" }, "scope": { "type": "killer", "killerId": "hillbilly" }, "rarity": "rare", "tags": ["efficient"], "icon": "/icons/addons/engravings.png" },
+  { "id": "hillbilly-addon-iridescent-brick", "name": { "en": "Iridescent Brick", "ru": "Переливающийся кирпич" }, "scope": { "type": "killer", "killerId": "hillbilly" }, "rarity": "ultra-rare", "tags": ["efficient"], "icon": "/icons/addons/iridescent-brick.png" },
+  { "id": "hillbilly-addon-tuned-carburettor", "name": { "en": "Tuned Carburettor", "ru": "Настроенный карбюратор" }, "scope": { "type": "killer", "killerId": "hillbilly" }, "rarity": "rare", "tags": ["efficient"], "icon": "/icons/addons/tuned-carburettor.png" },
+
+  { "id": "nurse-addon-torn-bookmark", "name": { "en": "Torn Bookmark", "ru": "Оторванная закладка" }, "scope": { "type": "killer", "killerId": "nurse" }, "rarity": "uncommon", "tags": ["efficient"], "icon": "/icons/addons/torn-bookmark.png" },
+  { "id": "nurse-addon-matchbox", "name": { "en": "Matchbox", "ru": "Спичечный коробок" }, "scope": { "type": "killer", "killerId": "nurse" }, "rarity": "rare", "tags": ["efficient"], "icon": "/icons/addons/matchbox.png" },
+  { "id": "nurse-addon-fragile-wheeze", "name": { "en": "Fragile Wheeze", "ru": "Хрупкий хрип" }, "scope": { "type": "killer", "killerId": "nurse" }, "rarity": "common", "tags": [], "icon": "/icons/addons/fragile-wheeze.png" },
+  { "id": "nurse-addon-strained-coil", "name": { "en": "Strained Coil", "ru": "Натянутая катушка" }, "scope": { "type": "killer", "killerId": "nurse" }, "rarity": "rare", "tags": ["efficient"], "icon": "/icons/addons/strained-coil.png" },
+  { "id": "nurse-addon-kavanagh-last-breath", "name": { "en": "Kavanagh's Last Breath", "ru": "Последний выдох Каванаф" }, "scope": { "type": "killer", "killerId": "nurse" }, "rarity": "ultra-rare", "tags": ["efficient"], "icon": "/icons/addons/kavanaugh-last-breath.png" },
+
+  { "id": "huntress-addon-infantry-belt", "name": { "en": "Infantry Belt", "ru": "Солдатский ремень" }, "scope": { "type": "killer", "killerId": "huntress" }, "rarity": "ultra-rare", "tags": ["efficient"], "icon": "/icons/addons/infantry-belt.png" },
+  { "id": "huntress-addon-iridescent-head", "name": { "en": "Iridescent Head", "ru": "Переливающаяся голова" }, "scope": { "type": "killer", "killerId": "huntress" }, "rarity": "ultra-rare", "tags": ["efficient"], "icon": "/icons/addons/iridescent-head.png" },
+  { "id": "huntress-addon-weighted-head", "name": { "en": "Weighted Head", "ru": "Утяжелённая голова" }, "scope": { "type": "killer", "killerId": "huntress" }, "rarity": "uncommon", "tags": ["efficient"], "icon": "/icons/addons/weighted-head.png" },
+  { "id": "huntress-addon-father-bear-hand", "name": { "en": "Father's Glasses", "ru": "Очки отца" }, "scope": { "type": "killer", "killerId": "huntress" }, "rarity": "rare", "tags": ["efficient"], "icon": "/icons/addons/fathers-glasses.png" },
+  { "id": "huntress-addon-rusty-head", "name": { "en": "Rusty Head", "ru": "Ржавая голова" }, "scope": { "type": "killer", "killerId": "huntress" }, "rarity": "common", "tags": [], "icon": "/icons/addons/rusty-head.png" },
+
+  { "id": "spirit-addon-fathers-glasses", "name": { "en": "Yakuyoke Amulet", "ru": "Амулет якуёкэ" }, "scope": { "type": "killer", "killerId": "spirit" }, "rarity": "rare", "tags": ["efficient"], "icon": "/icons/addons/yakuyoke-amulet.png" },
+  { "id": "spirit-addon-saya", "name": { "en": "Saya", "ru": "Сая" }, "scope": { "type": "killer", "killerId": "spirit" }, "rarity": "uncommon", "tags": ["efficient"], "icon": "/icons/addons/saya.png" },
+  { "id": "spirit-addon-dried-cherry-blossom", "name": { "en": "Dried Cherry Blossom", "ru": "Засушенный цветок сакуры" }, "scope": { "type": "killer", "killerId": "spirit" }, "rarity": "common", "tags": [], "icon": "/icons/addons/dried-cherry-blossom.png" },
+  { "id": "spirit-addon-soul-speed", "name": { "en": "Prayer Beads", "ru": "Чётки" }, "scope": { "type": "killer", "killerId": "spirit" }, "rarity": "ultra-rare", "tags": ["efficient"], "icon": "/icons/addons/prayer-beads.png" },
+  { "id": "spirit-addon-katsuro-letter", "name": { "en": "Katsuro's Letter", "ru": "Письмо Кацуро" }, "scope": { "type": "killer", "killerId": "spirit" }, "rarity": "ultra-rare", "tags": ["efficient"], "icon": "/icons/addons/katsuro-letter.png" },
+
+  { "id": "blight-addon-adrenaline-vial", "name": { "en": "Adrenaline Vial", "ru": "Ампула адреналина" }, "scope": { "type": "killer", "killerId": "blight" }, "rarity": "ultra-rare", "tags": ["efficient"], "icon": "/icons/addons/adrenaline-vial.png" },
+  { "id": "blight-addon-blighted-crow", "name": { "en": "Blighted Crow", "ru": "Заражённая ворона" }, "scope": { "type": "killer", "killerId": "blight" }, "rarity": "rare", "tags": ["efficient"], "icon": "/icons/addons/blighted-crow.png" },
+  { "id": "blight-addon-blighted-bat", "name": { "en": "Blighted Bat", "ru": "Заражённая летучая мышь" }, "scope": { "type": "killer", "killerId": "blight" }, "rarity": "rare", "tags": ["efficient"], "icon": "/icons/addons/blighted-bat.png" },
+  { "id": "blight-addon-blighted-beetle", "name": { "en": "Blighted Beetle", "ru": "Заражённый жук" }, "scope": { "type": "killer", "killerId": "blight" }, "rarity": "uncommon", "tags": [], "icon": "/icons/addons/blighted-beetle.png" },
+  { "id": "blight-addon-iridescent-serum", "name": { "en": "Iridescent Blight Tag", "ru": "Переливающийся ярлык заражения" }, "scope": { "type": "killer", "killerId": "blight" }, "rarity": "ultra-rare", "tags": ["efficient"], "icon": "/icons/addons/iridescent-blight-tag.png" },
+
+  { "id": "nemesis-addon-antivirus", "name": { "en": "T-Virus Sample", "ru": "Образец Т-вируса" }, "scope": { "type": "killer", "killerId": "nemesis" }, "rarity": "rare", "tags": ["efficient"], "icon": "/icons/addons/t-virus-sample.png" },
+  { "id": "nemesis-addon-charge-duration", "name": { "en": "Marvin's Blood", "ru": "Кровь Марвина" }, "scope": { "type": "killer", "killerId": "nemesis" }, "rarity": "ultra-rare", "tags": ["efficient"], "icon": "/icons/addons/marvins-blood.png" },
+  { "id": "nemesis-addon-purple-flask", "name": { "en": "Purple Reagent", "ru": "Фиолетовый реагент" }, "scope": { "type": "killer", "killerId": "nemesis" }, "rarity": "uncommon", "tags": [], "icon": "/icons/addons/purple-reagent.png" },
+  { "id": "nemesis-addon-zombie-vaccine", "name": { "en": "Zombie Vaccine", "ru": "Вакцина от зомби" }, "scope": { "type": "killer", "killerId": "nemesis" }, "rarity": "common", "tags": ["meme"], "icon": "/icons/addons/zombie-vaccine.png" },
+  { "id": "nemesis-addon-iridescent-umbrella", "name": { "en": "Iridescent Umbrella Badge", "ru": "Переливающийся значок-зонт" }, "scope": { "type": "killer", "killerId": "nemesis" }, "rarity": "ultra-rare", "tags": ["efficient"], "icon": "/icons/addons/iridescent-umbrella-badge.png" },
+
+  { "id": "pinhead-addon-lament-configuration", "name": { "en": "Lament Configuration", "ru": "Конфигурация сожаления" }, "scope": { "type": "killer", "killerId": "pinhead" }, "rarity": "ultra-rare", "tags": ["efficient"], "icon": "/icons/addons/lament-configuration.png" },
+  { "id": "pinhead-addon-serrated-shackle", "name": { "en": "Serrated Shackle", "ru": "Зубчатые оковы" }, "scope": { "type": "killer", "killerId": "pinhead" }, "rarity": "rare", "tags": ["efficient"], "icon": "/icons/addons/serrated-shackle.png" },
+  { "id": "pinhead-addon-hair-locket", "name": { "en": "Julia's Burned Hair", "ru": "Сожжённые волосы Джулии" }, "scope": { "type": "killer", "killerId": "pinhead" }, "rarity": "uncommon", "tags": [], "icon": "/icons/addons/julias-burned-hair.png" },
+  { "id": "pinhead-addon-flesh-box", "name": { "en": "Flesh and Blood Box", "ru": "Коробка из плоти и крови" }, "scope": { "type": "killer", "killerId": "pinhead" }, "rarity": "rare", "tags": ["efficient"], "icon": "/icons/addons/flesh-and-blood-box.png" },
+  { "id": "pinhead-addon-way-to-suffer", "name": { "en": "Way to Suffer", "ru": "Путь к страданию" }, "scope": { "type": "killer", "killerId": "pinhead" }, "rarity": "uncommon", "tags": ["meme"], "icon": "/icons/addons/way-to-suffer.png" },
+
+  { "id": "pig-addon-jigsaw-rule", "name": { "en": "Jigsaw's Rules", "ru": "Правила пилы" }, "scope": { "type": "killer", "killerId": "pig" }, "rarity": "ultra-rare", "tags": ["efficient"], "icon": "/icons/addons/jigsaws-rules.png" },
+  { "id": "pig-addon-tampered-timer", "name": { "en": "Tampered Timer", "ru": "Вскрытый таймер" }, "scope": { "type": "killer", "killerId": "pig" }, "rarity": "ultra-rare", "tags": ["efficient"], "icon": "/icons/addons/tampered-timer.png" },
+  { "id": "pig-addon-medicine-bag", "name": { "en": "Medicine Bag", "ru": "Сумка с лекарствами" }, "scope": { "type": "killer", "killerId": "pig" }, "rarity": "rare", "tags": ["efficient"], "icon": "/icons/addons/medicine-bag.png" },
+  { "id": "pig-addon-telephoto-lens", "name": { "en": "Telephoto Lens", "ru": "Телеобъектив" }, "scope": { "type": "killer", "killerId": "pig" }, "rarity": "uncommon", "tags": [], "icon": "/icons/addons/telephoto-lens.png" },
+  { "id": "pig-addon-amanda-secret", "name": { "en": "Amanda's Secret", "ru": "Тайна Аманды" }, "scope": { "type": "killer", "killerId": "pig" }, "rarity": "uncommon", "tags": ["meme"], "icon": "/icons/addons/amandas-secret.png" },
+
+  { "id": "addon-flashlight-odd-bulb", "name": { "en": "Odd Bulb", "ru": "Странная лампочка" }, "scope": { "type": "item", "itemType": "flashlight" }, "rarity": "uncommon", "tags": [], "icon": "/icons/addons/odd-bulb.png" },
+  { "id": "addon-flashlight-battery", "name": { "en": "Battery", "ru": "Батарейка" }, "scope": { "type": "item", "itemType": "flashlight" }, "rarity": "common", "tags": [], "icon": "/icons/addons/battery.png" },
+  { "id": "addon-flashlight-wide-lens", "name": { "en": "Wide Lens", "ru": "Широкий объектив" }, "scope": { "type": "item", "itemType": "flashlight" }, "rarity": "uncommon", "tags": ["efficient"], "icon": "/icons/addons/wide-lens.png" },
+  { "id": "addon-flashlight-intense-halogen", "name": { "en": "Intense Halogen", "ru": "Интенсивный галоген" }, "scope": { "type": "item", "itemType": "flashlight" }, "rarity": "rare", "tags": ["efficient"], "icon": "/icons/addons/intense-halogen.png" },
+
+  { "id": "addon-medkit-bandages", "name": { "en": "Bandages", "ru": "Бинты" }, "scope": { "type": "item", "itemType": "medkit" }, "rarity": "common", "tags": [], "icon": "/icons/addons/bandages.png" },
+  { "id": "addon-medkit-anti-hemorrhagic", "name": { "en": "Anti-Hemorrhagic Syringe", "ru": "Антикровотечный шприц" }, "scope": { "type": "item", "itemType": "medkit" }, "rarity": "rare", "tags": ["efficient"], "icon": "/icons/addons/anti-hemorrhagic-syringe.png" },
+  { "id": "addon-medkit-styptic-agent", "name": { "en": "Styptic Agent", "ru": "Вяжущий агент" }, "scope": { "type": "item", "itemType": "medkit" }, "rarity": "very-rare", "tags": ["efficient"], "icon": "/icons/addons/styptic-agent.png" },
+  { "id": "addon-medkit-syringe", "name": { "en": "Syringe", "ru": "Шприц" }, "scope": { "type": "item", "itemType": "medkit" }, "rarity": "uncommon", "tags": ["efficient"], "icon": "/icons/addons/syringe.png" },
+
+  { "id": "addon-toolbox-brand-new-part", "name": { "en": "Brand New Part", "ru": "Новая запчасть" }, "scope": { "type": "item", "itemType": "toolbox" }, "rarity": "very-rare", "tags": ["efficient"], "icon": "/icons/addons/brand-new-part.png" },
+  { "id": "addon-toolbox-wire-spool", "name": { "en": "Wire Spool", "ru": "Катушка проволоки" }, "scope": { "type": "item", "itemType": "toolbox" }, "rarity": "common", "tags": [], "icon": "/icons/addons/wire-spool.png" },
+  { "id": "addon-toolbox-sabo-blueprint", "name": { "en": "Map of the Realm", "ru": "Карта владений" }, "scope": { "type": "item", "itemType": "toolbox" }, "rarity": "rare", "tags": ["meme"], "icon": "/icons/addons/map-of-the-realm.png" },
+  { "id": "addon-toolbox-rubber-grip", "name": { "en": "Rubber Grip", "ru": "Резиновая рукоятка" }, "scope": { "type": "item", "itemType": "toolbox" }, "rarity": "uncommon", "tags": [], "icon": "/icons/addons/rubber-grip.png" },
+
+  { "id": "addon-map-black-silk", "name": { "en": "Black Silk Pouch", "ru": "Чёрный шёлковый мешочек" }, "scope": { "type": "item", "itemType": "map" }, "rarity": "uncommon", "tags": [], "icon": "/icons/addons/black-silk-pouch.png" },
+  { "id": "addon-map-dull-trinket", "name": { "en": "Dull Trinket", "ru": "Тусклая безделушка" }, "scope": { "type": "item", "itemType": "map" }, "rarity": "common", "tags": [], "icon": "/icons/addons/dull-trinket.png" },
+  { "id": "addon-map-survivors-journal", "name": { "en": "Survivor's Journal", "ru": "Журнал выжившего" }, "scope": { "type": "item", "itemType": "map" }, "rarity": "uncommon", "tags": ["efficient"], "icon": "/icons/addons/survivors-journal.png" },
+
+  { "id": "addon-key-broken-fragment", "name": { "en": "Broken Key Fragment", "ru": "Осколок сломанного ключа" }, "scope": { "type": "item", "itemType": "key" }, "rarity": "uncommon", "tags": [], "icon": "/icons/addons/broken-key-fragment.png" },
+  { "id": "addon-key-amulet", "name": { "en": "Amulet of the Spectral Hand", "ru": "Амулет призрачной руки" }, "scope": { "type": "item", "itemType": "key" }, "rarity": "very-rare", "tags": ["meme"], "icon": "/icons/addons/amulet-spectral-hand.png" }
+]

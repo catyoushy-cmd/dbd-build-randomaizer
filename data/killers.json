@@ -1,0 +1,62 @@
+[
+  {
+    "id": "trapper",
+    "name": { "en": "The Trapper", "ru": "Охотник" },
+    "power": "Bear Trap",
+    "icon": "/icons/killers/trapper.png"
+  },
+  {
+    "id": "wraith",
+    "name": { "en": "The Wraith", "ru": "Призрак" },
+    "power": "Wailing Bell",
+    "icon": "/icons/killers/wraith.png"
+  },
+  {
+    "id": "hillbilly",
+    "name": { "en": "The Hillbilly", "ru": "Деревенщина" },
+    "power": "Chainsaw",
+    "icon": "/icons/killers/hillbilly.png"
+  },
+  {
+    "id": "nurse",
+    "name": { "en": "The Nurse", "ru": "Медсестра" },
+    "power": "Spencer's Last Breath",
+    "icon": "/icons/killers/nurse.png"
+  },
+  {
+    "id": "huntress",
+    "name": { "en": "The Huntress", "ru": "Охотница" },
+    "power": "Hunt",
+    "icon": "/icons/killers/huntress.png"
+  },
+  {
+    "id": "spirit",
+    "name": { "en": "The Spirit", "ru": "Дух" },
+    "power": "Yamaoka's Haunting",
+    "icon": "/icons/killers/spirit.png"
+  },
+  {
+    "id": "blight",
+    "name": { "en": "The Blight", "ru": "Пришелец" },
+    "power": "Blighted Corruption",
+    "icon": "/icons/killers/blight.png"
+  },
+  {
+    "id": "nemesis",
+    "name": { "en": "The Nemesis", "ru": "Немезис" },
+    "power": "T-Virus",
+    "icon": "/icons/killers/nemesis.png"
+  },
+  {
+    "id": "pinhead",
+    "name": { "en": "The Cenobite", "ru": "Сеноbit" },
+    "power": "Summons of Pain",
+    "icon": "/icons/killers/pinhead.png"
+  },
+  {
+    "id": "pig",
+    "name": { "en": "The Pig", "ru": "Свинья" },
+    "power": "Jigsaw's Baptism",
+    "icon": "/icons/killers/pig.png"
+  }
+]

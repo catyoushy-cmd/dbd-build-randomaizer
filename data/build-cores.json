@@ -1,0 +1,78 @@
+[
+  {
+    "id": "surv-efficient-genrush",
+    "name": "Gen Rush",
+    "role": "survivor",
+    "mode": "efficient",
+    "required_perks": ["prove-thyself", "deja-vu"],
+    "recommended_perks": ["hyperfocus", "stake-out", "resilience", "quick-gambit"],
+    "preferred_item_type": "toolbox",
+    "description": "Максимальная скорость ремонта генераторов. Держимся вместе и чиним как можно быстрее."
+  },
+  {
+    "id": "surv-efficient-stealth-info",
+    "name": "Stealth & Info",
+    "role": "survivor",
+    "mode": "efficient",
+    "required_perks": ["spine-chill", "iron-will"],
+    "recommended_perks": ["bond", "kindred", "windows-of-opportunity", "urban-evasion"],
+    "preferred_item_type": "map",
+    "description": "Играем тихо, следим за убийцей и выжившими, избегаем конфронтации."
+  },
+  {
+    "id": "surv-fun-boil-over-sabo",
+    "name": "Boil Over Sabo",
+    "role": "survivor",
+    "mode": "fun",
+    "required_perks": ["boil-over", "saboteur", "flip-flop", "power-struggle"],
+    "recommended_perks": [],
+    "preferred_item_type": "toolbox",
+    "description": "Классический мем-билд: убийца не может донести нас до крюка. Требует командной игры."
+  },
+  {
+    "id": "surv-fun-exhaustion-stack",
+    "name": "Exhaustion Stack",
+    "role": "survivor",
+    "mode": "fun",
+    "required_perks": ["dead-hard", "head-on"],
+    "recommended_perks": ["urban-evasion", "windows-of-opportunity", "we-re-gonna-live-forever"],
+    "preferred_item_type": "medkit",
+    "description": "Максимум инструментов уклонения. Дразним убийцу и выживаем нестандартными методами."
+  },
+  {
+    "id": "killer-efficient-slowdown",
+    "name": "Slowdown Stack",
+    "role": "killer",
+    "mode": "efficient",
+    "required_perks": ["pain-resonance", "corrupt-intervention"],
+    "recommended_perks": ["pop-goes-the-weasel", "deadlock", "thrilling-tremors", "hex-ruin"],
+    "description": "Генераторы не уйдут никуда. Максимальное давление на прогресс генераторов."
+  },
+  {
+    "id": "killer-efficient-aura-pressure",
+    "name": "Aura Pressure",
+    "role": "killer",
+    "mode": "efficient",
+    "required_perks": ["lethal-pursuer", "bbq-and-chili"],
+    "recommended_perks": ["discordance", "nowhere-to-hide", "infectious-fright"],
+    "description": "Постоянно видим выживших. Читаем карту и давим на самый слабый элемент."
+  },
+  {
+    "id": "killer-fun-hex-stack",
+    "name": "Hex Stack",
+    "role": "killer",
+    "mode": "fun",
+    "required_perks": ["hex-undying", "devour-hope", "noed"],
+    "recommended_perks": ["hex-ruin", "bbq-and-chili"],
+    "description": "Ставим все шесть тотемов под угрозу. Либо выживающие тратят время на очищение, либо получают Devour Hope."
+  },
+  {
+    "id": "killer-fun-endgame-collapse",
+    "name": "Endgame Collapse",
+    "role": "killer",
+    "mode": "fun",
+    "required_perks": ["noed", "make-your-choice", "starstruck"],
+    "recommended_perks": ["corrupt-intervention", "sloppy-butcher"],
+    "description": "Выживаем до финальной фазы и тогда включаем давление. NOED + Starstruck = кошмар для финала."
+  }
+]

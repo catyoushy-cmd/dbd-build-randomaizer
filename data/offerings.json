@@ -1,0 +1,17 @@
+[
+  { "id": "survivor-pudding", "name": { "en": "Survivor's Pudding", "ru": "Пудинг выжившего" }, "role": "survivor", "tags": ["efficient"], "icon": "/icons/offerings/survivors-pudding.png" },
+  { "id": "ward", "name": { "en": "Ward", "ru": "Оберег" }, "role": "survivor", "tags": ["efficient"], "icon": "/icons/offerings/ward.png" },
+  { "id": "bps-pudding", "name": { "en": "Bloody Party Streamers", "ru": "Кровавые праздничные конфетти" }, "role": "both", "tags": ["efficient"], "icon": "/icons/offerings/bloody-party-streamers.png" },
+  { "id": "escape-cake", "name": { "en": "Escape Cake", "ru": "Торт спасения" }, "role": "survivor", "tags": ["efficient"], "icon": "/icons/offerings/escape-cake.png" },
+  { "id": "map-haddonfield", "name": { "en": "Shattered Glasses", "ru": "Разбитые очки" }, "role": "both", "tags": [], "icon": "/icons/offerings/shattered-glasses.png" },
+  { "id": "map-rpd", "name": { "en": "Putrid Oak", "ru": "Гнилой дуб" }, "role": "both", "tags": [], "icon": "/icons/offerings/putrid-oak.png" },
+  { "id": "map-midwich", "name": { "en": "Petrified Oak", "ru": "Окаменелый дуб" }, "role": "both", "tags": [], "icon": "/icons/offerings/petrified-oak.png" },
+  { "id": "fogwise", "name": { "en": "Fogwise", "ru": "Знающий туман" }, "role": "both", "tags": ["meme"], "icon": "/icons/offerings/fogwise.png" },
+  { "id": "killer-pudding", "name": { "en": "Killer's Pudding", "ru": "Пудинг убийцы" }, "role": "killer", "tags": ["efficient"], "icon": "/icons/offerings/killers-pudding.png" },
+  { "id": "ebony-mori", "name": { "en": "Ebony Memento Mori", "ru": "Эбеновый Мементо Мори" }, "role": "killer", "tags": ["efficient"], "icon": "/icons/offerings/ebony-mori.png" },
+  { "id": "ivory-mori", "name": { "en": "Ivory Memento Mori", "ru": "Слоновый Мементо Мори" }, "role": "killer", "tags": ["efficient"], "icon": "/icons/offerings/ivory-mori.png" },
+  { "id": "cypress-mori", "name": { "en": "Cypress Memento Mori", "ru": "Кипарисовый Мементо Мори" }, "role": "killer", "tags": ["meme"], "icon": "/icons/offerings/cypress-mori.png" },
+  { "id": "grey-ward", "name": { "en": "Horrific Serum", "ru": "Ужасная сыворотка" }, "role": "killer", "tags": ["meme", "troll"], "icon": "/icons/offerings/horrific-serum.png" },
+  { "id": "black-ward", "name": { "en": "Black Ward", "ru": "Чёрный оберег" }, "role": "killer", "tags": ["efficient"], "icon": "/icons/offerings/black-ward.png" },
+  { "id": "chalk-pouch", "name": { "en": "Chalk Pouch", "ru": "Мешочек с мелом" }, "role": "both", "tags": [], "icon": "/icons/offerings/chalk-pouch.png" }
+]
