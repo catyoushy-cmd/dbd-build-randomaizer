@@ -3,9 +3,13 @@
     "id": "gruesome-gateau",
     "name": {
       "en": "Gruesome Gateau",
-      "ru": "Жуткий пирог"
+      "ru": "Ужасный торт"
     },
-    "role": "any",
+    "description": {
+      "en": "A terrific stomach-churning cake to mark our three years together. Grants 103% bonus Bloodpoints in all categories for all players this trial.",
+      "ru": "Ужасающий торт в честь трех лет, проведенных вместе. Определенно вызовет несварение. На 103% увеличивает число получаемых в этом матче очков крови во всех категориях и для всех игроков."
+    },
+    "role": "both",
     "rarity": "common",
     "tags": [
       "efficient"
@@ -16,9 +20,13 @@
     "id": "ghastly-gateau",
     "name": {
       "en": "Ghastly Gateau",
-      "ru": "Страшный пирог"
+      "ru": "Зловещий пирог"
     },
-    "role": "any",
+    "description": {
+      "en": "A spectacularly grim cake to mark our four years together. 1% tastier than a Gruesome Gateau. Grants 104% bonus Bloodpoints in all categories for all players this trial.",
+      "ru": "Потрясающе кошмарный торт в честь четырех лет, проведенных вместе. Вкуснее ужасающего торта на 1%! На 104% увеличивает число получаемых в этом испытании очков крови во всех категориях и для всех игроков."
+    },
+    "role": "both",
     "rarity": "common",
     "tags": [
       "efficient"
@@ -29,9 +37,13 @@
     "id": "sacrificial-cake",
     "name": {
       "en": "Sacrificial Cake",
-      "ru": "Жертвенный пирог"
+      "ru": "Жертвенный торт"
     },
-    "role": "any",
+    "description": {
+      "en": "A revolting cake that marks our five years together. The slightest taste fills you with an incomprehensible energy, reaching out to something beyond. Grants 105% bonus Bloodpoints in all categories for all players this trial.",
+      "ru": "Омерзительный тортик в честь пятилетия нашей совместной игры. Даже крохотный укус наполняет вас непонятной энергией, заставляющей тянуться к чему-то за гранью. Дает 105% бонусных очков крови во всех категориях всем игрокам на этот матч."
+    },
+    "role": "both",
     "rarity": "common",
     "tags": [
       "efficient"
@@ -42,9 +54,13 @@
     "id": "frightful-flan",
     "name": {
       "en": "Frightful Flan",
-      "ru": "Ужасный пудинг"
+      "ru": "Фатальный флан"
     },
-    "role": "any",
+    "description": {
+      "en": "It may be a masquerade ball, but there is no masking the foul odor of this quivering yellow mass. Consuming it, however, fills you with vigor. Grants 106% bonus Bloodpoints in all categories for all players this trial.",
+      "ru": "Маскарад маскарадом, но никакая маска не скроет отвратительной вони этой трепещущей желтой массы. Ну, зато питательный и придает сил. Дает 106% бонусных очков крови всем игрокам во всех категориях в этом матче."
+    },
+    "role": "both",
     "rarity": "common",
     "tags": [
       "efficient"
@@ -55,20 +71,30 @@
     "id": "terrormisu",
     "name": {
       "en": "TERRORMISU",
-      "ru": "TERRORMISU"
+      "ru": "ТЕРРОРМИСУ"
     },
-    "role": "any",
+    "description": {
+      "en": "A celebratory dessert to be eaten during the masquerade. Each layer is more horrifying than the last. Grants 107% bonus Bloodpoints in all categories for all players this trial.Reveals the aura of an Invitation within 32 meter(s).",
+      "ru": "Праздничный десерт, подаваемый во время маскарада. Каждый следующий слой страшнее предыдущего. Дает 107% бонусных очков крови во всех категориях для всех игроков в этом матче.Показывает ауру приглашения в радиусе 32 м."
+    },
+    "role": "both",
     "rarity": "common",
-    "tags": [],
+    "tags": [
+      "efficient"
+    ],
     "icon": "/icons/offerings/terrormisu.png"
   },
   {
     "id": "screech-cobbler",
     "name": {
       "en": "SCREECH COBBLER",
-      "ru": "КРИКОВЫЙ ПИРОГ"
+      "ru": "СКРИПЯЩИЙ САПОЖНИК"
     },
-    "role": "any",
+    "description": {
+      "en": "If you listen really closely, you can almost hear it screaming for more ice cream. Grants 108% bonus Bloodpoints in all categories for all players this trial.Reveals the aura of Invitation within 16 meters. Create 1 more chest.",
+      "ru": "Если прислушаться, то можно почти услышать, как оно воет, требуя мороженое. Дает на 108% больше очков крови всех категорий за всех игроков в матче.Показывает ауру приглашения в радиусе 16 м. Дополнительно создает 1 сундук."
+    },
+    "role": "both",
     "rarity": "common",
     "tags": [
       "efficient"
@@ -79,9 +105,13 @@
     "id": "coconut-scream-pie",
     "name": {
       "en": "Coconut Scream Pie",
-      "ru": "Кокосовый пирог с криком"
+      "ru": "Кокосово-орный пирог"
     },
-    "role": "any",
+    "description": {
+      "en": "A metallic taste overpowers the coconut.Grants 109% bonus Bloodpoints in all categories for all players this trial.Reveals the aura of Invitation Pillars within 16 meters.",
+      "ru": "Металлический привкус перебивает кокос.Дает на 109% больше очков крови всех категорий всем игрокам в матче.Показывает ауру столбов приглашения в радиусе 16 м ."
+    },
+    "role": "both",
     "rarity": "common",
     "tags": [
       "efficient"
@@ -92,9 +122,13 @@
     "id": "annotated-blueprint",
     "name": {
       "en": "Annotated Blueprint",
-      "ru": "Аннотированный чертёж"
+      "ru": "Чертеж с аннотациями"
     },
-    "role": "any",
+    "description": {
+      "en": "Tremendously increases the chance of spawning the Hatch in the Killer Shack, if the map has a Killer Shack.Secret.",
+      "ru": "Чрезвычайно повышает шанс появления люка в хижине убийцы, если она есть на карте.Тайна."
+    },
+    "role": "both",
     "rarity": "common",
     "tags": [
       "efficient"
@@ -105,9 +139,13 @@
     "id": "ardent-raven-wreath",
     "name": {
       "en": "Ardent Raven Wreath",
-      "ru": "Рьяный вороний венок"
+      "ru": "Пламенный Венок Ворона"
     },
-    "role": "any",
+    "description": {
+      "en": "Grants 100% bonus Bloodpoints in the Deviousness category.",
+      "ru": "Дает 100% бонусных очков крови в категории «Хитрость»."
+    },
+    "role": "both",
     "rarity": "rare",
     "tags": [
       "efficient"
@@ -118,9 +156,13 @@
     "id": "ardent-shrike-wreath",
     "name": {
       "en": "Ardent Shrike Wreath",
-      "ru": "Рьяный сорокопутовый венок"
+      "ru": "Пламенный Венок Сорокопута"
     },
-    "role": "any",
+    "description": {
+      "en": "Grants 100% bonus Bloodpoints in the Sacrifice category.",
+      "ru": "Дает 100% бонусных очков крови в категории «Жертвоприношение»."
+    },
+    "role": "both",
     "rarity": "rare",
     "tags": [
       "efficient"
@@ -131,9 +173,13 @@
     "id": "ardent-spotted-owl-wreath",
     "name": {
       "en": "Ardent Spotted Owl Wreath",
-      "ru": "Рьяный венок из пятнистой совы"
+      "ru": "Пламенный Венок Пятнистой Совы"
     },
-    "role": "any",
+    "description": {
+      "en": "Grants 100% bonus Bloodpoints in the Hunting category.",
+      "ru": "Дает 100% бонусных очков крови в категории «Охота»."
+    },
+    "role": "both",
     "rarity": "rare",
     "tags": [
       "efficient"
@@ -144,9 +190,13 @@
     "id": "ardent-tanager-wreath",
     "name": {
       "en": "Ardent Tanager Wreath",
-      "ru": "Рьяный танагровый венок"
+      "ru": "Пламенный Венок Танагры"
     },
-    "role": "any",
+    "description": {
+      "en": "Grants 100% bonus Bloodpoints in the Brutality category.",
+      "ru": "Дает 100% бонусных очков крови в категории «Жестокость»."
+    },
+    "role": "both",
     "rarity": "rare",
     "tags": [
       "efficient"
@@ -159,7 +209,11 @@
       "en": "Azarov's Key",
       "ru": "Ключ Азарова"
     },
-    "role": "any",
+    "description": {
+      "en": "Tremendously increases the chances of being sent to the Autohaven Wreckers when burnt.Secret.Does not stack.",
+      "ru": "Чрезвычайно увеличивает шансы отправиться на карту «Свалка Автохевен» после сожжения.Тайна.Эффект не суммируется."
+    },
+    "role": "both",
     "rarity": "rare",
     "tags": [
       "efficient"
@@ -170,9 +224,13 @@
     "id": "black-salt-statuette",
     "name": {
       "en": "Black Salt Statuette",
-      "ru": "Статуэтка из чёрной соли"
+      "ru": "Статуэтка из Черной Соли"
     },
-    "role": "any",
+    "description": {
+      "en": "Unlocks the ability to attempt to unhook yourself for all Survivors. Increases all Survivors' luck by 2% .",
+      "ru": "Все выжившие получают возможность пытаться слезть с крюка. Повышает удачу всех выживших на 2% ."
+    },
+    "role": "both",
     "rarity": "rare",
     "tags": [
       "efficient"
@@ -183,9 +241,13 @@
     "id": "black-splinter",
     "name": {
       "en": "Black Splinter",
-      "ru": "Чёрный осколок"
+      "ru": "Черный Осколок"
     },
-    "role": "any",
+    "description": {
+      "en": "Allows you to take on the role of The Shape for the next trial. Your current perks and add-ons will not be used. Secret.",
+      "ru": "Позволяет стать Тенью в следующем матче. Ваши текущие навыки и улучшения не будут использоваться. Секретное подношение."
+    },
+    "role": "both",
     "rarity": "visceral",
     "tags": [
       "meme"
@@ -196,9 +258,13 @@
     "id": "black-ward",
     "name": {
       "en": "Black Ward",
-      "ru": "Чёрный оберег"
+      "ru": "Черный Защитник"
     },
-    "role": "any",
+    "description": {
+      "en": "Burning this offering grants you protection against the loss of your add-ons at the end of the trial.Secret.",
+      "ru": "Сжигание данного подношения дает вам защиту от потери улучшений по окончании матча.Тайна."
+    },
+    "role": "both",
     "rarity": "veryrare",
     "tags": [
       "efficient"
@@ -209,9 +275,13 @@
     "id": "bloodied-blueprint",
     "name": {
       "en": "Bloodied Blueprint",
-      "ru": "Окровавленный чертёж"
+      "ru": "Окровавленный чертеж"
     },
-    "role": "any",
+    "description": {
+      "en": "Reveals the aura of the basement hooks to you for 20 seconds at the start of the trial. Tremendously increases the chance of spawning the basement in the Killer Shack, if the map has a Killer Shack.Secret.",
+      "ru": "Показывает вам ауру крюков в подвале на 20 сек. в начале матча. Чрезвычайно повышает шанс появления подвала в хижине убийцы, если она есть на карте.Тайна."
+    },
+    "role": "both",
     "rarity": "common",
     "tags": [
       "efficient"
@@ -222,9 +292,13 @@
     "id": "bloody-party-streamers",
     "name": {
       "en": "Bloody Party Streamers",
-      "ru": "Кровавые праздничные ленты"
+      "ru": "Окровавленные Праздничные Гирлянды"
     },
-    "role": "any",
+    "description": {
+      "en": "Grants 100% bonus Bloodpoints in all categories for all players this trial.",
+      "ru": "Дарует 100% бонусных очков крови во всех категориях для всех участников текущего матча."
+    },
+    "role": "both",
     "rarity": "rare",
     "tags": [
       "efficient"
@@ -235,9 +309,13 @@
     "id": "bog-laurel-sachet",
     "name": {
       "en": "Bog Laurel Sachet",
-      "ru": "Саше из болотного лавра"
+      "ru": "Мешочек с Вереском"
     },
-    "role": "any",
+    "description": {
+      "en": "Grants 50% bonus Bloodpoints in the Objective category. Personal.",
+      "ru": "Дает 50% бонусных очков крови в категории «Цели». Личное подношение."
+    },
+    "role": "both",
     "rarity": "common",
     "tags": [
       "efficient"
@@ -248,9 +326,13 @@
     "id": "bone-splinter",
     "name": {
       "en": "Bone Splinter",
-      "ru": "Костяной осколок"
+      "ru": "Костяной Осколок"
     },
-    "role": "any",
+    "description": {
+      "en": "Allows you to take on the role of The Cannibal for the next trial. Your current perks and add-ons will not be used. Secret.",
+      "ru": "Позволяет вам стать Каннибалом в следующем матче. Ваши текущие навыки и улучшения не будут использоваться. Секретное подношение."
+    },
+    "role": "both",
     "rarity": "visceral",
     "tags": [
       "meme"
@@ -261,9 +343,13 @@
     "id": "bound-envelope",
     "name": {
       "en": "Bound Envelope",
-      "ru": "Запечатанный конверт"
+      "ru": "Перевязанный Конверт"
     },
-    "role": "any",
+    "description": {
+      "en": "Grants 25% bonus Bloodpoints in all categories to all Survivors.",
+      "ru": "Дает 25% дополнительных очков крови во всех категориях и всем выжившим."
+    },
+    "role": "both",
     "rarity": "rare",
     "tags": [
       "efficient"
@@ -274,9 +360,13 @@
     "id": "cattle-tag-28",
     "name": {
       "en": "Cattle Tag-28",
-      "ru": "Бирка для скота 28"
+      "ru": "Бирка № 28 из скотобойни"
     },
-    "role": "any",
+    "description": {
+      "en": "Slightly increases the chances of being sent to Coldwind Farm when burnt. Stacks.",
+      "ru": "Слегка увеличивает шансы отправиться на Ферму Колдвинд после сожжения. Эффект суммируется."
+    },
+    "role": "both",
     "rarity": "common",
     "tags": [
       "efficient"
@@ -287,9 +377,13 @@
     "id": "chalk-pouch",
     "name": {
       "en": "Chalk Pouch",
-      "ru": "Мешочек с мелом"
+      "ru": "Мешок с Мелом"
     },
-    "role": "any",
+    "description": {
+      "en": "Unlocks the ability to attempt to unhook yourself. Increases your luck by 1% . Secret.",
+      "ru": "Дает возможность попытаться слезть с крюка. Повышает вашу удачу на 1% . Тайна."
+    },
+    "role": "both",
     "rarity": "common",
     "tags": [],
     "icon": "/icons/offerings/chalk-pouch.png"
@@ -298,9 +392,13 @@
     "id": "charred-wedding-photograph",
     "name": {
       "en": "Charred Wedding Photograph",
-      "ru": "Обугленная свадебная фотография"
+      "ru": "Обугленная Свадебная Фотография"
     },
-    "role": "any",
+    "description": {
+      "en": "Tremendously increases the chances of being sent to Crotus Prenn Asylum when burnt.Secret.Does not stack.",
+      "ru": "Чрезвычайно увеличивает шансы отправиться в психлечебницу Кротус Пренн после сожжения.Тайна.Эффект не суммируется."
+    },
+    "role": "both",
     "rarity": "rare",
     "tags": [
       "efficient"
@@ -311,9 +409,13 @@
     "id": "children-s-book",
     "name": {
       "en": "Children's Book",
-      "ru": "Детская книга"
+      "ru": "Детская Книга"
     },
-    "role": "any",
+    "description": {
+      "en": "Considerably increases the chances of being sent to Red Forest when burnt. Stacks.",
+      "ru": "Сожгите, чтобы значительно увеличить шанс отправиться в Красный лес. Эффект суммируется."
+    },
+    "role": "both",
     "rarity": "uncommon",
     "tags": [
       "efficient"
@@ -324,9 +426,13 @@
     "id": "clear-reagent",
     "name": {
       "en": "Clear Reagent",
-      "ru": "Прозрачный реагент"
+      "ru": "Чистый реагент"
     },
-    "role": "any",
+    "description": {
+      "en": "Slightly lessens the Dark Mist.Secret.",
+      "ru": "Темный туман слегка рассеивается .Тайна."
+    },
+    "role": "both",
     "rarity": "common",
     "tags": [
       "troll"
@@ -337,9 +443,13 @@
     "id": "coldwind-cattle-tag-81",
     "name": {
       "en": "Coldwind Cattle Tag-81",
-      "ru": "Бирка для скота 81 Холодный ветер"
+      "ru": "Бирка № 81 из скотобойни Колдвинд"
     },
-    "role": "any",
+    "description": {
+      "en": "Considerably increases the chances of being sent to Coldwind Farm when burnt. Stacks.",
+      "ru": "Значительно увеличивает шансы отправиться на Ферму Колдвинд после сожжения. Эффект суммируется."
+    },
+    "role": "both",
     "rarity": "uncommon",
     "tags": [
       "efficient"
@@ -350,9 +460,13 @@
     "id": "cream-chalk-pouch",
     "name": {
       "en": "Cream Chalk Pouch",
-      "ru": "Кремовый мешочек с мелом"
+      "ru": "Мешок с Мелом Кремового цвета"
     },
-    "role": "any",
+    "description": {
+      "en": "Unlocks the ability to attempt to unhook yourself. Increases your luck by 2% . Secret.",
+      "ru": "Дает возможность попытаться слезть с крюка. Повышает вашу удачу на 2% . Тайна."
+    },
+    "role": "both",
     "rarity": "uncommon",
     "tags": [
       "efficient"
@@ -363,9 +477,13 @@
     "id": "crescent-moon-bouquet",
     "name": {
       "en": "Crescent Moon Bouquet",
-      "ru": "Букет полумесяца"
+      "ru": "Букет «Полумесяц»"
     },
-    "role": "any",
+    "description": {
+      "en": "Calls upon The Entity for a dimmed moonlight .",
+      "ru": "Призывает Сущность сделать лунный свет тусклым ."
+    },
+    "role": "both",
     "rarity": "uncommon",
     "tags": [
       "troll"
@@ -376,9 +494,13 @@
     "id": "crispleaf-amaranth-sachet",
     "name": {
       "en": "Crispleaf Amaranth Sachet",
-      "ru": "Саше из хризалистого амаранта"
+      "ru": "Мешочек с сухими листьями Ширицы"
     },
-    "role": "any",
+    "description": {
+      "en": "Grants 50% bonus Bloodpoints in the Survival category. Personal.",
+      "ru": "Дает 50% бонусных очков крови в категории «Выживание». Личное подношение."
+    },
+    "role": "both",
     "rarity": "common",
     "tags": [
       "efficient"
@@ -389,9 +511,13 @@
     "id": "cut-coin",
     "name": {
       "en": "Cut Coin",
-      "ru": "Разрезанная монета"
+      "ru": "Разрезанная Монета"
     },
-    "role": "any",
+    "description": {
+      "en": "Calls on The Entity to prevent the appearance of 2 chests.Secret.",
+      "ru": "Призывает Сущность предотвратить появление 2 сундуков.Тайна."
+    },
+    "role": "both",
     "rarity": "veryrare",
     "tags": [
       "troll"
@@ -402,9 +528,13 @@
     "id": "cypress-memento-mori",
     "name": {
       "en": "Cypress Memento Mori",
-      "ru": "Кипарисовое напоминание о смерти"
+      "ru": "Кипарисовое Memento Mori"
     },
-    "role": "any",
+    "description": {
+      "en": "Grants 10 000 post-trial bloodpoints upon performing any Mori on the last Survivor. Secret.",
+      "ru": "После матча дарует 10 000 очков крови при использовании мори на последнем выжившем. Секретное."
+    },
+    "role": "both",
     "rarity": "uncommon",
     "tags": [
       "efficient"
@@ -415,9 +545,13 @@
     "id": "decrepit-clapboard",
     "name": {
       "en": "Decrepit Clapboard",
-      "ru": "Ветхая доска"
+      "ru": "Дряхлая Доска"
     },
-    "role": "any",
+    "description": {
+      "en": "Considerably increases the chances of being sent to Haddonfield when burnt. Stacks.",
+      "ru": "Значительно увеличивает шанс отправиться в Хэддонфилд, после сожжения. Эффект суммируется."
+    },
+    "role": "both",
     "rarity": "uncommon",
     "tags": [
       "efficient"
@@ -428,9 +562,13 @@
     "id": "devout-raven-wreath",
     "name": {
       "en": "Devout Raven Wreath",
-      "ru": "Набожный вороний венок"
+      "ru": "Молитвенный Венок Ворона"
     },
-    "role": "any",
+    "description": {
+      "en": "Grants 75% bonus Bloodpoints in the Deviousness category.",
+      "ru": "Дает 75% бонусных очков крови в категории «Хитрость»."
+    },
+    "role": "both",
     "rarity": "uncommon",
     "tags": [
       "efficient"
@@ -441,9 +579,13 @@
     "id": "devout-shrike-wreath",
     "name": {
       "en": "Devout Shrike Wreath",
-      "ru": "Набожный сорокопутовый венок"
+      "ru": "Молитвенный Венок Сорокопута"
     },
-    "role": "any",
+    "description": {
+      "en": "Grants 75% bonus Bloodpoints in the Sacrifice category.",
+      "ru": "Дает 75% бонусных очков крови в категории «Жертвоприношение»."
+    },
+    "role": "both",
     "rarity": "uncommon",
     "tags": [
       "efficient"
@@ -454,9 +596,13 @@
     "id": "devout-spotted-owl-wreath",
     "name": {
       "en": "Devout Spotted Owl Wreath",
-      "ru": "Набожный венок из пятнистой совы"
+      "ru": "Молитвенный Венок Пятнистой Совы"
     },
-    "role": "any",
+    "description": {
+      "en": "Grants 75% bonus Bloodpoints in the Hunting category.",
+      "ru": "Дает 75% бонусных очков крови в категории «Охота»."
+    },
+    "role": "both",
     "rarity": "uncommon",
     "tags": [
       "efficient"
@@ -467,9 +613,13 @@
     "id": "devout-tanager-wreath",
     "name": {
       "en": "Devout Tanager Wreath",
-      "ru": "Набожный танагровый венок"
+      "ru": "Молитвенный Венок Танагры"
     },
-    "role": "any",
+    "description": {
+      "en": "Grants 75% bonus Bloodpoints in the Brutality category.",
+      "ru": "Дает 75% бонусных очков крови в категории «Жестокость»."
+    },
+    "role": "both",
     "rarity": "uncommon",
     "tags": [
       "efficient"
@@ -480,9 +630,13 @@
     "id": "ebony-memento-mori",
     "name": {
       "en": "Ebony Memento Mori",
-      "ru": "Эбеновое напоминание о смерти"
+      "ru": "Эбеновое Memento Mori"
     },
-    "role": "any",
+    "description": {
+      "en": "Grants the ability to kill all Survivors who have reached the second Hook State by your hand during the next trial.Secret.",
+      "ru": "Дарует возможность убить всех выживших , которых вы перед этим подвесили на крюк, и которые достигли на нем второй стадии , в следующем матче.Секретное."
+    },
+    "role": "both",
     "rarity": "visceral",
     "tags": [
       "troll"
@@ -493,9 +647,13 @@
     "id": "rpd-badge",
     "name": {
       "en": "RPD Badge",
-      "ru": "Значок полиции Раккун-Сити"
+      "ru": "Полицейский значок РС"
     },
-    "role": "any",
+    "description": {
+      "en": "Tremendously increases the chance of being sent to Raccoon City police station when burnt.Secret.Does not stack.",
+      "ru": "Чрезвычайно увеличивает шансы отправиться в полицейский участок Раккун-Сити после сожжения.Тайна.Эффект не суммируется."
+    },
+    "role": "both",
     "rarity": "rare",
     "tags": [
       "efficient"
@@ -506,9 +664,13 @@
     "id": "emergency-certificate",
     "name": {
       "en": "Emergency Certificate",
-      "ru": "Аварийный сертификат"
+      "ru": "Свидетельство О Срочной Госпитализации"
     },
-    "role": "any",
+    "description": {
+      "en": "Slightly increases the chances of being sent to Léry's Memorial Institute when burnt. Stacks.",
+      "ru": "Слегка увеличивает шанс отправиться в Мемориальный Институт Лэри при сжигании. Эффект суммируется."
+    },
+    "role": "both",
     "rarity": "common",
     "tags": [
       "efficient"
@@ -519,9 +681,13 @@
     "id": "escape-cake",
     "name": {
       "en": "Escape! Cake",
-      "ru": "Торт спасения"
+      "ru": "Торт «Побег!»"
     },
-    "role": "any",
+    "description": {
+      "en": "Grants 100% bonus Bloodpoints in all categories. Personal.",
+      "ru": "Дарует 100% бонусных очков крови во всех категориях. Личное."
+    },
+    "role": "both",
     "rarity": "uncommon",
     "tags": [
       "efficient"
@@ -532,9 +698,13 @@
     "id": "faint-reagent",
     "name": {
       "en": "Faint Reagent",
-      "ru": "Слабый реагент"
+      "ru": "Слабый Реагент"
     },
-    "role": "any",
+    "description": {
+      "en": "Slightly thickens the Dark Mist.Secret.",
+      "ru": "Слегка сгущает Темный туман.Тайна."
+    },
+    "role": "both",
     "rarity": "common",
     "tags": [
       "troll"
@@ -545,9 +715,13 @@
     "id": "fragrant-bog-laurel",
     "name": {
       "en": "Fragrant Bog Laurel",
-      "ru": "Благоухающий болотный лавр"
+      "ru": "Душистый Вереск"
     },
-    "role": "any",
+    "description": {
+      "en": "Grants 100% bonus Bloodpoints in the Objective category. Personal.",
+      "ru": "Дает 100% бонусных очков крови в категории «Цели». Личное подношение."
+    },
+    "role": "both",
     "rarity": "rare",
     "tags": [
       "efficient"
@@ -558,9 +732,13 @@
     "id": "fragrant-crispleaf-amaranth",
     "name": {
       "en": "Fragrant Crispleaf Amaranth",
-      "ru": "Благоухающий хризалистый амарант"
+      "ru": "Душистый Лист Ширицы"
     },
-    "role": "any",
+    "description": {
+      "en": "Grants 100% bonus Bloodpoints in the Survival category. Personal.",
+      "ru": "Дает 100% бонусных очков крови в категории «Выживание». Личное подношение."
+    },
+    "role": "both",
     "rarity": "rare",
     "tags": [
       "efficient"
@@ -571,9 +749,13 @@
     "id": "fragrant-primrose-blossom",
     "name": {
       "en": "Fragrant Primrose Blossom",
-      "ru": "Благоухающая примула"
+      "ru": "Душистый Цветок Примулы"
     },
-    "role": "any",
+    "description": {
+      "en": "Grants 100% bonus Bloodpoints in the Altruism category. Personal.",
+      "ru": "Дает 100% бонусных очков крови в категории «Альтруизм». Личное подношение."
+    },
+    "role": "both",
     "rarity": "rare",
     "tags": [
       "efficient"
@@ -584,9 +766,13 @@
     "id": "fragrant-sweet-william",
     "name": {
       "en": "Fragrant Sweet William",
-      "ru": "Благоухающий гвоздика"
+      "ru": "Душистый Цветок Гвоздики"
     },
-    "role": "any",
+    "description": {
+      "en": "Grants 100% bonus Bloodpoints in the Boldness category. Personal.",
+      "ru": "Дает 100% бонусных очков крови в категории «Храбрость». Личное подношение."
+    },
+    "role": "both",
     "rarity": "rare",
     "tags": [
       "efficient"
@@ -597,9 +783,13 @@
     "id": "fresh-bog-laurel",
     "name": {
       "en": "Fresh Bog Laurel",
-      "ru": "Свежий болотный лавр"
+      "ru": "Свежий Вереск"
     },
-    "role": "any",
+    "description": {
+      "en": "Grants 75% bonus Bloodpoints in the Objective category. Personal.",
+      "ru": "Дает 75% бонусных очков крови в категории «Цели». Личное подношение."
+    },
+    "role": "both",
     "rarity": "uncommon",
     "tags": [
       "efficient"
@@ -610,9 +800,13 @@
     "id": "fresh-crispleaf-amaranth",
     "name": {
       "en": "Fresh Crispleaf Amaranth",
-      "ru": "Свежий хризалистый амарант"
+      "ru": "Свежая Ширица"
     },
-    "role": "any",
+    "description": {
+      "en": "Grants 75% bonus Bloodpoints in the Survival category. Personal.",
+      "ru": "Дает 75% бонусных очков крови в категории «Выживание». Личное подношение."
+    },
+    "role": "both",
     "rarity": "uncommon",
     "tags": [
       "efficient"
@@ -623,9 +817,13 @@
     "id": "fresh-primrose-blossom",
     "name": {
       "en": "Fresh Primrose Blossom",
-      "ru": "Свежая примула"
+      "ru": "Свежий Цветок Примулы"
     },
-    "role": "any",
+    "description": {
+      "en": "Grants 75% bonus Bloodpoints in the Altruism category. Personal.",
+      "ru": "Дает 75% бонусных очков крови в категории «Альтруизм». Личное подношение."
+    },
+    "role": "both",
     "rarity": "uncommon",
     "tags": [
       "efficient"
@@ -636,9 +834,13 @@
     "id": "fresh-sweet-william",
     "name": {
       "en": "Fresh Sweet William",
-      "ru": "Свежая гвоздика"
+      "ru": "Свежая Гвоздика"
     },
-    "role": "any",
+    "description": {
+      "en": "Grants 75% bonus Bloodpoints in the Boldness category. Personal.",
+      "ru": "Дает 75% бонусных очков крови в категории «Храбрость». Личное подношение."
+    },
+    "role": "both",
     "rarity": "uncommon",
     "tags": [
       "efficient"
@@ -649,9 +851,13 @@
     "id": "full-moon-bouquet",
     "name": {
       "en": "Full Moon Bouquet",
-      "ru": "Букет полнолуния"
+      "ru": "Букет «Полнолуние»"
     },
-    "role": "any",
+    "description": {
+      "en": "Calls upon The Entity for the brightest moonlight .",
+      "ru": "Призывает Сущность сделать лунный свет очень ярким ."
+    },
+    "role": "both",
     "rarity": "veryrare",
     "tags": [
       "troll"
@@ -662,9 +868,13 @@
     "id": "fuming-cordage",
     "name": {
       "en": "Fuming Cordage",
-      "ru": "Дымокуренная верёвка"
+      "ru": "Дымящиеся Снасти"
     },
-    "role": "any",
+    "description": {
+      "en": "Slightly increases the chances of being sent to Backwater Swamp when burnt. Stacks.",
+      "ru": "Слегка увеличивает шанс отправиться на Гнилое Болото после сожжения. Эффект суммируется."
+    },
+    "role": "both",
     "rarity": "common",
     "tags": [
       "efficient"
@@ -675,9 +885,13 @@
     "id": "fuming-welcome-sign",
     "name": {
       "en": "Fuming Welcome Sign",
-      "ru": "Дымокуренная табличка приветствия"
+      "ru": "Дымящийся знак «Добро пожаловать»"
     },
-    "role": "any",
+    "description": {
+      "en": "Considerably increases the chances of being sent to Backwater Swamp when burnt. Stacks.",
+      "ru": "Значительно увеличивает шанс отправиться на Гнилое Болото после сожжения. Эффект суммируется."
+    },
+    "role": "both",
     "rarity": "uncommon",
     "tags": [
       "efficient"
@@ -688,9 +902,13 @@
     "id": "glass-splinter",
     "name": {
       "en": "Glass Splinter",
-      "ru": "Стеклянный осколок"
+      "ru": "Стеклянный Осколок"
     },
-    "role": "any",
+    "description": {
+      "en": "Allows you to take on the role of The Pig for the next trial. Your current perks and add-ons will not be used. Secret.",
+      "ru": "Позволяет стать Свиньей в следующем матче. Ваши текущие навыки и улучшения не будут использоваться. Секретное подношение."
+    },
+    "role": "both",
     "rarity": "visceral",
     "tags": [
       "meme"
@@ -701,9 +919,13 @@
     "id": "grandma-s-cookbook",
     "name": {
       "en": "Grandma's Cookbook",
-      "ru": "Бабушкина книга рецептов"
+      "ru": "Кулинарная книга бабушки"
     },
-    "role": "any",
+    "description": {
+      "en": "Tremendously increases the chances of being sent to Backwater Swamp when burnt.Secret.Does not stack.",
+      "ru": "Чрезвычайно увеличивает шанс отправиться на Гнилое болото после сожжения.Тайна.Эффект не суммируется."
+    },
+    "role": "both",
     "rarity": "rare",
     "tags": [
       "efficient"
@@ -716,7 +938,11 @@
       "en": "Cursed Seed",
       "ru": "Проклятое семя"
     },
-    "role": "any",
+    "description": {
+      "en": "Calls upon The Entity to generate 1 tangled hook and 1 tangled generator .As a Killer, hook a Survivor on a tangled hook for the first time to earn bonus Bloodpoints.As a Survivor, find and repair a tangled generator to earn bonus Bloodpoints.Using this offering increases the amount of Bloodpoints earned for these interactions.NOTE: During the event, 1 default tangled hook and 1 default tangled generator will spawn on the map.Stacks. Only playable during The Midnight Grove event.",
+      "ru": "Призывает Сущность, чтобы та создала 1 опутанный крюк и 1 опутанный генератор .При игре за убийцу первый повешенный на опутанный крюк выживший принесет вам дополнительные очки крови.Играя за выжившего, найдите и почините опутанный генератор , чтобы получить дополнительные очки крови.Использовав подношение, вы будете получать больше очков крови за эти действия.ПРИМЕЧАНИЕ: во время события на карте по умолчанию появятся 1 опутанный крюк и 1 опутанный генератор.Эффект суммируется. Доступно только во время события «Полуночная роща»."
+    },
+    "role": "both",
     "rarity": "common",
     "tags": [
       "efficient"
@@ -727,9 +953,13 @@
     "id": "arcane-dowsing-rod",
     "name": {
       "en": "Arcane Dowsing Rod",
-      "ru": "Мистический лозоискатель"
+      "ru": "Волшебный прут"
     },
-    "role": "any",
+    "description": {
+      "en": "Taps into the latent energy of The Entity's realm to find even more concentrated pockets of power.Personal.Provides a + 100% Bloodpoints bonus to all Haunted By Daylight score events. Only usable when playing Event: Haunted by Daylight .",
+      "ru": "Использует сокрытую во владениях Сущности энергию для поиска мест со сгустками силы.ЛичноеДает + 100% очков крови во всех событиях Haunted by Daylight. Можно использовать только во время участия в событии Haunted by Daylight ."
+    },
+    "role": "both",
     "rarity": "veryrare",
     "tags": [
       "efficient"
@@ -740,9 +970,13 @@
     "id": "pustula-petals",
     "name": {
       "en": "Pustula Petals",
-      "ru": "Лепестки пустулы"
+      "ru": "Лепестки гнойника"
     },
-    "role": "any",
+    "description": {
+      "en": "Calls upon The Entity to generate 1 Blighted Hook and 1 Blighted Generator .As a Killer, hook a Survivor on a Blighted Hook for the first time to earn bonus Bloodpoints.As a Survivor, find and repair a Blighted Generator to earn bonus Bloodpoints.Using this offering increases the amount of Bloodpoints earned for these interactions.NOTE: During the event, 1 default Blighted Hook and 1 default Blighted Generator will spawn in the map.Stacks. Only playable during the Midnight Grove Event.",
+      "ru": "Призывает Сущность, чтобы та создала 1 пагубный крюк и 1 пагубный генератор .При игре за убийцу первый повешенный на пагубный крюк выживший принесет вам дополнительные очки крови.Играя за выжившего, найдите и почините пагубный генератор , чтобы получить дополнительные очки крови.Использовав подношение, вы будете получать больше очков крови за эти действия.ПРИМЕЧАНИЕ: во время события на карте по умолчанию появятся 1 пагубный крюк и 1 пагубный генератор.Эффект суммируется. Доступно только во время события «Полуночная роща»."
+    },
+    "role": "both",
     "rarity": "common",
     "tags": [
       "efficient"
@@ -753,9 +987,13 @@
     "id": "harvest-festival-leaflet",
     "name": {
       "en": "Harvest Festival Leaflet",
-      "ru": "Листовка праздника урожая"
+      "ru": "Листовка Фестиваля урожая"
     },
-    "role": "any",
+    "description": {
+      "en": "Slightly increases the chances of being sent to Haddonfield when burnt. Stacks.",
+      "ru": "Слегка увеличивает шанс отправиться в Хэддонфилд после сожжения. Эффект суммируется."
+    },
+    "role": "both",
     "rarity": "common",
     "tags": [
       "efficient"
@@ -766,9 +1004,13 @@
     "id": "hazy-reagent",
     "name": {
       "en": "Hazy Reagent",
-      "ru": "Мутный реагент"
+      "ru": "Туманный Реагент"
     },
-    "role": "any",
+    "description": {
+      "en": "Moderately thickens the Dark Mist.Secret.",
+      "ru": "Умеренно сгущает Темный туман.Тайна."
+    },
+    "role": "both",
     "rarity": "uncommon",
     "tags": [
       "troll"
@@ -779,9 +1021,13 @@
     "id": "heart-locket",
     "name": {
       "en": "Heart Locket",
-      "ru": "Медальон с сердцем"
+      "ru": "Медальон в Форме Сердца"
     },
-    "role": "any",
+    "description": {
+      "en": "Tremendously increases the chances of being sent to Coldwind Farm when burnt.Secret.Does not stack.",
+      "ru": "Чрезвычайно увеличивает шансы отправиться на карту «Ферма Колдвинд» после сожжения.Тайна.Эффект не суммируется."
+    },
+    "role": "both",
     "rarity": "rare",
     "tags": [
       "efficient"
@@ -792,9 +1038,13 @@
     "id": "hollow-shell",
     "name": {
       "en": "Hollow Shell",
-      "ru": "Пустая оболочка"
+      "ru": "Пустая Оболочка"
     },
-    "role": "any",
+    "description": {
+      "en": "Grants 25% bonus Bloodpoints in all categories.",
+      "ru": "Дает 25% бонусных очков крови во всех категориях."
+    },
+    "role": "both",
     "rarity": "uncommon",
     "tags": [
       "efficient"
@@ -805,9 +1055,13 @@
     "id": "crow-s-eye",
     "name": {
       "en": "Crow's Eye",
-      "ru": "Воронье око"
+      "ru": "Вороний глаз"
     },
-    "role": "any",
+    "description": {
+      "en": "Tremendously increases the chance to be sent to Forsaken Boneyard when burnt.Secret.Does not stack.",
+      "ru": "Чрезвычайно повышает шансы посетить Заброшенное кладбище при сожжении.Тайна.Эффект не суммируется."
+    },
+    "role": "both",
     "rarity": "rare",
     "tags": [
       "efficient"
@@ -818,9 +1072,13 @@
     "id": "ivory-chalk-pouch",
     "name": {
       "en": "Ivory Chalk Pouch",
-      "ru": "Слоновой кости мешочек с мелом"
+      "ru": "Мешок с Мелом из Слоновой Кости"
     },
-    "role": "any",
+    "description": {
+      "en": "Unlocks the ability to attempt to unhook yourself. Increases your luck by 3% .Secret.",
+      "ru": "Дает возможность попытаться слезть с крюка. Повышает вашу удачу на 3% .Тайна."
+    },
+    "role": "both",
     "rarity": "rare",
     "tags": [
       "efficient"
@@ -831,9 +1089,13 @@
     "id": "ivory-memento-mori",
     "name": {
       "en": "Ivory Memento Mori",
-      "ru": "Напоминание о смерти из слоновой кости"
+      "ru": "Костяное Memento Mori"
     },
-    "role": "any",
+    "description": {
+      "en": "Grants the ability to kill one Survivor who has reached the second Hook State by your hand during the next trial.Secret.",
+      "ru": "Дарует возможность убить одного из выживших , которого вы перед этим повесили на крюк, и который достигли на нем второй стадии , в следующем матче.Секретное."
+    },
+    "role": "both",
     "rarity": "rare",
     "tags": [
       "troll"
@@ -844,9 +1106,13 @@
     "id": "yamaoka-family-crest",
     "name": {
       "en": "Yamaoka Family Crest",
-      "ru": "Герб семьи Ямаока"
+      "ru": "Фамильный Гребень Ямаока"
     },
-    "role": "any",
+    "description": {
+      "en": "Tremendously increases the chances of being sent to Yamaoka Estate when burnt.Secret.Does not stack.",
+      "ru": "Чрезвычайно увеличивает шансы отправиться на карту «Поместье Ямаоки» после сожжения.Тайна.Эффект не суммируется."
+    },
+    "role": "both",
     "rarity": "rare",
     "tags": [
       "efficient"
@@ -857,9 +1123,13 @@
     "id": "jigsaw-piece",
     "name": {
       "en": "Jigsaw Piece",
-      "ru": "Фрагмент пазла"
+      "ru": "Кусок Пазла"
     },
-    "role": "any",
+    "description": {
+      "en": "Tremendously increases the chances of being sent to Gideon Meat Packing Plant when burnt.Secret.Does not stack.",
+      "ru": "Чрезвычайно увеличивает шансы отправиться на карту «Комбинат \"Гидеон\"» после сожжения.Тайна.Эффект не суммируется."
+    },
+    "role": "both",
     "rarity": "rare",
     "tags": [
       "efficient"
@@ -870,9 +1140,13 @@
     "id": "damaged-photo",
     "name": {
       "en": "Damaged Photo",
-      "ru": "Повреждённая фотография"
+      "ru": "Потрепанная фотография"
     },
-    "role": "any",
+    "description": {
+      "en": "Tremendously increases the chance to be sent to Ormond when burnt.Secret.Does not stack. Aug. 28th, ‘96",
+      "ru": "Чрезвычайно увеличивает шанс отправиться в «Ормонд» после сожжения.Тайна.Эффект не суммируется. 28 августа 1996 года"
+    },
+    "role": "both",
     "rarity": "rare",
     "tags": [
       "efficient"
@@ -883,9 +1157,13 @@
     "id": "lunacy-ticket",
     "name": {
       "en": "Lunacy Ticket",
-      "ru": "Билет безумия"
+      "ru": "Справка о Сумасшествии"
     },
-    "role": "any",
+    "description": {
+      "en": "Slightly increases the chances of being sent to Crotus Prenn Asylum when burnt. Stacks.",
+      "ru": "Слегка увеличивает шансы отправиться в психлечебницу Кротус Пренн после сожжения. Эффект суммируется."
+    },
+    "role": "both",
     "rarity": "common",
     "tags": [
       "efficient"
@@ -896,9 +1174,13 @@
     "id": "macmillan-ledger-page",
     "name": {
       "en": "MacMillan Ledger Page",
-      "ru": "Страница из книги учёта МакМиллана"
+      "ru": "Страница из Гроссбуха МакМиллана"
     },
-    "role": "any",
+    "description": {
+      "en": "Slightly increases the chances of being sent to the MacMillan Estate when burnt. Stacks.",
+      "ru": "Слегка увеличивает шансы отправиться в Поместье МакМиллан после сожжения. Эффект суммируется."
+    },
+    "role": "both",
     "rarity": "common",
     "tags": [
       "efficient"
@@ -909,9 +1191,13 @@
     "id": "macmillan-s-phalanx-bone",
     "name": {
       "en": "MacMillan's Phalanx Bone",
-      "ru": "Фаланга кости МакМиллана"
+      "ru": "Кость Фаланги МакМиллана"
     },
-    "role": "any",
+    "description": {
+      "en": "Tremendously increases the chances of being sent to the MacMillan Estate when burnt.Secret.Does not stack.",
+      "ru": "Чрезвычайно увеличивает шансы отправиться на карту «Поместье Макмиллан» после сожжения.Тайна.Эффект не суммируется."
+    },
+    "role": "both",
     "rarity": "rare",
     "tags": [
       "efficient"
@@ -922,9 +1208,13 @@
     "id": "ichorous-loam",
     "name": {
       "en": "Ichorous Loam",
-      "ru": "Ихорозная глина"
+      "ru": "Глина с ихором"
     },
-    "role": "any",
+    "description": {
+      "en": "Tremendously increases the chance to be sent to Withered Isle when burnt.Secret.Does not stack.",
+      "ru": "При сожжении чрезвычайно увеличивает шансы отправиться на карту «Зачахший остров».Тайна.Эффект не суммируется."
+    },
+    "role": "both",
     "rarity": "rare",
     "tags": [
       "efficient"
@@ -937,7 +1227,11 @@
       "en": "Moldy Oak",
       "ru": "Заплесневелый дуб"
     },
-    "role": "any",
+    "description": {
+      "en": "Calls upon The Entity to Slightly decrease the distance between sacrificial hooks appearing in the world.Secret.",
+      "ru": "Призыв к Сущности с просьбой слегка уменьшить расстояние между крюками для жертвоприношений.Тайна."
+    },
+    "role": "both",
     "rarity": "uncommon",
     "tags": [
       "troll"
@@ -950,7 +1244,11 @@
       "en": "Muddy Splinter",
       "ru": "Грязный осколок"
     },
-    "role": "any",
+    "description": {
+      "en": "Allows you to take on the role of The Hag for the next trial. Your current perks and add-ons will not be used. Secret.",
+      "ru": "Позволяет вам стать Ведьмой в следующем матче. Ваши текущие навыки и улучшения не будут использоваться. Секретное подношение."
+    },
+    "role": "both",
     "rarity": "visceral",
     "tags": [
       "meme"
@@ -961,9 +1259,13 @@
     "id": "murky-reagent",
     "name": {
       "en": "Murky Reagent",
-      "ru": "Тёмный реагент"
+      "ru": "Мутный Реагент"
     },
-    "role": "any",
+    "description": {
+      "en": "Greatly thickens the Dark Mist.Secret.",
+      "ru": "Сильно сгущает Темный туман.Тайна."
+    },
+    "role": "both",
     "rarity": "veryrare",
     "tags": [
       "troll"
@@ -974,9 +1276,13 @@
     "id": "new-moon-bouquet",
     "name": {
       "en": "New Moon Bouquet",
-      "ru": "Букет новолуния"
+      "ru": "Букет «Новолуние»"
     },
-    "role": "any",
+    "description": {
+      "en": "Calls upon The Entity for the darkest moonlight .",
+      "ru": "Призывает Сущность сделать лунный свет очень тусклым ."
+    },
+    "role": "both",
     "rarity": "visceral",
     "tags": [
       "troll"
@@ -987,9 +1293,13 @@
     "id": "painted-river-rock",
     "name": {
       "en": "Painted River Rock",
-      "ru": "Расписной речной камень"
+      "ru": "Разукрашенный Камень"
     },
-    "role": "any",
+    "description": {
+      "en": "Slightly increases the chances of being sent to Red Forest when burnt. Stacks.",
+      "ru": "Сожгите, чтобы слегка увеличить шанс отправиться в Красный лес. Эффект суммируется."
+    },
+    "role": "both",
     "rarity": "common",
     "tags": [
       "efficient"
@@ -1000,9 +1310,13 @@
     "id": "p-elliott-lunacy-ticket",
     "name": {
       "en": "P.Elliott Lunacy Ticket",
-      "ru": "Билет безумия П. Эллиотта"
+      "ru": "Справка о Сумасшествии Ф. Эллиота"
     },
-    "role": "any",
+    "description": {
+      "en": "Considerably increases the chances of being sent to Crotus Prenn Asylum when burnt. Stacks.",
+      "ru": "Значительно увеличивает шансы отправиться в психлечебницу Кротус Пренн после сожжения. Эффект суммируется."
+    },
+    "role": "both",
     "rarity": "uncommon",
     "tags": [
       "efficient"
@@ -1013,9 +1327,13 @@
     "id": "petrified-oak",
     "name": {
       "en": "Petrified Oak",
-      "ru": "Окаменелый дуб"
+      "ru": "Окаменевший дуб"
     },
-    "role": "any",
+    "description": {
+      "en": "Calms The Entity and Slightly increases the distance between sacrificial hooks appearing in the world.Secret.",
+      "ru": "Успокаивает Сущность и слегка увеличивает расстояние между крюками для жертвоприношений.Тайна."
+    },
+    "role": "both",
     "rarity": "veryrare",
     "tags": [
       "troll"
@@ -1026,9 +1344,13 @@
     "id": "primrose-blossom-sachet",
     "name": {
       "en": "Primrose Blossom Sachet",
-      "ru": "Саше из примулы"
+      "ru": "Мешочек с цветками Примулы"
     },
-    "role": "any",
+    "description": {
+      "en": "Grants 50% bonus Bloodpoints in the Altruism category. Personal.",
+      "ru": "Дает 50% бонусных очков крови в категории «Альтруизм». Личное подношение."
+    },
+    "role": "both",
     "rarity": "common",
     "tags": [
       "efficient"
@@ -1039,9 +1361,13 @@
     "id": "psychiatric-assessment-report",
     "name": {
       "en": "Psychiatric Assessment Report",
-      "ru": "Отчёт психиатрической экспертизы"
+      "ru": "Отчет о Психическом Состоянии"
     },
-    "role": "any",
+    "description": {
+      "en": "Considerably increases the chances of being sent to Léry's Memorial Institute when burnt. Stacks.",
+      "ru": "Значительно увеличивает шанс отправиться в Мемориальный Институт Лэри при сжигании. Эффект суммируется."
+    },
+    "role": "both",
     "rarity": "uncommon",
     "tags": [
       "efficient"
@@ -1052,9 +1378,13 @@
     "id": "putrid-oak",
     "name": {
       "en": "Putrid Oak",
-      "ru": "Гнилой дуб"
+      "ru": "Разложившийся Дуб"
     },
-    "role": "any",
+    "description": {
+      "en": "Calls upon The Entity to Considerably decrease the distance between sacrificial hooks appearing in the world.Secret.",
+      "ru": "Призывает Сущность значительно уменьшить расстояние между крюками для жертвоприношений.Тайна."
+    },
+    "role": "both",
     "rarity": "veryrare",
     "tags": [
       "troll"
@@ -1065,9 +1395,13 @@
     "id": "hawkins-national-laboratory-i-d",
     "name": {
       "en": "Hawkins National Laboratory I.D.",
-      "ru": "Удостоверение Национальной лаборатории Хокинса"
+      "ru": "Бейдж Национальной лаборатории Хоукинса"
     },
-    "role": "any",
+    "description": {
+      "en": "Tremendously increases the chance to be sent to Hawkins National Laboratory when burnt.Secret.Does not stack.",
+      "ru": "Чрезвычайно увеличивает шанс отправиться в национальную лабораторию Хоукинса после сожжения.Тайный.Эффект не суммируется."
+    },
+    "role": "both",
     "rarity": "rare",
     "tags": [
       "efficient"
@@ -1078,9 +1412,13 @@
     "id": "beef-tallow-mixture",
     "name": {
       "en": "Beef Tallow Mixture",
-      "ru": "Смесь из говяжьего сала"
+      "ru": "Смесь с говяжьим жиром"
     },
-    "role": "any",
+    "description": {
+      "en": "Tremendously increases the chance to be sent to The Decimated Borgo when burnt.Secret.Does not stack.",
+      "ru": "Чрезвычайно увеличивает шанс попасть на карту «Разоренная деревушка-борго» после сожжения.Тайна.Эффект не суммируется."
+    },
+    "role": "both",
     "rarity": "rare",
     "tags": [
       "efficient"
@@ -1091,9 +1429,13 @@
     "id": "quarter-moon-bouquet",
     "name": {
       "en": "Quarter Moon Bouquet",
-      "ru": "Букет четверти луны"
+      "ru": "Букет «Четверть Луны»"
     },
-    "role": "any",
+    "description": {
+      "en": "Calls upon The Entity for a brighter moonlight .",
+      "ru": "Призывает Сущность сделать лунный свет ярче ."
+    },
+    "role": "both",
     "rarity": "uncommon",
     "tags": [
       "troll"
@@ -1106,7 +1448,11 @@
       "en": "VIP Wristband",
       "ru": "VIP-браслет"
     },
-    "role": "any",
+    "description": {
+      "en": "Tremendously increases the chance to be sent to Trickster's Delusion when burned.Secret.Does not stack.",
+      "ru": "Чрезвычайно повышает шансы при сгорании перенестись в Морок Трюкача.Тайна.Не суммируется."
+    },
+    "role": "both",
     "rarity": "rare",
     "tags": [
       "efficient"
@@ -1117,9 +1463,13 @@
     "id": "raven-wreath",
     "name": {
       "en": "Raven Wreath",
-      "ru": "Вороний венок"
+      "ru": "Венок Ворона"
     },
-    "role": "any",
+    "description": {
+      "en": "Grants 50% bonus Bloodpoints in the Deviousness category.",
+      "ru": "Дает 50% бонусных очков крови в категории «Хитрость»."
+    },
+    "role": "both",
     "rarity": "common",
     "tags": [
       "efficient"
@@ -1130,9 +1480,13 @@
     "id": "red-envelope",
     "name": {
       "en": "Red Envelope",
-      "ru": "Красный конверт"
+      "ru": "Красный Конверт"
     },
-    "role": "any",
+    "description": {
+      "en": "A gesture of generosity to bring good fortune to the unfortunate. Calls upon The Entity to generate 1 Red Envelope in the trial. The aura of your own envelope is revealed to you at the start of the trial.Interacting with your own Red Envelope reveals its aura to all other players in the trial until claimed.Opening another player's Red Envelope awards you with Bloodpoints of a random amount. When another player opens your envelope during the trial, you are awarded Bloodpoints and a cosmetic from the Moonlight Burrow collection.Increased Bloodpoints awarded from Lunar New Year Generators and Hooks.",
+      "ru": "Щедрый жест и дар удачи тем, кому не повезло. Призывает Сущность создать 1 красный конверт в матче. Аура вашего конверта показывается вам в начале матча.Взаимодействие с вашим красным конвертом показывает его ауру всем другим игрокам в матче, пока его не заберут.Открыв красный конверт другого игрока, вы получите случайное количество очков крови. Если другой игрок откроет ваш конверт во время матча, вы получите очки крови и косметический предмет из коллекции «Лунная нора» .В награду за новогодние генераторы и крюки вы получаете больше очков крови."
+    },
+    "role": "both",
     "rarity": "common",
     "tags": [
       "efficient"
@@ -1143,9 +1497,13 @@
     "id": "rotten-oak",
     "name": {
       "en": "Rotten Oak",
-      "ru": "Прогнивший дуб"
+      "ru": "Гнилой Дуб"
     },
-    "role": "any",
+    "description": {
+      "en": "Calls upon The Entity to Moderately decrease the distance between sacrificial hooks appearing in the world.Secret.",
+      "ru": "Призывает Сущность умеренно уменьшить расстояние между крюками для жертвоприношений.Тайна."
+    },
+    "role": "both",
     "rarity": "rare",
     "tags": [
       "troll"
@@ -1156,9 +1514,13 @@
     "id": "sacrificial-ward",
     "name": {
       "en": "Sacrificial Ward",
-      "ru": "Жертвенная защита"
+      "ru": "Жертвенный оберег"
     },
-    "role": "any",
+    "description": {
+      "en": "Calls upon The Entity to reject all offerings that alter the chance of being sent to a specific realm. This can only be canceled if four identical realm offerings are played.",
+      "ru": "Призывает Сущность, чтобы отвергнуть все подношения, которые изменяют шанс отправиться в конкретное измерение. Можно отменить, только если использовать четыре одинаковых подношения измерений."
+    },
+    "role": "both",
     "rarity": "common",
     "tags": [
       "efficient"
@@ -1169,9 +1531,13 @@
     "id": "salt-pouch",
     "name": {
       "en": "Salt Pouch",
-      "ru": "Мешочек с солью"
+      "ru": "Мешок с Солью"
     },
-    "role": "any",
+    "description": {
+      "en": "Unlocks the ability to attempt to unhook yourself for all Survivors. Increases all Survivors' luck by 1% .",
+      "ru": "Все выжившие получают возможность попытаться слезть с крюка. Увеличивает удачу всех выживших на 1% ."
+    },
+    "role": "both",
     "rarity": "uncommon",
     "tags": [
       "efficient"
@@ -1182,9 +1548,13 @@
     "id": "scratched-coin",
     "name": {
       "en": "Scratched Coin",
-      "ru": "Поцарапанная монета"
+      "ru": "Поцарапанная Монета"
     },
-    "role": "any",
+    "description": {
+      "en": "Calls on The Entity to prevent the appearance of 1 chest.Secret.",
+      "ru": "Призывает Сущность предотвратить появление 1 сундука.Тайна."
+    },
+    "role": "both",
     "rarity": "uncommon",
     "tags": [
       "troll"
@@ -1195,9 +1565,13 @@
     "id": "sealed-envelope",
     "name": {
       "en": "Sealed Envelope",
-      "ru": "Запечатанный конверт"
+      "ru": "Запечатанный Конверт"
     },
-    "role": "any",
+    "description": {
+      "en": "Grants 25% bonus Bloodpoints in all categories. Personal.",
+      "ru": "Дает 25% бонусных очков крови во всех категориях. Личное подношение."
+    },
+    "role": "both",
     "rarity": "uncommon",
     "tags": [
       "efficient"
@@ -1208,9 +1582,13 @@
     "id": "shattered-glasses",
     "name": {
       "en": "Shattered Glasses",
-      "ru": "Разбитые очки"
+      "ru": "Сломанные Очки"
     },
-    "role": "any",
+    "description": {
+      "en": "Tremendously increases the chances of being sent to Léry's Memorial Institute when burnt.Secret.Does not stack.",
+      "ru": "Чрезвычайно увеличивает шансы отправиться на карту «Мемориальный институт Лэри» после сожжения.Тайна.Эффект не суммируется."
+    },
+    "role": "both",
     "rarity": "rare",
     "tags": [
       "efficient"
@@ -1221,9 +1599,13 @@
     "id": "shiny-coin",
     "name": {
       "en": "Shiny Coin",
-      "ru": "Блестящая монета"
+      "ru": "Блестящая Монета"
     },
-    "role": "any",
+    "description": {
+      "en": "Calls on The Entity to create 2 more chests.Secret.",
+      "ru": "Призывает Сущность создать еще 2 сундука.Тайна."
+    },
+    "role": "both",
     "rarity": "veryrare",
     "tags": [
       "troll"
@@ -1234,9 +1616,13 @@
     "id": "shock-splinter",
     "name": {
       "en": "Shock Splinter",
-      "ru": "Осколок шока"
+      "ru": "Шоковый Осколок"
     },
-    "role": "any",
+    "description": {
+      "en": "Allows you to take on the role of The Doctor for the next trial. Your current perks and add-ons will not be used. Secret.",
+      "ru": "Позволяет примерить на себя роль Доктора в следующем испытании. Ваши текущие навыки и улучшения использованы не будут. Секретное подношение."
+    },
+    "role": "both",
     "rarity": "visceral",
     "tags": [
       "meme"
@@ -1247,9 +1633,13 @@
     "id": "shredded-plate",
     "name": {
       "en": "Shredded Plate",
-      "ru": "Рваная тарелка"
+      "ru": "Сломанный Номерной Знак"
     },
-    "role": "any",
+    "description": {
+      "en": "Slightly increases the chances of being sent to the Autohaven Wreckers when burnt. Stacks.",
+      "ru": "Слегка увеличивает шансы отправиться на Свалку Автохевен после сожжения. Эффект суммируется."
+    },
+    "role": "both",
     "rarity": "common",
     "tags": [
       "efficient"
@@ -1260,9 +1650,13 @@
     "id": "shrike-wreath",
     "name": {
       "en": "Shrike Wreath",
-      "ru": "Сорокопутовый венок"
+      "ru": "Венок Сорокопута"
     },
-    "role": "any",
+    "description": {
+      "en": "Grants 50% bonus Bloodpoints in the Sacrifice category.",
+      "ru": "Дает 50% бонусных очков крови в категории «Жертвоприношение»."
+    },
+    "role": "both",
     "rarity": "common",
     "tags": [
       "efficient"
@@ -1273,9 +1667,13 @@
     "id": "shroud-of-separation",
     "name": {
       "en": "Shroud of Separation",
-      "ru": "Покров разлуки"
+      "ru": "Пелена Разлуки"
     },
-    "role": "any",
+    "description": {
+      "en": "All Survivors start the trial separated. Secret.",
+      "ru": "Все Выжившие начинают матч порознь. Секретное подношение."
+    },
+    "role": "both",
     "rarity": "veryrare",
     "tags": [
       "troll"
@@ -1288,7 +1686,11 @@
       "en": "Shroud of Vanishing",
       "ru": "Покров исчезновения"
     },
-    "role": "any",
+    "description": {
+      "en": "Calls on The Entity to nullify any offerings that would change the Survivors' starting locations. Secret.",
+      "ru": "Призывает Сущность отменить все подношения, которые меняют места появления выживших. Тайна."
+    },
+    "role": "both",
     "rarity": "uncommon",
     "tags": [
       "troll"
@@ -1299,9 +1701,13 @@
     "id": "shroud-of-union",
     "name": {
       "en": "Shroud of Union",
-      "ru": "Покров единения"
+      "ru": "Пелена Союза"
     },
-    "role": "any",
+    "description": {
+      "en": "You start the trial with someone else. Secret.",
+      "ru": "Матч начинается рядом с союзником. Секретное подношение."
+    },
+    "role": "both",
     "rarity": "uncommon",
     "tags": [
       "troll"
@@ -1312,9 +1718,13 @@
     "id": "signed-ledger-page",
     "name": {
       "en": "Signed Ledger Page",
-      "ru": "Подписанная страница из книги учёта"
+      "ru": "Подписанная Страница Гроссбуха"
     },
-    "role": "any",
+    "description": {
+      "en": "Considerably increases the chances of being sent to the MacMillan Estate when burnt. Stacks.",
+      "ru": "Значительно увеличивает шансы отправиться в Поместье МакМиллан после сожжения. Эффект суммируется."
+    },
+    "role": "both",
     "rarity": "uncommon",
     "tags": [
       "efficient"
@@ -1325,9 +1735,13 @@
     "id": "smoking-splinter",
     "name": {
       "en": "Smoking Splinter",
-      "ru": "Дымящийся осколок"
+      "ru": "Дымящийся Осколок"
     },
-    "role": "any",
+    "description": {
+      "en": "Allows you to take on the role of The Nightmare for the next trial. Your current perks and add-ons will not be used. Secret.",
+      "ru": "Позволяет стать Кошмаром в следующем матче. Ваши текущие навыки и улучшения не будут использоваться. Секретное подношение."
+    },
+    "role": "both",
     "rarity": "visceral",
     "tags": [
       "meme"
@@ -1338,9 +1752,13 @@
     "id": "spotted-owl-wreath",
     "name": {
       "en": "Spotted Owl Wreath",
-      "ru": "Венок из пятнистой совы"
+      "ru": "Венок Пятнистой Совы"
     },
-    "role": "any",
+    "description": {
+      "en": "Grants 50% bonus Bloodpoints in the Hunting category.",
+      "ru": "Дает 50% бонусных очков крови в категории «Охота»."
+    },
+    "role": "both",
     "rarity": "common",
     "tags": [
       "efficient"
@@ -1351,9 +1769,13 @@
     "id": "bloodshot-eye",
     "name": {
       "en": "Bloodshot Eye",
-      "ru": "Набухший кровью глаз"
+      "ru": "Кровавый глаз"
     },
-    "role": "any",
+    "description": {
+      "en": "An eye filled with, and capable of finding, strange blood. Personal.Provides a + 100% Bloodpoints bonus to all Blood Moon score events. Only usable when playing Event: Blood Moon .",
+      "ru": "Глаз, заполненный странной кровью, которая помогает искать подобную себе субстанцию. Личный предмет.+ 100% очков крови во всех событиях «Кровавой луны». Можно использовать только во время события «Кровавая луна» ."
+    },
+    "role": "both",
     "rarity": "veryrare",
     "tags": [
       "efficient"
@@ -1364,9 +1786,13 @@
     "id": "strode-realty-key",
     "name": {
       "en": "Strode Realty Key",
-      "ru": "Ключ агентства недвижимости Строуд"
+      "ru": "Ключ Риелторского Агентства Строуд"
     },
-    "role": "any",
+    "description": {
+      "en": "Tremendously increases the chances of being sent to Haddonfield when burnt.Secret.Does not stack.",
+      "ru": "Чрезвычайно увеличивает шансы отправиться на карту «Хэддонфилд» после сожжения.Тайна.Эффект не суммируется."
+    },
+    "role": "both",
     "rarity": "rare",
     "tags": [
       "efficient"
@@ -1377,9 +1803,13 @@
     "id": "bbq-invitation",
     "name": {
       "en": "BBQ Invitation",
-      "ru": "Приглашение на барбекю"
+      "ru": "Приглашение на Барбекю"
     },
-    "role": "any",
+    "description": {
+      "en": "Has the distinct aroma of burning flesh. Grants a 100% Bloodpoints bonus to Summer hooks and finished Summer generator repairs.",
+      "ru": "Обладает отчетливым запахом горящей плоти. Дает бонус в 100% к очкам крови для летних крюков и завершенных ремонтов летних генераторов."
+    },
+    "role": "both",
     "rarity": "common",
     "tags": [
       "efficient"
@@ -1390,9 +1820,13 @@
     "id": "survivor-pudding",
     "name": {
       "en": "Survivor Pudding",
-      "ru": "Пудинг выжившего"
+      "ru": "Пудинг из Выживших"
     },
-    "role": "any",
+    "description": {
+      "en": "Grants 100% bonus Bloodpoints in all categories. Personal.",
+      "ru": "Дарует 100% бонусных очков крови во всех категориях. Личное подношение."
+    },
+    "role": "both",
     "rarity": "uncommon",
     "tags": [
       "efficient"
@@ -1403,9 +1837,13 @@
     "id": "sweet-william-sachet",
     "name": {
       "en": "Sweet William Sachet",
-      "ru": "Саше из гвоздики"
+      "ru": "Мешочек с Гвоздикой"
     },
-    "role": "any",
+    "description": {
+      "en": "Grants 50% bonus Bloodpoints in the Boldness category. Personal.",
+      "ru": "Дает 50% бонусных очков крови в категории «Храбрость». Личное подношение."
+    },
+    "role": "both",
     "rarity": "common",
     "tags": [
       "efficient"
@@ -1416,9 +1854,13 @@
     "id": "tanager-wreath",
     "name": {
       "en": "Tanager Wreath",
-      "ru": "Танагровый венок"
+      "ru": "Венок Танагры"
     },
-    "role": "any",
+    "description": {
+      "en": "Grants 50% bonus Bloodpoints in the Brutality category.",
+      "ru": "Дает 50% бонусных очков крови в категории «Жестокость»."
+    },
+    "role": "both",
     "rarity": "common",
     "tags": [
       "efficient"
@@ -1429,9 +1871,13 @@
     "id": "tarnished-coin",
     "name": {
       "en": "Tarnished Coin",
-      "ru": "Потускневшая монета"
+      "ru": "Потускневшая Монета"
     },
-    "role": "any",
+    "description": {
+      "en": "Calls on The Entity to create 1 more chest.Secret.",
+      "ru": "Призывает Сущность создать на 1 сундук больше.Тайна."
+    },
+    "role": "both",
     "rarity": "uncommon",
     "tags": [
       "troll"
@@ -1442,9 +1888,13 @@
     "id": "the-last-mask",
     "name": {
       "en": "The Last Mask",
-      "ru": "Последняя маска"
+      "ru": "Последняя Маска"
     },
-    "role": "any",
+    "description": {
+      "en": "Tremendously increases the chances of being sent to Red Forest when burnt.Secret.Does not stack.",
+      "ru": "Чрезвычайно увеличивает шансы отправиться на карту «Красный лес» после сожжения.Тайна.Эффект не суммируется."
+    },
+    "role": "both",
     "rarity": "rare",
     "tags": [
       "efficient"
@@ -1455,9 +1905,13 @@
     "id": "the-pied-piper",
     "name": {
       "en": "The Pied Piper",
-      "ru": "Крысолов"
+      "ru": "Гамельнский Крысолов"
     },
-    "role": "any",
+    "description": {
+      "en": "Tremendously increases the chances of being sent to Springwood when burnt.Secret.Does not stack.",
+      "ru": "Чрезвычайно увеличивает шанс отправиться в Спрингвуд после сожжения.Тайна.Эффект не суммируется."
+    },
+    "role": "both",
     "rarity": "rare",
     "tags": [
       "efficient"
@@ -1468,9 +1922,13 @@
     "id": "torn-blueprint",
     "name": {
       "en": "Torn Blueprint",
-      "ru": "Рваный чертёж"
+      "ru": "Порванный чертеж"
     },
-    "role": "any",
+    "description": {
+      "en": "Reveals the aura of the basement hooks to you for 20 seconds at the start of the trial. Tremendously increases the chance of spawning the basement in the main building, if the map has a main building.Secret.",
+      "ru": "Показывает вам ауру крюков в подвале на 20 сек. в начале матча. Чрезвычайно повышает шанс появления подвала в основном здании, если оно есть на карте.Тайна."
+    },
+    "role": "both",
     "rarity": "common",
     "tags": [
       "efficient"
@@ -1483,7 +1941,11 @@
       "en": "Shattered Bottle",
       "ru": "Разбитая бутылка"
     },
-    "role": "any",
+    "description": {
+      "en": "Tremendously increases the chance to be sent to Grave of Glenvale when burnt.Secret.Does not stack.",
+      "ru": "Чрезвычайно увеличивает шансы отправиться в область «Могила в Гленвейле» после сожжения.Тайный.Эффект не суммируется."
+    },
+    "role": "both",
     "rarity": "rare",
     "tags": [
       "efficient"
@@ -1496,7 +1958,11 @@
       "en": "Alien Flora",
       "ru": "Инопланетная флора"
     },
-    "role": "any",
+    "description": {
+      "en": "Tremendously increases the chance to be sent to Toba Landing when burnt.Secret.Does not stack.",
+      "ru": "При сожжении чрезвычайно увеличивает вероятность попасть на карту « Площадка Тоба ».Тайна.Эффект не суммируется."
+    },
+    "role": "both",
     "rarity": "rare",
     "tags": [
       "efficient"
@@ -1507,9 +1973,13 @@
     "id": "vigo-s-blueprint",
     "name": {
       "en": "Vigo’s Blueprint",
-      "ru": "Чертёж Виго"
+      "ru": "Чертеж Виго"
     },
-    "role": "any",
+    "description": {
+      "en": "Tremendously increases the chance of spawning the Hatch in the main building, if the map has a main building.Secret.",
+      "ru": "Чрезвычайно повышает шанс появления люка в основном здании, если оно есть на карте.Тайна."
+    },
+    "role": "both",
     "rarity": "common",
     "tags": [
       "efficient"
@@ -1520,9 +1990,13 @@
     "id": "vigo-s-jar-of-salty-lips",
     "name": {
       "en": "Vigo's Jar of Salty Lips",
-      "ru": "Банка солёных губ Виго"
+      "ru": "Банка Виго с Засоленными Губами"
     },
-    "role": "any",
+    "description": {
+      "en": "Unlocks the ability to attempt to unhook yourself for all Survivors. Increases all Survivors' luck by 3% .",
+      "ru": "Все выжившие получают возможность попытаться слезть с крюка. Увеличивает удачу всех выживших на 3% ."
+    },
+    "role": "both",
     "rarity": "veryrare",
     "tags": [
       "efficient"
@@ -1533,9 +2007,13 @@
     "id": "vigo-s-shroud",
     "name": {
       "en": "Vigo's Shroud",
-      "ru": "Покров Виго"
+      "ru": "Платок Виго"
     },
-    "role": "any",
+    "description": {
+      "en": "You start the trial as far as possible from the Killer. Secret.",
+      "ru": "Вы начинаете матч как можно дальше от Убийцы. Секретное подношение."
+    },
+    "role": "both",
     "rarity": "uncommon",
     "tags": [
       "troll"
@@ -1546,9 +2024,13 @@
     "id": "virginia-plate",
     "name": {
       "en": "Virginia Plate",
-      "ru": "Тарелка Вирджинии"
+      "ru": "Номерной Знак Штата Вирджиния"
     },
-    "role": "any",
+    "description": {
+      "en": "Considerably increases the chances of being sent to the Autohaven Wreckers when burnt. Stacks.",
+      "ru": "Значительно увеличивает шансы отправиться на Свалку Автохевен после сожжения. Эффект суммируется."
+    },
+    "role": "both",
     "rarity": "uncommon",
     "tags": [
       "efficient"
@@ -1561,7 +2043,11 @@
       "en": "Mary’s Letter",
       "ru": "Письмо Мэри"
     },
-    "role": "any",
+    "description": {
+      "en": "Tremendously increases the chance to be sent to Midwich Elementary School when burnt.Secret.Does not stack.",
+      "ru": "Чрезвычайно увеличивает шанс отправиться в начальную школу Мидвича после сожжения.Тайный.Эффект не суммируется."
+    },
+    "role": "both",
     "rarity": "rare",
     "tags": [
       "efficient"
@@ -1572,9 +2058,13 @@
     "id": "white-ward",
     "name": {
       "en": "White Ward",
-      "ru": "Белая защита"
+      "ru": "Белый Защитник"
     },
-    "role": "any",
+    "description": {
+      "en": "Burning this offering grants you protection against the loss of your item and add-ons.Secret.",
+      "ru": "Сжигание этого подношения дает вам защиту от потери улучшений.Тайна."
+    },
+    "role": "both",
     "rarity": "veryrare",
     "tags": [
       "efficient"
@@ -1585,9 +2075,13 @@
     "id": "mistle-toes",
     "name": {
       "en": "MISTLE TOES",
-      "ru": "БУСИНЫ ОМЕЛЫ"
+      "ru": "«ОМЕЛА»"
     },
-    "role": "any",
+    "description": {
+      "en": "If you see these things hanging over you, the last thing you'll want is a kiss.Personal.Start the trial carrying 12 Snowskulls .Decreases number of Snowskulls required to charge an Icy Snowskull by 1 .Provides a + 100% Bloodpoints bonus to all Bone Chill score events.Create 1 more chest. Only usable when playing Event: Bone Chill .",
+      "ru": "Когда увидишь такое над своей головой, последнее, о чем ты будешь думать, так это о поцелуях.Личное.Начните матч, получив 12 снежков-черепов .Уменьшает количество снежков-черепов, необходимое для зарядки ледяного снежка-черепа, на 1 .Повышает на 100% очки крови, получаемые за события серии «Пробирающий холод».Создается на 1 сундук больше. Доступно только во время участия в событии «Пробирающий холод» ."
+    },
+    "role": "both",
     "rarity": "veryrare",
     "tags": [
       "efficient"
@@ -1600,7 +2094,11 @@
       "en": "Airlock Doors",
       "ru": "Двери шлюза"
     },
-    "role": "any",
+    "description": {
+      "en": "Tremendously increases the chance to be sent to Nostromo Wreckage when burnt.Secret.Does not stack.",
+      "ru": "При сожжении чрезвычайно повышает вероятность переноса на карту «Крушение \"Ностромо\"» .Тайна.Эффект не суммируется."
+    },
+    "role": "both",
     "rarity": "rare",
     "tags": [
       "efficient"

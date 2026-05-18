@@ -24,6 +24,7 @@ export type Perk = {
   character: string | null;
   icon: string;
   description: { en: string; ru: string };
+  tunables?: Record<string, number[] | undefined>;
   roles: PerkRole[];
   synergy_groups: string[];
   tier: Tier;
@@ -49,6 +50,7 @@ export type Item = {
   id: string;
   type: ItemType;
   name: { en: string; ru: string };
+  description?: { en: string; ru: string };
   rarity: 'common' | 'uncommon' | 'rare' | 'very-rare';
   icon: string;
 };
@@ -58,6 +60,7 @@ export type AddonTag = 'efficient' | 'meme' | 'troll';
 export type Addon = {
   id: string;
   name: { en: string; ru: string };
+  description?: { en: string; ru: string };
   scope:
     | { type: 'killer'; killerId: string }
     | { type: 'item'; itemType: ItemType };
@@ -71,7 +74,9 @@ export type OfferingTag = 'efficient' | 'meme' | 'troll';
 export type Offering = {
   id: string;
   name: { en: string; ru: string };
+  description?: { en: string; ru: string };
   role: 'survivor' | 'killer' | 'both';
+  rarity: string;
   tags: OfferingTag[];
   icon: string;
 };

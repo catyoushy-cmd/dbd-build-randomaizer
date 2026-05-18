@@ -116,6 +116,7 @@ type AddonCuration = {
   id: string;
   tags: string[];
   name_ru: string;
+  description_ru: string;
 };
 
 type NameCuration = {
@@ -136,7 +137,9 @@ async function aiCuratePerks(
   for (const batch of chunks(perks, 40)) {
     console.log(`  🤖 AI curation: ${batch.length} perk(s) (${result.size + batch.length}/${perks.length})…`);
 
-    const prompt = `You are a Dead by Daylight expert. Curate these perks. Reply with ONLY valid JSON, no markdown.
+    const prompt = `You are a Dead by Daylight expert. Curate these perks and provide official Russian localisation. Reply with ONLY valid JSON, no markdown.
+
+IMPORTANT: For name_ru and description_ru use the exact official Russian game text as it appears in the Russian version of Dead by Daylight. Strip HTML tags from descriptions.
 
 SURVIVOR ROLES (use 1-3): gen, chase-escape, info, exhaustion, healing, meme
 KILLER ROLES (use 1-3): slowdown, chase-power, info, aura, meme
@@ -173,7 +176,9 @@ async function aiCurateAddons(
   for (const batch of chunks(addons, 60)) {
     console.log(`  🤖 AI curation: ${batch.length} addon(s) (${result.size + batch.length}/${addons.length})…`);
 
-    const prompt = `You are a Dead by Daylight expert. Tag these addons and translate names to Russian. Reply with ONLY valid JSON, no markdown.
+    const prompt = `You are a Dead by Daylight expert. Translate addon names and descriptions to Russian using the official game localisation. Reply with ONLY valid JSON, no markdown.
+
+IMPORTANT: Use the exact official Russian game names and descriptions as they appear in the Russian version of Dead by Daylight. Strip HTML tags from descriptions.
 
 TAGS (0-2): efficient (strong meta), meme (gimmick/fun), troll (disrupts opponents)
 
@@ -181,7 +186,7 @@ ADDONS:
 ${batch.map(a => `id:${a.id} rarity:${a.rarity}\n${a.nameEn}: ${a.descEn}`).join('\n---\n')}
 
 Reply ONLY with this JSON:
-{"addons":[{"id":"...","tags":[],"name_ru":"..."}]}`;
+{"addons":[{"id":"...","tags":[],"name_ru":"...","description_ru":"..."}]}`;
 
     try {
       const raw = await callOpenRouter([{ role: 'user', content: prompt }]);
@@ -207,7 +212,9 @@ async function aiCurateOfferings(
   for (const batch of chunks(offerings, 30)) {
     console.log(`  🤖 AI curation: ${batch.length} offering(s)…`);
 
-    const prompt = `You are a Dead by Daylight expert. Tag these offerings and translate names to Russian. Reply with ONLY valid JSON, no markdown.
+    const prompt = `You are a Dead by Daylight expert. Translate offering names and descriptions to Russian using the official game localisation. Reply with ONLY valid JSON, no markdown.
+
+IMPORTANT: Use the exact official Russian game names and descriptions as they appear in the Russian version of Dead by Daylight. Strip HTML tags from descriptions.
 
 TAGS: efficient (meta/useful), meme (gimmick), troll (disrupts opponents)
 
@@ -215,7 +222,7 @@ OFFERINGS:
 ${batch.map(o => `id:${o.id} rarity:${o.rarity}\n${o.nameEn}: ${o.descEn}`).join('\n---\n')}
 
 Reply ONLY with this JSON:
-{"offerings":[{"id":"...","tags":[],"name_ru":"..."}]}`;
+{"offerings":[{"id":"...","tags":[],"name_ru":"...","description_ru":"..."}]}`;
 
     try {
       const raw = await callOpenRouter([{ role: 'user', content: prompt }]);
@@ -310,6 +317,39 @@ async function writeJson(file: string, data: unknown): Promise<void> {
 function slug(name: unknown): string {
   if (!name) return '';
   return String(name).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+}
+
+/** Infer DBD survivor item category from display name */
+function inferItemType(name: string): 'flashlight' | 'medkit' | 'toolbox' | 'map' | 'key' | 'misc' {
+  const n = name.toLowerCase();
+  if (n.includes('toolbox')) return 'toolbox';
+  if (
+    n.includes('medkit') || n.includes('med-kit') ||
+    n.includes('first aid') || n.includes('vaccine') ||
+    n.includes('emergency') || n.includes('syringe')
+  ) return 'medkit';
+  if (
+    n.includes('flashlight') || n.includes('flash grenade') ||
+    n.includes('firecracker') || n.includes('party starter')
+  ) return 'flashlight';
+  if (n.includes(' map') || n.endsWith('map')) return 'map';
+  if (
+    n.includes('key') || n.includes('candelabra') ||
+    n.includes('lament') || n.includes("coin")
+  ) return 'key';
+  return 'misc';
+}
+
+/** Strip HTML tags from a description string */
+function stripHtml(html: string): string {
+  return html.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+}
+
+/** Returns true when an addon scope looks like a bad/unclassified default */
+function isBadScope(scope: { type: string; itemType?: string; killerId?: string }): boolean {
+  if (scope.type === 'item' && scope.itemType === 'misc') return true;
+  if (scope.type === 'killer' && scope.killerId === 'unknown') return true;
+  return false;
 }
 
 // ---------------------------------------------------------------------------
@@ -609,6 +649,7 @@ type LocalItem = {
   id: string;
   name: { en: string; ru: string };
   type: string;
+  rarity: string;
   icon: string;
   deprecated?: boolean;
 };
@@ -632,6 +673,10 @@ async function syncItems(): Promise<void> {
   const toTranslate: { id: string; nameEn: string }[] = [];
 
   for (const [, api] of apiEntries) {
+    const apiTypeLower = (api.type ?? '').toLowerCase();
+    // Skip killer powers and non-survivor items
+    if (apiTypeLower === 'power' || apiTypeLower === 'none') continue;
+
     const id = slug(api.name);
     if (!id) continue;
     seenIds.add(id);
@@ -641,12 +686,20 @@ async function syncItems(): Promise<void> {
 
     await downloadIcon(imageUrl(api.image), path.join(ICONS_DIR, 'items', `${id}.png`));
 
+    // Use name-based classification; preserve existing if already specific
+    const prevType = prev?.type ?? '';
+    const specificTypes = ['flashlight', 'medkit', 'toolbox', 'map', 'key'];
+    const itemType = specificTypes.includes(prevType)
+      ? prevType
+      : inferItemType(api.name);
+
     if (!prev && openRouterKey) toTranslate.push({ id, nameEn: api.name });
 
     merged.push({
       id,
       name: { en: api.name, ru: prev?.name.ru ?? api.name },
-      type: (api.type ?? 'misc').toLowerCase(),
+      type: itemType,
+      rarity: (api as unknown as Record<string, string>).rarity?.toLowerCase() ?? 'common',
       icon: iconLocal,
     });
   }
@@ -666,8 +719,11 @@ async function syncItems(): Promise<void> {
     }
   }
 
+  const survivorItems = merged.filter(i => !i.deprecated);
   await writeJson('items.json', merged);
-  console.log(`  ✓ ${merged.filter(i => !i.deprecated).length} items`);
+  const byType: Record<string, number> = {};
+  survivorItems.forEach(i => { byType[i.type] = (byType[i.type] ?? 0) + 1; });
+  console.log(`  ✓ ${survivorItems.length} items`, byType);
 }
 
 // ---------------------------------------------------------------------------
@@ -677,6 +733,7 @@ async function syncItems(): Promise<void> {
 type LocalAddon = {
   id: string;
   name: { en: string; ru: string };
+  description: { en: string; ru: string };
   scope: { type: 'killer' | 'item'; killerId?: string; itemType?: string };
   rarity: string;
   tags: string[];
@@ -715,10 +772,13 @@ async function syncAddons(powerItemToSlug: Map<string, string>): Promise<void> {
 
     await downloadIcon(imageUrl(api.image), path.join(ICONS_DIR, 'addons', `${id}.png`));
 
-    // Determine scope from real API fields
+    const descEn = stripHtml(api.description ?? '');
+
+    // Determine scope — never preserve a bad default (misc / unknown)
     let scope: LocalAddon['scope'];
-    if (prev?.scope) {
-      scope = prev.scope;
+    const prevScope = prev?.scope;
+    if (prevScope && !isBadScope(prevScope)) {
+      scope = prevScope;
     } else if (api.role === 'killer') {
       const parentPath = api.parents?.[0] ?? '';
       const killerId = powerItemToSlug.get(parentPath) ?? null;
@@ -726,16 +786,20 @@ async function syncAddons(powerItemToSlug: Map<string, string>): Promise<void> {
         ? { type: 'killer', killerId }
         : { type: 'killer', killerId: 'unknown' };
     } else {
-      scope = { type: 'item', itemType: api.item_type?.toLowerCase() || 'misc' };
+      const itemType = api.item_type?.toLowerCase() || inferItemType(api.name);
+      scope = { type: 'item', itemType };
     }
 
-    if (!prev && openRouterKey) {
-      toAiCurate.push({ id, nameEn: api.name, descEn: api.description ?? '', rarity: api.rarity ?? 'common' });
+    // Queue for AI curation if name/description not yet translated OR scope was bad
+    const prevBadScope = isBadScope(prev?.scope ?? { type: 'item', itemType: 'misc' });
+    if (openRouterKey && (!prev || prev.name.ru === prev.name.en || !prev.description?.ru || prevBadScope)) {
+      toAiCurate.push({ id, nameEn: api.name, descEn, rarity: api.rarity ?? 'common' });
     }
 
     merged.push({
       id,
       name: { en: api.name, ru: prev?.name.ru ?? api.name },
+      description: { en: descEn, ru: prev?.description?.ru ?? descEn },
       scope,
       rarity: (api.rarity ?? 'common').toLowerCase(),
       tags: prev?.tags ?? [],
@@ -743,7 +807,7 @@ async function syncAddons(powerItemToSlug: Map<string, string>): Promise<void> {
     });
   }
 
-  // AI curation for new addons
+  // AI curation for new/untranslated addons
   if (toAiCurate.length) {
     const curation = await aiCurateAddons(toAiCurate);
     for (const entry of merged) {
@@ -751,8 +815,9 @@ async function syncAddons(powerItemToSlug: Map<string, string>): Promise<void> {
       if (!ai) continue;
       if (!entry.tags.length && ai.tags?.length) entry.tags = ai.tags;
       if (entry.name.ru === entry.name.en && ai.name_ru) entry.name.ru = ai.name_ru;
+      if (entry.description.ru === entry.description.en && ai.description_ru) entry.description.ru = ai.description_ru;
     }
-    console.log(`  ✓ AI curated ${curation.size}/${toAiCurate.length} new addon(s)`);
+    console.log(`  ✓ AI curated ${curation.size}/${toAiCurate.length} addon(s)`);
   }
 
   // Mark removed entries as deprecated
@@ -780,7 +845,8 @@ async function syncAddons(powerItemToSlug: Map<string, string>): Promise<void> {
 type LocalOffering = {
   id: string;
   name: { en: string; ru: string };
-  role: 'survivor' | 'killer' | 'any';
+  description: { en: string; ru: string };
+  role: 'survivor' | 'killer' | 'both';
   rarity: string;
   tags: string[];
   icon: string;
@@ -817,15 +883,18 @@ async function syncOfferings(): Promise<void> {
     await downloadIcon(imageUrl(api.image), path.join(ICONS_DIR, 'offerings', `${id}.png`));
 
     const role: LocalOffering['role'] =
-      api.role === 'Killer' ? 'killer' : api.role === 'Survivor' ? 'survivor' : 'any';
+      api.role === 'Killer' ? 'killer' : api.role === 'Survivor' ? 'survivor' : 'both';
 
-    if (!prev && openRouterKey) {
-      toAiCurate.push({ id, nameEn: api.name, descEn: api.description ?? '', rarity: api.rarity ?? 'common' });
+    const descEn = stripHtml(api.description ?? '');
+
+    if (openRouterKey && (!prev || prev.name.ru === prev.name.en || !prev.description?.ru)) {
+      toAiCurate.push({ id, nameEn: api.name, descEn, rarity: api.rarity ?? 'common' });
     }
 
     merged.push({
       id,
       name: { en: api.name, ru: prev?.name.ru ?? api.name },
+      description: { en: descEn, ru: prev?.description?.ru ?? descEn },
       role,
       rarity: (api.rarity ?? 'common').toLowerCase(),
       tags: prev?.tags ?? [],
@@ -840,8 +909,9 @@ async function syncOfferings(): Promise<void> {
       if (!ai) continue;
       if (!entry.tags.length && ai.tags?.length) entry.tags = ai.tags;
       if (entry.name.ru === entry.name.en && ai.name_ru) entry.name.ru = ai.name_ru;
+      if (entry.description.ru === entry.description.en && ai.description_ru) entry.description.ru = ai.description_ru;
     }
-    console.log(`  ✓ AI curated ${curation.size}/${toAiCurate.length} new offering(s)`);
+    console.log(`  ✓ AI curated ${curation.size}/${toAiCurate.length} offering(s)`);
   }
 
   for (const old of existing) {
