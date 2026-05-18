@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { createServiceClient } from '@/lib/supabase/server';
+import { createClient } from '@/lib/supabase/server';
 import { rollBuild } from '@/lib/random/algorithm';
 import { applyPins } from '@/lib/random/pinning';
 import { KILLERS, PERKS, ITEMS, ADDONS, OFFERINGS } from '@/lib/data';
@@ -14,7 +14,7 @@ export async function generateMetadata({ params }: Props) {
 }
 
 export default async function SavedBuildPage({ params }: Props) {
-  const supabase = createServiceClient();
+  const supabase = createClient();
 
   const { data: row, error } = await supabase
     .from('saved_builds')
