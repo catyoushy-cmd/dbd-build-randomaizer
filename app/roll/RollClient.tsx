@@ -19,6 +19,7 @@ import {
   SelectItem,
   SelectTrigger,
 } from '@/components/ui/select';
+import { cn } from '@/lib/utils';
 import { BuildResult } from './BuildResult';
 import type { Build, BuildMode } from '@/lib/data';
 
@@ -149,59 +150,31 @@ export function RollClient() {
   const characters = role === 'killer' ? KILLERS : SURVIVORS;
 
   return (
-    <div
-      className="mx-auto px-5 sm:px-10 pt-10 sm:pt-12 pb-12 sm:pb-20"
-      style={{ maxWidth: 600 }}
-    >
+    <div className="mx-auto px-5 sm:px-10 pt-10 sm:pt-12 pb-12 sm:pb-20 max-w-[600px]">
       {/* Page title */}
-      <div style={{ marginBottom: 32, textAlign: 'center' }}>
-        <span className="label-mono" style={{ color: 'var(--ink-mute)', fontSize: 10 }}>Алтарь призыва</span>
-        <h1
-          style={{
-            margin: '8px 0 0',
-            fontSize: 28,
-            fontWeight: 800,
-            color: 'var(--dbd-bone)',
-            letterSpacing: '-.01em',
-          }}
-        >
+      <div className="mb-8 text-center">
+        <span className="label-mono text-[10px] text-ink-mute">Алтарь призыва</span>
+        <h1 className="mt-2 text-[28px] font-extrabold text-dbd-bone tracking-[-0.01em]">
           Бросить жребий
         </h1>
       </div>
 
       {/* ── Controls panel ── */}
-      <div
-        style={{
-          border: '1px solid var(--line-2)',
-          background: 'var(--bg-1)',
-          padding: '24px',
-          display: 'flex',
-          flexDirection: 'column',
-          gap: 22,
-        }}
-      >
+      <div className="border border-line-2 bg-bg-1 p-6 flex flex-col gap-[22px]">
         {/* Role */}
         <ControlGroup label="I. Роль">
-          <div style={{ display: 'flex' }}>
+          <div className="flex">
             {(['survivor', 'killer'] as const).map((r) => (
               <button
                 key={r}
                 onClick={() => { setRole(r); setCharId('any'); setBuild(null); setPins(EMPTY_PIN_STATE); }}
-                style={{
-                  flex: 1,
-                  padding: '11px 16px',
-                  fontFamily: 'var(--font-sans, Manrope, system-ui)',
-                  fontSize: 12,
-                  fontWeight: 700,
-                  letterSpacing: '.15em',
-                  textTransform: 'uppercase',
-                  background: role === r ? 'var(--dbd-accent)' : 'transparent',
-                  color: role === r ? '#fff' : 'var(--ink-mute)',
-                  border: 'none',
-                  borderBottom: `2px solid ${role === r ? 'var(--dbd-accent-glow)' : 'var(--line-2)'}`,
-                  cursor: 'pointer',
-                  transition: 'all .18s ease',
-                }}
+                className={cn(
+                  'flex-1 py-[11px] px-4 font-sans text-[12px] font-bold tracking-[.15em] uppercase',
+                  'border-0 border-b-2 cursor-pointer transition-all duration-[180ms]',
+                  role === r
+                    ? 'bg-dbd-accent text-white border-b-dbd-glow'
+                    : 'bg-transparent text-ink-mute border-b-line-2',
+                )}
               >
                 {r === 'survivor' ? 'Выживший' : 'Убийца'}
               </button>
@@ -210,7 +183,7 @@ export function RollClient() {
         </ControlGroup>
 
         {/* Divider */}
-        <div style={{ height: 1, background: 'var(--line-1)' }} />
+        <div className="h-px bg-line-1" />
 
         {/* Character */}
         <ControlGroup label="II. Персонаж">
@@ -219,15 +192,7 @@ export function RollClient() {
             onValueChange={(v) => { setCharId(v as string); setBuild(null); setPins(EMPTY_PIN_STATE); }}
           >
             <SelectTrigger
-              style={{
-                width: '100%',
-                background: 'var(--bg-2)',
-                border: '1px solid var(--line-2)',
-                borderRadius: 0,
-                color: 'var(--ink)',
-                fontFamily: 'var(--font-sans, Manrope, system-ui)',
-                fontSize: 13,
-              }}
+              className="w-full bg-bg-2 border border-line-2 rounded-none text-ink font-sans text-[13px]"
             >
               <span style={{ flex: 1, textAlign: 'left', fontSize: 13 }}>
                 {charId === 'any'
@@ -249,38 +214,26 @@ export function RollClient() {
         </ControlGroup>
 
         {/* Divider */}
-        <div style={{ height: 1, background: 'var(--line-1)' }} />
+        <div className="h-px bg-line-1" />
 
         {/* Mode */}
         <ControlGroup label="III. Режим">
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 8 }}>
+          <div className="grid grid-cols-3 gap-2">
             {MODE_OPTIONS.map((opt) => (
               <button
                 key={opt.value}
                 onClick={() => setMode(opt.value)}
-                style={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  gap: 6,
-                  padding: '12px 8px',
-                  border: `1px solid ${mode === opt.value ? 'var(--line-ember)' : 'var(--line-1)'}`,
-                  background: mode === opt.value ? 'rgba(184,67,31,.12)' : 'var(--bg-2)',
-                  cursor: 'pointer',
-                  transition: 'all .18s ease',
-                }}
+                className={cn(
+                  'flex flex-col items-center gap-[6px] py-3 px-2 border cursor-pointer transition-all duration-[180ms]',
+                  mode === opt.value
+                    ? 'border-line-ember bg-[rgba(184,67,31,.12)]'
+                    : 'border-line-1 bg-bg-2',
+                )}
               >
-                <span style={{ fontSize: 18, lineHeight: 1, color: mode === opt.value ? 'var(--dbd-accent)' : 'var(--ink-faint)' }}>
+                <span className={cn('text-[18px] leading-none', mode === opt.value ? 'text-dbd-accent' : 'text-ink-faint')}>
                   {opt.glyph}
                 </span>
-                <span
-                  className="label-mono"
-                  style={{
-                    fontSize: 9,
-                    color: mode === opt.value ? 'var(--dbd-bone)' : 'var(--ink-mute)',
-                    letterSpacing: '.15em',
-                  }}
-                >
+                <span className={cn('label-mono text-[9px] tracking-[.15em]', mode === opt.value ? 'text-dbd-bone' : 'text-ink-mute')}>
                   {opt.label}
                 </span>
               </button>
@@ -291,23 +244,13 @@ export function RollClient() {
         {/* Roll button */}
         <button
           onClick={handleRoll}
-          className="ritual-btn ritual-btn-primary"
-          style={{
-            width: '100%',
-            padding: '18px',
-            fontSize: 15,
-            letterSpacing: '.25em',
-            marginTop: 4,
-          }}
+          className="ritual-btn ritual-btn-primary w-full py-[18px] text-[15px] tracking-[.25em] mt-1"
         >
           {build ? '✦ ПЕРЕБРОСИТЬ' : '✦ БРОСИТЬ'}
         </button>
 
         {!build && (
-          <p
-            className="label-mono"
-            style={{ textAlign: 'center', fontSize: 9, color: 'var(--ink-faint)', marginTop: -8 }}
-          >
+          <p className="label-mono text-[9px] text-ink-faint text-center -mt-2">
             Клик по карточке в результате — закрепляет слот
           </p>
         )}
@@ -337,10 +280,8 @@ export function RollClient() {
 
 function ControlGroup({ label, children }: { label: string; children: React.ReactNode }) {
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-      <span className="label-mono" style={{ fontSize: 10, color: 'var(--ink-mute)' }}>
-        {label}
-      </span>
+    <div className="flex flex-col gap-[10px]">
+      <span className="label-mono text-[10px] text-ink-mute">{label}</span>
       {children}
     </div>
   );

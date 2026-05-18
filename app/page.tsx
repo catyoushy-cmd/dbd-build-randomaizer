@@ -32,18 +32,12 @@ const STEPS = [
 
 export default function Home() {
   return (
-    <div
-      className="mx-auto flex flex-col px-5 sm:px-10 pt-10 sm:pt-16 pb-12 sm:pb-20 gap-10 sm:gap-16"
-      style={{ maxWidth: 860 }}
-    >
+    <div className="mx-auto flex flex-col px-5 sm:px-10 pt-10 sm:pt-16 pb-12 sm:pb-20 gap-10 sm:gap-16 max-w-[860px]">
       {/* ── Hero / Altar ── */}
-      <section
-        className="animate-fade-up"
-        style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 20 }}
-      >
+      <section className="animate-fade-up flex flex-col items-center text-center gap-5">
         {/* Altar ring SVG decoration */}
-        <div style={{ position: 'relative', width: 160, height: 160, marginBottom: 8 }}>
-          <svg viewBox="0 0 160 160" style={{ width: '100%', height: '100%' }}>
+        <div className="relative w-[160px] h-[160px] mb-2">
+          <svg viewBox="0 0 160 160" className="w-full h-full">
             <defs>
               <radialGradient id="altarGlow" cx="50%" cy="50%" r="50%">
                 <stop offset="0%"  stopColor="var(--dbd-accent)" stopOpacity=".3" />
@@ -74,31 +68,11 @@ export default function Home() {
         </div>
 
         <div>
-          <span className="label-mono" style={{ color: 'var(--ink-mute)', fontSize: 11 }}>
-            Призыв
-          </span>
-          <h1
-            style={{
-              margin: '8px 0',
-              fontSize: 42,
-              fontWeight: 800,
-              letterSpacing: '-.01em',
-              color: 'var(--dbd-bone)',
-              lineHeight: 1.05,
-            }}
-          >
+          <span className="label-mono text-[11px] text-ink-mute">Призыв</span>
+          <h1 className="mt-2 mb-2 text-[42px] font-extrabold tracking-[-0.01em] text-dbd-bone leading-[1.05]">
             DBD Randomizer
           </h1>
-          <p
-            style={{
-              margin: '8px auto 0',
-              maxWidth: 380,
-              color: 'var(--ink-mute)',
-              fontSize: 15,
-              lineHeight: 1.6,
-              fontStyle: 'italic',
-            }}
-          >
+          <p className="mt-2 mx-auto max-w-[380px] text-ink-mute text-[15px] leading-[1.6] italic">
             Брось четыре жребия в туман.
             <br />
             Что вернётся — то и понесёшь.
@@ -107,37 +81,32 @@ export default function Home() {
 
         <Link
           href="/roll"
-          className="ritual-btn ritual-btn-primary animate-ritual-glow"
-          style={{ marginTop: 8, padding: '18px 56px', fontSize: 15, textDecoration: 'none', display: 'inline-block' }}
+          className="ritual-btn ritual-btn-primary animate-ritual-glow mt-2 px-14 py-[18px] text-[15px] no-underline inline-block"
         >
           БРОСИТЬ
         </Link>
 
-        <span className="label-mono" style={{ fontSize: 10, color: 'var(--ink-faint)' }}>
+        <span className="label-mono text-[10px] text-ink-faint">
           Пробел · R — горячие клавиши в рандомайзере
         </span>
       </section>
 
       {/* ── Divider ── */}
       <div className="ritual-divider">
-        <span className="label-mono" style={{ fontSize: 10 }}>Три пути</span>
+        <span className="label-mono text-[10px]">Три пути</span>
       </div>
 
       {/* ── Mode cards ── */}
       <section className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         {MODES.map((m) => (
           <Link key={m.label} href={m.href} className="ritual-mode-card">
-            <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-              <span style={{ fontSize: 20, color: 'var(--dbd-accent)', lineHeight: 1 }}>{m.glyph}</span>
-              <span className="label-mono" style={{ color: 'var(--dbd-accent)', fontSize: 10 }}>{m.label}</span>
+            <div className="flex items-center gap-3">
+              <span className="text-[20px] text-dbd-accent leading-none">{m.glyph}</span>
+              <span className="label-mono text-[10px] text-dbd-accent">{m.label}</span>
             </div>
             <div>
-              <p style={{ margin: 0, fontWeight: 700, fontSize: 14, color: 'var(--dbd-bone)', letterSpacing: '.02em' }}>
-                {m.title}
-              </p>
-              <p style={{ margin: '6px 0 0', fontSize: 12, color: 'var(--ink-mute)', lineHeight: 1.55 }}>
-                {m.desc}
-              </p>
+              <p className="m-0 font-bold text-[14px] text-dbd-bone tracking-[.02em]">{m.title}</p>
+              <p className="m-0 mt-[6px] text-[12px] text-ink-mute leading-[1.55]">{m.desc}</p>
             </div>
           </Link>
         ))}
@@ -145,19 +114,17 @@ export default function Home() {
 
       {/* ── Divider ── */}
       <div className="ritual-divider">
-        <span className="label-mono" style={{ fontSize: 10 }}>Обряд</span>
+        <span className="label-mono text-[10px]">Обряд</span>
       </div>
 
       {/* ── How it works ── */}
       <section className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         {STEPS.map((step) => (
           <div key={step.n} className="ritual-step-card">
-            <span className="label-mono" style={{ fontSize: 14, color: 'var(--dbd-accent)', lineHeight: 1, flexShrink: 0, paddingTop: 2 }}>
+            <span className="label-mono text-[14px] text-dbd-accent leading-none shrink-0 pt-[2px]">
               {step.n}
             </span>
-            <p style={{ margin: 0, fontSize: 13, color: 'var(--ink-mute)', lineHeight: 1.55 }}>
-              {step.text}
-            </p>
+            <p className="m-0 text-[13px] text-ink-mute leading-[1.55]">{step.text}</p>
           </div>
         ))}
       </section>

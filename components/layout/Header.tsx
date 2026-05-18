@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { cn } from '@/lib/utils';
 
 function RitualWordmark() {
   return (
@@ -28,52 +29,17 @@ export function Header() {
   const isHome = pathname === '/';
 
   return (
-    <header
-      style={{
-        position: 'sticky',
-        top: 0,
-        zIndex: 40,
-        borderBottom: '1px solid var(--line-1)',
-        background: 'rgba(11,9,8,.85)',
-        backdropFilter: 'blur(12px)',
-        WebkitBackdropFilter: 'blur(12px)',
-      }}
-    >
-      <div
-        className="mx-auto flex items-center justify-between px-4 sm:px-10 gap-3 sm:gap-6"
-        style={{
-          maxWidth: 1280,
-          height: 58,
-        }}
-      >
+    <header className="sticky top-0 z-40 border-b border-line-1 bg-[rgba(11,9,8,.85)] backdrop-blur-[12px] [-webkit-backdrop-filter:blur(12px)]">
+      <div className="mx-auto flex items-center justify-between px-4 sm:px-10 gap-3 sm:gap-6 h-[58px] max-w-[1280px]">
+
         {/* Wordmark */}
-        <Link
-          href="/"
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: 12,
-            textDecoration: 'none',
-          }}
-        >
+        <Link href="/" className="flex items-center gap-3 no-underline">
           <RitualWordmark />
-          <div style={{ display: 'flex', flexDirection: 'column', lineHeight: 1.1 }}>
-            <span
-              style={{
-                fontFamily: 'var(--font-sans, Manrope, system-ui)',
-                fontWeight: 700,
-                fontSize: 13,
-                letterSpacing: '.12em',
-                textTransform: 'uppercase',
-                color: 'var(--dbd-bone)',
-              }}
-            >
+          <div className="flex flex-col leading-[1.1]">
+            <span className="font-sans font-bold text-[13px] tracking-[.12em] uppercase text-dbd-bone">
               Build Randomaizer
             </span>
-            <span
-              className="label-mono"
-              style={{ fontSize: 10, letterSpacing: '.18em' }}
-            >
+            <span className="label-mono text-[10px] tracking-[.18em]">
               Dead by Daylight
             </span>
           </div>
@@ -87,19 +53,11 @@ export function Header() {
 
         {/* Right action */}
         {isHome ? (
-          <Link
-            href="/roll"
-            className="ritual-btn ritual-btn-primary"
-            style={{ padding: '9px 20px', fontSize: 11, textDecoration: 'none' }}
-          >
+          <Link href="/roll" className="ritual-btn ritual-btn-primary px-5 py-[9px] text-[11px] no-underline">
             Бросить
           </Link>
         ) : (
-          <Link
-            href="/"
-            className="ritual-btn ritual-btn-ghost"
-            style={{ padding: '9px 20px', fontSize: 11, textDecoration: 'none' }}
-          >
+          <Link href="/" className="ritual-btn ritual-btn-ghost px-5 py-[9px] text-[11px] no-underline">
             ← Алтарь
           </Link>
         )}
@@ -120,23 +78,11 @@ function NavTab({
   return (
     <Link
       href={href}
-      style={{
-        padding: '8px 14px',
-        fontFamily: 'var(--font-sans, Manrope, system-ui)',
-        fontSize: 12,
-        letterSpacing: '.18em',
-        textTransform: 'uppercase',
-        fontWeight: 600,
-        color: active ? 'var(--dbd-bone)' : 'var(--ink-mute)',
-        borderTop: active
-          ? '1px solid var(--dbd-accent)'
-          : '1px solid transparent',
-        borderBottom: 'none',
-        borderLeft: 'none',
-        borderRight: 'none',
-        textDecoration: 'none',
-        transition: 'color .15s ease, border-color .15s ease',
-      }}
+      className={cn(
+        'px-[14px] py-2 font-sans text-[12px] tracking-[.18em] uppercase font-semibold no-underline',
+        'border-0 border-t border-solid transition-[color,border-color] duration-150',
+        active ? 'text-dbd-bone border-t-dbd-accent' : 'text-ink-mute border-t-transparent',
+      )}
     >
       {children}
     </Link>

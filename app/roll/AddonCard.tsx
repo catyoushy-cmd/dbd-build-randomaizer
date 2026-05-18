@@ -1,6 +1,7 @@
 'use client';
 
 import { ShapeCard, rarityColor } from '@/components/ui/shape-card';
+import { cn } from '@/lib/utils';
 import { IconImg } from '@/components/ui/icon-img';
 import { Tooltip, TooltipTrigger, TooltipContent } from '@/components/ui/tooltip';
 import type { Addon } from '@/lib/data';
@@ -22,19 +23,13 @@ export function AddonCard({ addon, pinned = false, onTogglePin }: Props) {
           <button
             onClick={onTogglePin}
             aria-label={addon.name.ru}
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: 14,
-              width: '100%',
-              padding: '10px 14px',
-              background: 'var(--bg-1)',
-              border: `1px solid ${pinned ? 'var(--dbd-accent)' : 'var(--line-2)'}`,
-              cursor: 'pointer',
-              textAlign: 'left',
-              transition: 'border-color .18s ease, background .18s ease',
-              outline: pinned ? '1px solid rgba(184,67,31,.25)' : 'none',
-            }}
+            className={cn(
+              'flex items-center gap-[14px] w-full px-[14px] py-[10px] bg-bg-1 cursor-pointer text-left',
+              'transition-[border-color,background] duration-[180ms] border',
+              pinned
+                ? 'border-dbd-accent outline outline-1 outline-[rgba(184,67,31,.25)]'
+                : 'border-line-2 outline-none',
+            )}
           >
             <ShapeCard shape="rect" size={44} ringColor={ring} pinned={pinned}>
               <IconImg
@@ -57,37 +52,22 @@ export function AddonCard({ addon, pinned = false, onTogglePin }: Props) {
               />
             </ShapeCard>
 
-            <div style={{ flex: 1, minWidth: 0 }}>
+            <div className="flex-1 min-w-0">
               <span
-                style={{
-                  display: 'block',
-                  fontFamily: 'var(--font-sans, Manrope, system-ui)',
-                  fontSize: 13,
-                  fontWeight: 600,
-                  color: pinned ? 'var(--dbd-bone)' : 'var(--ink)',
-                  whiteSpace: 'nowrap',
-                  overflow: 'hidden',
-                  textOverflow: 'ellipsis',
-                  transition: 'color .18s ease',
-                }}
+                className={cn(
+                  'block font-sans text-[13px] font-semibold whitespace-nowrap overflow-hidden text-ellipsis transition-colors duration-[180ms]',
+                  pinned ? 'text-dbd-bone' : 'text-ink',
+                )}
               >
                 {addon.name.ru}
               </span>
-              <span
-                className="label-mono"
-                style={{ fontSize: 9, color: ring, marginTop: 2, display: 'block' }}
-              >
+              <span className="label-mono text-[9px] mt-[2px] block" style={{ color: ring }}>
                 {addon.rarity.replace(/-/g, ' ')}
               </span>
             </div>
 
             {pinned && (
-              <span
-                className="label-mono"
-                style={{ fontSize: 9, color: 'var(--dbd-accent)', flexShrink: 0 }}
-              >
-                ✦
-              </span>
+              <span className="label-mono text-[9px] text-dbd-accent shrink-0">✦</span>
             )}
           </button>
         }
@@ -103,14 +83,12 @@ export function AddonCard({ addon, pinned = false, onTogglePin }: Props) {
           padding: '12px 14px',
         }}
       >
-        <div style={{ fontFamily: 'var(--font-sans, Manrope, system-ui)', fontWeight: 700, fontSize: 14, color: 'var(--dbd-bone)' }}>
-          {addon.name.ru}
-        </div>
-        <div className="label-mono" style={{ fontSize: 9, color: ring, marginTop: 4 }}>
+        <div className="font-sans font-bold text-[14px] text-dbd-bone">{addon.name.ru}</div>
+        <div className="label-mono text-[9px] mt-1" style={{ color: ring }}>
           {addon.rarity.replace(/-/g, ' ')}
         </div>
         {addon.description?.ru && (
-          <div style={{ fontSize: 12, color: 'var(--ink)', lineHeight: 1.5, marginTop: 8, whiteSpace: 'pre-line' }}>
+          <div className="text-[12px] text-ink leading-[1.5] mt-2 whitespace-pre-line">
             {formatDbdText(addon.description.ru)}
           </div>
         )}
