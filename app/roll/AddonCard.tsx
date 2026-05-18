@@ -1,6 +1,7 @@
 'use client';
 
 import { ShapeCard, rarityColor } from '@/components/ui/shape-card';
+import { IconImg } from '@/components/ui/icon-img';
 import { Tooltip, TooltipTrigger, TooltipContent } from '@/components/ui/tooltip';
 import type { Addon } from '@/lib/data';
 import { formatDbdText } from '@/lib/dbd-text';
@@ -36,26 +37,24 @@ export function AddonCard({ addon, pinned = false, onTogglePin }: Props) {
             }}
           >
             <ShapeCard shape="rect" size={44} ringColor={ring} pinned={pinned}>
-              {addon.icon ? (
-                <img
-                  src={addon.icon}
-                  alt={addon.name.ru}
-                  style={{ width: 28, height: 28, objectFit: 'contain', opacity: .9 }}
-                  onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
-                />
-              ) : (
-                <span
-                  style={{
-                    fontFamily: 'var(--font-sans, Manrope, system-ui)',
-                    fontWeight: 700,
-                    fontSize: 13,
-                    color: ring,
-                    textShadow: `0 0 8px ${ring}`,
-                  }}
-                >
-                  {addon.rarity[0].toUpperCase()}
-                </span>
-              )}
+              <IconImg
+                src={addon.icon}
+                alt={addon.name.ru}
+                size={28}
+                fallback={
+                  <span
+                    style={{
+                      fontFamily: 'var(--font-sans, Manrope, system-ui)',
+                      fontWeight: 700,
+                      fontSize: 13,
+                      color: ring,
+                      textShadow: `0 0 8px ${ring}`,
+                    }}
+                  >
+                    {addon.rarity[0].toUpperCase()}
+                  </span>
+                }
+              />
             </ShapeCard>
 
             <div style={{ flex: 1, minWidth: 0 }}>

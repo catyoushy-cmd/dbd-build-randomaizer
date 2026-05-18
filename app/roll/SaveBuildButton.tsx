@@ -4,16 +4,22 @@ import { useState, useEffect } from 'react';
 import { Bookmark, Loader2, Check, LogIn } from 'lucide-react';
 import { createClient } from '@/lib/supabase/client';
 import type { Build } from '@/lib/data';
+import {
+  type PinState,
+  hasAnyPins,
+  pinStateToApiPins,
+} from '@/lib/random/pinning';
 import { cn } from '@/lib/utils';
 
 type Props = {
   build: Build;
+  pins: PinState;
   className?: string;
 };
 
 type SaveState = 'idle' | 'loading' | 'saved' | 'error';
 
-export function SaveBuildButton({ build, className }: Props) {
+export function SaveBuildButton({ build, pins, className }: Props) {
   const [user, setUser] = useState<{ email?: string } | null | undefined>(undefined); // undefined = loading
   const [saveState, setSaveState] = useState<SaveState>('idle');
   const [savedSlug, setSavedSlug] = useState<string | null>(null);
@@ -41,6 +47,8 @@ export function SaveBuildButton({ build, className }: Props) {
 
     setSaveState('loading');
 
+    const apiPins = hasAnyPins(pins) ? pinStateToApiPins(pins, build) : null;
+
     const res = await fetch('/api/saves', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -49,7 +57,7 @@ export function SaveBuildButton({ build, className }: Props) {
         killer_id: build.killerId,
         mode: build.mode,
         seed: build.seed,
-        pinned_state: null,
+        pinned_state: apiPins,
         note: note.trim() || null,
       }),
     });
