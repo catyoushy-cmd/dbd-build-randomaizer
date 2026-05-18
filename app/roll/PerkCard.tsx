@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { ShapeCard } from '@/components/ui/shape-card';
+import { IconImg } from '@/components/ui/icon-img';
 import { Tooltip, TooltipTrigger, TooltipContent } from '@/components/ui/tooltip';
 import type { Perk } from '@/lib/data';
 import { formatDbdText } from '@/lib/dbd-text';
@@ -14,7 +15,6 @@ type Props = {
   perk: Perk;
   pinned?: boolean;
   onTogglePin?: () => void;
-  index: number;
 };
 
 export function PerkCard({ perk, pinned = false, onTogglePin }: Props) {
@@ -55,24 +55,12 @@ export function PerkCard({ perk, pinned = false, onTogglePin }: Props) {
                 innerTint={PERK_TINT}
                 pinned={pinned}
               >
-                {/* Icon or sigil */}
-                {perk.icon ? (
-                  <img
-                    src={perk.icon}
-                    alt={perk.name.ru}
-                    style={{
-                      width: 52,
-                      height: 52,
-                      objectFit: 'contain',
-                      opacity: .9,
-                    }}
-                    onError={(e) => {
-                      (e.currentTarget as HTMLImageElement).style.display = 'none';
-                    }}
-                  />
-                ) : (
-                  <PerkSigil glyph={perk.tier ?? '?'} />
-                )}
+                <IconImg
+                  src={perk.icon}
+                  alt={perk.name.ru}
+                  size={52}
+                  fallback={<PerkSigil glyph={perk.tier ?? '?'} />}
+                />
               </ShapeCard>
             </div>
 

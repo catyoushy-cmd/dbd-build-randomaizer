@@ -40,15 +40,10 @@ export function Header() {
       }}
     >
       <div
+        className="mx-auto flex items-center justify-between px-4 sm:px-10 gap-3 sm:gap-6"
         style={{
           maxWidth: 1280,
-          margin: '0 auto',
-          padding: '0 40px',
           height: 58,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          gap: 24,
         }}
       >
         {/* Wordmark */}
@@ -85,7 +80,7 @@ export function Header() {
         </Link>
 
         {/* Nav */}
-        <nav style={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+        <nav className="hidden sm:flex items-center gap-0.5">
           <NavTab href="/" active={isHome}>Алтарь</NavTab>
           <NavTab href="/roll" active={pathname?.startsWith('/roll')}>Жребий</NavTab>
         </nav>

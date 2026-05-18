@@ -5,16 +5,11 @@ import { PerkCard } from './PerkCard';
 import { AddonCard } from './AddonCard';
 import { SaveBuildButton } from './SaveBuildButton';
 import { ShapeCard, rarityColor } from '@/components/ui/shape-card';
+import { IconImg } from '@/components/ui/icon-img';
 import { Tooltip, TooltipTrigger, TooltipContent } from '@/components/ui/tooltip';
 import type { Build } from '@/lib/data';
+import type { PinState } from '@/lib/random/pinning';
 import { formatDbdText } from '@/lib/dbd-text';
-
-type PinState = {
-  perks: boolean[];
-  item: boolean;
-  addons: boolean[];
-  offering: boolean;
-};
 
 type Props = {
   build: Build;
@@ -101,19 +96,11 @@ export function BuildResult({
 
       {/* ── Perks ── */}
       <RitualSection title="Перки" label="4 жребия">
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(4, 1fr)',
-            gap: 8,
-            justifyItems: 'center',
-          }}
-        >
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 justify-items-center">
           {build.perks.map((perk, i) => (
             <PerkCard
               key={perk.id}
               perk={perk}
-              index={i}
               pinned={pins.perks[i]}
               onTogglePin={() => onTogglePerkPin(i)}
             />
@@ -178,7 +165,7 @@ export function BuildResult({
 
       {/* ── Actions ── */}
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12 }}>
-        <SaveBuildButton build={build} />
+        <SaveBuildButton build={build} pins={pins} />
         <Tooltip>
           <TooltipTrigger
             render={
@@ -286,18 +273,16 @@ function ItemSlot({
             }}
           >
             <ShapeCard shape="rect" size={44} ringColor={ring} pinned={pinned}>
-              {item.icon ? (
-                <img
-                  src={item.icon}
-                  alt={item.name.ru}
-                  style={{ width: 28, height: 28, objectFit: 'contain', opacity: .9 }}
-                  onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
-                />
-              ) : (
-                <span style={{ fontFamily: 'var(--font-sans, Manrope, system-ui)', fontWeight: 700, fontSize: 13, color: ring }}>
-                  {item.type[0].toUpperCase()}
-                </span>
-              )}
+              <IconImg
+                src={item.icon}
+                alt={item.name.ru}
+                size={28}
+                fallback={
+                  <span style={{ fontFamily: 'var(--font-sans, Manrope, system-ui)', fontWeight: 700, fontSize: 13, color: ring }}>
+                    {item.type[0].toUpperCase()}
+                  </span>
+                }
+              />
             </ShapeCard>
 
             <div style={{ flex: 1, minWidth: 0 }}>
@@ -379,18 +364,16 @@ function OfferingSlot({
             }}
           >
             <ShapeCard shape="pentagon" size={52} ringColor={ring} pinned={pinned}>
-              {offering.icon ? (
-                <img
-                  src={offering.icon}
-                  alt={offering.name.ru}
-                  style={{ width: 28, height: 28, objectFit: 'contain', opacity: .9 }}
-                  onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
-                />
-              ) : (
-                <span style={{ fontFamily: 'var(--font-sans, Manrope, system-ui)', fontWeight: 700, fontSize: 13, color: ring }}>
-                  П
-                </span>
-              )}
+              <IconImg
+                src={offering.icon}
+                alt={offering.name.ru}
+                size={28}
+                fallback={
+                  <span style={{ fontFamily: 'var(--font-sans, Manrope, system-ui)', fontWeight: 700, fontSize: 13, color: ring }}>
+                    П
+                  </span>
+                }
+              />
             </ShapeCard>
 
             <div style={{ flex: 1, minWidth: 0 }}>

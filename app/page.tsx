@@ -33,14 +33,8 @@ const STEPS = [
 export default function Home() {
   return (
     <div
-      style={{
-        maxWidth: 860,
-        margin: '0 auto',
-        padding: '64px 40px 80px',
-        display: 'flex',
-        flexDirection: 'column',
-        gap: 64,
-      }}
+      className="mx-auto flex flex-col px-5 sm:px-10 pt-10 sm:pt-16 pb-12 sm:pb-20 gap-10 sm:gap-16"
+      style={{ maxWidth: 860 }}
     >
       {/* ── Hero / Altar ── */}
       <section
@@ -130,7 +124,7 @@ export default function Home() {
       </div>
 
       {/* ── Mode cards ── */}
-      <section style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16 }}>
+      <section className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         {MODES.map((m) => (
           <Link key={m.label} href={m.href} className="ritual-mode-card">
             <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
@@ -155,7 +149,7 @@ export default function Home() {
       </div>
 
       {/* ── How it works ── */}
-      <section style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16 }}>
+      <section className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         {STEPS.map((step) => (
           <div key={step.n} className="ritual-step-card">
             <span className="label-mono" style={{ fontSize: 14, color: 'var(--dbd-accent)', lineHeight: 1, flexShrink: 0, paddingTop: 2 }}>

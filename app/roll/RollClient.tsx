@@ -4,7 +4,12 @@ import { useState, useEffect, useCallback } from 'react';
 import { useRouter, useSearchParams, usePathname } from 'next/navigation';
 import { toast } from 'sonner';
 import { rollBuild, type BuildInput } from '@/lib/random/algorithm';
-import { applyPins, type Pins } from '@/lib/random/pinning';
+import {
+  applyPins,
+  EMPTY_PIN_STATE,
+  hasAnyPins,
+  pinStateToApiPins,
+} from '@/lib/random/pinning';
 import { encodeShort } from '@/lib/url/encode';
 import { KILLERS, SURVIVORS, PERKS, ITEMS, ADDONS, OFFERINGS } from '@/lib/data';
 import { pushHistory } from '@/lib/history';
@@ -23,27 +28,6 @@ const MODE_OPTIONS: { value: BuildMode; label: string; glyph: string; desc: stri
   { value: 'fun',       label: 'Веселье',       glyph: '✦', desc: 'Гиммик-билды' },
 ];
 
-const EMPTY_PINS = {
-  perks:    [false, false, false, false],
-  item:     false,
-  addons:   [false, false],
-  offering: false,
-};
-
-function toApiPins(pins: typeof EMPTY_PINS, build: Build | null): Pins {
-  if (!build) return {};
-  return {
-    perks:    pins.perks.map((p, i) => (p ? build.perks[i]?.id ?? null : null)),
-    item:     pins.item ? (build.item?.id ?? null) : null,
-    addons:   pins.addons.map((p, i) => (p ? build.addons[i]?.id ?? null : null)),
-    offering: pins.offering ? build.offering.id : null,
-  };
-}
-
-function hasPins(pins: typeof EMPTY_PINS) {
-  return pins.perks.some(Boolean) || pins.item || pins.addons.some(Boolean) || pins.offering;
-}
-
 const ALL_DATA = { perks: PERKS, items: ITEMS, addons: ADDONS, offerings: OFFERINGS };
 
 export function RollClient() {
@@ -55,7 +39,7 @@ export function RollClient() {
   const [charId,  setCharId]  = useState<string>('any');
   const [mode,    setMode]    = useState<BuildMode>('random');
   const [build,   setBuild]   = useState<Build | null>(null);
-  const [pins,    setPins]    = useState(EMPTY_PINS);
+  const [pins,    setPins]    = useState(EMPTY_PIN_STATE);
 
   /* Hydrate from URL on mount */
   useEffect(() => {
@@ -111,41 +95,32 @@ export function RollClient() {
 
     let newBuild = rollBuild(input);
 
-    if (build && hasPins(pins)) {
-      newBuild = applyPins(newBuild, toApiPins(pins, build), ALL_DATA);
+    if (build && hasAnyPins(pins)) {
+      newBuild = applyPins(newBuild, pinStateToApiPins(pins, build), ALL_DATA);
     }
 
-    const nextPins = {
-      perks:    pins.perks.map((p) => p),
-      item:     pins.item,
-      addons:   pins.addons.map((p) => p),
-      offering: pins.offering,
-    };
-
     setBuild(newBuild);
-    setPins(nextPins);
     updateUrl(newBuild);
 
     if (newBuild.fallback) {
       toast.warning('Ядро недоступно — выдан полный рандом');
     }
 
-    const charLabel = role === 'killer'
-      ? (KILLERS.find(k => k.id === (charId !== 'any' ? charId : ''))?.name.ru ?? 'Любой')
-      : (SURVIVORS.find(s => s.id === (charId !== 'any' ? charId : ''))?.name.ru ?? 'Любой');
-
+    const charName = role === 'killer'
+      ? KILLERS.find(k => k.id === charId)?.name.ru
+      : SURVIVORS.find(s => s.id === charId)?.name.ru;
+    const charLabel = charName ?? 'Любой';
     const modeLabel = MODE_OPTIONS.find(m2 => m2.value === mode)?.label ?? mode;
     const roleLabel = role === 'killer' ? 'Убийца' : 'Выживший';
-    const code = encodeShort(newBuild);
 
     pushHistory({
-      code,
+      code:   encodeShort(newBuild),
       role,
-      charId:    charId !== 'any' ? charId : null,
+      charId: charId !== 'any' ? charId : null,
       mode,
       seed,
-      label:     `${roleLabel} / ${charLabel} / ${modeLabel}`,
-      ts:        Date.now(),
+      label:  `${roleLabel} / ${charLabel} / ${modeLabel}`,
+      ts:     Date.now(),
     });
   }, [role, charId, mode, build, pins, updateUrl]);
 
@@ -175,11 +150,8 @@ export function RollClient() {
 
   return (
     <div
-      style={{
-        maxWidth: 600,
-        margin: '0 auto',
-        padding: '48px 40px 80px',
-      }}
+      className="mx-auto px-5 sm:px-10 pt-10 sm:pt-12 pb-12 sm:pb-20"
+      style={{ maxWidth: 600 }}
     >
       {/* Page title */}
       <div style={{ marginBottom: 32, textAlign: 'center' }}>
@@ -214,7 +186,7 @@ export function RollClient() {
             {(['survivor', 'killer'] as const).map((r) => (
               <button
                 key={r}
-                onClick={() => { setRole(r); setCharId('any'); setBuild(null); setPins(EMPTY_PINS); }}
+                onClick={() => { setRole(r); setCharId('any'); setBuild(null); setPins(EMPTY_PIN_STATE); }}
                 style={{
                   flex: 1,
                   padding: '11px 16px',
@@ -244,7 +216,7 @@ export function RollClient() {
         <ControlGroup label="II. Персонаж">
           <Select
             value={charId}
-            onValueChange={(v) => { setCharId(v as string); setBuild(null); setPins(EMPTY_PINS); }}
+            onValueChange={(v) => { setCharId(v as string); setBuild(null); setPins(EMPTY_PIN_STATE); }}
           >
             <SelectTrigger
               style={{
