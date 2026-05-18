@@ -1,17 +1,1610 @@
 [
-  { "id": "survivor-pudding", "name": { "en": "Survivor's Pudding", "ru": "Пудинг выжившего" }, "role": "survivor", "tags": ["efficient"], "icon": "/icons/offerings/survivors-pudding.png" },
-  { "id": "ward", "name": { "en": "Ward", "ru": "Оберег" }, "role": "survivor", "tags": ["efficient"], "icon": "/icons/offerings/ward.png" },
-  { "id": "bps-pudding", "name": { "en": "Bloody Party Streamers", "ru": "Кровавые праздничные конфетти" }, "role": "both", "tags": ["efficient"], "icon": "/icons/offerings/bloody-party-streamers.png" },
-  { "id": "escape-cake", "name": { "en": "Escape Cake", "ru": "Торт спасения" }, "role": "survivor", "tags": ["efficient"], "icon": "/icons/offerings/escape-cake.png" },
-  { "id": "map-haddonfield", "name": { "en": "Shattered Glasses", "ru": "Разбитые очки" }, "role": "both", "tags": [], "icon": "/icons/offerings/shattered-glasses.png" },
-  { "id": "map-rpd", "name": { "en": "Putrid Oak", "ru": "Гнилой дуб" }, "role": "both", "tags": [], "icon": "/icons/offerings/putrid-oak.png" },
-  { "id": "map-midwich", "name": { "en": "Petrified Oak", "ru": "Окаменелый дуб" }, "role": "both", "tags": [], "icon": "/icons/offerings/petrified-oak.png" },
-  { "id": "fogwise", "name": { "en": "Fogwise", "ru": "Знающий туман" }, "role": "both", "tags": ["meme"], "icon": "/icons/offerings/fogwise.png" },
-  { "id": "killer-pudding", "name": { "en": "Killer's Pudding", "ru": "Пудинг убийцы" }, "role": "killer", "tags": ["efficient"], "icon": "/icons/offerings/killers-pudding.png" },
-  { "id": "ebony-mori", "name": { "en": "Ebony Memento Mori", "ru": "Эбеновый Мементо Мори" }, "role": "killer", "tags": ["efficient"], "icon": "/icons/offerings/ebony-mori.png" },
-  { "id": "ivory-mori", "name": { "en": "Ivory Memento Mori", "ru": "Слоновый Мементо Мори" }, "role": "killer", "tags": ["efficient"], "icon": "/icons/offerings/ivory-mori.png" },
-  { "id": "cypress-mori", "name": { "en": "Cypress Memento Mori", "ru": "Кипарисовый Мементо Мори" }, "role": "killer", "tags": ["meme"], "icon": "/icons/offerings/cypress-mori.png" },
-  { "id": "grey-ward", "name": { "en": "Horrific Serum", "ru": "Ужасная сыворотка" }, "role": "killer", "tags": ["meme", "troll"], "icon": "/icons/offerings/horrific-serum.png" },
-  { "id": "black-ward", "name": { "en": "Black Ward", "ru": "Чёрный оберег" }, "role": "killer", "tags": ["efficient"], "icon": "/icons/offerings/black-ward.png" },
-  { "id": "chalk-pouch", "name": { "en": "Chalk Pouch", "ru": "Мешочек с мелом" }, "role": "both", "tags": [], "icon": "/icons/offerings/chalk-pouch.png" }
+  {
+    "id": "gruesome-gateau",
+    "name": {
+      "en": "Gruesome Gateau",
+      "ru": "Жуткий пирог"
+    },
+    "role": "any",
+    "rarity": "common",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/gruesome-gateau.png"
+  },
+  {
+    "id": "ghastly-gateau",
+    "name": {
+      "en": "Ghastly Gateau",
+      "ru": "Страшный пирог"
+    },
+    "role": "any",
+    "rarity": "common",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/ghastly-gateau.png"
+  },
+  {
+    "id": "sacrificial-cake",
+    "name": {
+      "en": "Sacrificial Cake",
+      "ru": "Жертвенный пирог"
+    },
+    "role": "any",
+    "rarity": "common",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/sacrificial-cake.png"
+  },
+  {
+    "id": "frightful-flan",
+    "name": {
+      "en": "Frightful Flan",
+      "ru": "Ужасный пудинг"
+    },
+    "role": "any",
+    "rarity": "common",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/frightful-flan.png"
+  },
+  {
+    "id": "terrormisu",
+    "name": {
+      "en": "TERRORMISU",
+      "ru": "TERRORMISU"
+    },
+    "role": "any",
+    "rarity": "common",
+    "tags": [],
+    "icon": "/icons/offerings/terrormisu.png"
+  },
+  {
+    "id": "screech-cobbler",
+    "name": {
+      "en": "SCREECH COBBLER",
+      "ru": "КРИКОВЫЙ ПИРОГ"
+    },
+    "role": "any",
+    "rarity": "common",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/screech-cobbler.png"
+  },
+  {
+    "id": "coconut-scream-pie",
+    "name": {
+      "en": "Coconut Scream Pie",
+      "ru": "Кокосовый пирог с криком"
+    },
+    "role": "any",
+    "rarity": "common",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/coconut-scream-pie.png"
+  },
+  {
+    "id": "annotated-blueprint",
+    "name": {
+      "en": "Annotated Blueprint",
+      "ru": "Аннотированный чертёж"
+    },
+    "role": "any",
+    "rarity": "common",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/annotated-blueprint.png"
+  },
+  {
+    "id": "ardent-raven-wreath",
+    "name": {
+      "en": "Ardent Raven Wreath",
+      "ru": "Рьяный вороний венок"
+    },
+    "role": "any",
+    "rarity": "rare",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/ardent-raven-wreath.png"
+  },
+  {
+    "id": "ardent-shrike-wreath",
+    "name": {
+      "en": "Ardent Shrike Wreath",
+      "ru": "Рьяный сорокопутовый венок"
+    },
+    "role": "any",
+    "rarity": "rare",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/ardent-shrike-wreath.png"
+  },
+  {
+    "id": "ardent-spotted-owl-wreath",
+    "name": {
+      "en": "Ardent Spotted Owl Wreath",
+      "ru": "Рьяный венок из пятнистой совы"
+    },
+    "role": "any",
+    "rarity": "rare",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/ardent-spotted-owl-wreath.png"
+  },
+  {
+    "id": "ardent-tanager-wreath",
+    "name": {
+      "en": "Ardent Tanager Wreath",
+      "ru": "Рьяный танагровый венок"
+    },
+    "role": "any",
+    "rarity": "rare",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/ardent-tanager-wreath.png"
+  },
+  {
+    "id": "azarov-s-key",
+    "name": {
+      "en": "Azarov's Key",
+      "ru": "Ключ Азарова"
+    },
+    "role": "any",
+    "rarity": "rare",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/azarov-s-key.png"
+  },
+  {
+    "id": "black-salt-statuette",
+    "name": {
+      "en": "Black Salt Statuette",
+      "ru": "Статуэтка из чёрной соли"
+    },
+    "role": "any",
+    "rarity": "rare",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/black-salt-statuette.png"
+  },
+  {
+    "id": "black-splinter",
+    "name": {
+      "en": "Black Splinter",
+      "ru": "Чёрный осколок"
+    },
+    "role": "any",
+    "rarity": "visceral",
+    "tags": [
+      "meme"
+    ],
+    "icon": "/icons/offerings/black-splinter.png"
+  },
+  {
+    "id": "black-ward",
+    "name": {
+      "en": "Black Ward",
+      "ru": "Чёрный оберег"
+    },
+    "role": "any",
+    "rarity": "veryrare",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/black-ward.png"
+  },
+  {
+    "id": "bloodied-blueprint",
+    "name": {
+      "en": "Bloodied Blueprint",
+      "ru": "Окровавленный чертёж"
+    },
+    "role": "any",
+    "rarity": "common",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/bloodied-blueprint.png"
+  },
+  {
+    "id": "bloody-party-streamers",
+    "name": {
+      "en": "Bloody Party Streamers",
+      "ru": "Кровавые праздничные ленты"
+    },
+    "role": "any",
+    "rarity": "rare",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/bloody-party-streamers.png"
+  },
+  {
+    "id": "bog-laurel-sachet",
+    "name": {
+      "en": "Bog Laurel Sachet",
+      "ru": "Саше из болотного лавра"
+    },
+    "role": "any",
+    "rarity": "common",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/bog-laurel-sachet.png"
+  },
+  {
+    "id": "bone-splinter",
+    "name": {
+      "en": "Bone Splinter",
+      "ru": "Костяной осколок"
+    },
+    "role": "any",
+    "rarity": "visceral",
+    "tags": [
+      "meme"
+    ],
+    "icon": "/icons/offerings/bone-splinter.png"
+  },
+  {
+    "id": "bound-envelope",
+    "name": {
+      "en": "Bound Envelope",
+      "ru": "Запечатанный конверт"
+    },
+    "role": "any",
+    "rarity": "rare",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/bound-envelope.png"
+  },
+  {
+    "id": "cattle-tag-28",
+    "name": {
+      "en": "Cattle Tag-28",
+      "ru": "Бирка для скота 28"
+    },
+    "role": "any",
+    "rarity": "common",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/cattle-tag-28.png"
+  },
+  {
+    "id": "chalk-pouch",
+    "name": {
+      "en": "Chalk Pouch",
+      "ru": "Мешочек с мелом"
+    },
+    "role": "any",
+    "rarity": "common",
+    "tags": [],
+    "icon": "/icons/offerings/chalk-pouch.png"
+  },
+  {
+    "id": "charred-wedding-photograph",
+    "name": {
+      "en": "Charred Wedding Photograph",
+      "ru": "Обугленная свадебная фотография"
+    },
+    "role": "any",
+    "rarity": "rare",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/charred-wedding-photograph.png"
+  },
+  {
+    "id": "children-s-book",
+    "name": {
+      "en": "Children's Book",
+      "ru": "Детская книга"
+    },
+    "role": "any",
+    "rarity": "uncommon",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/children-s-book.png"
+  },
+  {
+    "id": "clear-reagent",
+    "name": {
+      "en": "Clear Reagent",
+      "ru": "Прозрачный реагент"
+    },
+    "role": "any",
+    "rarity": "common",
+    "tags": [
+      "troll"
+    ],
+    "icon": "/icons/offerings/clear-reagent.png"
+  },
+  {
+    "id": "coldwind-cattle-tag-81",
+    "name": {
+      "en": "Coldwind Cattle Tag-81",
+      "ru": "Бирка для скота 81 Холодный ветер"
+    },
+    "role": "any",
+    "rarity": "uncommon",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/coldwind-cattle-tag-81.png"
+  },
+  {
+    "id": "cream-chalk-pouch",
+    "name": {
+      "en": "Cream Chalk Pouch",
+      "ru": "Кремовый мешочек с мелом"
+    },
+    "role": "any",
+    "rarity": "uncommon",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/cream-chalk-pouch.png"
+  },
+  {
+    "id": "crescent-moon-bouquet",
+    "name": {
+      "en": "Crescent Moon Bouquet",
+      "ru": "Букет полумесяца"
+    },
+    "role": "any",
+    "rarity": "uncommon",
+    "tags": [
+      "troll"
+    ],
+    "icon": "/icons/offerings/crescent-moon-bouquet.png"
+  },
+  {
+    "id": "crispleaf-amaranth-sachet",
+    "name": {
+      "en": "Crispleaf Amaranth Sachet",
+      "ru": "Саше из хризалистого амаранта"
+    },
+    "role": "any",
+    "rarity": "common",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/crispleaf-amaranth-sachet.png"
+  },
+  {
+    "id": "cut-coin",
+    "name": {
+      "en": "Cut Coin",
+      "ru": "Разрезанная монета"
+    },
+    "role": "any",
+    "rarity": "veryrare",
+    "tags": [
+      "troll"
+    ],
+    "icon": "/icons/offerings/cut-coin.png"
+  },
+  {
+    "id": "cypress-memento-mori",
+    "name": {
+      "en": "Cypress Memento Mori",
+      "ru": "Кипарисовое напоминание о смерти"
+    },
+    "role": "any",
+    "rarity": "uncommon",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/cypress-memento-mori.png"
+  },
+  {
+    "id": "decrepit-clapboard",
+    "name": {
+      "en": "Decrepit Clapboard",
+      "ru": "Ветхая доска"
+    },
+    "role": "any",
+    "rarity": "uncommon",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/decrepit-clapboard.png"
+  },
+  {
+    "id": "devout-raven-wreath",
+    "name": {
+      "en": "Devout Raven Wreath",
+      "ru": "Набожный вороний венок"
+    },
+    "role": "any",
+    "rarity": "uncommon",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/devout-raven-wreath.png"
+  },
+  {
+    "id": "devout-shrike-wreath",
+    "name": {
+      "en": "Devout Shrike Wreath",
+      "ru": "Набожный сорокопутовый венок"
+    },
+    "role": "any",
+    "rarity": "uncommon",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/devout-shrike-wreath.png"
+  },
+  {
+    "id": "devout-spotted-owl-wreath",
+    "name": {
+      "en": "Devout Spotted Owl Wreath",
+      "ru": "Набожный венок из пятнистой совы"
+    },
+    "role": "any",
+    "rarity": "uncommon",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/devout-spotted-owl-wreath.png"
+  },
+  {
+    "id": "devout-tanager-wreath",
+    "name": {
+      "en": "Devout Tanager Wreath",
+      "ru": "Набожный танагровый венок"
+    },
+    "role": "any",
+    "rarity": "uncommon",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/devout-tanager-wreath.png"
+  },
+  {
+    "id": "ebony-memento-mori",
+    "name": {
+      "en": "Ebony Memento Mori",
+      "ru": "Эбеновое напоминание о смерти"
+    },
+    "role": "any",
+    "rarity": "visceral",
+    "tags": [
+      "troll"
+    ],
+    "icon": "/icons/offerings/ebony-memento-mori.png"
+  },
+  {
+    "id": "rpd-badge",
+    "name": {
+      "en": "RPD Badge",
+      "ru": "Значок полиции Раккун-Сити"
+    },
+    "role": "any",
+    "rarity": "rare",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/rpd-badge.png"
+  },
+  {
+    "id": "emergency-certificate",
+    "name": {
+      "en": "Emergency Certificate",
+      "ru": "Аварийный сертификат"
+    },
+    "role": "any",
+    "rarity": "common",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/emergency-certificate.png"
+  },
+  {
+    "id": "escape-cake",
+    "name": {
+      "en": "Escape! Cake",
+      "ru": "Торт спасения"
+    },
+    "role": "any",
+    "rarity": "uncommon",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/escape-cake.png"
+  },
+  {
+    "id": "faint-reagent",
+    "name": {
+      "en": "Faint Reagent",
+      "ru": "Слабый реагент"
+    },
+    "role": "any",
+    "rarity": "common",
+    "tags": [
+      "troll"
+    ],
+    "icon": "/icons/offerings/faint-reagent.png"
+  },
+  {
+    "id": "fragrant-bog-laurel",
+    "name": {
+      "en": "Fragrant Bog Laurel",
+      "ru": "Благоухающий болотный лавр"
+    },
+    "role": "any",
+    "rarity": "rare",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/fragrant-bog-laurel.png"
+  },
+  {
+    "id": "fragrant-crispleaf-amaranth",
+    "name": {
+      "en": "Fragrant Crispleaf Amaranth",
+      "ru": "Благоухающий хризалистый амарант"
+    },
+    "role": "any",
+    "rarity": "rare",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/fragrant-crispleaf-amaranth.png"
+  },
+  {
+    "id": "fragrant-primrose-blossom",
+    "name": {
+      "en": "Fragrant Primrose Blossom",
+      "ru": "Благоухающая примула"
+    },
+    "role": "any",
+    "rarity": "rare",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/fragrant-primrose-blossom.png"
+  },
+  {
+    "id": "fragrant-sweet-william",
+    "name": {
+      "en": "Fragrant Sweet William",
+      "ru": "Благоухающий гвоздика"
+    },
+    "role": "any",
+    "rarity": "rare",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/fragrant-sweet-william.png"
+  },
+  {
+    "id": "fresh-bog-laurel",
+    "name": {
+      "en": "Fresh Bog Laurel",
+      "ru": "Свежий болотный лавр"
+    },
+    "role": "any",
+    "rarity": "uncommon",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/fresh-bog-laurel.png"
+  },
+  {
+    "id": "fresh-crispleaf-amaranth",
+    "name": {
+      "en": "Fresh Crispleaf Amaranth",
+      "ru": "Свежий хризалистый амарант"
+    },
+    "role": "any",
+    "rarity": "uncommon",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/fresh-crispleaf-amaranth.png"
+  },
+  {
+    "id": "fresh-primrose-blossom",
+    "name": {
+      "en": "Fresh Primrose Blossom",
+      "ru": "Свежая примула"
+    },
+    "role": "any",
+    "rarity": "uncommon",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/fresh-primrose-blossom.png"
+  },
+  {
+    "id": "fresh-sweet-william",
+    "name": {
+      "en": "Fresh Sweet William",
+      "ru": "Свежая гвоздика"
+    },
+    "role": "any",
+    "rarity": "uncommon",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/fresh-sweet-william.png"
+  },
+  {
+    "id": "full-moon-bouquet",
+    "name": {
+      "en": "Full Moon Bouquet",
+      "ru": "Букет полнолуния"
+    },
+    "role": "any",
+    "rarity": "veryrare",
+    "tags": [
+      "troll"
+    ],
+    "icon": "/icons/offerings/full-moon-bouquet.png"
+  },
+  {
+    "id": "fuming-cordage",
+    "name": {
+      "en": "Fuming Cordage",
+      "ru": "Дымокуренная верёвка"
+    },
+    "role": "any",
+    "rarity": "common",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/fuming-cordage.png"
+  },
+  {
+    "id": "fuming-welcome-sign",
+    "name": {
+      "en": "Fuming Welcome Sign",
+      "ru": "Дымокуренная табличка приветствия"
+    },
+    "role": "any",
+    "rarity": "uncommon",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/fuming-welcome-sign.png"
+  },
+  {
+    "id": "glass-splinter",
+    "name": {
+      "en": "Glass Splinter",
+      "ru": "Стеклянный осколок"
+    },
+    "role": "any",
+    "rarity": "visceral",
+    "tags": [
+      "meme"
+    ],
+    "icon": "/icons/offerings/glass-splinter.png"
+  },
+  {
+    "id": "grandma-s-cookbook",
+    "name": {
+      "en": "Grandma's Cookbook",
+      "ru": "Бабушкина книга рецептов"
+    },
+    "role": "any",
+    "rarity": "rare",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/grandma-s-cookbook.png"
+  },
+  {
+    "id": "cursed-seed",
+    "name": {
+      "en": "Cursed Seed",
+      "ru": "Проклятое семя"
+    },
+    "role": "any",
+    "rarity": "common",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/cursed-seed.png"
+  },
+  {
+    "id": "arcane-dowsing-rod",
+    "name": {
+      "en": "Arcane Dowsing Rod",
+      "ru": "Мистический лозоискатель"
+    },
+    "role": "any",
+    "rarity": "veryrare",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/arcane-dowsing-rod.png"
+  },
+  {
+    "id": "pustula-petals",
+    "name": {
+      "en": "Pustula Petals",
+      "ru": "Лепестки пустулы"
+    },
+    "role": "any",
+    "rarity": "common",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/pustula-petals.png"
+  },
+  {
+    "id": "harvest-festival-leaflet",
+    "name": {
+      "en": "Harvest Festival Leaflet",
+      "ru": "Листовка праздника урожая"
+    },
+    "role": "any",
+    "rarity": "common",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/harvest-festival-leaflet.png"
+  },
+  {
+    "id": "hazy-reagent",
+    "name": {
+      "en": "Hazy Reagent",
+      "ru": "Мутный реагент"
+    },
+    "role": "any",
+    "rarity": "uncommon",
+    "tags": [
+      "troll"
+    ],
+    "icon": "/icons/offerings/hazy-reagent.png"
+  },
+  {
+    "id": "heart-locket",
+    "name": {
+      "en": "Heart Locket",
+      "ru": "Медальон с сердцем"
+    },
+    "role": "any",
+    "rarity": "rare",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/heart-locket.png"
+  },
+  {
+    "id": "hollow-shell",
+    "name": {
+      "en": "Hollow Shell",
+      "ru": "Пустая оболочка"
+    },
+    "role": "any",
+    "rarity": "uncommon",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/hollow-shell.png"
+  },
+  {
+    "id": "crow-s-eye",
+    "name": {
+      "en": "Crow's Eye",
+      "ru": "Воронье око"
+    },
+    "role": "any",
+    "rarity": "rare",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/crow-s-eye.png"
+  },
+  {
+    "id": "ivory-chalk-pouch",
+    "name": {
+      "en": "Ivory Chalk Pouch",
+      "ru": "Слоновой кости мешочек с мелом"
+    },
+    "role": "any",
+    "rarity": "rare",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/ivory-chalk-pouch.png"
+  },
+  {
+    "id": "ivory-memento-mori",
+    "name": {
+      "en": "Ivory Memento Mori",
+      "ru": "Напоминание о смерти из слоновой кости"
+    },
+    "role": "any",
+    "rarity": "rare",
+    "tags": [
+      "troll"
+    ],
+    "icon": "/icons/offerings/ivory-memento-mori.png"
+  },
+  {
+    "id": "yamaoka-family-crest",
+    "name": {
+      "en": "Yamaoka Family Crest",
+      "ru": "Герб семьи Ямаока"
+    },
+    "role": "any",
+    "rarity": "rare",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/yamaoka-family-crest.png"
+  },
+  {
+    "id": "jigsaw-piece",
+    "name": {
+      "en": "Jigsaw Piece",
+      "ru": "Фрагмент пазла"
+    },
+    "role": "any",
+    "rarity": "rare",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/jigsaw-piece.png"
+  },
+  {
+    "id": "damaged-photo",
+    "name": {
+      "en": "Damaged Photo",
+      "ru": "Повреждённая фотография"
+    },
+    "role": "any",
+    "rarity": "rare",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/damaged-photo.png"
+  },
+  {
+    "id": "lunacy-ticket",
+    "name": {
+      "en": "Lunacy Ticket",
+      "ru": "Билет безумия"
+    },
+    "role": "any",
+    "rarity": "common",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/lunacy-ticket.png"
+  },
+  {
+    "id": "macmillan-ledger-page",
+    "name": {
+      "en": "MacMillan Ledger Page",
+      "ru": "Страница из книги учёта МакМиллана"
+    },
+    "role": "any",
+    "rarity": "common",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/macmillan-ledger-page.png"
+  },
+  {
+    "id": "macmillan-s-phalanx-bone",
+    "name": {
+      "en": "MacMillan's Phalanx Bone",
+      "ru": "Фаланга кости МакМиллана"
+    },
+    "role": "any",
+    "rarity": "rare",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/macmillan-s-phalanx-bone.png"
+  },
+  {
+    "id": "ichorous-loam",
+    "name": {
+      "en": "Ichorous Loam",
+      "ru": "Ихорозная глина"
+    },
+    "role": "any",
+    "rarity": "rare",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/ichorous-loam.png"
+  },
+  {
+    "id": "moldy-oak",
+    "name": {
+      "en": "Moldy Oak",
+      "ru": "Заплесневелый дуб"
+    },
+    "role": "any",
+    "rarity": "uncommon",
+    "tags": [
+      "troll"
+    ],
+    "icon": "/icons/offerings/moldy-oak.png"
+  },
+  {
+    "id": "muddy-splinter",
+    "name": {
+      "en": "Muddy Splinter",
+      "ru": "Грязный осколок"
+    },
+    "role": "any",
+    "rarity": "visceral",
+    "tags": [
+      "meme"
+    ],
+    "icon": "/icons/offerings/muddy-splinter.png"
+  },
+  {
+    "id": "murky-reagent",
+    "name": {
+      "en": "Murky Reagent",
+      "ru": "Тёмный реагент"
+    },
+    "role": "any",
+    "rarity": "veryrare",
+    "tags": [
+      "troll"
+    ],
+    "icon": "/icons/offerings/murky-reagent.png"
+  },
+  {
+    "id": "new-moon-bouquet",
+    "name": {
+      "en": "New Moon Bouquet",
+      "ru": "Букет новолуния"
+    },
+    "role": "any",
+    "rarity": "visceral",
+    "tags": [
+      "troll"
+    ],
+    "icon": "/icons/offerings/new-moon-bouquet.png"
+  },
+  {
+    "id": "painted-river-rock",
+    "name": {
+      "en": "Painted River Rock",
+      "ru": "Расписной речной камень"
+    },
+    "role": "any",
+    "rarity": "common",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/painted-river-rock.png"
+  },
+  {
+    "id": "p-elliott-lunacy-ticket",
+    "name": {
+      "en": "P.Elliott Lunacy Ticket",
+      "ru": "Билет безумия П. Эллиотта"
+    },
+    "role": "any",
+    "rarity": "uncommon",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/p-elliott-lunacy-ticket.png"
+  },
+  {
+    "id": "petrified-oak",
+    "name": {
+      "en": "Petrified Oak",
+      "ru": "Окаменелый дуб"
+    },
+    "role": "any",
+    "rarity": "veryrare",
+    "tags": [
+      "troll"
+    ],
+    "icon": "/icons/offerings/petrified-oak.png"
+  },
+  {
+    "id": "primrose-blossom-sachet",
+    "name": {
+      "en": "Primrose Blossom Sachet",
+      "ru": "Саше из примулы"
+    },
+    "role": "any",
+    "rarity": "common",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/primrose-blossom-sachet.png"
+  },
+  {
+    "id": "psychiatric-assessment-report",
+    "name": {
+      "en": "Psychiatric Assessment Report",
+      "ru": "Отчёт психиатрической экспертизы"
+    },
+    "role": "any",
+    "rarity": "uncommon",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/psychiatric-assessment-report.png"
+  },
+  {
+    "id": "putrid-oak",
+    "name": {
+      "en": "Putrid Oak",
+      "ru": "Гнилой дуб"
+    },
+    "role": "any",
+    "rarity": "veryrare",
+    "tags": [
+      "troll"
+    ],
+    "icon": "/icons/offerings/putrid-oak.png"
+  },
+  {
+    "id": "hawkins-national-laboratory-i-d",
+    "name": {
+      "en": "Hawkins National Laboratory I.D.",
+      "ru": "Удостоверение Национальной лаборатории Хокинса"
+    },
+    "role": "any",
+    "rarity": "rare",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/hawkins-national-laboratory-i-d.png"
+  },
+  {
+    "id": "beef-tallow-mixture",
+    "name": {
+      "en": "Beef Tallow Mixture",
+      "ru": "Смесь из говяжьего сала"
+    },
+    "role": "any",
+    "rarity": "rare",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/beef-tallow-mixture.png"
+  },
+  {
+    "id": "quarter-moon-bouquet",
+    "name": {
+      "en": "Quarter Moon Bouquet",
+      "ru": "Букет четверти луны"
+    },
+    "role": "any",
+    "rarity": "uncommon",
+    "tags": [
+      "troll"
+    ],
+    "icon": "/icons/offerings/quarter-moon-bouquet.png"
+  },
+  {
+    "id": "vip-wristband",
+    "name": {
+      "en": "VIP Wristband",
+      "ru": "VIP-браслет"
+    },
+    "role": "any",
+    "rarity": "rare",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/vip-wristband.png"
+  },
+  {
+    "id": "raven-wreath",
+    "name": {
+      "en": "Raven Wreath",
+      "ru": "Вороний венок"
+    },
+    "role": "any",
+    "rarity": "common",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/raven-wreath.png"
+  },
+  {
+    "id": "red-envelope",
+    "name": {
+      "en": "Red Envelope",
+      "ru": "Красный конверт"
+    },
+    "role": "any",
+    "rarity": "common",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/red-envelope.png"
+  },
+  {
+    "id": "rotten-oak",
+    "name": {
+      "en": "Rotten Oak",
+      "ru": "Прогнивший дуб"
+    },
+    "role": "any",
+    "rarity": "rare",
+    "tags": [
+      "troll"
+    ],
+    "icon": "/icons/offerings/rotten-oak.png"
+  },
+  {
+    "id": "sacrificial-ward",
+    "name": {
+      "en": "Sacrificial Ward",
+      "ru": "Жертвенная защита"
+    },
+    "role": "any",
+    "rarity": "common",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/sacrificial-ward.png"
+  },
+  {
+    "id": "salt-pouch",
+    "name": {
+      "en": "Salt Pouch",
+      "ru": "Мешочек с солью"
+    },
+    "role": "any",
+    "rarity": "uncommon",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/salt-pouch.png"
+  },
+  {
+    "id": "scratched-coin",
+    "name": {
+      "en": "Scratched Coin",
+      "ru": "Поцарапанная монета"
+    },
+    "role": "any",
+    "rarity": "uncommon",
+    "tags": [
+      "troll"
+    ],
+    "icon": "/icons/offerings/scratched-coin.png"
+  },
+  {
+    "id": "sealed-envelope",
+    "name": {
+      "en": "Sealed Envelope",
+      "ru": "Запечатанный конверт"
+    },
+    "role": "any",
+    "rarity": "uncommon",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/sealed-envelope.png"
+  },
+  {
+    "id": "shattered-glasses",
+    "name": {
+      "en": "Shattered Glasses",
+      "ru": "Разбитые очки"
+    },
+    "role": "any",
+    "rarity": "rare",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/shattered-glasses.png"
+  },
+  {
+    "id": "shiny-coin",
+    "name": {
+      "en": "Shiny Coin",
+      "ru": "Блестящая монета"
+    },
+    "role": "any",
+    "rarity": "veryrare",
+    "tags": [
+      "troll"
+    ],
+    "icon": "/icons/offerings/shiny-coin.png"
+  },
+  {
+    "id": "shock-splinter",
+    "name": {
+      "en": "Shock Splinter",
+      "ru": "Осколок шока"
+    },
+    "role": "any",
+    "rarity": "visceral",
+    "tags": [
+      "meme"
+    ],
+    "icon": "/icons/offerings/shock-splinter.png"
+  },
+  {
+    "id": "shredded-plate",
+    "name": {
+      "en": "Shredded Plate",
+      "ru": "Рваная тарелка"
+    },
+    "role": "any",
+    "rarity": "common",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/shredded-plate.png"
+  },
+  {
+    "id": "shrike-wreath",
+    "name": {
+      "en": "Shrike Wreath",
+      "ru": "Сорокопутовый венок"
+    },
+    "role": "any",
+    "rarity": "common",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/shrike-wreath.png"
+  },
+  {
+    "id": "shroud-of-separation",
+    "name": {
+      "en": "Shroud of Separation",
+      "ru": "Покров разлуки"
+    },
+    "role": "any",
+    "rarity": "veryrare",
+    "tags": [
+      "troll"
+    ],
+    "icon": "/icons/offerings/shroud-of-separation.png"
+  },
+  {
+    "id": "shroud-of-vanishing",
+    "name": {
+      "en": "Shroud of Vanishing",
+      "ru": "Покров исчезновения"
+    },
+    "role": "any",
+    "rarity": "uncommon",
+    "tags": [
+      "troll"
+    ],
+    "icon": "/icons/offerings/shroud-of-vanishing.png"
+  },
+  {
+    "id": "shroud-of-union",
+    "name": {
+      "en": "Shroud of Union",
+      "ru": "Покров единения"
+    },
+    "role": "any",
+    "rarity": "uncommon",
+    "tags": [
+      "troll"
+    ],
+    "icon": "/icons/offerings/shroud-of-union.png"
+  },
+  {
+    "id": "signed-ledger-page",
+    "name": {
+      "en": "Signed Ledger Page",
+      "ru": "Подписанная страница из книги учёта"
+    },
+    "role": "any",
+    "rarity": "uncommon",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/signed-ledger-page.png"
+  },
+  {
+    "id": "smoking-splinter",
+    "name": {
+      "en": "Smoking Splinter",
+      "ru": "Дымящийся осколок"
+    },
+    "role": "any",
+    "rarity": "visceral",
+    "tags": [
+      "meme"
+    ],
+    "icon": "/icons/offerings/smoking-splinter.png"
+  },
+  {
+    "id": "spotted-owl-wreath",
+    "name": {
+      "en": "Spotted Owl Wreath",
+      "ru": "Венок из пятнистой совы"
+    },
+    "role": "any",
+    "rarity": "common",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/spotted-owl-wreath.png"
+  },
+  {
+    "id": "bloodshot-eye",
+    "name": {
+      "en": "Bloodshot Eye",
+      "ru": "Набухший кровью глаз"
+    },
+    "role": "any",
+    "rarity": "veryrare",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/bloodshot-eye.png"
+  },
+  {
+    "id": "strode-realty-key",
+    "name": {
+      "en": "Strode Realty Key",
+      "ru": "Ключ агентства недвижимости Строуд"
+    },
+    "role": "any",
+    "rarity": "rare",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/strode-realty-key.png"
+  },
+  {
+    "id": "bbq-invitation",
+    "name": {
+      "en": "BBQ Invitation",
+      "ru": "Приглашение на барбекю"
+    },
+    "role": "any",
+    "rarity": "common",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/bbq-invitation.png"
+  },
+  {
+    "id": "survivor-pudding",
+    "name": {
+      "en": "Survivor Pudding",
+      "ru": "Пудинг выжившего"
+    },
+    "role": "any",
+    "rarity": "uncommon",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/survivor-pudding.png"
+  },
+  {
+    "id": "sweet-william-sachet",
+    "name": {
+      "en": "Sweet William Sachet",
+      "ru": "Саше из гвоздики"
+    },
+    "role": "any",
+    "rarity": "common",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/sweet-william-sachet.png"
+  },
+  {
+    "id": "tanager-wreath",
+    "name": {
+      "en": "Tanager Wreath",
+      "ru": "Танагровый венок"
+    },
+    "role": "any",
+    "rarity": "common",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/tanager-wreath.png"
+  },
+  {
+    "id": "tarnished-coin",
+    "name": {
+      "en": "Tarnished Coin",
+      "ru": "Потускневшая монета"
+    },
+    "role": "any",
+    "rarity": "uncommon",
+    "tags": [
+      "troll"
+    ],
+    "icon": "/icons/offerings/tarnished-coin.png"
+  },
+  {
+    "id": "the-last-mask",
+    "name": {
+      "en": "The Last Mask",
+      "ru": "Последняя маска"
+    },
+    "role": "any",
+    "rarity": "rare",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/the-last-mask.png"
+  },
+  {
+    "id": "the-pied-piper",
+    "name": {
+      "en": "The Pied Piper",
+      "ru": "Крысолов"
+    },
+    "role": "any",
+    "rarity": "rare",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/the-pied-piper.png"
+  },
+  {
+    "id": "torn-blueprint",
+    "name": {
+      "en": "Torn Blueprint",
+      "ru": "Рваный чертёж"
+    },
+    "role": "any",
+    "rarity": "common",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/torn-blueprint.png"
+  },
+  {
+    "id": "shattered-bottle",
+    "name": {
+      "en": "Shattered Bottle",
+      "ru": "Разбитая бутылка"
+    },
+    "role": "any",
+    "rarity": "rare",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/shattered-bottle.png"
+  },
+  {
+    "id": "alien-flora",
+    "name": {
+      "en": "Alien Flora",
+      "ru": "Инопланетная флора"
+    },
+    "role": "any",
+    "rarity": "rare",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/alien-flora.png"
+  },
+  {
+    "id": "vigo-s-blueprint",
+    "name": {
+      "en": "Vigo’s Blueprint",
+      "ru": "Чертёж Виго"
+    },
+    "role": "any",
+    "rarity": "common",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/vigo-s-blueprint.png"
+  },
+  {
+    "id": "vigo-s-jar-of-salty-lips",
+    "name": {
+      "en": "Vigo's Jar of Salty Lips",
+      "ru": "Банка солёных губ Виго"
+    },
+    "role": "any",
+    "rarity": "veryrare",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/vigo-s-jar-of-salty-lips.png"
+  },
+  {
+    "id": "vigo-s-shroud",
+    "name": {
+      "en": "Vigo's Shroud",
+      "ru": "Покров Виго"
+    },
+    "role": "any",
+    "rarity": "uncommon",
+    "tags": [
+      "troll"
+    ],
+    "icon": "/icons/offerings/vigo-s-shroud.png"
+  },
+  {
+    "id": "virginia-plate",
+    "name": {
+      "en": "Virginia Plate",
+      "ru": "Тарелка Вирджинии"
+    },
+    "role": "any",
+    "rarity": "uncommon",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/virginia-plate.png"
+  },
+  {
+    "id": "mary-s-letter",
+    "name": {
+      "en": "Mary’s Letter",
+      "ru": "Письмо Мэри"
+    },
+    "role": "any",
+    "rarity": "rare",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/mary-s-letter.png"
+  },
+  {
+    "id": "white-ward",
+    "name": {
+      "en": "White Ward",
+      "ru": "Белая защита"
+    },
+    "role": "any",
+    "rarity": "veryrare",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/white-ward.png"
+  },
+  {
+    "id": "mistle-toes",
+    "name": {
+      "en": "MISTLE TOES",
+      "ru": "БУСИНЫ ОМЕЛЫ"
+    },
+    "role": "any",
+    "rarity": "veryrare",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/mistle-toes.png"
+  },
+  {
+    "id": "airlock-doors",
+    "name": {
+      "en": "Airlock Doors",
+      "ru": "Двери шлюза"
+    },
+    "role": "any",
+    "rarity": "rare",
+    "tags": [
+      "efficient"
+    ],
+    "icon": "/icons/offerings/airlock-doors.png"
+  }
 ]

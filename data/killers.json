@@ -1,62 +1,380 @@
 [
   {
     "id": "trapper",
-    "name": { "en": "The Trapper", "ru": "Охотник" },
+    "name": {
+      "en": "The Trapper",
+      "ru": "Охотник"
+    },
     "power": "Bear Trap",
     "icon": "/icons/killers/trapper.png"
   },
   {
     "id": "wraith",
-    "name": { "en": "The Wraith", "ru": "Призрак" },
+    "name": {
+      "en": "The Wraith",
+      "ru": "Призрак"
+    },
     "power": "Wailing Bell",
     "icon": "/icons/killers/wraith.png"
   },
   {
     "id": "hillbilly",
-    "name": { "en": "The Hillbilly", "ru": "Деревенщина" },
+    "name": {
+      "en": "The Hillbilly",
+      "ru": "Деревенщина"
+    },
     "power": "Chainsaw",
     "icon": "/icons/killers/hillbilly.png"
   },
   {
     "id": "nurse",
-    "name": { "en": "The Nurse", "ru": "Медсестра" },
+    "name": {
+      "en": "The Nurse",
+      "ru": "Медсестра"
+    },
     "power": "Spencer's Last Breath",
     "icon": "/icons/killers/nurse.png"
   },
   {
+    "id": "hag",
+    "name": {
+      "en": "The Hag",
+      "ru": "The Hag"
+    },
+    "power": "",
+    "icon": "/icons/killers/hag.png"
+  },
+  {
+    "id": "shape",
+    "name": {
+      "en": "The Shape",
+      "ru": "The Shape"
+    },
+    "power": "",
+    "icon": "/icons/killers/shape.png"
+  },
+  {
+    "id": "doctor",
+    "name": {
+      "en": "The Doctor",
+      "ru": "The Doctor"
+    },
+    "power": "",
+    "icon": "/icons/killers/doctor.png"
+  },
+  {
     "id": "huntress",
-    "name": { "en": "The Huntress", "ru": "Охотница" },
+    "name": {
+      "en": "The Huntress",
+      "ru": "Охотница"
+    },
     "power": "Hunt",
     "icon": "/icons/killers/huntress.png"
   },
   {
+    "id": "cannibal",
+    "name": {
+      "en": "The Cannibal",
+      "ru": "The Cannibal"
+    },
+    "power": "",
+    "icon": "/icons/killers/cannibal.png"
+  },
+  {
+    "id": "nightmare",
+    "name": {
+      "en": "The Nightmare",
+      "ru": "The Nightmare"
+    },
+    "power": "",
+    "icon": "/icons/killers/nightmare.png"
+  },
+  {
+    "id": "pig",
+    "name": {
+      "en": "The Pig",
+      "ru": "Свинья"
+    },
+    "power": "Jigsaw's Baptism",
+    "icon": "/icons/killers/pig.png"
+  },
+  {
+    "id": "clown",
+    "name": {
+      "en": "The Clown",
+      "ru": "The Clown"
+    },
+    "power": "",
+    "icon": "/icons/killers/clown.png"
+  },
+  {
     "id": "spirit",
-    "name": { "en": "The Spirit", "ru": "Дух" },
+    "name": {
+      "en": "The Spirit",
+      "ru": "Дух"
+    },
     "power": "Yamaoka's Haunting",
     "icon": "/icons/killers/spirit.png"
   },
   {
+    "id": "legion",
+    "name": {
+      "en": "The Legion",
+      "ru": "The Legion"
+    },
+    "power": "",
+    "icon": "/icons/killers/legion.png"
+  },
+  {
+    "id": "plague",
+    "name": {
+      "en": "The Plague",
+      "ru": "The Plague"
+    },
+    "power": "",
+    "icon": "/icons/killers/plague.png"
+  },
+  {
+    "id": "ghost-face",
+    "name": {
+      "en": "The Ghost Face",
+      "ru": "The Ghost Face"
+    },
+    "power": "",
+    "icon": "/icons/killers/ghost-face.png"
+  },
+  {
+    "id": "demogorgon",
+    "name": {
+      "en": "The Demogorgon",
+      "ru": "The Demogorgon"
+    },
+    "power": "",
+    "icon": "/icons/killers/demogorgon.png"
+  },
+  {
+    "id": "oni",
+    "name": {
+      "en": "The Oni",
+      "ru": "The Oni"
+    },
+    "power": "",
+    "icon": "/icons/killers/oni.png"
+  },
+  {
+    "id": "deathslinger",
+    "name": {
+      "en": "The Deathslinger",
+      "ru": "The Deathslinger"
+    },
+    "power": "",
+    "icon": "/icons/killers/deathslinger.png"
+  },
+  {
+    "id": "executioner",
+    "name": {
+      "en": "The Executioner",
+      "ru": "The Executioner"
+    },
+    "power": "",
+    "icon": "/icons/killers/executioner.png"
+  },
+  {
     "id": "blight",
-    "name": { "en": "The Blight", "ru": "Пришелец" },
+    "name": {
+      "en": "The Blight",
+      "ru": "Пришелец"
+    },
     "power": "Blighted Corruption",
     "icon": "/icons/killers/blight.png"
   },
   {
+    "id": "twins",
+    "name": {
+      "en": "The Twins",
+      "ru": "The Twins"
+    },
+    "power": "",
+    "icon": "/icons/killers/twins.png"
+  },
+  {
+    "id": "trickster",
+    "name": {
+      "en": "The Trickster",
+      "ru": "The Trickster"
+    },
+    "power": "",
+    "icon": "/icons/killers/trickster.png"
+  },
+  {
     "id": "nemesis",
-    "name": { "en": "The Nemesis", "ru": "Немезис" },
+    "name": {
+      "en": "The Nemesis",
+      "ru": "Немезис"
+    },
     "power": "T-Virus",
     "icon": "/icons/killers/nemesis.png"
   },
   {
-    "id": "pinhead",
-    "name": { "en": "The Cenobite", "ru": "Сеноbit" },
-    "power": "Summons of Pain",
-    "icon": "/icons/killers/pinhead.png"
+    "id": "cenobite",
+    "name": {
+      "en": "The Cenobite",
+      "ru": "The Cenobite"
+    },
+    "power": "",
+    "icon": "/icons/killers/cenobite.png"
   },
   {
-    "id": "pig",
-    "name": { "en": "The Pig", "ru": "Свинья" },
-    "power": "Jigsaw's Baptism",
-    "icon": "/icons/killers/pig.png"
+    "id": "artist",
+    "name": {
+      "en": "The Artist",
+      "ru": "The Artist"
+    },
+    "power": "",
+    "icon": "/icons/killers/artist.png"
+  },
+  {
+    "id": "onry",
+    "name": {
+      "en": "The Onryō",
+      "ru": "The Onryō"
+    },
+    "power": "",
+    "icon": "/icons/killers/onry.png"
+  },
+  {
+    "id": "dredge",
+    "name": {
+      "en": "The Dredge",
+      "ru": "The Dredge"
+    },
+    "power": "",
+    "icon": "/icons/killers/dredge.png"
+  },
+  {
+    "id": "mastermind",
+    "name": {
+      "en": "The Mastermind",
+      "ru": "The Mastermind"
+    },
+    "power": "",
+    "icon": "/icons/killers/mastermind.png"
+  },
+  {
+    "id": "knight",
+    "name": {
+      "en": "The Knight",
+      "ru": "The Knight"
+    },
+    "power": "",
+    "icon": "/icons/killers/knight.png"
+  },
+  {
+    "id": "skull-merchant",
+    "name": {
+      "en": "The Skull Merchant",
+      "ru": "The Skull Merchant"
+    },
+    "power": "",
+    "icon": "/icons/killers/skull-merchant.png"
+  },
+  {
+    "id": "singularity",
+    "name": {
+      "en": "The Singularity",
+      "ru": "The Singularity"
+    },
+    "power": "",
+    "icon": "/icons/killers/singularity.png"
+  },
+  {
+    "id": "xenomorph",
+    "name": {
+      "en": "The Xenomorph",
+      "ru": "The Xenomorph"
+    },
+    "power": "",
+    "icon": "/icons/killers/xenomorph.png"
+  },
+  {
+    "id": "good-guy",
+    "name": {
+      "en": "The Good Guy",
+      "ru": "The Good Guy"
+    },
+    "power": "",
+    "icon": "/icons/killers/good-guy.png"
+  },
+  {
+    "id": "unknown",
+    "name": {
+      "en": "The Unknown",
+      "ru": "The Unknown"
+    },
+    "power": "",
+    "icon": "/icons/killers/unknown.png"
+  },
+  {
+    "id": "lich",
+    "name": {
+      "en": "The Lich",
+      "ru": "The Lich"
+    },
+    "power": "",
+    "icon": "/icons/killers/lich.png"
+  },
+  {
+    "id": "dark-lord",
+    "name": {
+      "en": "The Dark Lord",
+      "ru": "The Dark Lord"
+    },
+    "power": "",
+    "icon": "/icons/killers/dark-lord.png"
+  },
+  {
+    "id": "houndmaster",
+    "name": {
+      "en": "The Houndmaster",
+      "ru": "The Houndmaster"
+    },
+    "power": "",
+    "icon": "/icons/killers/houndmaster.png"
+  },
+  {
+    "id": "ghoul",
+    "name": {
+      "en": "The Ghoul",
+      "ru": "The Ghoul"
+    },
+    "power": "",
+    "icon": "/icons/killers/ghoul.png"
+  },
+  {
+    "id": "animatronic",
+    "name": {
+      "en": "The Animatronic",
+      "ru": "The Animatronic"
+    },
+    "power": "",
+    "icon": "/icons/killers/animatronic.png"
+  },
+  {
+    "id": "krasue",
+    "name": {
+      "en": "The Krasue",
+      "ru": "The Krasue"
+    },
+    "power": "",
+    "icon": "/icons/killers/krasue.png"
+  },
+  {
+    "id": "first",
+    "name": {
+      "en": "The First",
+      "ru": "The First"
+    },
+    "power": "",
+    "icon": "/icons/killers/first.png"
   }
 ]

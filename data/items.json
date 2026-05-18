@@ -1,58 +1,894 @@
 [
   {
-    "id": "flashlight-standard",
-    "type": "flashlight",
-    "name": { "en": "Flashlight", "ru": "Фонарик" },
-    "rarity": "common",
-    "icon": "/icons/items/flashlight-standard.png"
+    "id": "candelabra",
+    "name": {
+      "en": "Candelabra",
+      "ru": "Канделябр"
+    },
+    "type": "item",
+    "icon": "/icons/items/candelabra.png"
   },
   {
-    "id": "flashlight-sport",
-    "type": "flashlight",
-    "name": { "en": "Sport Flashlight", "ru": "Спортивный фонарик" },
-    "rarity": "uncommon",
-    "icon": "/icons/items/flashlight-sport.png"
+    "id": "alex-s-toolbox",
+    "name": {
+      "en": "Alex's Toolbox",
+      "ru": "Ящик Алекса"
+    },
+    "type": "item",
+    "icon": "/icons/items/alex-s-toolbox.png"
   },
   {
-    "id": "medkit-standard",
-    "type": "medkit",
-    "name": { "en": "First Aid Kit", "ru": "Аптечка первой помощи" },
-    "rarity": "common",
-    "icon": "/icons/items/medkit-standard.png"
+    "id": "anniversary-toolbox",
+    "name": {
+      "en": "Anniversary Toolbox",
+      "ru": "Юбилейный ящик"
+    },
+    "type": "item",
+    "icon": "/icons/items/anniversary-toolbox.png"
   },
   {
-    "id": "medkit-ranger",
-    "type": "medkit",
-    "name": { "en": "Ranger Med-Kit", "ru": "Аптечка рейнджера" },
-    "rarity": "rare",
-    "icon": "/icons/items/medkit-ranger.png"
+    "id": "scribbled-map",
+    "name": {
+      "en": "Scribbled Map",
+      "ru": "Набросанная карта"
+    },
+    "type": "item",
+    "icon": "/icons/items/scribbled-map.png"
   },
   {
-    "id": "toolbox-commodious",
-    "type": "toolbox",
-    "name": { "en": "Commodious Toolbox", "ru": "Удобный ящик с инструментами" },
-    "rarity": "uncommon",
-    "icon": "/icons/items/toolbox-commodious.png"
+    "id": "broken-key",
+    "name": {
+      "en": "Broken Key",
+      "ru": "Сломанный ключ"
+    },
+    "type": "item",
+    "icon": "/icons/items/broken-key.png"
   },
   {
-    "id": "toolbox-engineers",
-    "type": "toolbox",
-    "name": { "en": "Engineer's Toolbox", "ru": "Ящик инженера" },
-    "rarity": "rare",
-    "icon": "/icons/items/toolbox-engineers.png"
+    "id": "commodious-toolbox",
+    "name": {
+      "en": "Commodious Toolbox",
+      "ru": "Вместительный ящик"
+    },
+    "type": "item",
+    "icon": "/icons/items/commodious-toolbox.png"
   },
   {
-    "id": "map-hand-drawn",
-    "type": "map",
-    "name": { "en": "Hand-drawn Map", "ru": "Нарисованная от руки карта" },
-    "rarity": "common",
-    "icon": "/icons/items/map-hand-drawn.png"
+    "id": "vaccine",
+    "name": {
+      "en": "Vaccine",
+      "ru": "Вакцина"
+    },
+    "type": "item",
+    "icon": "/icons/items/vaccine.png"
   },
   {
-    "id": "key-broken",
-    "type": "key",
-    "name": { "en": "Broken Key", "ru": "Сломанный ключ" },
-    "rarity": "uncommon",
-    "icon": "/icons/items/key-broken.png"
+    "id": "dull-key",
+    "name": {
+      "en": "Dull Key",
+      "ru": "Тупой ключ"
+    },
+    "type": "item",
+    "icon": "/icons/items/dull-key.png"
+  },
+  {
+    "id": "engineer-s-toolbox",
+    "name": {
+      "en": "Engineer's Toolbox",
+      "ru": "Ящик инженера"
+    },
+    "type": "item",
+    "icon": "/icons/items/engineer-s-toolbox.png"
+  },
+  {
+    "id": "cryptic-map",
+    "name": {
+      "en": "Cryptic Map",
+      "ru": "Загадочная карта"
+    },
+    "type": "item",
+    "icon": "/icons/items/cryptic-map.png"
+  },
+  {
+    "id": "third-year-party-starter",
+    "name": {
+      "en": "Third Year Party Starter",
+      "ru": "Праздничный набор на третий год"
+    },
+    "type": "item",
+    "icon": "/icons/items/third-year-party-starter.png"
+  },
+  {
+    "id": "chinese-firecracker",
+    "name": {
+      "en": "Chinese Firecracker",
+      "ru": "Китайский фейерверк"
+    },
+    "type": "item",
+    "icon": "/icons/items/chinese-firecracker.png"
+  },
+  {
+    "id": "flash-grenade",
+    "name": {
+      "en": "Flash Grenade",
+      "ru": "Световая граната"
+    },
+    "type": "item",
+    "icon": "/icons/items/flash-grenade.png"
+  },
+  {
+    "id": "winter-party-starter",
+    "name": {
+      "en": "Winter Party Starter",
+      "ru": "Зимний праздничный набор"
+    },
+    "type": "item",
+    "icon": "/icons/items/winter-party-starter.png"
+  },
+  {
+    "id": "flashlight",
+    "name": {
+      "en": "Flashlight",
+      "ru": "Фонарик"
+    },
+    "type": "item",
+    "icon": "/icons/items/flashlight.png"
+  },
+  {
+    "id": "anniversary-flashlight",
+    "name": {
+      "en": "Anniversary Flashlight",
+      "ru": "Юбилейный фонарик"
+    },
+    "type": "item",
+    "icon": "/icons/items/anniversary-flashlight.png"
+  },
+  {
+    "id": "masquerade-flashlight",
+    "name": {
+      "en": "Masquerade Flashlight",
+      "ru": "Фонарик маскарада"
+    },
+    "type": "item",
+    "icon": "/icons/items/masquerade-flashlight.png"
+  },
+  {
+    "id": "flashlight",
+    "name": {
+      "en": "Flashlight",
+      "ru": "Фонарик"
+    },
+    "type": "item",
+    "icon": "/icons/items/flashlight.png"
+  },
+  {
+    "id": "sport-flashlight",
+    "name": {
+      "en": "Sport Flashlight",
+      "ru": "Спортивный фонарик"
+    },
+    "type": "item",
+    "icon": "/icons/items/sport-flashlight.png"
+  },
+  {
+    "id": "utility-flashlight",
+    "name": {
+      "en": "Utility Flashlight",
+      "ru": "Универсальный фонарик"
+    },
+    "type": "item",
+    "icon": "/icons/items/utility-flashlight.png"
+  },
+  {
+    "id": "will-o-wisp",
+    "name": {
+      "en": "Will O' Wisp",
+      "ru": "Блуждающий огонёк"
+    },
+    "type": "item",
+    "icon": "/icons/items/will-o-wisp.png"
+  },
+  {
+    "id": "blood-can",
+    "name": {
+      "en": "Blood Can",
+      "ru": "Канстра"
+    },
+    "type": "item",
+    "icon": "/icons/items/blood-can.png"
+  },
+  {
+    "id": "first-aid-spray",
+    "name": {
+      "en": "First Aid Spray",
+      "ru": "Спрей первой помощи"
+    },
+    "type": "item",
+    "icon": "/icons/items/first-aid-spray.png"
+  },
+  {
+    "id": "emp",
+    "name": {
+      "en": "EMP",
+      "ru": "ЭМИ"
+    },
+    "type": "item",
+    "icon": "/icons/items/emp.png"
+  },
+  {
+    "id": "remote-flame-turret",
+    "name": {
+      "en": "Remote Flame Turret",
+      "ru": "Дистанционная огненная турель"
+    },
+    "type": "none",
+    "icon": "/icons/items/remote-flame-turret.png"
+  },
+  {
+    "id": "boots-of-0",
+    "name": {
+      "en": "Boots of {0}",
+      "ru": "Ботинки {0}"
+    },
+    "type": "none",
+    "icon": "/icons/items/boots-of-0.png"
+  },
+  {
+    "id": "k36-magicitem-bracers-name",
+    "name": {
+      "en": "@#K36_MagicItem_Bracers_NAME",
+      "ru": "@#K36_MagicItem_Bracers_NAME"
+    },
+    "type": "none",
+    "icon": "/icons/items/k36-magicitem-bracers-name.png"
+  },
+  {
+    "id": "eye-of-vecna",
+    "name": {
+      "en": "Eye Of Vecna",
+      "ru": "Око Векны"
+    },
+    "type": "none",
+    "icon": "/icons/items/eye-of-vecna.png"
+  },
+  {
+    "id": "hand-of-vecna",
+    "name": {
+      "en": "Hand Of Vecna",
+      "ru": "Рука Векны"
+    },
+    "type": "none",
+    "icon": "/icons/items/hand-of-vecna.png"
+  },
+  {
+    "id": "skeleton-key",
+    "name": {
+      "en": "Skeleton Key",
+      "ru": "Скелетный ключ"
+    },
+    "type": "item",
+    "icon": "/icons/items/skeleton-key.png"
+  },
+  {
+    "id": "skeleton-key",
+    "name": {
+      "en": "Skeleton Key",
+      "ru": "Скелетный ключ"
+    },
+    "type": "item",
+    "icon": "/icons/items/skeleton-key.png"
+  },
+  {
+    "id": "festive-toolbox",
+    "name": {
+      "en": "Festive Toolbox",
+      "ru": "Праздничный ящик"
+    },
+    "type": "item",
+    "icon": "/icons/items/festive-toolbox.png"
+  },
+  {
+    "id": "cryptic-map",
+    "name": {
+      "en": "Cryptic Map",
+      "ru": "Загадочная карта"
+    },
+    "type": "item",
+    "icon": "/icons/items/cryptic-map.png"
+  },
+  {
+    "id": "bloodsense-map",
+    "name": {
+      "en": "Bloodsense Map",
+      "ru": "Карта чутья крови"
+    },
+    "type": "item",
+    "icon": "/icons/items/bloodsense-map.png"
+  },
+  {
+    "id": "mechanic-s-toolbox",
+    "name": {
+      "en": "Mechanic's Toolbox",
+      "ru": "Ящик механика"
+    },
+    "type": "item",
+    "icon": "/icons/items/mechanic-s-toolbox.png"
+  },
+  {
+    "id": "camping-aid-kit",
+    "name": {
+      "en": "Camping Aid Kit",
+      "ru": "Походный аптечный набор"
+    },
+    "type": "item",
+    "icon": "/icons/items/camping-aid-kit.png"
+  },
+  {
+    "id": "anniversary-med-kit",
+    "name": {
+      "en": "Anniversary Med-kit",
+      "ru": "Юбилейный аптечный набор"
+    },
+    "type": "item",
+    "icon": "/icons/items/anniversary-med-kit.png"
+  },
+  {
+    "id": "masquerade-med-kit",
+    "name": {
+      "en": "Masquerade Med-Kit",
+      "ru": "Аптечный набор маскарада"
+    },
+    "type": "item",
+    "icon": "/icons/items/masquerade-med-kit.png"
+  },
+  {
+    "id": "camping-aid-kit",
+    "name": {
+      "en": "Camping Aid Kit",
+      "ru": "Походный аптечный набор"
+    },
+    "type": "item",
+    "icon": "/icons/items/camping-aid-kit.png"
+  },
+  {
+    "id": "first-aid-kit",
+    "name": {
+      "en": "First Aid Kit",
+      "ru": "Аптечный набор"
+    },
+    "type": "item",
+    "icon": "/icons/items/first-aid-kit.png"
+  },
+  {
+    "id": "emergency-med-kit",
+    "name": {
+      "en": "Emergency Med-kit",
+      "ru": "Аварийный аптечный набор"
+    },
+    "type": "item",
+    "icon": "/icons/items/emergency-med-kit.png"
+  },
+  {
+    "id": "ranger-med-kit",
+    "name": {
+      "en": "Ranger Med-kit",
+      "ru": "Аптечный набор рейнджера"
+    },
+    "type": "item",
+    "icon": "/icons/items/ranger-med-kit.png"
+  },
+  {
+    "id": "all-hallows-eve-lunchbox",
+    "name": {
+      "en": "All Hallows' Eve Lunchbox",
+      "ru": "Обеденный бокс на День всех святых"
+    },
+    "type": "item",
+    "icon": "/icons/items/all-hallows-eve-lunchbox.png"
+  },
+  {
+    "id": "annotated-map",
+    "name": {
+      "en": "Annotated Map",
+      "ru": "Аннотированная карта"
+    },
+    "type": "item",
+    "icon": "/icons/items/annotated-map.png"
+  },
+  {
+    "id": "toolbox",
+    "name": {
+      "en": "Toolbox",
+      "ru": "Ящик"
+    },
+    "type": "item",
+    "icon": "/icons/items/toolbox.png"
+  },
+  {
+    "id": "masquerade-toolbox",
+    "name": {
+      "en": "Masquerade Toolbox",
+      "ru": "Ящик маскарада"
+    },
+    "type": "item",
+    "icon": "/icons/items/masquerade-toolbox.png"
+  },
+  {
+    "id": "toolbox",
+    "name": {
+      "en": "Toolbox",
+      "ru": "Ящик"
+    },
+    "type": "item",
+    "icon": "/icons/items/toolbox.png"
+  },
+  {
+    "id": "void-crystal",
+    "name": {
+      "en": "Void Crystal",
+      "ru": "Кристалл пустоты"
+    },
+    "type": "item",
+    "icon": "/icons/items/void-crystal.png"
+  },
+  {
+    "id": "worn-out-tools",
+    "name": {
+      "en": "Worn-out Tools",
+      "ru": "Изношенные инструменты"
+    },
+    "type": "item",
+    "icon": "/icons/items/worn-out-tools.png"
+  },
+  {
+    "id": "pocket-mirror",
+    "name": {
+      "en": "Pocket Mirror",
+      "ru": "Карманное зеркало"
+    },
+    "type": "item",
+    "icon": "/icons/items/pocket-mirror.png"
+  },
+  {
+    "id": "lament-configuration",
+    "name": {
+      "en": "Lament Configuration",
+      "ru": "Конфигурация плача"
+    },
+    "type": "none",
+    "icon": "/icons/items/lament-configuration.png"
+  },
+  {
+    "id": "bear-trap",
+    "name": {
+      "en": "Bear Trap",
+      "ru": "Медвежий капкан"
+    },
+    "type": "power",
+    "icon": "/icons/items/bear-trap.png"
+  },
+  {
+    "id": "spencer-s-last-breath",
+    "name": {
+      "en": "Spencer's Last Breath",
+      "ru": "Последний вздох Спенсера"
+    },
+    "type": "power",
+    "icon": "/icons/items/spencer-s-last-breath.png"
+  },
+  {
+    "id": "chainsaw",
+    "name": {
+      "en": "Chainsaw",
+      "ru": "Бензопила"
+    },
+    "type": "power",
+    "icon": "/icons/items/chainsaw.png"
+  },
+  {
+    "id": "wailing-bell",
+    "name": {
+      "en": "Wailing Bell",
+      "ru": "Воющая колокол"
+    },
+    "type": "power",
+    "icon": "/icons/items/wailing-bell.png"
+  },
+  {
+    "id": "dream-demon",
+    "name": {
+      "en": "Dream Demon",
+      "ru": "Демон снов"
+    },
+    "type": "power",
+    "icon": "/icons/items/dream-demon.png"
+  },
+  {
+    "id": "feral-frenzy",
+    "name": {
+      "en": "Feral Frenzy",
+      "ru": "Дикое безумие"
+    },
+    "type": "power",
+    "icon": "/icons/items/feral-frenzy.png"
+  },
+  {
+    "id": "the-afterpiece-tonic",
+    "name": {
+      "en": "The Afterpiece Tonic",
+      "ru": "Тоник «Послесловие»"
+    },
+    "type": "power",
+    "icon": "/icons/items/the-afterpiece-tonic.png"
+  },
+  {
+    "id": "night-shroud",
+    "name": {
+      "en": "Night Shroud",
+      "ru": "Ночной покров"
+    },
+    "type": "power",
+    "icon": "/icons/items/night-shroud.png"
+  },
+  {
+    "id": "the-redeemer",
+    "name": {
+      "en": "The Redeemer",
+      "ru": "Искупитель"
+    },
+    "type": "power",
+    "icon": "/icons/items/the-redeemer.png"
+  },
+  {
+    "id": "hunting-hatchets",
+    "name": {
+      "en": "Hunting Hatchets",
+      "ru": "Охотничий топор"
+    },
+    "type": "power",
+    "icon": "/icons/items/hunting-hatchets.png"
+  },
+  {
+    "id": "blighted-corruption",
+    "name": {
+      "en": "Blighted Corruption",
+      "ru": "Мор"
+    },
+    "type": "power",
+    "icon": "/icons/items/blighted-corruption.png"
+  },
+  {
+    "id": "blood-bond",
+    "name": {
+      "en": "Blood Bond",
+      "ru": "Кровавая связь"
+    },
+    "type": "power",
+    "icon": "/icons/items/blood-bond.png"
+  },
+  {
+    "id": "t-virus",
+    "name": {
+      "en": "T-VIRUS",
+      "ru": "Т-вирус"
+    },
+    "type": "power",
+    "icon": "/icons/items/t-virus.png"
+  },
+  {
+    "id": "summons-of-pain",
+    "name": {
+      "en": "Summons of Pain",
+      "ru": "Призыв боли"
+    },
+    "type": "power",
+    "icon": "/icons/items/summons-of-pain.png"
+  },
+  {
+    "id": "birds-of-torment",
+    "name": {
+      "en": "Birds of Torment",
+      "ru": "Птицы мучений"
+    },
+    "type": "power",
+    "icon": "/icons/items/birds-of-torment.png"
+  },
+  {
+    "id": "deluge-of-fear",
+    "name": {
+      "en": "Deluge of Fear",
+      "ru": "Потоп страха"
+    },
+    "type": "power",
+    "icon": "/icons/items/deluge-of-fear.png"
+  },
+  {
+    "id": "reign-of-darkness",
+    "name": {
+      "en": "Reign of Darkness",
+      "ru": "Царство тьмы"
+    },
+    "type": "power",
+    "icon": "/icons/items/reign-of-darkness.png"
+  },
+  {
+    "id": "virulent-bound",
+    "name": {
+      "en": "Virulent Bound",
+      "ru": "Ядовитая связь"
+    },
+    "type": "power",
+    "icon": "/icons/items/virulent-bound.png"
+  },
+  {
+    "id": "guardia-compagnia",
+    "name": {
+      "en": "Guardia Compagnia",
+      "ru": "Гвардия Компания"
+    },
+    "type": "power",
+    "icon": "/icons/items/guardia-compagnia.png"
+  },
+  {
+    "id": "eyes-in-the-sky",
+    "name": {
+      "en": "Eyes In The Sky",
+      "ru": "Глаза в небе"
+    },
+    "type": "power",
+    "icon": "/icons/items/eyes-in-the-sky.png"
+  },
+  {
+    "id": "quantum-instantiation",
+    "name": {
+      "en": "Quantum Instantiation",
+      "ru": "Квантовая мгновенность"
+    },
+    "type": "power",
+    "icon": "/icons/items/quantum-instantiation.png"
+  },
+  {
+    "id": "hidden-pursuit",
+    "name": {
+      "en": "Hidden Pursuit",
+      "ru": "Скрытая погоня"
+    },
+    "type": "power",
+    "icon": "/icons/items/hidden-pursuit.png"
+  },
+  {
+    "id": "playtime-s-over",
+    "name": {
+      "en": "Playtime's Over",
+      "ru": "Игровое время окончено"
+    },
+    "type": "power",
+    "icon": "/icons/items/playtime-s-over.png"
+  },
+  {
+    "id": "uvx",
+    "name": {
+      "en": "UVX",
+      "ru": "УФ-Х"
+    },
+    "type": "power",
+    "icon": "/icons/items/uvx.png"
+  },
+  {
+    "id": "vile-darkness",
+    "name": {
+      "en": "VILE DARKNESS",
+      "ru": "Мерзкая тьма"
+    },
+    "type": "power",
+    "icon": "/icons/items/vile-darkness.png"
+  },
+  {
+    "id": "vampiric-shift",
+    "name": {
+      "en": "Vampiric Shift",
+      "ru": "Вампирский сдвиг"
+    },
+    "type": "power",
+    "icon": "/icons/items/vampiric-shift.png"
+  },
+  {
+    "id": "scent-of-blood",
+    "name": {
+      "en": "Scent of Blood",
+      "ru": "Запах крови"
+    },
+    "type": "power",
+    "icon": "/icons/items/scent-of-blood.png"
+  },
+  {
+    "id": "one-eyed-terror",
+    "name": {
+      "en": "One-Eyed Terror",
+      "ru": "Одноглазый ужас"
+    },
+    "type": "power",
+    "icon": "/icons/items/one-eyed-terror.png"
+  },
+  {
+    "id": "fazbear-s-fright",
+    "name": {
+      "en": "Fazbear's Fright",
+      "ru": "Фазберов страх"
+    },
+    "type": "power",
+    "icon": "/icons/items/fazbear-s-fright.png"
+  },
+  {
+    "id": "unbodied-flesh",
+    "name": {
+      "en": "Unbodied Flesh",
+      "ru": "Бесплотная плоть"
+    },
+    "type": "power",
+    "icon": "/icons/items/unbodied-flesh.png"
+  },
+  {
+    "id": "test-subject-001",
+    "name": {
+      "en": "Test Subject #001",
+      "ru": "Испытуемый №001"
+    },
+    "type": "power",
+    "icon": "/icons/items/test-subject-001.png"
+  },
+  {
+    "id": "yamaoka-s-wrath",
+    "name": {
+      "en": "Yamaoka's Wrath",
+      "ru": "Гнев Ямаоки"
+    },
+    "type": "power",
+    "icon": "/icons/items/yamaoka-s-wrath.png"
+  },
+  {
+    "id": "carter-s-spark",
+    "name": {
+      "en": "Carter's Spark",
+      "ru": "Искра Картера"
+    },
+    "type": "power",
+    "icon": "/icons/items/carter-s-spark.png"
+  },
+  {
+    "id": "bubba-s-chainsaw",
+    "name": {
+      "en": "Bubba's Chainsaw",
+      "ru": "Бензопила Буббы"
+    },
+    "type": "power",
+    "icon": "/icons/items/bubba-s-chainsaw.png"
+  },
+  {
+    "id": "blackened-catalyst",
+    "name": {
+      "en": "Blackened Catalyst",
+      "ru": "Почерневший катализатор"
+    },
+    "type": "power",
+    "icon": "/icons/items/blackened-catalyst.png"
+  },
+  {
+    "id": "yamaoka-s-haunting",
+    "name": {
+      "en": "Yamaoka’s Haunting",
+      "ru": "Навождение Ямаоки"
+    },
+    "type": "power",
+    "icon": "/icons/items/yamaoka-s-haunting.png"
+  },
+  {
+    "id": "vile-purge",
+    "name": {
+      "en": "Vile Purge",
+      "ru": "Мерзкая чистка"
+    },
+    "type": "power",
+    "icon": "/icons/items/vile-purge.png"
+  },
+  {
+    "id": "of-the-abyss",
+    "name": {
+      "en": "Of the Abyss",
+      "ru": "Из бездны"
+    },
+    "type": "power",
+    "icon": "/icons/items/of-the-abyss.png"
+  },
+  {
+    "id": "jigsaw-s-baptism",
+    "name": {
+      "en": "Jigsaw's Baptism",
+      "ru": "Крещение Джигсоу"
+    },
+    "type": "power",
+    "icon": "/icons/items/jigsaw-s-baptism.png"
+  },
+  {
+    "id": "evil-within",
+    "name": {
+      "en": "Evil Within",
+      "ru": "Зло внутри"
+    },
+    "type": "power",
+    "icon": "/icons/items/evil-within.png"
+  },
+  {
+    "id": "showstopper",
+    "name": {
+      "en": "Showstopper",
+      "ru": "Шоу-стоппер"
+    },
+    "type": "power",
+    "icon": "/icons/items/showstopper.png"
+  },
+  {
+    "id": "rites-of-judgment",
+    "name": {
+      "en": "Rites of Judgment",
+      "ru": "Обряды суда"
+    },
+    "type": "power",
+    "icon": "/icons/items/rites-of-judgment.png"
+  },
+  {
+    "id": "antidote",
+    "name": {
+      "en": "Antidote",
+      "ru": "Антидот"
+    },
+    "type": "item",
+    "icon": "/icons/items/antidote.png"
+  },
+  {
+    "id": "glowing-fungus",
+    "name": {
+      "en": "Glowing Fungus",
+      "ru": "Светящийся гриб"
+    },
+    "type": "item",
+    "icon": "/icons/items/glowing-fungus.png"
+  },
+  {
+    "id": "apprentice-s-fog-vial",
+    "name": {
+      "en": "Apprentice's Fog Vial",
+      "ru": "Флагон тумана ученика"
+    },
+    "type": "item",
+    "icon": "/icons/items/apprentice-s-fog-vial.png"
+  },
+  {
+    "id": "artisan-s-fog-vial",
+    "name": {
+      "en": "Artisan's Fog Vial",
+      "ru": "Флагон тумана ремесленника"
+    },
+    "type": "item",
+    "icon": "/icons/items/artisan-s-fog-vial.png"
+  },
+  {
+    "id": "vigo-s-fog-vial",
+    "name": {
+      "en": "Vigo's Fog Vial",
+      "ru": "Флагон тумана Виго"
+    },
+    "type": "item",
+    "icon": "/icons/items/vigo-s-fog-vial.png"
+  },
+  {
+    "id": "",
+    "name": {
+      "en": null,
+      "ru": null
+    },
+    "type": "item",
+    "icon": "/icons/items/.png",
+    "deprecated": true
   }
 ]

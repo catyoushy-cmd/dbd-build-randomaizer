@@ -1,52 +1,418 @@
 [
   {
     "id": "dwight-fairfield",
-    "name": { "en": "Dwight Fairfield", "ru": "Дуайт Фэйрфилд" },
+    "name": {
+      "en": "Dwight Fairfield",
+      "ru": "Дуайт Фэйрфилд"
+    },
     "icon": "/icons/survivors/dwight-fairfield.png"
   },
   {
     "id": "meg-thomas",
-    "name": { "en": "Meg Thomas", "ru": "Мэг Томас" },
+    "name": {
+      "en": "Meg Thomas",
+      "ru": "Мэг Томас"
+    },
     "icon": "/icons/survivors/meg-thomas.png"
   },
   {
     "id": "claudette-morel",
-    "name": { "en": "Claudette Morel", "ru": "Клодетт Морель" },
+    "name": {
+      "en": "Claudette Morel",
+      "ru": "Клодетт Морель"
+    },
     "icon": "/icons/survivors/claudette-morel.png"
   },
   {
     "id": "jake-park",
-    "name": { "en": "Jake Park", "ru": "Джейк Парк" },
+    "name": {
+      "en": "Jake Park",
+      "ru": "Джейк Парк"
+    },
     "icon": "/icons/survivors/jake-park.png"
   },
   {
     "id": "nea-karlsson",
-    "name": { "en": "Nea Karlsson", "ru": "Неа Карлссон" },
+    "name": {
+      "en": "Nea Karlsson",
+      "ru": "Неа Карлссон"
+    },
     "icon": "/icons/survivors/nea-karlsson.png"
   },
   {
     "id": "laurie-strode",
-    "name": { "en": "Laurie Strode", "ru": "Лори Строд" },
+    "name": {
+      "en": "Laurie Strode",
+      "ru": "Лори Строд"
+    },
     "icon": "/icons/survivors/laurie-strode.png"
   },
   {
-    "id": "bill-overbeck",
-    "name": { "en": "Bill Overbeck", "ru": "Билл Овербек" },
-    "icon": "/icons/survivors/bill-overbeck.png"
+    "id": "ace-visconti",
+    "name": {
+      "en": "Ace Visconti",
+      "ru": "Ace Visconti"
+    },
+    "icon": "/icons/survivors/ace-visconti.png"
+  },
+  {
+    "id": "william-bill-overbeck",
+    "name": {
+      "en": "William \"Bill\" Overbeck",
+      "ru": "William \"Bill\" Overbeck"
+    },
+    "icon": "/icons/survivors/william-bill-overbeck.png"
   },
   {
     "id": "feng-min",
-    "name": { "en": "Feng Min", "ru": "Фэн Минь" },
+    "name": {
+      "en": "Feng Min",
+      "ru": "Фэн Минь"
+    },
     "icon": "/icons/survivors/feng-min.png"
   },
   {
     "id": "david-king",
-    "name": { "en": "David King", "ru": "Дэвид Кинг" },
+    "name": {
+      "en": "David King",
+      "ru": "Дэвид Кинг"
+    },
     "icon": "/icons/survivors/david-king.png"
   },
   {
     "id": "kate-denson",
-    "name": { "en": "Kate Denson", "ru": "Кейт Денсон" },
+    "name": {
+      "en": "Kate Denson",
+      "ru": "Кейт Денсон"
+    },
     "icon": "/icons/survivors/kate-denson.png"
+  },
+  {
+    "id": "quentin-smith",
+    "name": {
+      "en": "Quentin Smith",
+      "ru": "Quentin Smith"
+    },
+    "icon": "/icons/survivors/quentin-smith.png"
+  },
+  {
+    "id": "detective-tapp",
+    "name": {
+      "en": "Detective Tapp",
+      "ru": "Detective Tapp"
+    },
+    "icon": "/icons/survivors/detective-tapp.png"
+  },
+  {
+    "id": "adam-francis",
+    "name": {
+      "en": "Adam Francis",
+      "ru": "Adam Francis"
+    },
+    "icon": "/icons/survivors/adam-francis.png"
+  },
+  {
+    "id": "jeff-johansen",
+    "name": {
+      "en": "Jeff Johansen",
+      "ru": "Jeff Johansen"
+    },
+    "icon": "/icons/survivors/jeff-johansen.png"
+  },
+  {
+    "id": "jane-romero",
+    "name": {
+      "en": "Jane Romero",
+      "ru": "Jane Romero"
+    },
+    "icon": "/icons/survivors/jane-romero.png"
+  },
+  {
+    "id": "ashley-j-williams",
+    "name": {
+      "en": "Ashley J. Williams",
+      "ru": "Ashley J. Williams"
+    },
+    "icon": "/icons/survivors/ashley-j-williams.png"
+  },
+  {
+    "id": "nancy-wheeler",
+    "name": {
+      "en": "Nancy Wheeler",
+      "ru": "Nancy Wheeler"
+    },
+    "icon": "/icons/survivors/nancy-wheeler.png"
+  },
+  {
+    "id": "steve-harrington",
+    "name": {
+      "en": "Steve Harrington",
+      "ru": "Steve Harrington"
+    },
+    "icon": "/icons/survivors/steve-harrington.png"
+  },
+  {
+    "id": "yui-kimura",
+    "name": {
+      "en": "Yui Kimura",
+      "ru": "Yui Kimura"
+    },
+    "icon": "/icons/survivors/yui-kimura.png"
+  },
+  {
+    "id": "zarina-kassir",
+    "name": {
+      "en": "Zarina Kassir",
+      "ru": "Zarina Kassir"
+    },
+    "icon": "/icons/survivors/zarina-kassir.png"
+  },
+  {
+    "id": "cheryl-mason",
+    "name": {
+      "en": "Cheryl Mason",
+      "ru": "Cheryl Mason"
+    },
+    "icon": "/icons/survivors/cheryl-mason.png"
+  },
+  {
+    "id": "felix-richter",
+    "name": {
+      "en": "Felix Richter",
+      "ru": "Felix Richter"
+    },
+    "icon": "/icons/survivors/felix-richter.png"
+  },
+  {
+    "id": "lodie-rakoto",
+    "name": {
+      "en": "Élodie Rakoto",
+      "ru": "Élodie Rakoto"
+    },
+    "icon": "/icons/survivors/lodie-rakoto.png"
+  },
+  {
+    "id": "lee-yun-jin",
+    "name": {
+      "en": "Lee Yun-jin",
+      "ru": "Lee Yun-jin"
+    },
+    "icon": "/icons/survivors/lee-yun-jin.png"
+  },
+  {
+    "id": "jill-valentine",
+    "name": {
+      "en": "Jill Valentine",
+      "ru": "Jill Valentine"
+    },
+    "icon": "/icons/survivors/jill-valentine.png"
+  },
+  {
+    "id": "leon-s-kennedy",
+    "name": {
+      "en": "Leon S. Kennedy",
+      "ru": "Leon S. Kennedy"
+    },
+    "icon": "/icons/survivors/leon-s-kennedy.png"
+  },
+  {
+    "id": "mikaela-reid",
+    "name": {
+      "en": "Mikaela Reid",
+      "ru": "Mikaela Reid"
+    },
+    "icon": "/icons/survivors/mikaela-reid.png"
+  },
+  {
+    "id": "jonah-vasquez",
+    "name": {
+      "en": "Jonah Vasquez",
+      "ru": "Jonah Vasquez"
+    },
+    "icon": "/icons/survivors/jonah-vasquez.png"
+  },
+  {
+    "id": "yoichi-asakawa",
+    "name": {
+      "en": "Yoichi Asakawa",
+      "ru": "Yoichi Asakawa"
+    },
+    "icon": "/icons/survivors/yoichi-asakawa.png"
+  },
+  {
+    "id": "haddie-kaur",
+    "name": {
+      "en": "Haddie Kaur",
+      "ru": "Haddie Kaur"
+    },
+    "icon": "/icons/survivors/haddie-kaur.png"
+  },
+  {
+    "id": "ada-wong",
+    "name": {
+      "en": "Ada Wong",
+      "ru": "Ada Wong"
+    },
+    "icon": "/icons/survivors/ada-wong.png"
+  },
+  {
+    "id": "rebecca-chambers",
+    "name": {
+      "en": "Rebecca Chambers",
+      "ru": "Rebecca Chambers"
+    },
+    "icon": "/icons/survivors/rebecca-chambers.png"
+  },
+  {
+    "id": "vittorio-toscano",
+    "name": {
+      "en": "Vittorio Toscano",
+      "ru": "Vittorio Toscano"
+    },
+    "icon": "/icons/survivors/vittorio-toscano.png"
+  },
+  {
+    "id": "thalita-lyra",
+    "name": {
+      "en": "Thalita Lyra",
+      "ru": "Thalita Lyra"
+    },
+    "icon": "/icons/survivors/thalita-lyra.png"
+  },
+  {
+    "id": "renato-lyra",
+    "name": {
+      "en": "Renato Lyra",
+      "ru": "Renato Lyra"
+    },
+    "icon": "/icons/survivors/renato-lyra.png"
+  },
+  {
+    "id": "gabriel-soma",
+    "name": {
+      "en": "Gabriel Soma",
+      "ru": "Gabriel Soma"
+    },
+    "icon": "/icons/survivors/gabriel-soma.png"
+  },
+  {
+    "id": "nicolas-cage",
+    "name": {
+      "en": "Nicolas Cage",
+      "ru": "Nicolas Cage"
+    },
+    "icon": "/icons/survivors/nicolas-cage.png"
+  },
+  {
+    "id": "ellen-ripley",
+    "name": {
+      "en": "Ellen Ripley",
+      "ru": "Ellen Ripley"
+    },
+    "icon": "/icons/survivors/ellen-ripley.png"
+  },
+  {
+    "id": "alan-wake",
+    "name": {
+      "en": "Alan Wake",
+      "ru": "Alan Wake"
+    },
+    "icon": "/icons/survivors/alan-wake.png"
+  },
+  {
+    "id": "sable-ward",
+    "name": {
+      "en": "Sable Ward",
+      "ru": "Sable Ward"
+    },
+    "icon": "/icons/survivors/sable-ward.png"
+  },
+  {
+    "id": "aestri-yazar",
+    "name": {
+      "en": "Aestri Yazar",
+      "ru": "Aestri Yazar"
+    },
+    "icon": "/icons/survivors/aestri-yazar.png"
+  },
+  {
+    "id": "lara-croft",
+    "name": {
+      "en": "Lara Croft",
+      "ru": "Lara Croft"
+    },
+    "icon": "/icons/survivors/lara-croft.png"
+  },
+  {
+    "id": "trevor-belmont",
+    "name": {
+      "en": "Trevor Belmont",
+      "ru": "Trevor Belmont"
+    },
+    "icon": "/icons/survivors/trevor-belmont.png"
+  },
+  {
+    "id": "taurie-cain",
+    "name": {
+      "en": "Taurie Cain",
+      "ru": "Taurie Cain"
+    },
+    "icon": "/icons/survivors/taurie-cain.png"
+  },
+  {
+    "id": "orela-rose",
+    "name": {
+      "en": "Orela Rose",
+      "ru": "Orela Rose"
+    },
+    "icon": "/icons/survivors/orela-rose.png"
+  },
+  {
+    "id": "rick-grimes",
+    "name": {
+      "en": "Rick Grimes",
+      "ru": "Rick Grimes"
+    },
+    "icon": "/icons/survivors/rick-grimes.png"
+  },
+  {
+    "id": "michonne-grimes",
+    "name": {
+      "en": "Michonne Grimes",
+      "ru": "Michonne Grimes"
+    },
+    "icon": "/icons/survivors/michonne-grimes.png"
+  },
+  {
+    "id": "vee-boonyasak",
+    "name": {
+      "en": "Vee Boonyasak",
+      "ru": "Vee Boonyasak"
+    },
+    "icon": "/icons/survivors/vee-boonyasak.png"
+  },
+  {
+    "id": "dustin-henderson",
+    "name": {
+      "en": "Dustin Henderson",
+      "ru": "Dustin Henderson"
+    },
+    "icon": "/icons/survivors/dustin-henderson.png"
+  },
+  {
+    "id": "eleven",
+    "name": {
+      "en": "Eleven",
+      "ru": "Eleven"
+    },
+    "icon": "/icons/survivors/eleven.png"
+  },
+  {
+    "id": "kwon-tae-young",
+    "name": {
+      "en": "Kwon Tae-young",
+      "ru": "Kwon Tae-young"
+    },
+    "icon": "/icons/survivors/kwon-tae-young.png"
   }
 ]
