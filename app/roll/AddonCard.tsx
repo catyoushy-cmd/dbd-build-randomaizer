@@ -1,17 +1,9 @@
 'use client';
 
-import { Lock, LockOpen } from 'lucide-react';
+import { ShapeCard, rarityColor } from '@/components/ui/shape-card';
 import { Tooltip, TooltipTrigger, TooltipContent } from '@/components/ui/tooltip';
 import type { Addon } from '@/lib/data';
-import { cn } from '@/lib/utils';
-
-const RARITY_COLOR: Record<string, string> = {
-  'common':     'border-stone-500/40 text-stone-400',
-  'uncommon':   'border-yellow-600/40 text-yellow-600',
-  'rare':       'border-green-500/40 text-green-400',
-  'very-rare':  'border-purple-500/40 text-purple-400',
-  'ultra-rare': 'border-pink-500/40 text-pink-400',
-};
+import { formatDbdText } from '@/lib/dbd-text';
 
 type Props = {
   addon: Addon;
@@ -20,48 +12,109 @@ type Props = {
 };
 
 export function AddonCard({ addon, pinned = false, onTogglePin }: Props) {
+  const ring = rarityColor(addon.rarity);
+
   return (
     <Tooltip>
       <TooltipTrigger
         render={
           <button
-            className={cn(
-              'group relative flex items-center gap-2.5 rounded-lg border px-3 py-2 text-left transition-all duration-150 w-full',
-              'bg-card hover:bg-secondary/50',
-              pinned
-                ? 'border-primary/60 ring-1 ring-primary/30'
-                : 'border-border hover:border-border/80',
-            )}
             onClick={onTogglePin}
             aria-label={addon.name.ru}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: 14,
+              width: '100%',
+              padding: '10px 14px',
+              background: 'var(--bg-1)',
+              border: `1px solid ${pinned ? 'var(--dbd-accent)' : 'var(--line-2)'}`,
+              cursor: 'pointer',
+              textAlign: 'left',
+              transition: 'border-color .18s ease, background .18s ease',
+              outline: pinned ? '1px solid rgba(184,67,31,.25)' : 'none',
+            }}
           >
-            <div
-              className={cn(
-                'h-8 w-8 shrink-0 rounded border-2 bg-secondary flex items-center justify-center text-[10px] font-bold',
-                RARITY_COLOR[addon.rarity] ?? 'border-stone-500/40 text-stone-400',
+            <ShapeCard shape="rect" size={44} ringColor={ring} pinned={pinned}>
+              {addon.icon ? (
+                <img
+                  src={addon.icon}
+                  alt={addon.name.ru}
+                  style={{ width: 28, height: 28, objectFit: 'contain', opacity: .9 }}
+                  onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
+                />
+              ) : (
+                <span
+                  style={{
+                    fontFamily: 'var(--font-sans, Manrope, system-ui)',
+                    fontWeight: 700,
+                    fontSize: 13,
+                    color: ring,
+                    textShadow: `0 0 8px ${ring}`,
+                  }}
+                >
+                  {addon.rarity[0].toUpperCase()}
+                </span>
               )}
-            >
-              {addon.rarity[0].toUpperCase()}
+            </ShapeCard>
+
+            <div style={{ flex: 1, minWidth: 0 }}>
+              <span
+                style={{
+                  display: 'block',
+                  fontFamily: 'var(--font-sans, Manrope, system-ui)',
+                  fontSize: 13,
+                  fontWeight: 600,
+                  color: pinned ? 'var(--dbd-bone)' : 'var(--ink)',
+                  whiteSpace: 'nowrap',
+                  overflow: 'hidden',
+                  textOverflow: 'ellipsis',
+                  transition: 'color .18s ease',
+                }}
+              >
+                {addon.name.ru}
+              </span>
+              <span
+                className="label-mono"
+                style={{ fontSize: 9, color: ring, marginTop: 2, display: 'block' }}
+              >
+                {addon.rarity.replace(/-/g, ' ')}
+              </span>
             </div>
-            <span className="text-xs font-medium text-foreground line-clamp-1 flex-1">
-              {addon.name.ru}
-            </span>
-            <span
-              className={cn(
-                'shrink-0 transition-opacity',
-                pinned
-                  ? 'opacity-100 text-primary'
-                  : 'opacity-0 group-hover:opacity-60 text-muted-foreground',
-              )}
-            >
-              {pinned ? <Lock size={11} /> : <LockOpen size={11} />}
-            </span>
+
+            {pinned && (
+              <span
+                className="label-mono"
+                style={{ fontSize: 9, color: 'var(--dbd-accent)', flexShrink: 0 }}
+              >
+                ✦
+              </span>
+            )}
           </button>
         }
       />
-      <TooltipContent side="top">
-        <p className="font-semibold">{addon.name.ru}</p>
-        <p className="text-xs opacity-70 capitalize">{addon.rarity.replace('-', ' ')}</p>
+      <TooltipContent
+        side="top"
+        style={{
+          maxWidth: 280,
+          textAlign: 'left',
+          background: 'linear-gradient(to bottom, rgba(20,17,15,.97), rgba(11,9,8,.97))',
+          border: '1px solid var(--line-2)',
+          borderRadius: 0,
+          padding: '12px 14px',
+        }}
+      >
+        <div style={{ fontFamily: 'var(--font-sans, Manrope, system-ui)', fontWeight: 700, fontSize: 14, color: 'var(--dbd-bone)' }}>
+          {addon.name.ru}
+        </div>
+        <div className="label-mono" style={{ fontSize: 9, color: ring, marginTop: 4 }}>
+          {addon.rarity.replace(/-/g, ' ')}
+        </div>
+        {addon.description?.ru && (
+          <div style={{ fontSize: 12, color: 'var(--ink)', lineHeight: 1.5, marginTop: 8, whiteSpace: 'pre-line' }}>
+            {formatDbdText(addon.description.ru)}
+          </div>
+        )}
       </TooltipContent>
     </Tooltip>
   );

@@ -1,92 +1,171 @@
 import Link from 'next/link';
-import { Dices, Zap, PartyPopper, Shuffle } from 'lucide-react';
 
 const MODES = [
   {
-    icon: <Dices size={22} className="text-primary" />,
+    glyph: '⚄',
     title: 'Полный рандом',
+    label: 'RANDOM',
     desc: 'Любые 4 перка, случайный предмет и аддоны — чистая лотерея.',
     href: '/roll?mode=random',
   },
   {
-    icon: <Zap size={22} className="text-primary" />,
+    glyph: '⚡',
     title: 'Эффективность',
+    label: 'EFFICIENT',
     desc: 'Синергичный билд под реальные задачи. Генераторы, погоня, контроль.',
     href: '/roll?mode=efficient',
   },
   {
-    icon: <PartyPopper size={22} className="text-primary" />,
+    glyph: '✦',
     title: 'Веселье',
+    label: 'FUN',
     desc: 'Гиммик-билды, которые редко работают — но когда работают, это незабываемо.',
     href: '/roll?mode=fun',
   },
 ];
 
+const STEPS = [
+  { n: 'I',   text: 'Выбери роль и персонажа' },
+  { n: 'II',  text: 'Выбери режим и брось жребий' },
+  { n: 'III', text: 'Закрепи понравившиеся слоты и перекинь остальное' },
+];
+
 export default function Home() {
   return (
-    <div className="mx-auto max-w-2xl px-4 py-12 space-y-12">
-      {/* Hero */}
-      <section className="text-center space-y-4 animate-fade-up">
-        <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-medium text-primary">
-          <Shuffle size={12} />
-          Dead by Daylight Build Randomizer
+    <div
+      style={{
+        maxWidth: 860,
+        margin: '0 auto',
+        padding: '64px 40px 80px',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 64,
+      }}
+    >
+      {/* ── Hero / Altar ── */}
+      <section
+        className="animate-fade-up"
+        style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 20 }}
+      >
+        {/* Altar ring SVG decoration */}
+        <div style={{ position: 'relative', width: 160, height: 160, marginBottom: 8 }}>
+          <svg viewBox="0 0 160 160" style={{ width: '100%', height: '100%' }}>
+            <defs>
+              <radialGradient id="altarGlow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%"  stopColor="var(--dbd-accent)" stopOpacity=".3" />
+                <stop offset="60%" stopColor="var(--dbd-accent)" stopOpacity="0" />
+              </radialGradient>
+            </defs>
+            <circle cx="80" cy="80" r="75" fill="url(#altarGlow)" />
+            <circle cx="80" cy="80" r="72" fill="none" stroke="var(--line-1)" strokeWidth="1" />
+            <circle cx="80" cy="80" r="58" fill="none" stroke="var(--line-1)" strokeWidth=".5" strokeDasharray="2 6" />
+            <circle cx="80" cy="80" r="42" fill="none" stroke="var(--line-2)" strokeWidth=".5" />
+            {/* Cardinal sigils */}
+            <g transform="translate(80 8) rotate(0)">
+              <polygon points="-4,-3 4,-3 0,6" fill="none" stroke="var(--dbd-brass)" strokeWidth=".8" opacity=".6" />
+            </g>
+            <g transform="translate(152 80) rotate(90)">
+              <polygon points="-4,-3 4,-3 0,6" fill="none" stroke="var(--dbd-brass)" strokeWidth=".8" opacity=".6" />
+            </g>
+            <g transform="translate(80 152) rotate(180)">
+              <polygon points="-4,-3 4,-3 0,6" fill="none" stroke="var(--dbd-brass)" strokeWidth=".8" opacity=".6" />
+            </g>
+            <g transform="translate(8 80) rotate(270)">
+              <polygon points="-4,-3 4,-3 0,6" fill="none" stroke="var(--dbd-brass)" strokeWidth=".8" opacity=".6" />
+            </g>
+            {/* Centre hex */}
+            <polygon points="80,52 96,60 96,76 80,84 64,76 64,60" fill="none" stroke="var(--dbd-accent)" strokeWidth="1" opacity=".8" />
+            <circle cx="80" cy="68" r="2.5" fill="var(--dbd-accent)" />
+          </svg>
         </div>
-        <h1 className="text-4xl font-bold tracking-tight">
-          Хватит выбирать перки вручную
-        </h1>
-        <p className="text-muted-foreground text-lg max-w-md mx-auto">
-          Выбери выжившего или убийцу, нажми Roll — получи готовый билд за секунду.
-        </p>
+
+        <div>
+          <span className="label-mono" style={{ color: 'var(--ink-mute)', fontSize: 11 }}>
+            Призыв
+          </span>
+          <h1
+            style={{
+              margin: '8px 0',
+              fontSize: 42,
+              fontWeight: 800,
+              letterSpacing: '-.01em',
+              color: 'var(--dbd-bone)',
+              lineHeight: 1.05,
+            }}
+          >
+            DBD Randomizer
+          </h1>
+          <p
+            style={{
+              margin: '8px auto 0',
+              maxWidth: 380,
+              color: 'var(--ink-mute)',
+              fontSize: 15,
+              lineHeight: 1.6,
+              fontStyle: 'italic',
+            }}
+          >
+            Брось четыре жребия в туман.
+            <br />
+            Что вернётся — то и понесёшь.
+          </p>
+        </div>
+
         <Link
           href="/roll"
-          className="inline-flex items-center gap-2 rounded-xl bg-primary px-8 py-3 text-base font-bold text-primary-foreground shadow-lg hover:opacity-90 transition-all active:scale-[0.98]"
+          className="ritual-btn ritual-btn-primary animate-ritual-glow"
+          style={{ marginTop: 8, padding: '18px 56px', fontSize: 15, textDecoration: 'none', display: 'inline-block' }}
         >
-          <Dices size={18} />
-          Начать роллить
+          БРОСИТЬ
         </Link>
+
+        <span className="label-mono" style={{ fontSize: 10, color: 'var(--ink-faint)' }}>
+          Пробел · R — горячие клавиши в рандомайзере
+        </span>
       </section>
 
-      {/* Mode cards */}
-      <section className="space-y-3">
-        <h2 className="text-xs font-semibold uppercase tracking-widest text-muted-foreground text-center">
-          Три режима
-        </h2>
-        <div className="grid gap-3 sm:grid-cols-3">
-          {MODES.map((m) => (
-            <Link
-              key={m.title}
-              href={m.href}
-              className="hover-lift flex flex-col gap-3 rounded-2xl border border-border bg-card p-5 transition-colors hover:border-primary/40"
-            >
-              {m.icon}
-              <div>
-                <p className="font-semibold text-sm">{m.title}</p>
-                <p className="text-xs text-muted-foreground mt-1 leading-relaxed">{m.desc}</p>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </section>
+      {/* ── Divider ── */}
+      <div className="ritual-divider">
+        <span className="label-mono" style={{ fontSize: 10 }}>Три пути</span>
+      </div>
 
-      {/* How it works */}
-      <section className="space-y-3">
-        <h2 className="text-xs font-semibold uppercase tracking-widest text-muted-foreground text-center">
-          Как работает
-        </h2>
-        <div className="grid gap-2 sm:grid-cols-3">
-          {[
-            { n: '1', text: 'Выбери роль и персонажа' },
-            { n: '2', text: 'Выбери режим и нажми Roll' },
-            { n: '3', text: 'Закрепи понравившиеся слоты и перекинь остальное' },
-          ].map((step) => (
-            <div key={step.n} className="flex items-start gap-3 rounded-xl border border-border bg-card p-4">
-              <span className="shrink-0 flex h-6 w-6 items-center justify-center rounded-full bg-primary/20 text-xs font-bold text-primary">
-                {step.n}
-              </span>
-              <p className="text-sm text-muted-foreground leading-relaxed">{step.text}</p>
+      {/* ── Mode cards ── */}
+      <section style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16 }}>
+        {MODES.map((m) => (
+          <Link key={m.label} href={m.href} className="ritual-mode-card">
+            <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+              <span style={{ fontSize: 20, color: 'var(--dbd-accent)', lineHeight: 1 }}>{m.glyph}</span>
+              <span className="label-mono" style={{ color: 'var(--dbd-accent)', fontSize: 10 }}>{m.label}</span>
             </div>
-          ))}
-        </div>
+            <div>
+              <p style={{ margin: 0, fontWeight: 700, fontSize: 14, color: 'var(--dbd-bone)', letterSpacing: '.02em' }}>
+                {m.title}
+              </p>
+              <p style={{ margin: '6px 0 0', fontSize: 12, color: 'var(--ink-mute)', lineHeight: 1.55 }}>
+                {m.desc}
+              </p>
+            </div>
+          </Link>
+        ))}
+      </section>
+
+      {/* ── Divider ── */}
+      <div className="ritual-divider">
+        <span className="label-mono" style={{ fontSize: 10 }}>Обряд</span>
+      </div>
+
+      {/* ── How it works ── */}
+      <section style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16 }}>
+        {STEPS.map((step) => (
+          <div key={step.n} className="ritual-step-card">
+            <span className="label-mono" style={{ fontSize: 14, color: 'var(--dbd-accent)', lineHeight: 1, flexShrink: 0, paddingTop: 2 }}>
+              {step.n}
+            </span>
+            <p style={{ margin: 0, fontSize: 13, color: 'var(--ink-mute)', lineHeight: 1.55 }}>
+              {step.text}
+            </p>
+          </div>
+        ))}
       </section>
     </div>
   );

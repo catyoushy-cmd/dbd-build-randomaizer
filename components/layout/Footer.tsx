@@ -1,8 +1,19 @@
 export function Footer() {
   return (
-    <footer className="border-t border-border/50 py-4">
-      <p className="text-center text-xs text-muted-foreground">
-        DBD Randomizer — фан-проект, не аффилирован с BHVR
+    <footer
+      style={{
+        borderTop: '1px solid var(--line-1)',
+        padding: '18px 40px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}
+    >
+      <p
+        className="label-mono"
+        style={{ fontSize: 10, color: 'var(--ink-faint)', letterSpacing: '.2em' }}
+      >
+        DBD Randomizer · фан-проект, не аффилирован с BHVR
       </p>
     </footer>
   );

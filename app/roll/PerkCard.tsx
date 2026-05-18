@@ -1,16 +1,14 @@
 'use client';
 
-import { Lock, LockOpen } from 'lucide-react';
+import { useState } from 'react';
+import { ShapeCard } from '@/components/ui/shape-card';
 import { Tooltip, TooltipTrigger, TooltipContent } from '@/components/ui/tooltip';
 import type { Perk } from '@/lib/data';
-import { cn } from '@/lib/utils';
+import { formatDbdText } from '@/lib/dbd-text';
 
-const TIER_COLOR: Record<string, string> = {
-  S: 'text-amber-400 border-amber-400/40',
-  A: 'text-emerald-400 border-emerald-400/40',
-  B: 'text-sky-400 border-sky-400/40',
-  C: 'text-stone-400 border-stone-400/40',
-};
+/* All perks are displayed as tier-III purple (design spec) */
+const PERK_RING = 'var(--perk-tier3-edge)';
+const PERK_TINT = '#3a2057';
 
 type Props = {
   perk: Perk;
@@ -20,59 +18,168 @@ type Props = {
 };
 
 export function PerkCard({ perk, pinned = false, onTogglePin }: Props) {
+  const [hovered, setHovered] = useState(false);
+
   return (
     <Tooltip>
       <TooltipTrigger
         render={
-          <button
-            className={cn(
-              'group relative flex flex-col items-center gap-2 rounded-xl border p-3 text-center transition-all duration-150',
-              'bg-card hover:bg-secondary/50',
-              pinned
-                ? 'border-primary/60 ring-1 ring-primary/30'
-                : 'border-border hover:border-border/80',
-            )}
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              gap: 10,
+              cursor: 'pointer',
+              paddingBottom: 4,
+            }}
             onClick={onTogglePin}
+            onMouseEnter={() => setHovered(true)}
+            onMouseLeave={() => setHovered(false)}
             aria-label={`${perk.name.ru}${pinned ? ' (закреплён)' : ''}`}
           >
-            {/* Icon placeholder — будет заменён реальным спрайтом */}
             <div
-              className={cn(
-                'flex h-14 w-14 items-center justify-center rounded-lg border-2 bg-secondary text-xs font-bold',
-                TIER_COLOR[perk.tier] ?? 'text-stone-400 border-stone-400/40',
-              )}
-              title={perk.tier}
+              style={{
+                filter: hovered
+                  ? 'drop-shadow(0 0 18px rgba(126,81,179,.55))'
+                  : pinned
+                  ? 'drop-shadow(0 0 12px rgba(184,67,31,.4))'
+                  : 'none',
+                transition: 'filter .25s ease',
+              }}
             >
-              {perk.tier}
+              <ShapeCard
+                shape="diamond"
+                size={118}
+                ringColor={PERK_RING}
+                innerTint={PERK_TINT}
+                pinned={pinned}
+              >
+                {/* Icon or sigil */}
+                {perk.icon ? (
+                  <img
+                    src={perk.icon}
+                    alt={perk.name.ru}
+                    style={{
+                      width: 52,
+                      height: 52,
+                      objectFit: 'contain',
+                      opacity: .9,
+                    }}
+                    onError={(e) => {
+                      (e.currentTarget as HTMLImageElement).style.display = 'none';
+                    }}
+                  />
+                ) : (
+                  <PerkSigil glyph={perk.tier ?? '?'} />
+                )}
+              </ShapeCard>
             </div>
 
-            <span className="text-xs font-medium leading-tight text-foreground line-clamp-2">
-              {perk.name.ru}
-            </span>
-
-            {/* Pin indicator */}
-            <span
-              className={cn(
-                'absolute right-1.5 top-1.5 rounded p-0.5 transition-opacity',
-                pinned
-                  ? 'opacity-100 text-primary'
-                  : 'opacity-0 group-hover:opacity-60 text-muted-foreground',
+            {/* Perk name below */}
+            <div style={{ textAlign: 'center', maxWidth: 120 }}>
+              <span
+                style={{
+                  display: 'block',
+                  fontFamily: 'var(--font-sans, Manrope, system-ui)',
+                  fontSize: 11,
+                  fontWeight: 600,
+                  color: pinned ? 'var(--dbd-bone)' : 'var(--ink-mute)',
+                  lineHeight: 1.3,
+                  letterSpacing: '.04em',
+                  transition: 'color .2s ease',
+                }}
+              >
+                {perk.name.ru}
+              </span>
+              {pinned && (
+                <span
+                  className="label-mono"
+                  style={{ fontSize: 9, color: 'var(--dbd-accent)', marginTop: 2, display: 'block' }}
+                >
+                  заперт
+                </span>
               )}
-            >
-              {pinned ? <Lock size={12} /> : <LockOpen size={12} />}
-            </span>
-          </button>
+            </div>
+          </div>
         }
       />
-      <TooltipContent side="top" className="max-w-xs text-left">
-        <div className="space-y-1">
-          <p className="font-semibold">{perk.name.ru}</p>
-          <p className="text-xs opacity-80">{perk.description.ru}</p>
-          {perk.character && (
-            <p className="text-xs opacity-50">Персонаж: {perk.character}</p>
-          )}
+      <TooltipContent
+        side="top"
+        style={{
+          maxWidth: 280,
+          textAlign: 'left',
+          background: 'linear-gradient(to bottom, rgba(28,23,32,.97), rgba(11,9,12,.97))',
+          border: '1px solid var(--perk-tier3)',
+          borderRadius: 0,
+          padding: '14px 16px',
+          boxShadow: '0 18px 40px rgba(0,0,0,.6)',
+        }}
+      >
+        <div className="label-mono" style={{ color: 'var(--perk-tier3-edge)', fontSize: 9 }}>
+          УР. III · перк
         </div>
+        <div
+          style={{
+            fontFamily: 'var(--font-sans, Manrope, system-ui)',
+            fontWeight: 700,
+            fontSize: 15,
+            color: 'var(--dbd-bone)',
+            marginTop: 4,
+          }}
+        >
+          {perk.name.ru}
+        </div>
+        <div
+          style={{
+            height: 1,
+            margin: '10px 0',
+            background: 'linear-gradient(to right, var(--line-2), transparent)',
+          }}
+        />
+        <div
+          style={{
+            fontSize: 12,
+            color: 'var(--ink)',
+            lineHeight: 1.55,
+            whiteSpace: 'pre-line',
+          }}
+        >
+          {formatDbdText(perk.description.ru, perk.tunables)}
+        </div>
+        {perk.character && (
+          <div
+            className="label-mono"
+            style={{ marginTop: 10, fontSize: 9, color: 'var(--ink-faint)' }}
+          >
+            {perk.character}
+          </div>
+        )}
       </TooltipContent>
     </Tooltip>
+  );
+}
+
+function PerkSigil({ glyph }: { glyph: string }) {
+  return (
+    <div style={{ position: 'relative', width: 52, height: 52, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <svg viewBox="0 0 60 60" width="52" height="52" style={{ position: 'absolute', inset: 0 }}>
+        <circle cx="30" cy="30" r="26" fill="none" stroke="var(--perk-tier3-edge)" strokeWidth="0.6" opacity=".6" />
+        <circle cx="30" cy="30" r="20" fill="none" stroke="var(--perk-tier3-edge)" strokeWidth="0.4" opacity=".4" strokeDasharray="2 3" />
+        <polygon points="30,12 46,42 14,42" fill="none" stroke="var(--perk-tier3-edge)" strokeWidth="0.5" opacity=".7" />
+      </svg>
+      <span
+        style={{
+          position: 'relative',
+          fontFamily: 'var(--font-sans, Manrope, system-ui)',
+          fontWeight: 800,
+          fontSize: 14,
+          color: 'var(--dbd-bone)',
+          textShadow: '0 0 12px var(--perk-tier3-edge), 0 2px 0 rgba(0,0,0,.6)',
+        }}
+      >
+        {glyph}
+      </span>
+    </div>
   );
 }

@@ -30,7 +30,7 @@ function addonPoolForItem(itemType: ItemType): Addon[] {
 }
 
 function offeringPool(role: 'survivor' | 'killer'): Offering[] {
-  return OFFERINGS.filter(o => o.role === role || o.role === 'both');
+  return OFFERINGS.filter(o => o.role === role || o.role === 'both' || (o.role as string) === 'any');
 }
 
 function rollRandom(rng: () => number, role: 'survivor' | 'killer', killerId: string | null): Omit<Build, 'seed' | 'role' | 'killerId' | 'survivorId' | 'mode'> {

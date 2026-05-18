@@ -26,55 +26,125 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-  --font-sans: var(--font-inter);
-  --font-display: var(--font-onest);
+  --font-sans: var(--font-manrope);
+  --font-mono: var(--font-jetbrains);
+  --font-display: var(--font-manrope);
 }
 
 :root {
-  --radius: 0.625rem;
+  --radius: 0rem;
 
-  /* DBD тёмная тема — stone-neutral + emerald-акцент */
-  --background: oklch(0.13 0.004 258);
-  --foreground: oklch(0.95 0.003 258);
-  --card: oklch(0.17 0.005 258);
-  --card-foreground: oklch(0.95 0.003 258);
-  --popover: oklch(0.17 0.005 258);
-  --popover-foreground: oklch(0.95 0.003 258);
-  --primary: oklch(0.7 0.19 152);        /* emerald */
-  --primary-foreground: oklch(0.1 0.01 152);
-  --secondary: oklch(0.22 0.005 258);
-  --secondary-foreground: oklch(0.9 0.003 258);
-  --muted: oklch(0.22 0.005 258);
-  --muted-foreground: oklch(0.6 0.005 258);
-  --accent: oklch(0.7 0.19 152);         /* emerald */
-  --accent-foreground: oklch(0.1 0.01 152);
-  --destructive: oklch(0.65 0.22 27);
-  --border: oklch(0.28 0.006 258);
-  --input: oklch(0.28 0.006 258);
-  --ring: oklch(0.7 0.19 152);
+  /* ─── Ritual colour tokens ─── */
+  --bg-deep:        #0b0908;
+  --bg-1:           #14110f;
+  --bg-2:           #1c1714;
+  --bg-3:           #261f1a;
+  --line-1:         #2a221d;
+  --line-2:         #3a2f27;
+  --line-ember:     #5a3220;
+  --ink:            #ddcfb8;
+  --ink-mute:       #968878;
+  --ink-faint:      #5f574d;
+  --dbd-accent:     #b8431f;
+  --dbd-accent-glow:#e9651e;
+  --dbd-blood:      #7a1717;
+  --dbd-bone:       #e9dcc2;
+  --dbd-brass:      #c39b59;
 
-  /* Дополнительные токены */
-  --surface: oklch(0.17 0.005 258);
-  --surface-2: oklch(0.22 0.005 258);
-  --bg-2: oklch(0.16 0.004 258);
-  --bg-3: oklch(0.20 0.005 258);
+  /* Rarity colours */
+  --r-common:       #6f6657;
+  --r-uncommon:     #5c6e3f;
+  --r-rare:         #3a6470;
+  --r-veryrare:     #6e4282;
+  --r-ultra:        #c4521f;
+  --perk-tier3:     #5d3a8a;
+  --perk-tier3-edge:#7e51b3;
+
+  /* ─── shadcn/ui variable mapping ─── */
+  --background: var(--bg-deep);
+  --foreground: var(--ink);
+  --card:           var(--bg-1);
+  --card-foreground: var(--ink);
+  --popover:        var(--bg-2);
+  --popover-foreground: var(--ink);
+  --primary:        var(--dbd-accent);
+  --primary-foreground: #ffffff;
+  --secondary:      var(--bg-2);
+  --secondary-foreground: var(--ink);
+  --muted:          var(--bg-2);
+  --muted-foreground: var(--ink-mute);
+  --accent:         var(--bg-3);
+  --accent-foreground: var(--ink);
+  --destructive:    var(--dbd-blood);
+  --border:         var(--line-2);
+  --input:          var(--line-1);
+  --ring:           var(--dbd-accent);
 }
 
-/* Принудительно тёмная тема по умолчанию */
+/* ─── Force dark theme ─── */
 html {
   color-scheme: dark;
 }
 
+/* ─── Body: background + atmosphere ─── */
 body {
   overflow-x: hidden;
-  font-family: var(--font-sans, system-ui, sans-serif);
+  font-family: var(--font-sans, "Manrope", system-ui, sans-serif);
+  background:
+    radial-gradient(ellipse 1200px 700px at 50% 30%, rgba(184,67,31,.08), transparent 70%),
+    radial-gradient(ellipse 900px 600px at 12% 80%, rgba(110,66,130,.06), transparent 70%),
+    radial-gradient(ellipse 700px 500px at 100% 90%, rgba(58,100,112,.05), transparent 70%),
+    var(--bg-deep);
+  min-height: 100vh;
 }
 
+/* vignette overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 100;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 50%, transparent 30%, rgba(0,0,0,.55) 90%),
+    radial-gradient(ellipse 60% 40% at 50% 100%, rgba(0,0,0,.6), transparent 70%);
+}
+
+/* noise texture */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 101;
+  opacity: .28;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' seed='3'/><feColorMatrix values='0 0 0 0 0.05  0 0 0 0 0.04  0 0 0 0 0.03  0 0 0 1 0'/></filter><rect width='200' height='200' filter='url(%23n)' opacity='0.6'/></svg>");
+  mix-blend-mode: overlay;
+}
+
+/* ─── Typography ─── */
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-display, var(--font-sans, system-ui, sans-serif));
+  font-family: var(--font-display, "Manrope", system-ui, sans-serif);
+  font-weight: 700;
+  color: var(--dbd-bone);
 }
 
-/* Анимации */
+.label-mono {
+  font-family: var(--font-mono, "JetBrains Mono", ui-monospace, monospace);
+  font-size: 11px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  font-weight: 500;
+}
+
+/* ─── Ritual selection highlight ─── */
+::selection {
+  background: var(--dbd-accent);
+  color: #fff;
+}
+
+/* ─── Animations ─── */
 @keyframes fade-up {
   from { opacity: 0; transform: translateY(8px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -90,19 +160,148 @@ h1, h2, h3, h4, h5, h6 {
   50%       { opacity: 0.5; }
 }
 
+@keyframes ritual-glow-pulse {
+  0%, 100% { box-shadow: 0 0 16px rgba(184,67,31,.3); }
+  50%       { box-shadow: 0 0 32px rgba(232,101,30,.5); }
+}
+
 @keyframes hover-lift {
   to { transform: translateY(-2px); }
 }
 
-.animate-fade-up   { animation: fade-up 0.4s ease both; }
-.animate-fade-out  { animation: fade-out 0.22s ease both; }
-.animate-ring-pulse { animation: ring-pulse 1.5s ease-in-out infinite; }
+@keyframes stagger-reveal {
+  from { opacity: 0; transform: scale(0.9); }
+  to   { opacity: 1; transform: scale(1); }
+}
 
-/* Hover lift для карточек */
+.animate-fade-up       { animation: fade-up 0.4s ease both; }
+.animate-fade-out      { animation: fade-out 0.22s ease both; }
+.animate-ring-pulse    { animation: ring-pulse 1.5s ease-in-out infinite; }
+.animate-ritual-glow   { animation: ritual-glow-pulse 2s ease-in-out infinite; }
+.animate-stagger       { animation: stagger-reveal 0.35s ease both; }
+
+/* ─── Hover lift ─── */
 .hover-lift {
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 .hover-lift:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 16px oklch(0 0 0 / 0.4);
+  box-shadow: 0 6px 24px rgba(0,0,0,.5);
+}
+
+/* ─── Ritual divider line ─── */
+.ritual-divider {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: var(--ink-faint);
+  margin: 8px 0;
+}
+.ritual-divider::before,
+.ritual-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+}
+.ritual-divider::before {
+  background: linear-gradient(to right, transparent, var(--line-2));
+}
+.ritual-divider::after {
+  background: linear-gradient(to left, transparent, var(--line-2));
+}
+
+/* ─── Ritual button base ─── */
+.ritual-btn {
+  font-family: var(--font-sans, "Manrope", system-ui, sans-serif);
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  border-radius: 0;
+  cursor: pointer;
+  transition: all .18s ease;
+  border: 1px solid;
+  position: relative;
+  overflow: hidden;
+}
+.ritual-btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0);
+  transition: background .18s ease;
+}
+.ritual-btn:hover::after {
+  background: rgba(255,255,255,.04);
+}
+
+/* ─── Primary action button ─── */
+.ritual-btn-primary {
+  background: var(--dbd-accent);
+  color: #fff;
+  border-color: var(--dbd-accent-glow);
+  box-shadow: 0 0 0 1px rgba(0,0,0,.5),
+              0 0 24px rgba(232,101,30,.25),
+              inset 0 0 0 1px rgba(255,255,255,.08);
+}
+.ritual-btn-primary:hover {
+  box-shadow: 0 0 0 1px rgba(0,0,0,.5),
+              0 0 40px rgba(232,101,30,.4),
+              inset 0 0 0 1px rgba(255,255,255,.12);
+}
+
+/* ─── Ghost button ─── */
+.ritual-btn-ghost {
+  background: transparent;
+  color: var(--ink-mute);
+  border-color: var(--line-2);
+}
+.ritual-btn-ghost:hover {
+  color: var(--ink);
+  border-color: var(--line-ember);
+}
+
+/* ─── Shape card clip-path shapes ─── */
+.shape-diamond {
+  clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+  -webkit-clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+}
+.shape-pentagon {
+  clip-path: polygon(50% 0, 100% 36.32%, 80.9% 95.1%, 19.1% 95.1%, 0 36.32%);
+  -webkit-clip-path: polygon(50% 0, 100% 36.32%, 80.9% 95.1%, 19.1% 95.1%, 0 36.32%);
+}
+.shape-rect {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+/* ─── Rarity text colours (utility classes) ─── */
+.rarity-common   { color: var(--r-common); }
+.rarity-uncommon { color: var(--r-uncommon); }
+.rarity-rare     { color: var(--r-rare); }
+.rarity-veryrare { color: var(--r-veryrare); }
+.rarity-ultra    { color: var(--r-ultra); }
+
+/* ─── Home page mode card hover ─── */
+.ritual-mode-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 20px 18px;
+  border: 1px solid var(--line-2);
+  background: var(--bg-1);
+  text-decoration: none;
+  transition: border-color .2s ease, background .2s ease;
+}
+.ritual-mode-card:hover {
+  border-color: var(--line-ember);
+  background: var(--bg-2);
+}
+
+/* ─── Home page step card ─── */
+.ritual-step-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 18px 16px;
+  border: 1px solid var(--line-1);
+  background: rgba(20,17,15,.5);
 }

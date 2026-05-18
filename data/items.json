@@ -5,53 +5,83 @@
       "en": "Candelabra",
       "ru": "Канделябр"
     },
-    "type": "item",
-    "icon": "/icons/items/candelabra.png"
+    "type": "key",
+    "rarity": "common",
+    "icon": "/icons/items/candelabra.png",
+    "description": {
+      "en": "",
+      "ru": "В самых темных уголках дворца свет — высшая роскошь. 90 зарядов .Рассеивает Туман, если взять его в руки.При использовании показывает ауру ближайшего не до конца починенного генератора и текущие действия выживших в интерфейсе.Если поставить на генератор, все выжившие в радиусе 32 м от этого генератора смогут видеть его ауру.После починки генератора со стоящим на нем канделябром аура генератора будет скрыта от убийцы на 15 сек. Убийцы могут уничтожать канделябры на генераторах."
+    }
   },
   {
     "id": "alex-s-toolbox",
     "name": {
       "en": "Alex's Toolbox",
-      "ru": "Ящик Алекса"
+      "ru": "Инструменты Алекса"
     },
-    "type": "item",
-    "icon": "/icons/items/alex-s-toolbox.png"
+    "type": "toolbox",
+    "rarity": "veryrare",
+    "icon": "/icons/items/alex-s-toolbox.png",
+    "description": {
+      "en": "",
+      "ru": "Металлический ящик, содержащий в основном пилы и плоскогубцы различных размеров, а также другие инструменты. Несмотря на то, что содержимое этого ящика явно предназначено для разрушения, его также можно использовать для починки различных механических устройств. 18 зарядов . Увеличивает скорость починки на 10% .Позволяет ломать некоторые предметы. Увеличивает скорость поломки на 100% . Починка генератора требует 90 зарядов. Поломка крюка требует 6 зарядов."
+    }
   },
   {
     "id": "anniversary-toolbox",
     "name": {
       "en": "Anniversary Toolbox",
-      "ru": "Юбилейный ящик"
+      "ru": "Юбилейный ящик с инструментами"
     },
-    "type": "item",
-    "icon": "/icons/items/anniversary-toolbox.png"
+    "type": "toolbox",
+    "rarity": "common",
+    "icon": "/icons/items/anniversary-toolbox.png",
+    "description": {
+      "en": "",
+      "ru": "Слегка взрывоопасный ящик с инструментами. 32 заряда . Увеличивает скорость починки на 50% .Позволяет ломать некоторые предметы. Увеличивает скорость поломки предметов на 50% .Запускает фейерверк, когда заряды кончаются. Ура! Починка генератора требует 90 зарядов. Поломка крюка требует 6 зарядов."
+    }
   },
   {
     "id": "scribbled-map",
     "name": {
       "en": "Scribbled Map",
-      "ru": "Набросанная карта"
+      "ru": "Небрежная карта"
     },
-    "type": "item",
-    "icon": "/icons/items/scribbled-map.png"
+    "type": "map",
+    "rarity": "uncommon",
+    "icon": "/icons/items/scribbled-map.png",
+    "description": {
+      "en": "",
+      "ru": "Вы смотрите на пергамент, и перед мысленным взором появляется путь. Через мгновение вы снова чувствуете, что потерялись. Нажмите кнопку использования предмета, чтобы в течение 12 сек. видеть ауры досок и мест для прыжков в радиусе 32 м .При вторичном взаимодействии у выжившего появляется столп света. Генераторы в радиусе 32 м от столпа подсвечиваются красными аурами.5 зарядов."
+    }
   },
   {
     "id": "broken-key",
     "name": {
       "en": "Broken Key",
-      "ru": "Сломанный ключ"
+      "ru": "Сломанный Ключ"
     },
-    "type": "item",
-    "icon": "/icons/items/broken-key.png"
+    "type": "key",
+    "rarity": "common",
+    "icon": "/icons/items/broken-key.png",
+    "description": {
+      "en": "",
+      "ru": "Головка и трубка ключа, которые прямо-таки дрожат от распирающей энергии. При расходе заряда: Удерживайте кнопку использования предмета, чтобы сделать ауры выживших в радиусе 48 м видимыми на 8 сек. Начинает матч с 6 зарядами ."
+    }
   },
   {
     "id": "commodious-toolbox",
     "name": {
       "en": "Commodious Toolbox",
-      "ru": "Вместительный ящик"
+      "ru": "Вместительный Ящик с Инструментами"
     },
-    "type": "item",
-    "icon": "/icons/items/commodious-toolbox.png"
+    "type": "toolbox",
+    "rarity": "rare",
+    "icon": "/icons/items/commodious-toolbox.png",
+    "description": {
+      "en": "",
+      "ru": "Большая металлическая коробка с основными инструментами и запасными механическими деталями. Даже без подготовки их можно использовать для починки или поломки различных механических устройств. 32 заряда . Увеличивает скорость починки на 50% .Позволяет ломать некоторые предметы. Увеличивает скорость поломки предметов на 50% . Починка генератора требует 90 зарядов. Поломка крюка требует 6 зарядов."
+    }
   },
   {
     "id": "vaccine",
@@ -59,26 +89,41 @@
       "en": "Vaccine",
       "ru": "Вакцина"
     },
-    "type": "item",
-    "icon": "/icons/items/vaccine.png"
+    "type": "medkit",
+    "rarity": "common",
+    "icon": "/icons/items/vaccine.png",
+    "description": {
+      "en": "",
+      "ru": "Вакцина, справляющаяся с заражением от Т-вируса. В конце матча Сущность поглощает ограниченные предметы."
+    }
   },
   {
     "id": "dull-key",
     "name": {
       "en": "Dull Key",
-      "ru": "Тупой ключ"
+      "ru": "Потертый Ключ"
     },
-    "type": "item",
-    "icon": "/icons/items/dull-key.png"
+    "type": "key",
+    "rarity": "uncommon",
+    "icon": "/icons/items/dull-key.png",
+    "description": {
+      "en": "",
+      "ru": "Тусклый гнутый ключ, который когда-то был наделен великой силой. При расходе заряда: Удерживайте кнопку использования предмета, чтобы сделать ауры выживших в радиусе 56 м видимыми на 9 сек. Сундуки открываются быстрее. Аура открытого этим ключом сундука видна на расстоянии 42 м, и другой выживший может обыскать его один раз. Внутри будут предметы качества не ниже редкого.Отпирается люк. Начинает матч с 5 зарядами."
+    }
   },
   {
     "id": "engineer-s-toolbox",
     "name": {
       "en": "Engineer's Toolbox",
-      "ru": "Ящик инженера"
+      "ru": "Инструменты Инженера"
     },
-    "type": "item",
-    "icon": "/icons/items/engineer-s-toolbox.png"
+    "type": "toolbox",
+    "rarity": "veryrare",
+    "icon": "/icons/items/engineer-s-toolbox.png",
+    "description": {
+      "en": "",
+      "ru": "Металлическая коробка с профильными инженерными инструментами. Большинство из них могут быть использованы даже новичками для быстрой починки или поломки различных механических устройств. 16 зарядов . Увеличивает скорость починки на 100% .Позволяет ломать некоторые предметы. Увеличивает скорость поломки на 10% . Починка генератора требует 90 зарядов. Поломка крюка требует 6 зарядов."
+    }
   },
   {
     "id": "cryptic-map",
@@ -86,26 +131,41 @@
       "en": "Cryptic Map",
       "ru": "Загадочная карта"
     },
-    "type": "item",
-    "icon": "/icons/items/cryptic-map.png"
+    "type": "map",
+    "rarity": "common",
+    "icon": "/icons/items/cryptic-map.png",
+    "description": {
+      "en": "",
+      "ru": "Карта, на которой могут показываться ауры разных объектов."
+    }
   },
   {
     "id": "third-year-party-starter",
     "name": {
       "en": "Third Year Party Starter",
-      "ru": "Праздничный набор на третий год"
+      "ru": "Хлопушка третьей годовщины"
     },
-    "type": "item",
-    "icon": "/icons/items/third-year-party-starter.png"
+    "type": "flashlight",
+    "rarity": "common",
+    "icon": "/icons/items/third-year-party-starter.png",
+    "description": {
+      "en": "",
+      "ru": "Маленькое взрывоопасное украшение для праздничного стола. При взрыве раздаются громкие хлопки, мелькают яркие вспышки и разлетаются веселые конфетти. Можно использовать, чтобы отвлечь противника, ослепить его... или просто порадоваться годовщине. 1 заряд."
+    }
   },
   {
     "id": "chinese-firecracker",
     "name": {
       "en": "Chinese Firecracker",
-      "ru": "Китайский фейерверк"
+      "ru": "Китайская Хлопушка"
     },
-    "type": "item",
-    "icon": "/icons/items/chinese-firecracker.png"
+    "type": "flashlight",
+    "rarity": "common",
+    "icon": "/icons/items/chinese-firecracker.png",
+    "description": {
+      "en": "",
+      "ru": "Несколько взрывчатых устройств, завернутых в плотную бумагу. При детонации вспыхивает ярким светом и издает громкие хлопки. Можно использовать для отвлечения или для ослепления. 1 заряд ."
+    }
   },
   {
     "id": "flash-grenade",
@@ -113,17 +173,27 @@
       "en": "Flash Grenade",
       "ru": "Световая граната"
     },
-    "type": "item",
-    "icon": "/icons/items/flash-grenade.png"
+    "type": "flashlight",
+    "rarity": "common",
+    "icon": "/icons/items/flash-grenade.png",
+    "description": {
+      "en": "",
+      "ru": "Ручная граната, взрывается с шумом и яркой вспышкой. Сущность поглощает ограниченные предметы в конце матча."
+    }
   },
   {
     "id": "winter-party-starter",
     "name": {
       "en": "Winter Party Starter",
-      "ru": "Зимний праздничный набор"
+      "ru": "Новогодняя Хлопушка"
     },
-    "type": "item",
-    "icon": "/icons/items/winter-party-starter.png"
+    "type": "flashlight",
+    "rarity": "rare",
+    "icon": "/icons/items/winter-party-starter.png",
+    "description": {
+      "en": "",
+      "ru": "Небольшой, но крайне взрывоопасный атрибут праздничного стола. При взрыве издает громкий хлопок и производит слепящую вспышку. Можно использовать для отвлечения, ослепления или для празднования. 1 заряд."
+    }
   },
   {
     "id": "flashlight",
@@ -131,26 +201,41 @@
       "en": "Flashlight",
       "ru": "Фонарик"
     },
-    "type": "item",
-    "icon": "/icons/items/flashlight.png"
+    "type": "flashlight",
+    "rarity": "uncommon",
+    "icon": "/icons/items/flashlight.png",
+    "description": {
+      "en": "",
+      "ru": "С помощью фонарика можно отвлечь убийцу или даже спасти другого выжившего."
+    }
   },
   {
     "id": "anniversary-flashlight",
     "name": {
       "en": "Anniversary Flashlight",
-      "ru": "Юбилейный фонарик"
+      "ru": "Фонарик годовщины"
     },
-    "type": "item",
-    "icon": "/icons/items/anniversary-flashlight.png"
+    "type": "flashlight",
+    "rarity": "common",
+    "icon": "/icons/items/anniversary-flashlight.png",
+    "description": {
+      "en": "",
+      "ru": "Праздничный фонарик, из которого при ослеплении убийцы вылетают конфетти. Сюрприз! 8 секунд использования."
+    }
   },
   {
     "id": "masquerade-flashlight",
     "name": {
       "en": "Masquerade Flashlight",
-      "ru": "Фонарик маскарада"
+      "ru": "Маскарадный фонарик"
     },
-    "type": "item",
-    "icon": "/icons/items/masquerade-flashlight.png"
+    "type": "flashlight",
+    "rarity": "common",
+    "icon": "/icons/items/masquerade-flashlight.png",
+    "description": {
+      "en": "",
+      "ru": "Даже маска не защитит от яркого света этого фонарика. 8 сек. использования. Увеличивает количество конфетти на 100% ."
+    }
   },
   {
     "id": "flashlight",
@@ -158,53 +243,83 @@
       "en": "Flashlight",
       "ru": "Фонарик"
     },
-    "type": "item",
-    "icon": "/icons/items/flashlight.png"
+    "type": "flashlight",
+    "rarity": "none",
+    "icon": "/icons/items/flashlight.png",
+    "description": {
+      "en": "",
+      "ru": "С помощью фонарика можно отвлечь убийцу или даже спасти другого выжившего."
+    }
   },
   {
     "id": "sport-flashlight",
     "name": {
       "en": "Sport Flashlight",
-      "ru": "Спортивный фонарик"
+      "ru": "Спортивный Фонарик"
     },
-    "type": "item",
-    "icon": "/icons/items/sport-flashlight.png"
+    "type": "flashlight",
+    "rarity": "rare",
+    "icon": "/icons/items/sport-flashlight.png",
+    "description": {
+      "en": "",
+      "ru": "Очень удобный фонарик с хорошей рукояткой. Его эффективность заключается в выработке мощного светового луча при меньшем потреблении энергии. Дает 8 сек. использования . Уменьшает расход батареи фонарика на 11% . Повышает точность луча фонарика на 20% ."
+    }
   },
   {
     "id": "utility-flashlight",
     "name": {
       "en": "Utility Flashlight",
-      "ru": "Универсальный фонарик"
+      "ru": "Тяжелый Фонарь"
     },
-    "type": "item",
-    "icon": "/icons/items/utility-flashlight.png"
+    "type": "flashlight",
+    "rarity": "veryrare",
+    "icon": "/icons/items/utility-flashlight.png",
+    "description": {
+      "en": "",
+      "ru": "Прочный, но тяжелый фонарик с мощным зарядом. Дает 12 сек. использования. Увеличивает яркость луча фонарика на 30% . Увеличивает продолжительность ослепления на 15% . Понижает точность луча фонарика на 20% ."
+    }
   },
   {
     "id": "will-o-wisp",
     "name": {
       "en": "Will O' Wisp",
-      "ru": "Блуждающий огонёк"
+      "ru": "Блуждающий Огонек"
     },
-    "type": "item",
-    "icon": "/icons/items/will-o-wisp.png"
+    "type": "misc",
+    "rarity": "rare",
+    "icon": "/icons/items/will-o-wisp.png",
+    "description": {
+      "en": "",
+      "ru": "Фонарик со специальной насадкой, проецирующей оранжевого призрака. Время работы: 8 сек. Значительно увеличивает шанс появления дружелюбных призраков в вашей жизни."
+    }
   },
   {
     "id": "blood-can",
     "name": {
       "en": "Blood Can",
-      "ru": "Канстра"
+      "ru": "Канистра крови"
     },
-    "type": "item",
-    "icon": "/icons/items/blood-can.png"
+    "type": "misc",
+    "rarity": "visceral",
+    "icon": "/icons/items/blood-can.png",
+    "description": {
+      "en": "",
+      "ru": "Ручка гладкая, а когда вы сжимаете ее, между вашими пальцами сочится кровь. Получена при взаимодействии с кровяным насосом. Требуется для переноски крови, необходимой для починки кровавых генераторов. Вместимость 40 литров .Во время бега оставляет лужи крови.При переноске производит характерный шум.Шум зависит от скорости переноски и заполненности канистры.Из канистры сочится кровь, когда выжившие бегут с ней в руках или оставляют на земле.Убийцы могут растоптать стоящую на земле канистру крови и пролить еще больше крови.Исчезает из матча, если опустеет."
+    }
   },
   {
     "id": "first-aid-spray",
     "name": {
       "en": "First Aid Spray",
-      "ru": "Спрей первой помощи"
+      "ru": "Лечебный спрей"
     },
-    "type": "item",
-    "icon": "/icons/items/first-aid-spray.png"
+    "type": "medkit",
+    "rarity": "common",
+    "icon": "/icons/items/first-aid-spray.png",
+    "description": {
+      "en": "",
+      "ru": "Лекарство, избавляющее от влияния заражения «Уроборосом». Сущность пожирает ограниченные предметы в конце матча."
+    }
   },
   {
     "id": "emp",
@@ -212,80 +327,55 @@
       "en": "EMP",
       "ru": "ЭМИ"
     },
-    "type": "item",
-    "icon": "/icons/items/emp.png"
-  },
-  {
-    "id": "remote-flame-turret",
-    "name": {
-      "en": "Remote Flame Turret",
-      "ru": "Дистанционная огненная турель"
-    },
-    "type": "none",
-    "icon": "/icons/items/remote-flame-turret.png"
-  },
-  {
-    "id": "boots-of-0",
-    "name": {
-      "en": "Boots of {0}",
-      "ru": "Ботинки {0}"
-    },
-    "type": "none",
-    "icon": "/icons/items/boots-of-0.png"
-  },
-  {
-    "id": "k36-magicitem-bracers-name",
-    "name": {
-      "en": "@#K36_MagicItem_Bracers_NAME",
-      "ru": "@#K36_MagicItem_Bracers_NAME"
-    },
-    "type": "none",
-    "icon": "/icons/items/k36-magicitem-bracers-name.png"
-  },
-  {
-    "id": "eye-of-vecna",
-    "name": {
-      "en": "Eye Of Vecna",
-      "ru": "Око Векны"
-    },
-    "type": "none",
-    "icon": "/icons/items/eye-of-vecna.png"
-  },
-  {
-    "id": "hand-of-vecna",
-    "name": {
-      "en": "Hand Of Vecna",
-      "ru": "Рука Векны"
-    },
-    "type": "none",
-    "icon": "/icons/items/hand-of-vecna.png"
+    "type": "misc",
+    "rarity": "common",
+    "icon": "/icons/items/emp.png",
+    "description": {
+      "en": "",
+      "ru": ""
+    }
   },
   {
     "id": "skeleton-key",
     "name": {
       "en": "Skeleton Key",
-      "ru": "Скелетный ключ"
+      "ru": "Ключ Скелета"
     },
-    "type": "item",
-    "icon": "/icons/items/skeleton-key.png"
+    "type": "key",
+    "rarity": "rare",
+    "icon": "/icons/items/skeleton-key.png",
+    "description": {
+      "en": "",
+      "ru": "Ключ от люка."
+    }
   },
   {
     "id": "skeleton-key",
     "name": {
       "en": "Skeleton Key",
-      "ru": "Скелетный ключ"
+      "ru": "Ключ Скелета"
     },
-    "type": "item",
-    "icon": "/icons/items/skeleton-key.png"
+    "type": "key",
+    "rarity": "none",
+    "icon": "/icons/items/skeleton-key.png",
+    "description": {
+      "en": "",
+      "ru": "Ключ от люка."
+    }
   },
   {
     "id": "festive-toolbox",
     "name": {
       "en": "Festive Toolbox",
-      "ru": "Праздничный ящик"
+      "ru": "Праздничный ящик с инструментами"
     },
-    "type": "item",
-    "icon": "/icons/items/festive-toolbox.png"
+    "type": "toolbox",
+    "rarity": "common",
+    "icon": "/icons/items/festive-toolbox.png",
+    "description": {
+      "en": "",
+      "ru": "Ящик с инструментами, доверху набитый фейерверками. Полностью собран для празднования побед... и переживания поражений. 32 заряда . Увеличивает скорость починки на 50% .Позволяет ломать некоторые предметы. Увеличивает скорость поломки предметов на 50% . Отличные проверки реакции запускают петарды. Проваленные проверки реакции запускают фейерверки. Починка генератора требует 90 зарядов. Поломка крюка требует 6 зарядов."
+    }
   },
   {
     "id": "cryptic-map",
@@ -293,548 +383,251 @@
       "en": "Cryptic Map",
       "ru": "Загадочная карта"
     },
-    "type": "item",
-    "icon": "/icons/items/cryptic-map.png"
+    "type": "map",
+    "rarity": "none",
+    "icon": "/icons/items/cryptic-map.png",
+    "description": {
+      "en": "",
+      "ru": "Карта, на которой могут показываться ауры разных объектов."
+    }
   },
   {
     "id": "bloodsense-map",
     "name": {
       "en": "Bloodsense Map",
-      "ru": "Карта чутья крови"
+      "ru": "Карта кровавого чувства"
     },
-    "type": "item",
-    "icon": "/icons/items/bloodsense-map.png"
+    "type": "map",
+    "rarity": "rare",
+    "icon": "/icons/items/bloodsense-map.png",
+    "description": {
+      "en": "",
+      "ru": "Наскоро скрученный окровавленный клочок пергамента, от которого так и пышет загадочной мощью. Нажмите кнопку использования предмета, чтобы в течение 14 сек. видеть ауры всех досок, мест для прыжков и раненых выживших в радиусе 48 м .При вторичном взаимодействии местонахождение выжившего отмечается столпом света. Генераторы в радиусе 32 м от столпа подсвечиваются красными аурами.Во время использования под вами возникают лужи крови.8 зарядов."
+    }
   },
   {
     "id": "mechanic-s-toolbox",
     "name": {
       "en": "Mechanic's Toolbox",
-      "ru": "Ящик механика"
+      "ru": "Инструменты Механика"
     },
-    "type": "item",
-    "icon": "/icons/items/mechanic-s-toolbox.png"
+    "type": "toolbox",
+    "rarity": "rare",
+    "icon": "/icons/items/mechanic-s-toolbox.png",
+    "description": {
+      "en": "",
+      "ru": "Металлическая коробка с инструментами механика. Даже без подготовки их можно использовать для починки или поломки различных механических устройств. 16 зарядов . Увеличивает скорость починки на 75% .Позволяет ломать некоторые предметы. Увеличивает скорость поломки на 25% . Починка генератора требует 90 зарядов. Поломка крюка требует 6 зарядов."
+    }
   },
   {
     "id": "camping-aid-kit",
     "name": {
       "en": "Camping Aid Kit",
-      "ru": "Походный аптечный набор"
+      "ru": "Походная Аптечка"
     },
-    "type": "item",
-    "icon": "/icons/items/camping-aid-kit.png"
+    "type": "misc",
+    "rarity": "common",
+    "icon": "/icons/items/camping-aid-kit.png",
+    "description": {
+      "en": "",
+      "ru": "Аптечка, с помощью которой можно быстрее лечить других или себя."
+    }
   },
   {
     "id": "anniversary-med-kit",
     "name": {
       "en": "Anniversary Med-kit",
-      "ru": "Юбилейный аптечный набор"
+      "ru": "Аптечка годовщины"
     },
-    "type": "item",
-    "icon": "/icons/items/anniversary-med-kit.png"
+    "type": "medkit",
+    "rarity": "common",
+    "icon": "/icons/items/anniversary-med-kit.png",
+    "description": {
+      "en": "",
+      "ru": "Праздничная аптечка, из которой при полном излечении выжившего вылетают конфетти. Сюрприз! 24 заряда . Увеличивает скорость лечения других выживших на 40% .Позволяет лечить себя . Уменьшает скорость и эффективность лечения себя на 33% . Увеличивает количество конфетти на 100% . Полное лечение требует 16 зарядов."
+    }
   },
   {
     "id": "masquerade-med-kit",
     "name": {
       "en": "Masquerade Med-Kit",
-      "ru": "Аптечный набор маскарада"
+      "ru": "Маскарадная аптечка"
     },
-    "type": "item",
-    "icon": "/icons/items/masquerade-med-kit.png"
+    "type": "medkit",
+    "rarity": "common",
+    "icon": "/icons/items/masquerade-med-kit.png",
+    "description": {
+      "en": "",
+      "ru": "Праздничная аптечка с шокирующим сюрпризом — что называется, угроза здоровью. 24 заряда . Увеличивает скорость лечения других выживших на 40% .Позволяет лечить себя . Уменьшает скорость и эффективность лечения себя на 33% . Увеличивает количество конфетти на 100% . Полное лечение требует 16 зарядов."
+    }
   },
   {
     "id": "camping-aid-kit",
     "name": {
       "en": "Camping Aid Kit",
-      "ru": "Походный аптечный набор"
+      "ru": "Походная Аптечка"
     },
-    "type": "item",
-    "icon": "/icons/items/camping-aid-kit.png"
+    "type": "misc",
+    "rarity": "none",
+    "icon": "/icons/items/camping-aid-kit.png",
+    "description": {
+      "en": "",
+      "ru": "Аптечка, с помощью которой можно быстрее лечить других или себя."
+    }
   },
   {
     "id": "first-aid-kit",
     "name": {
       "en": "First Aid Kit",
-      "ru": "Аптечный набор"
+      "ru": "Аптечка"
     },
-    "type": "item",
-    "icon": "/icons/items/first-aid-kit.png"
+    "type": "medkit",
+    "rarity": "uncommon",
+    "icon": "/icons/items/first-aid-kit.png",
+    "description": {
+      "en": "",
+      "ru": "Стандартная аптечка со всем необходимым оборудованием для лечения как небольших, так и более серьезных травм. 24 заряда. Увеличивает скорость лечения других выживших на 40% .Позволяет лечить себя . Уменьшает скорость и эффективность лечения себя на 33% . Полное лечение требует 16 зарядов."
+    }
   },
   {
     "id": "emergency-med-kit",
     "name": {
       "en": "Emergency Med-kit",
-      "ru": "Аварийный аптечный набор"
+      "ru": "Аптечка первой помощи"
     },
-    "type": "item",
-    "icon": "/icons/items/emergency-med-kit.png"
+    "type": "medkit",
+    "rarity": "rare",
+    "icon": "/icons/items/emergency-med-kit.png",
+    "description": {
+      "en": "",
+      "ru": "Большая и хорошо собранная аптечка. Все предметы для первой помощи в отличном состоянии. 24 заряда . Увеличивает скорость лечения других выживших на 45% .Позволяет лечить себя . Уменьшает скорость и эффективность лечения себя на 33% . Полное лечение требует 16 зарядов."
+    }
   },
   {
     "id": "ranger-med-kit",
     "name": {
       "en": "Ranger Med-kit",
-      "ru": "Аптечный набор рейнджера"
+      "ru": "Аптечка лесничего"
     },
-    "type": "item",
-    "icon": "/icons/items/ranger-med-kit.png"
+    "type": "medkit",
+    "rarity": "veryrare",
+    "icon": "/icons/items/ranger-med-kit.png",
+    "description": {
+      "en": "",
+      "ru": "Большая металлическая коробка с медикаментами, предназначенная для спасательных операций в труднодоступных и изолированных местах. 24 заряда . Увеличивает скорость лечения других выживших на 50% .Позволяет лечить себя . Уменьшает скорость и эффективность лечения себя на 33% . Полное лечение требует 16 зарядов."
+    }
   },
   {
     "id": "all-hallows-eve-lunchbox",
     "name": {
       "en": "All Hallows' Eve Lunchbox",
-      "ru": "Обеденный бокс на День всех святых"
+      "ru": "Ланчбокс Всех Святых"
     },
-    "type": "item",
-    "icon": "/icons/items/all-hallows-eve-lunchbox.png"
+    "type": "misc",
+    "rarity": "rare",
+    "icon": "/icons/items/all-hallows-eve-lunchbox.png",
+    "description": {
+      "en": "",
+      "ru": "Пластиковый ланчбокс со светящимися Хеллоуинскими наклейками. Внутри находятся предметы первой помощи. 24 заряда. Увеличивает скорость лечения других выживших на 40% .Позволяет лечить себя . Уменьшает скорость и эффективность лечения себя на 33% .Делает вас значительно более заметным . Полное лечение требует 16 зарядов."
+    }
   },
   {
     "id": "annotated-map",
     "name": {
       "en": "Annotated Map",
-      "ru": "Аннотированная карта"
+      "ru": "Карта с подписями"
     },
-    "type": "item",
-    "icon": "/icons/items/annotated-map.png"
+    "type": "map",
+    "rarity": "rare",
+    "icon": "/icons/items/annotated-map.png",
+    "description": {
+      "en": "",
+      "ru": "Подробный и четкий набросок. Вы чувствуете, как в голове появляются знания, но это вызывает тревогу и ужас. Нажмите кнопку использования предмета, чтобы в течение 14 сек. видеть ауры досок и мест для прыжков в радиусе 40 м .При вторичном взаимодействии у выжившего появляется столп света. Генераторы в радиусе 32 м от столпа подсвечиваются красными аурами.6 зарядов."
+    }
   },
   {
     "id": "toolbox",
     "name": {
       "en": "Toolbox",
-      "ru": "Ящик"
+      "ru": "Ящик с Инструментами"
     },
-    "type": "item",
-    "icon": "/icons/items/toolbox.png"
+    "type": "toolbox",
+    "rarity": "uncommon",
+    "icon": "/icons/items/toolbox.png",
+    "description": {
+      "en": "",
+      "ru": "Ящик с инструментами, с помощью которого можно быстрее чинить объекты или ломать крюки."
+    }
   },
   {
     "id": "masquerade-toolbox",
     "name": {
       "en": "Masquerade Toolbox",
-      "ru": "Ящик маскарада"
+      "ru": "Маскарадный ящик с инструментами"
     },
-    "type": "item",
-    "icon": "/icons/items/masquerade-toolbox.png"
+    "type": "toolbox",
+    "rarity": "common",
+    "icon": "/icons/items/masquerade-toolbox.png",
+    "description": {
+      "en": "",
+      "ru": "Коробка со стандартными инструментами: гаечные ключи, отвертки, фейерверки, молоток... 32 заряда .Увеличивает скорость починки на 50%. Открывает способность ломать некоторые объекты. Увеличивает скорость поломки предметов на 50% .Опустев, взрывается с фейерверком. Ура! Починка генератора требует 90 зарядов. Поломка крюка — 6 зарядов."
+    }
   },
   {
     "id": "toolbox",
     "name": {
       "en": "Toolbox",
-      "ru": "Ящик"
+      "ru": "Ящик с Инструментами"
     },
-    "type": "item",
-    "icon": "/icons/items/toolbox.png"
+    "type": "toolbox",
+    "rarity": "none",
+    "icon": "/icons/items/toolbox.png",
+    "description": {
+      "en": "",
+      "ru": "Ящик с инструментами, с помощью которого можно быстрее чинить объекты или ломать крюки."
+    }
   },
   {
     "id": "void-crystal",
     "name": {
       "en": "Void Crystal",
-      "ru": "Кристалл пустоты"
+      "ru": "Кристалл Пустоты"
     },
-    "type": "item",
-    "icon": "/icons/items/void-crystal.png"
+    "type": "misc",
+    "rarity": "common",
+    "icon": "/icons/items/void-crystal.png",
+    "description": {
+      "en": "",
+      "ru": "Этот холодный на ощупь кристалл дрожит от сдерживаемой внутри силы. 1 заряд. Если разбить его, кристалл Пустоты выпускает облако густого дыма радиусом до 4 м . Выжившие в радиусе 6 м от дыма не оставляют следы-трещины.Дым рассеивается через 8 сек. после достижения облаком максимального диаметра."
+    }
   },
   {
     "id": "worn-out-tools",
     "name": {
       "en": "Worn-out Tools",
-      "ru": "Изношенные инструменты"
+      "ru": "Изношенные Инструменты"
     },
-    "type": "item",
-    "icon": "/icons/items/worn-out-tools.png"
+    "type": "misc",
+    "rarity": "common",
+    "icon": "/icons/items/worn-out-tools.png",
+    "description": {
+      "en": "",
+      "ru": "Большая металлическая коробка со старыми инструментами, которые могут сломаться в любой момент. Даже без подготовки их можно использовать для починки или поломки различных механических устройств. 16 зарядов . Увеличивает скорость починки на 50% . Уменьшает размер зон успеха при проверках реакции на 10% .Позволяет ломать некоторые предметы. Починка генератора требует 90 зарядов. Поломка крюка требует 6 зарядов."
+    }
   },
   {
     "id": "pocket-mirror",
     "name": {
       "en": "Pocket Mirror",
-      "ru": "Карманное зеркало"
+      "ru": "Карманное зеркальце"
     },
-    "type": "item",
-    "icon": "/icons/items/pocket-mirror.png"
-  },
-  {
-    "id": "lament-configuration",
-    "name": {
-      "en": "Lament Configuration",
-      "ru": "Конфигурация плача"
-    },
-    "type": "none",
-    "icon": "/icons/items/lament-configuration.png"
-  },
-  {
-    "id": "bear-trap",
-    "name": {
-      "en": "Bear Trap",
-      "ru": "Медвежий капкан"
-    },
-    "type": "power",
-    "icon": "/icons/items/bear-trap.png"
-  },
-  {
-    "id": "spencer-s-last-breath",
-    "name": {
-      "en": "Spencer's Last Breath",
-      "ru": "Последний вздох Спенсера"
-    },
-    "type": "power",
-    "icon": "/icons/items/spencer-s-last-breath.png"
-  },
-  {
-    "id": "chainsaw",
-    "name": {
-      "en": "Chainsaw",
-      "ru": "Бензопила"
-    },
-    "type": "power",
-    "icon": "/icons/items/chainsaw.png"
-  },
-  {
-    "id": "wailing-bell",
-    "name": {
-      "en": "Wailing Bell",
-      "ru": "Воющая колокол"
-    },
-    "type": "power",
-    "icon": "/icons/items/wailing-bell.png"
-  },
-  {
-    "id": "dream-demon",
-    "name": {
-      "en": "Dream Demon",
-      "ru": "Демон снов"
-    },
-    "type": "power",
-    "icon": "/icons/items/dream-demon.png"
-  },
-  {
-    "id": "feral-frenzy",
-    "name": {
-      "en": "Feral Frenzy",
-      "ru": "Дикое безумие"
-    },
-    "type": "power",
-    "icon": "/icons/items/feral-frenzy.png"
-  },
-  {
-    "id": "the-afterpiece-tonic",
-    "name": {
-      "en": "The Afterpiece Tonic",
-      "ru": "Тоник «Послесловие»"
-    },
-    "type": "power",
-    "icon": "/icons/items/the-afterpiece-tonic.png"
-  },
-  {
-    "id": "night-shroud",
-    "name": {
-      "en": "Night Shroud",
-      "ru": "Ночной покров"
-    },
-    "type": "power",
-    "icon": "/icons/items/night-shroud.png"
-  },
-  {
-    "id": "the-redeemer",
-    "name": {
-      "en": "The Redeemer",
-      "ru": "Искупитель"
-    },
-    "type": "power",
-    "icon": "/icons/items/the-redeemer.png"
-  },
-  {
-    "id": "hunting-hatchets",
-    "name": {
-      "en": "Hunting Hatchets",
-      "ru": "Охотничий топор"
-    },
-    "type": "power",
-    "icon": "/icons/items/hunting-hatchets.png"
-  },
-  {
-    "id": "blighted-corruption",
-    "name": {
-      "en": "Blighted Corruption",
-      "ru": "Мор"
-    },
-    "type": "power",
-    "icon": "/icons/items/blighted-corruption.png"
-  },
-  {
-    "id": "blood-bond",
-    "name": {
-      "en": "Blood Bond",
-      "ru": "Кровавая связь"
-    },
-    "type": "power",
-    "icon": "/icons/items/blood-bond.png"
-  },
-  {
-    "id": "t-virus",
-    "name": {
-      "en": "T-VIRUS",
-      "ru": "Т-вирус"
-    },
-    "type": "power",
-    "icon": "/icons/items/t-virus.png"
-  },
-  {
-    "id": "summons-of-pain",
-    "name": {
-      "en": "Summons of Pain",
-      "ru": "Призыв боли"
-    },
-    "type": "power",
-    "icon": "/icons/items/summons-of-pain.png"
-  },
-  {
-    "id": "birds-of-torment",
-    "name": {
-      "en": "Birds of Torment",
-      "ru": "Птицы мучений"
-    },
-    "type": "power",
-    "icon": "/icons/items/birds-of-torment.png"
-  },
-  {
-    "id": "deluge-of-fear",
-    "name": {
-      "en": "Deluge of Fear",
-      "ru": "Потоп страха"
-    },
-    "type": "power",
-    "icon": "/icons/items/deluge-of-fear.png"
-  },
-  {
-    "id": "reign-of-darkness",
-    "name": {
-      "en": "Reign of Darkness",
-      "ru": "Царство тьмы"
-    },
-    "type": "power",
-    "icon": "/icons/items/reign-of-darkness.png"
-  },
-  {
-    "id": "virulent-bound",
-    "name": {
-      "en": "Virulent Bound",
-      "ru": "Ядовитая связь"
-    },
-    "type": "power",
-    "icon": "/icons/items/virulent-bound.png"
-  },
-  {
-    "id": "guardia-compagnia",
-    "name": {
-      "en": "Guardia Compagnia",
-      "ru": "Гвардия Компания"
-    },
-    "type": "power",
-    "icon": "/icons/items/guardia-compagnia.png"
-  },
-  {
-    "id": "eyes-in-the-sky",
-    "name": {
-      "en": "Eyes In The Sky",
-      "ru": "Глаза в небе"
-    },
-    "type": "power",
-    "icon": "/icons/items/eyes-in-the-sky.png"
-  },
-  {
-    "id": "quantum-instantiation",
-    "name": {
-      "en": "Quantum Instantiation",
-      "ru": "Квантовая мгновенность"
-    },
-    "type": "power",
-    "icon": "/icons/items/quantum-instantiation.png"
-  },
-  {
-    "id": "hidden-pursuit",
-    "name": {
-      "en": "Hidden Pursuit",
-      "ru": "Скрытая погоня"
-    },
-    "type": "power",
-    "icon": "/icons/items/hidden-pursuit.png"
-  },
-  {
-    "id": "playtime-s-over",
-    "name": {
-      "en": "Playtime's Over",
-      "ru": "Игровое время окончено"
-    },
-    "type": "power",
-    "icon": "/icons/items/playtime-s-over.png"
-  },
-  {
-    "id": "uvx",
-    "name": {
-      "en": "UVX",
-      "ru": "УФ-Х"
-    },
-    "type": "power",
-    "icon": "/icons/items/uvx.png"
-  },
-  {
-    "id": "vile-darkness",
-    "name": {
-      "en": "VILE DARKNESS",
-      "ru": "Мерзкая тьма"
-    },
-    "type": "power",
-    "icon": "/icons/items/vile-darkness.png"
-  },
-  {
-    "id": "vampiric-shift",
-    "name": {
-      "en": "Vampiric Shift",
-      "ru": "Вампирский сдвиг"
-    },
-    "type": "power",
-    "icon": "/icons/items/vampiric-shift.png"
-  },
-  {
-    "id": "scent-of-blood",
-    "name": {
-      "en": "Scent of Blood",
-      "ru": "Запах крови"
-    },
-    "type": "power",
-    "icon": "/icons/items/scent-of-blood.png"
-  },
-  {
-    "id": "one-eyed-terror",
-    "name": {
-      "en": "One-Eyed Terror",
-      "ru": "Одноглазый ужас"
-    },
-    "type": "power",
-    "icon": "/icons/items/one-eyed-terror.png"
-  },
-  {
-    "id": "fazbear-s-fright",
-    "name": {
-      "en": "Fazbear's Fright",
-      "ru": "Фазберов страх"
-    },
-    "type": "power",
-    "icon": "/icons/items/fazbear-s-fright.png"
-  },
-  {
-    "id": "unbodied-flesh",
-    "name": {
-      "en": "Unbodied Flesh",
-      "ru": "Бесплотная плоть"
-    },
-    "type": "power",
-    "icon": "/icons/items/unbodied-flesh.png"
-  },
-  {
-    "id": "test-subject-001",
-    "name": {
-      "en": "Test Subject #001",
-      "ru": "Испытуемый №001"
-    },
-    "type": "power",
-    "icon": "/icons/items/test-subject-001.png"
-  },
-  {
-    "id": "yamaoka-s-wrath",
-    "name": {
-      "en": "Yamaoka's Wrath",
-      "ru": "Гнев Ямаоки"
-    },
-    "type": "power",
-    "icon": "/icons/items/yamaoka-s-wrath.png"
-  },
-  {
-    "id": "carter-s-spark",
-    "name": {
-      "en": "Carter's Spark",
-      "ru": "Искра Картера"
-    },
-    "type": "power",
-    "icon": "/icons/items/carter-s-spark.png"
-  },
-  {
-    "id": "bubba-s-chainsaw",
-    "name": {
-      "en": "Bubba's Chainsaw",
-      "ru": "Бензопила Буббы"
-    },
-    "type": "power",
-    "icon": "/icons/items/bubba-s-chainsaw.png"
-  },
-  {
-    "id": "blackened-catalyst",
-    "name": {
-      "en": "Blackened Catalyst",
-      "ru": "Почерневший катализатор"
-    },
-    "type": "power",
-    "icon": "/icons/items/blackened-catalyst.png"
-  },
-  {
-    "id": "yamaoka-s-haunting",
-    "name": {
-      "en": "Yamaoka’s Haunting",
-      "ru": "Навождение Ямаоки"
-    },
-    "type": "power",
-    "icon": "/icons/items/yamaoka-s-haunting.png"
-  },
-  {
-    "id": "vile-purge",
-    "name": {
-      "en": "Vile Purge",
-      "ru": "Мерзкая чистка"
-    },
-    "type": "power",
-    "icon": "/icons/items/vile-purge.png"
-  },
-  {
-    "id": "of-the-abyss",
-    "name": {
-      "en": "Of the Abyss",
-      "ru": "Из бездны"
-    },
-    "type": "power",
-    "icon": "/icons/items/of-the-abyss.png"
-  },
-  {
-    "id": "jigsaw-s-baptism",
-    "name": {
-      "en": "Jigsaw's Baptism",
-      "ru": "Крещение Джигсоу"
-    },
-    "type": "power",
-    "icon": "/icons/items/jigsaw-s-baptism.png"
-  },
-  {
-    "id": "evil-within",
-    "name": {
-      "en": "Evil Within",
-      "ru": "Зло внутри"
-    },
-    "type": "power",
-    "icon": "/icons/items/evil-within.png"
-  },
-  {
-    "id": "showstopper",
-    "name": {
-      "en": "Showstopper",
-      "ru": "Шоу-стоппер"
-    },
-    "type": "power",
-    "icon": "/icons/items/showstopper.png"
-  },
-  {
-    "id": "rites-of-judgment",
-    "name": {
-      "en": "Rites of Judgment",
-      "ru": "Обряды суда"
-    },
-    "type": "power",
-    "icon": "/icons/items/rites-of-judgment.png"
+    "type": "misc",
+    "rarity": "none",
+    "icon": "/icons/items/pocket-mirror.png",
+    "description": {
+      "en": "",
+      "ru": "Карманное зеркальце, вытащенное из Белого символа в подвале. Поверхность покрыта инеем. Сущность пожирает ограниченные предметы в конце матча."
+    }
   },
   {
     "id": "antidote",
@@ -842,8 +635,13 @@
       "en": "Antidote",
       "ru": "Антидот"
     },
-    "type": "item",
-    "icon": "/icons/items/antidote.png"
+    "type": "misc",
+    "rarity": "common",
+    "icon": "/icons/items/antidote.png",
+    "description": {
+      "en": "",
+      "ru": "Мощное средство, избавляющее от эффектов заражения «Т-вирусом» и «Уроборосом». Сущность пожирает ограниченные предметы в конце матча."
+    }
   },
   {
     "id": "glowing-fungus",
@@ -851,44 +649,54 @@
       "en": "Glowing Fungus",
       "ru": "Светящийся гриб"
     },
-    "type": "item",
-    "icon": "/icons/items/glowing-fungus.png"
+    "type": "misc",
+    "rarity": "common",
+    "icon": "/icons/items/glowing-fungus.png",
+    "description": {
+      "en": "",
+      "ru": "Гриб, постепенно опустошающий шкалу иссушения."
+    }
   },
   {
     "id": "apprentice-s-fog-vial",
     "name": {
       "en": "Apprentice's Fog Vial",
-      "ru": "Флагон тумана ученика"
+      "ru": "Флакон подмастерья с Туманом"
     },
-    "type": "item",
-    "icon": "/icons/items/apprentice-s-fog-vial.png"
+    "type": "misc",
+    "rarity": "common",
+    "icon": "/icons/items/apprentice-s-fog-vial.png",
+    "description": {
+      "en": "",
+      "ru": "Творение усердного, но робкого подмастерья. Выпускает сгусток тумана.Образовавшееся облако существует 8 сек. Оно расширяется до 8 м .Выжившие, находящиеся внутри облака, скрывают свои ауры, не оставляют следы-трещины и не издают звуки.Имеет 4 заряда.Время перезарядки: 70 сек."
+    }
   },
   {
     "id": "artisan-s-fog-vial",
     "name": {
       "en": "Artisan's Fog Vial",
-      "ru": "Флагон тумана ремесленника"
+      "ru": "Флакон мастерового с Туманом"
     },
-    "type": "item",
-    "icon": "/icons/items/artisan-s-fog-vial.png"
+    "type": "misc",
+    "rarity": "uncommon",
+    "icon": "/icons/items/artisan-s-fog-vial.png",
+    "description": {
+      "en": "",
+      "ru": "Творение опытной мастерицы-стеклодува, всей душой преданной своему ремеслу.Выпускает сгусток тумана.Образовавшееся облако существует 10 сек. Оно расширяется до 8 м .Выжившие, находящиеся внутри облака, скрывают свои ауры, не оставляют следы-трещины и не издают звуки.Имеет 4 заряда.Время перезарядки: 65 сек."
+    }
   },
   {
     "id": "vigo-s-fog-vial",
     "name": {
       "en": "Vigo's Fog Vial",
-      "ru": "Флагон тумана Виго"
+      "ru": "Флакон Виго с Туманом"
     },
-    "type": "item",
-    "icon": "/icons/items/vigo-s-fog-vial.png"
-  },
-  {
-    "id": "",
-    "name": {
-      "en": null,
-      "ru": null
-    },
-    "type": "item",
-    "icon": "/icons/items/.png",
-    "deprecated": true
+    "type": "misc",
+    "rarity": "rare",
+    "icon": "/icons/items/vigo-s-fog-vial.png",
+    "description": {
+      "en": "",
+      "ru": "Экспонат из частной коллекции. Безупречный. Непревзойденный.Выпускает сгусток тумана.Образовавшееся облако существует 12 сек. Оно расширяется до 8 м .Выжившие, находящиеся внутри облака, скрывают свои ауры, не оставляют следы-трещины и не издают звуки.Имеет 4 заряда.Время перезарядки: 60 сек."
+    }
   }
 ]
