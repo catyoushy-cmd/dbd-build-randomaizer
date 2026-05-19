@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation';
-import { createClient } from '@/lib/supabase/server';
+import { createServiceClient } from '@/lib/supabase/server';
 import { ArticleForm } from './ArticleForm';
 
 type Props = { params: { id: string } };
@@ -9,7 +9,7 @@ export default async function ArticleEditPage({ params }: Props) {
 
   let article: Record<string, unknown> | null = null;
   if (!isNew) {
-    const supabase = createClient();
+    const supabase = createServiceClient();
     const { data } = await supabase
       .from('wiki_articles')
       .select('*')

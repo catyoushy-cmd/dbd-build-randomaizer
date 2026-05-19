@@ -1,4 +1,4 @@
-import { createClient } from '@/lib/supabase/server';
+import { createClient, createServiceClient } from '@/lib/supabase/server';
 import BUILD_CORES_JSON from '@/data/build-cores.json';
 import type { BuildCore } from '@/lib/data/types';
 
@@ -42,7 +42,7 @@ export async function fetchBuildCores(): Promise<BuildCore[]> {
 
 /** Admin: fetch all BuildCores (including inactive). */
 export async function fetchAllBuildCores() {
-  const supabase = createClient();
+  const supabase = createServiceClient();
   const { data, error } = await supabase
     .from('build_cores')
     .select('*')
@@ -56,7 +56,7 @@ export async function fetchAllBuildCores() {
 
 /** Admin: upsert a BuildCore row. */
 export async function upsertBuildCore(core: Record<string, unknown>) {
-  const supabase = createClient();
+  const supabase = createServiceClient();
   const { error } = await supabase
     .from('build_cores')
     .upsert(core, { onConflict: 'id' });
@@ -65,7 +65,7 @@ export async function upsertBuildCore(core: Record<string, unknown>) {
 
 /** Admin: delete a BuildCore by id. */
 export async function deleteBuildCore(id: string) {
-  const supabase = createClient();
+  const supabase = createServiceClient();
   const { error } = await supabase
     .from('build_cores')
     .delete()

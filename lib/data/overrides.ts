@@ -1,4 +1,4 @@
-import { createClient } from '@/lib/supabase/server';
+import { createClient, createServiceClient } from '@/lib/supabase/server';
 
 export type ContentOverride = {
   entity_type: string;
@@ -51,7 +51,7 @@ export function applyOverrides<T extends { id: string; name?: { ru?: string }; d
 
 /** Admin: upsert a single override. */
 export async function upsertOverride(override: Omit<ContentOverride, never>) {
-  const supabase = createClient();
+  const supabase = createServiceClient();
   const { error } = await supabase
     .from('content_overrides')
     .upsert(override, { onConflict: 'entity_type,entity_id' });
@@ -60,7 +60,7 @@ export async function upsertOverride(override: Omit<ContentOverride, never>) {
 
 /** Admin: fetch all overrides for a type (for the editor table). */
 export async function fetchAllOverrides(entityType: string): Promise<ContentOverride[]> {
-  const supabase = createClient();
+  const supabase = createServiceClient();
   const { data, error } = await supabase
     .from('content_overrides')
     .select('*')

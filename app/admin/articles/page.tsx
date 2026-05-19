@@ -1,8 +1,8 @@
 import Link from 'next/link';
-import { createClient } from '@/lib/supabase/server';
+import { createServiceClient } from '@/lib/supabase/server';
 
 export default async function ArticlesPage() {
-  const supabase = createClient();
+  const supabase = createServiceClient();
   const { data: articles } = await supabase
     .from('wiki_articles')
     .select('id, slug, title, category, published, created_at')

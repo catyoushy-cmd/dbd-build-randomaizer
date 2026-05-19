@@ -3,11 +3,11 @@
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 import { requireAdmin } from '@/lib/admin/auth';
-import { createClient } from '@/lib/supabase/server';
+import { createServiceClient } from '@/lib/supabase/server';
 
 export async function saveArticleAction(formData: FormData) {
   const user = await requireAdmin();
-  const supabase = createClient();
+  const supabase = createServiceClient();
 
   const id         = (formData.get('id') as string | null) || undefined;
   const slug       = (formData.get('slug') as string).trim();
@@ -39,7 +39,7 @@ export async function saveArticleAction(formData: FormData) {
 
 export async function deleteArticleAction(id: string) {
   await requireAdmin();
-  const supabase = createClient();
+  const supabase = createServiceClient();
   const { error } = await supabase.from('wiki_articles').delete().eq('id', id);
   if (error) throw new Error(error.message);
   revalidatePath('/admin/articles');
