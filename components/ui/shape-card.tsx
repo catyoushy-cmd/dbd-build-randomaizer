@@ -46,7 +46,8 @@ export function rarityLabel(rarity: string): string {
 
 type ShapeCardProps = {
   shape?: SlotShape;
-  size?: number;
+  /** Side length. Number → pixels. String → any CSS length (e.g. "clamp(96px, 24vw, 132px)"). */
+  size?: number | string;
   /** outer ring colour (usually rarity) */
   ringColor?: string;
   /** inner tint for gradient background */
@@ -134,8 +135,8 @@ export function ShapeCard({
       onClick={onClick}
       style={{
         position: 'relative',
-        width: size,
-        height: size,
+        width: typeof size === 'number' ? `${size}px` : size,
+        height: typeof size === 'number' ? `${size}px` : size,
         cursor: onClick ? 'pointer' : 'default',
         filter: dim ? 'grayscale(.6) brightness(.55)' : 'none',
         transition: 'filter .3s ease, transform .3s ease',

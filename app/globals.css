@@ -331,4 +331,39 @@ h1, h2, h3, h4, h5, h6 {
     border: 1px solid var(--line-1);
     background: rgba(20,17,15,.5);
   }
+
+  /* ─── Diamond-of-diamonds layout (4 perks arranged as a giant diamond) ───
+     Top / Left+Right / Bottom — classic DBD bloodweb-style cluster.
+     CSS grid 3×3, where corners stay empty:
+            . T .
+            L . R
+            . B .
+  */
+  .diamond-cluster {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    justify-items: center;
+    align-items: center;
+    /* Negative gap pulls neighbouring diamonds so their corners touch — like in the game */
+    gap: 0;
+    width: 100%;
+    max-width: 360px;
+    margin: 0 auto;
+  }
+  @media (min-width: 481px) {
+    .diamond-cluster {
+      max-width: 460px;
+    }
+  }
+  .diamond-cluster > .diamond-slot-top    { grid-column: 2; grid-row: 1; }
+  .diamond-cluster > .diamond-slot-left   { grid-column: 1; grid-row: 2; }
+  .diamond-cluster > .diamond-slot-right  { grid-column: 3; grid-row: 2; }
+  .diamond-cluster > .diamond-slot-bottom { grid-column: 2; grid-row: 3; }
+  /* Pull rows so diamond tips meet — vertical overlap = ~25% of slot height */
+  .diamond-cluster > .diamond-slot-left,
+  .diamond-cluster > .diamond-slot-right {
+    margin-top: -28%;
+    margin-bottom: -28%;
+  }
 }

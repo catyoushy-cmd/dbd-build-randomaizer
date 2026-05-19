@@ -24,6 +24,8 @@ const ROLE_LABEL: Record<string, string> = {
   exhaustion: 'Истощение', boon: 'Дарование', meme: 'Мем',
   slowdown: 'Замедление', 'chase-power': 'Погоня', aura: 'Аура',
   hex: 'Гекс', endgame: 'Финал', stealth: 'Скрытность',
+  healing: 'Лечение', chest: 'Сундуки', item: 'Предмет',
+  totem: 'Тотемы', map: 'Карта', survival: 'Выживание',
 };
 
 const TIER_LEVELS = [1, 2, 3] as const;

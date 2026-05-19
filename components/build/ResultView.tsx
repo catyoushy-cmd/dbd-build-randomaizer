@@ -8,6 +8,7 @@ import { Tooltip, TooltipTrigger, TooltipContent } from '@/components/ui/tooltip
 import { EntityTooltipBody } from '@/components/ui/entity-tooltip';
 import { cn } from '@/lib/utils';
 import { formatDbdText } from '@/lib/dbd-text';
+import { useIsMobile } from '@/lib/use-media-query';
 import type { Build } from '@/lib/data';
 import type { PinState } from '@/lib/random/pinning';
 
@@ -47,6 +48,9 @@ export function ResultView({
   onRerollAddons,
   onRerollOffering,
 }: Props) {
+  const isMobile = useIsMobile();
+  const perkSize = isMobile ? 104 : 132;
+
   return (
     <div className="flex flex-col gap-7">
 
@@ -68,18 +72,77 @@ export function ResultView({
         </div>
       )}
 
-      {/* ── Perks ── */}
+      {/* ── Perks: diamond-of-diamonds layout ── */}
       <RitualSection title="Перки" label="4 жребия">
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 justify-items-center">
-          {build.perks.map((perk, i) => (
-            <PerkCard
-              key={perk.id}
-              perk={perk}
-              pinned={pins?.perks[i]}
-              onTogglePin={onTogglePerkPin ? () => onTogglePerkPin(i) : undefined}
-            />
-          ))}
+        <div className="diamond-cluster">
+          {/* Top */}
+          <div className="diamond-slot-top">
+            {build.perks[0] && (
+              <PerkCard
+                perk={build.perks[0]}
+                pinned={pins?.perks[0]}
+                onTogglePin={onTogglePerkPin ? () => onTogglePerkPin(0) : undefined}
+                hideCaption
+                size={perkSize}
+              />
+            )}
+          </div>
+          {/* Left */}
+          <div className="diamond-slot-left">
+            {build.perks[1] && (
+              <PerkCard
+                perk={build.perks[1]}
+                pinned={pins?.perks[1]}
+                onTogglePin={onTogglePerkPin ? () => onTogglePerkPin(1) : undefined}
+                hideCaption
+                size={perkSize}
+              />
+            )}
+          </div>
+          {/* Right */}
+          <div className="diamond-slot-right">
+            {build.perks[2] && (
+              <PerkCard
+                perk={build.perks[2]}
+                pinned={pins?.perks[2]}
+                onTogglePin={onTogglePerkPin ? () => onTogglePerkPin(2) : undefined}
+                hideCaption
+                size={perkSize}
+              />
+            )}
+          </div>
+          {/* Bottom */}
+          <div className="diamond-slot-bottom">
+            {build.perks[3] && (
+              <PerkCard
+                perk={build.perks[3]}
+                pinned={pins?.perks[3]}
+                onTogglePin={onTogglePerkPin ? () => onTogglePerkPin(3) : undefined}
+                hideCaption
+                size={perkSize}
+              />
+            )}
+          </div>
         </div>
+
+        {/* Perk names list below cluster */}
+        <ul className="mt-4 grid grid-cols-2 gap-x-4 gap-y-1 max-w-[480px] mx-auto list-none m-0 p-0">
+          {build.perks.map((perk, i) => (
+            <li
+              key={perk.id}
+              className={cn(
+                'flex items-center gap-2 font-sans text-[13px] leading-tight py-1',
+                pins?.perks[i] ? 'text-dbd-bone' : 'text-ink',
+              )}
+            >
+              <span className="label-mono text-[10px] text-ink-faint shrink-0 w-3">{i + 1}.</span>
+              <span className="truncate">{perk.name.ru}</span>
+              {pins?.perks[i] && (
+                <span className="text-dbd-accent text-[10px] shrink-0">✦</span>
+              )}
+            </li>
+          ))}
+        </ul>
       </RitualSection>
 
       {/* ── Survivor: Item + Addons ── */}

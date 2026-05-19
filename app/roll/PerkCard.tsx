@@ -24,17 +24,28 @@ type Props = {
   perk: Perk;
   pinned?: boolean;
   onTogglePin?: () => void;
+  /** Diamond side length in px. Default 132. */
+  size?: number;
+  /** Hide the name caption below (used when in a tight diamond cluster). */
+  hideCaption?: boolean;
 };
 
-export function PerkCard({ perk, pinned = false, onTogglePin }: Props) {
+export function PerkCard({
+  perk,
+  pinned = false,
+  onTogglePin,
+  size = 132,
+  hideCaption = false,
+}: Props) {
   const [hovered, setHovered] = useState(false);
+  const iconSize = Math.round(size * 0.66);
 
   return (
     <Tooltip>
       <TooltipTrigger
         render={
           <div
-            className="flex flex-col items-center gap-[10px] cursor-pointer pb-1"
+            className="flex flex-col items-center gap-2 cursor-pointer pb-1"
             onClick={onTogglePin}
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
@@ -44,15 +55,15 @@ export function PerkCard({ perk, pinned = false, onTogglePin }: Props) {
               className="transition-[filter] duration-[250ms]"
               style={{
                 filter: hovered
-                  ? 'drop-shadow(0 0 18px rgba(126,81,179,.55))'
+                  ? 'drop-shadow(0 0 18px rgba(160,76,230,.6))'
                   : pinned
-                  ? 'drop-shadow(0 0 12px rgba(184,67,31,.4))'
-                  : 'none',
+                  ? 'drop-shadow(0 0 14px rgba(210,74,31,.45))'
+                  : 'drop-shadow(0 0 6px rgba(0,0,0,.5))',
               }}
             >
               <ShapeCard
                 shape="diamond"
-                size={118}
+                size={size}
                 ringColor={PERK_RING}
                 innerTint={PERK_TINT}
                 pinned={pinned}
@@ -60,28 +71,30 @@ export function PerkCard({ perk, pinned = false, onTogglePin }: Props) {
                 <IconImg
                   src={perk.icon}
                   alt={perk.name.ru}
-                  size={52}
+                  size={iconSize}
                   fallback={<PerkSigil glyph={perk.tier ?? '?'} />}
                 />
               </ShapeCard>
             </div>
 
             {/* Perk name below */}
-            <div className="text-center max-w-[120px]">
-              <span
-                className={cn(
-                  'block font-sans text-[11px] font-semibold leading-[1.3] tracking-[.04em] transition-colors duration-200',
-                  pinned ? 'text-dbd-bone' : 'text-ink-mute',
-                )}
-              >
-                {perk.name.ru}
-              </span>
-              {pinned && (
-                <span className="label-mono text-[9px] text-dbd-accent mt-[2px] block">
-                  заперт
+            {!hideCaption && (
+              <div className="text-center" style={{ maxWidth: size }}>
+                <span
+                  className={cn(
+                    'block font-sans text-[13px] font-semibold leading-[1.25] tracking-[.02em] transition-colors duration-200',
+                    pinned ? 'text-dbd-bone' : 'text-ink',
+                  )}
+                >
+                  {perk.name.ru}
                 </span>
-              )}
-            </div>
+                {pinned && (
+                  <span className="label-mono text-[10px] text-dbd-accent mt-[3px] block">
+                    заперт
+                  </span>
+                )}
+              </div>
+            )}
           </div>
         }
       />
