@@ -2,13 +2,28 @@
 
 import { PerkCard } from '@/app/roll/PerkCard';
 import { AddonCard } from '@/app/roll/AddonCard';
-import { ShapeCard, rarityColor } from '@/components/ui/shape-card';
+import { ShapeCard, rarityColor, rarityLabel } from '@/components/ui/shape-card';
 import { IconImg } from '@/components/ui/icon-img';
 import { Tooltip, TooltipTrigger, TooltipContent } from '@/components/ui/tooltip';
+import { EntityTooltipBody } from '@/components/ui/entity-tooltip';
 import { cn } from '@/lib/utils';
 import { formatDbdText } from '@/lib/dbd-text';
 import type { Build } from '@/lib/data';
 import type { PinState } from '@/lib/random/pinning';
+
+const ITEM_TYPE_LABEL: Record<string, string> = {
+  flashlight: 'Фонарик',
+  medkit:     'Аптечка',
+  toolbox:    'Инструменты',
+  map:        'Карта',
+  key:        'Ключ',
+};
+
+const ROLE_LABEL_OFFERING: Record<string, string> = {
+  survivor: 'Выживший',
+  killer:   'Убийца',
+  both:     'Общее',
+};
 
 type Props = {
   build: Build;
@@ -211,23 +226,15 @@ function ItemSlot({
           </El>
         }
       />
-      <TooltipContent
-        side="top"
-        style={{
-          maxWidth: 280,
-          textAlign: 'left',
-          background: 'linear-gradient(to bottom, rgba(20,17,15,.97), rgba(11,9,8,.97))',
-          border: '1px solid var(--line-2)',
-          borderRadius: 0,
-          padding: '12px 14px',
-        }}
-      >
-        <div className="font-sans font-bold text-[14px] text-dbd-bone">{item.name.ru}</div>
-        {item.description?.ru && (
-          <div className="text-[12px] text-ink leading-[1.5] mt-2 whitespace-pre-line">
-            {formatDbdText(item.description.ru)}
-          </div>
-        )}
+      <TooltipContent side="top" style={{ background: 'transparent', border: 'none', padding: 0 }}>
+        <EntityTooltipBody
+          title={item.name.ru}
+          subtitle={{ text: rarityLabel(item.rarity ?? 'common').toUpperCase(), color: ring }}
+          meta={[
+            { label: 'Тип', value: ITEM_TYPE_LABEL[item.type] ?? item.type },
+          ]}
+          description={item.description?.ru ? formatDbdText(item.description.ru) : undefined}
+        />
       </TooltipContent>
     </Tooltip>
   );
@@ -289,23 +296,15 @@ function OfferingSlot({
           </El>
         }
       />
-      <TooltipContent
-        side="top"
-        style={{
-          maxWidth: 280,
-          textAlign: 'left',
-          background: 'linear-gradient(to bottom, rgba(20,17,15,.97), rgba(11,9,8,.97))',
-          border: '1px solid var(--line-2)',
-          borderRadius: 0,
-          padding: '12px 14px',
-        }}
-      >
-        <div className="font-sans font-bold text-[14px] text-dbd-bone">{offering.name.ru}</div>
-        {offering.description?.ru && (
-          <div className="text-[12px] text-ink leading-[1.5] mt-2 whitespace-pre-line">
-            {formatDbdText(offering.description.ru)}
-          </div>
-        )}
+      <TooltipContent side="top" style={{ background: 'transparent', border: 'none', padding: 0 }}>
+        <EntityTooltipBody
+          title={offering.name.ru}
+          subtitle={{ text: rarityLabel(offering.rarity ?? 'common').toUpperCase(), color: ring }}
+          meta={[
+            { label: 'Сторона', value: ROLE_LABEL_OFFERING[offering.role] ?? offering.role },
+          ]}
+          description={offering.description?.ru ? formatDbdText(offering.description.ru) : undefined}
+        />
       </TooltipContent>
     </Tooltip>
   );

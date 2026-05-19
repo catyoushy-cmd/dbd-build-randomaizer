@@ -19,7 +19,28 @@ export function rarityColor(rarity: string): string {
     case 'veryrare':  return 'var(--r-veryrare)';
     case 'ultra-rare':
     case 'ultra':     return 'var(--r-ultra)';
+    case 'event':     return 'var(--r-event)';
     default:          return 'var(--ink-faint)';
+  }
+}
+
+/** Normalize rarity string for CSS class suffix (e.g. "very-rare" → "veryrare"). */
+export function rarityKey(rarity: string): string {
+  return rarity.replace(/-/g, '').toLowerCase();
+}
+
+/** Human-readable rarity label in Russian. */
+export function rarityLabel(rarity: string): string {
+  const key = rarityKey(rarity);
+  switch (key) {
+    case 'common':    return 'обычная';
+    case 'uncommon':  return 'необычная';
+    case 'rare':      return 'редкая';
+    case 'veryrare':  return 'очень редкая';
+    case 'ultra':
+    case 'ultrarare': return 'легендарная';
+    case 'event':     return 'ивент';
+    default:          return rarity;
   }
 }
 

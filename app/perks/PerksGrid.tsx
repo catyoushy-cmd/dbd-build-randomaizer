@@ -2,6 +2,9 @@
 
 import { useState, useMemo } from 'react';
 import { cn } from '@/lib/utils';
+import { formatDbdText } from '@/lib/dbd-text';
+import { EntityModal } from '@/components/ui/entity-modal';
+import { IconImg } from '@/components/ui/icon-img';
 import type { Perk } from '@/lib/data';
 
 type Props = {
@@ -17,26 +20,19 @@ const TIER_COLOR: Record<string, string> = {
 };
 
 const ROLE_LABEL: Record<string, string> = {
-  gen: 'Ген',
-  'chase-escape': 'Побег',
-  info: 'Инфо',
-  altruism: 'Альтруизм',
-  exhaustion: 'Истощение',
-  boon: 'Дарование',
-  meme: 'Мем',
-  slowdown: 'Замедление',
-  'chase-power': 'Погоня',
-  aura: 'Аура',
-  hex: 'Гекс',
-  endgame: 'Финал',
-  stealth: 'Скрытность',
+  gen: 'Ген', 'chase-escape': 'Побег', info: 'Инфо', altruism: 'Альтруизм',
+  exhaustion: 'Истощение', boon: 'Дарование', meme: 'Мем',
+  slowdown: 'Замедление', 'chase-power': 'Погоня', aura: 'Аура',
+  hex: 'Гекс', endgame: 'Финал', stealth: 'Скрытность',
 };
+
+const TIER_LEVELS = [1, 2, 3] as const;
 
 export function PerksGrid({ survivorPerks, killerPerks }: Props) {
   const [tab, setTab] = useState<'survivor' | 'killer'>('survivor');
   const [query, setQuery] = useState('');
   const [tierFilter, setTierFilter] = useState('');
-  const [expandedId, setExpandedId] = useState<string | null>(null);
+  const [selected, setSelected] = useState<Perk | null>(null);
 
   const perks = tab === 'survivor' ? survivorPerks : killerPerks;
 
@@ -62,12 +58,12 @@ export function PerksGrid({ survivorPerks, killerPerks }: Props) {
           {(['survivor', 'killer'] as const).map((r) => (
             <button
               key={r}
-              onClick={() => { setTab(r); setExpandedId(null); }}
+              onClick={() => setTab(r)}
               className={cn(
-                'px-4 py-2 label-mono text-[10px] border-b-2 transition-all duration-150',
+                'px-4 py-2 label-mono text-[11px] border-b-2 transition-all duration-150',
                 tab === r
                   ? 'border-b-dbd-accent text-dbd-bone bg-[rgba(184,67,31,.08)]'
-                  : 'border-b-line-1 text-ink-mute',
+                  : 'border-b-line-1 text-ink-mute hover:text-ink',
               )}
             >
               {r === 'survivor' ? 'Выжившие' : 'Убийцы'} ({r === 'survivor' ? survivorPerks.length : killerPerks.length})
@@ -80,8 +76,8 @@ export function PerksGrid({ survivorPerks, killerPerks }: Props) {
           type="search"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          placeholder="Поиск..."
-          className="flex-1 min-w-[160px] max-w-[260px] bg-bg-2 border border-line-2 px-3 py-2 font-sans text-[12px] text-ink placeholder:text-ink-faint focus:border-dbd-accent outline-none"
+          placeholder="Поиск перков..."
+          className="flex-1 min-w-[180px] max-w-[280px] bg-bg-2 border border-line-2 px-3 py-2 font-sans text-[13px] text-ink placeholder:text-ink-faint focus:border-dbd-accent outline-none"
         />
 
         {/* Tier filter */}
@@ -91,10 +87,10 @@ export function PerksGrid({ survivorPerks, killerPerks }: Props) {
               key={t}
               onClick={() => setTierFilter(t)}
               className={cn(
-                'px-3 py-1 label-mono text-[10px] border transition-colors duration-150',
+                'px-3 py-1.5 label-mono text-[11px] border transition-colors duration-150',
                 tierFilter === t
                   ? 'border-line-ember text-dbd-bone bg-[rgba(184,67,31,.12)]'
-                  : 'border-line-1 text-ink-faint hover:border-line-2',
+                  : 'border-line-1 text-ink-mute hover:border-line-2 hover:text-ink',
               )}
             >
               {t || 'Все'}
@@ -103,90 +99,155 @@ export function PerksGrid({ survivorPerks, killerPerks }: Props) {
         </div>
       </div>
 
-      <p className="label-mono text-[9px] text-ink-faint">{filtered.length} перков</p>
+      <p className="label-mono text-[11px] text-ink-mute">{filtered.length} перков</p>
 
-      {/* Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
+      {/* Grid — fixed-height cards, no expand-in-place */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
         {filtered.map((perk) => (
-          <PerkCard
-            key={perk.id}
-            perk={perk}
-            expanded={expandedId === perk.id}
-            onToggle={() => setExpandedId(expandedId === perk.id ? null : perk.id)}
-          />
+          <PerkRow key={perk.id} perk={perk} onOpen={() => setSelected(perk)} />
         ))}
       </div>
+
+      {/* Modal */}
+      <EntityModal open={!!selected} onClose={() => setSelected(null)}>
+        {selected && <PerkModalBody perk={selected} />}
+      </EntityModal>
     </div>
   );
 }
 
-function PerkCard({ perk, expanded, onToggle }: { perk: Perk; expanded: boolean; onToggle: () => void }) {
+/* ───────── Grid card ───────── */
+
+function PerkRow({ perk, onOpen }: { perk: Perk; onOpen: () => void }) {
   return (
-    <div
-      className={cn(
-        'border cursor-pointer transition-all duration-150',
-        expanded ? 'border-line-ember bg-bg-2' : 'border-line-1 bg-bg-1 hover:border-line-2',
-      )}
+    <button
+      onClick={onOpen}
+      className="flex items-center gap-3 px-4 py-3 text-left border border-line-1 bg-bg-1 hover:border-line-ember hover:bg-bg-2 transition-colors duration-150 cursor-pointer"
     >
+      {/* Icon */}
+      <div className="w-12 h-12 shrink-0 border border-line-2 bg-bg-2 flex items-center justify-center overflow-hidden">
+        <IconImg
+          src={perk.icon}
+          alt={perk.name.ru || perk.name.en}
+          size={42}
+          fallback={<span className="text-ink-faint text-base">⚙</span>}
+        />
+      </div>
+
+      {/* Name */}
+      <div className="flex flex-col flex-1 min-w-0">
+        <span className="font-sans text-[14px] font-semibold text-dbd-bone truncate">
+          {perk.name.ru || perk.name.en}
+        </span>
+        <span className="font-sans text-[12px] text-ink-mute truncate">{perk.name.en}</span>
+      </div>
+
+      {/* Tier badge */}
+      {perk.tier && (
+        <span className={cn('label-mono text-[14px] font-bold shrink-0', TIER_COLOR[perk.tier] ?? 'text-ink-faint')}>
+          {perk.tier}
+        </span>
+      )}
+    </button>
+  );
+}
+
+/* ───────── Modal body ───────── */
+
+function PerkModalBody({ perk }: { perk: Perk }) {
+  const [tier, setTier] = useState<1 | 2 | 3>(3);
+
+  // Build tier-specific tunables (index 0,1,2 → tier 1,2,3)
+  const tieredTunables = useMemo(() => {
+    if (!perk.tunables) return undefined;
+    const result: Record<string, number[]> = {};
+    for (const [key, vals] of Object.entries(perk.tunables)) {
+      if (!vals) continue;
+      // Single-value tunables (constants) — use as-is at all tiers
+      const tierIdx = Math.min(tier - 1, vals.length - 1);
+      result[key] = [vals[tierIdx]];
+    }
+    return result;
+  }, [perk.tunables, tier]);
+
+  const description = formatDbdText(perk.description.ru, tieredTunables);
+  const hasMultipleTiers = perk.tunables && Object.values(perk.tunables).some(v => v && v.length > 1);
+
+  return (
+    <div className="p-6 flex flex-col gap-5">
       {/* Header */}
-      <button
-        onClick={onToggle}
-        className="w-full flex items-center gap-3 px-4 py-3 text-left"
-      >
-        {/* Icon */}
-        <div className="w-10 h-10 shrink-0 border border-line-2 bg-bg-2 flex items-center justify-center overflow-hidden">
-          {perk.icon ? (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
-              src={`/icons/perks/${perk.icon}`}
-              alt={perk.name.ru || perk.name.en}
-              className="w-full h-full object-contain"
-              onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
-            />
-          ) : (
-            <span className="text-ink-faint text-[16px]">⚙</span>
-          )}
+      <div className="flex items-start gap-4">
+        <div className="w-16 h-16 shrink-0 border border-line-ember bg-bg-2 flex items-center justify-center overflow-hidden">
+          <IconImg
+            src={perk.icon}
+            alt={perk.name.ru}
+            size={56}
+            fallback={<span className="text-ink-faint">⚙</span>}
+          />
         </div>
-
-        {/* Name + tier */}
-        <div className="flex flex-col flex-1 min-w-0">
-          <span className="font-sans text-[12px] font-semibold text-dbd-bone truncate">
+        <div className="flex flex-col gap-1 flex-1 min-w-0 pt-1">
+          <h2 className="m-0 font-sans font-bold text-[20px] text-dbd-bone leading-tight">
             {perk.name.ru || perk.name.en}
-          </span>
-          <span className="font-sans text-[10px] text-ink-faint truncate">{perk.name.en}</span>
+          </h2>
+          <span className="font-sans text-[13px] text-ink-mute">{perk.name.en}</span>
         </div>
-
-        {/* Tier badge */}
         {perk.tier && (
-          <span className={cn('label-mono text-[12px] font-bold shrink-0', TIER_COLOR[perk.tier] ?? 'text-ink-faint')}>
+          <span className={cn('label-mono text-[18px] font-bold shrink-0 pt-1', TIER_COLOR[perk.tier] ?? 'text-ink-faint')}>
             {perk.tier}
           </span>
         )}
+      </div>
 
-        {/* Expand arrow */}
-        <span className={cn('text-ink-faint text-[10px] shrink-0 transition-transform duration-200', expanded ? 'rotate-90' : '')}>
-          ▶
-        </span>
-      </button>
+      {/* Tier level switcher */}
+      {hasMultipleTiers && (
+        <div className="flex flex-col gap-2">
+          <span className="label-mono text-[11px] text-ink-mute">Уровень перка</span>
+          <div className="flex gap-1">
+            {TIER_LEVELS.map((lvl) => (
+              <button
+                key={lvl}
+                onClick={() => setTier(lvl)}
+                className={cn(
+                  'flex-1 px-4 py-2 label-mono text-[12px] border transition-colors duration-150',
+                  tier === lvl
+                    ? 'border-line-ember text-dbd-bone bg-[rgba(184,67,31,.15)]'
+                    : 'border-line-1 text-ink-mute hover:border-line-2 hover:text-ink',
+                )}
+              >
+                Ур. {lvl}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
 
-      {/* Expanded details */}
-      {expanded && (
-        <div className="px-4 pb-4 flex flex-col gap-3 border-t border-line-1">
-          {/* Description */}
-          {(perk.description?.ru || perk.description?.en) && (
-            <p className="font-sans text-[12px] text-ink-mute leading-relaxed mt-3">
-              {perk.description.ru || perk.description.en}
-            </p>
-          )}
+      {/* Description */}
+      <div className="flex flex-col gap-2">
+        <span className="label-mono text-[11px] text-ink-mute">Описание</span>
+        <p className="m-0 font-sans text-[14px] text-ink leading-[1.6] whitespace-pre-line">
+          {description}
+        </p>
+      </div>
 
-          {/* Roles */}
+      {/* Meta */}
+      {(perk.roles.length > 0 || perk.character) && (
+        <div className="flex flex-col gap-2 pt-2 border-t border-line-1">
           {perk.roles.length > 0 && (
-            <div className="flex flex-wrap gap-1">
-              {perk.roles.map((r) => (
-                <span key={r} className="label-mono text-[9px] px-2 py-0.5 border border-line-2 text-ink-mute">
-                  {ROLE_LABEL[r] ?? r}
-                </span>
-              ))}
+            <div className="flex items-center gap-3 flex-wrap">
+              <span className="label-mono text-[11px] text-ink-mute shrink-0">Роли:</span>
+              <div className="flex flex-wrap gap-1.5">
+                {perk.roles.map((r) => (
+                  <span key={r} className="label-mono text-[11px] px-2 py-1 border border-line-2 text-ink">
+                    {ROLE_LABEL[r] ?? r}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+          {perk.character && (
+            <div className="flex items-center gap-3">
+              <span className="label-mono text-[11px] text-ink-mute">Персонаж:</span>
+              <span className="font-sans text-[13px] text-ink">{perk.character}</span>
             </div>
           )}
         </div>

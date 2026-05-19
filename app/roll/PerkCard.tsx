@@ -5,8 +5,16 @@ import { ShapeCard } from '@/components/ui/shape-card';
 import { cn } from '@/lib/utils';
 import { IconImg } from '@/components/ui/icon-img';
 import { Tooltip, TooltipTrigger, TooltipContent } from '@/components/ui/tooltip';
+import { EntityTooltipBody } from '@/components/ui/entity-tooltip';
 import type { Perk } from '@/lib/data';
 import { formatDbdText } from '@/lib/dbd-text';
+
+const ROLE_LABEL_PERK: Record<string, string> = {
+  gen: 'Ген', 'chase-escape': 'Побег', info: 'Инфо', altruism: 'Альтруизм',
+  exhaustion: 'Истощение', boon: 'Дарование', meme: 'Мем',
+  slowdown: 'Замедление', 'chase-power': 'Погоня', aura: 'Аура',
+  hex: 'Гекс', endgame: 'Финал', stealth: 'Скрытность',
+};
 
 /* All perks are displayed as tier-III purple (design spec) */
 const PERK_RING = 'var(--perk-tier3-edge)';
@@ -77,33 +85,20 @@ export function PerkCard({ perk, pinned = false, onTogglePin }: Props) {
           </div>
         }
       />
-      <TooltipContent
-        side="top"
-        style={{
-          maxWidth: 280,
-          textAlign: 'left',
-          background: 'linear-gradient(to bottom, rgba(28,23,32,.97), rgba(11,9,12,.97))',
-          border: '1px solid var(--perk-tier3)',
-          borderRadius: 0,
-          padding: '14px 16px',
-          boxShadow: '0 18px 40px rgba(0,0,0,.6)',
-        }}
-      >
-        <div className="label-mono text-[9px]" style={{ color: 'var(--perk-tier3-edge)' }}>
-          УР. III · перк
-        </div>
-        <div className="font-sans font-bold text-[15px] text-dbd-bone mt-1">
-          {perk.name.ru}
-        </div>
-        <div className="h-px my-[10px] bg-gradient-to-r from-line-2 to-transparent" />
-        <div className="text-[12px] text-ink leading-[1.55] whitespace-pre-line">
-          {formatDbdText(perk.description.ru, perk.tunables)}
-        </div>
-        {perk.character && (
-          <div className="label-mono text-[9px] text-ink-faint mt-[10px]">
-            {perk.character}
-          </div>
-        )}
+      <TooltipContent side="top" style={{ background: 'transparent', border: 'none', padding: 0 }}>
+        <EntityTooltipBody
+          variant="perk"
+          title={perk.name.ru}
+          subtitle={{ text: 'УР. III · перк', color: 'var(--perk-tier3-edge)' }}
+          meta={[
+            ...(perk.tier ? [{ label: 'Тир', value: <span className="font-bold text-dbd-bone">{perk.tier}</span> }] : []),
+            ...(perk.roles?.length
+              ? [{ label: 'Роли', value: perk.roles.map((r) => ROLE_LABEL_PERK[r] ?? r).join(', ') }]
+              : []),
+          ]}
+          description={formatDbdText(perk.description.ru, perk.tunables)}
+          footer={perk.character ? `Персонаж: ${perk.character}` : undefined}
+        />
       </TooltipContent>
     </Tooltip>
   );
