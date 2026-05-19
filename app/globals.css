@@ -56,26 +56,27 @@
   --bg-1:           #14110f;
   --bg-2:           #1c1714;
   --bg-3:           #261f1a;
-  --line-1:         #2a221d;
-  --line-2:         #3a2f27;
-  --line-ember:     #5a3220;
-  --ink:            #ddcfb8;
-  --ink-mute:       #968878;
-  --ink-faint:      #5f574d;
-  --dbd-accent:     #b8431f;
-  --dbd-accent-glow:#e9651e;
-  --dbd-blood:      #7a1717;
-  --dbd-bone:       #e9dcc2;
-  --dbd-brass:      #c39b59;
+  --line-1:         #382e26;
+  --line-2:         #4d3f33;
+  --line-ember:     #7c4424;
+  --ink:            #f0e4cd;   /* was #ddcfb8 — main body text */
+  --ink-mute:       #b4a791;   /* was #968878 — secondary text, more contrast */
+  --ink-faint:      #80766a;   /* was #5f574d — labels/captions, readable */
+  --dbd-accent:     #d24a1f;   /* was #b8431f — punchier orange */
+  --dbd-accent-glow:#f57025;
+  --dbd-blood:      #a01e1e;
+  --dbd-bone:       #f5e8cf;
+  --dbd-brass:      #d4a861;
 
-  /* Rarity colours */
-  --r-common:       #6f6657;
-  --r-uncommon:     #5c6e3f;
-  --r-rare:         #3a6470;
-  --r-veryrare:     #6e4282;
-  --r-ultra:        #c4521f;
-  --perk-tier3:     #5d3a8a;
-  --perk-tier3-edge:#7e51b3;
+  /* Rarity colours — DBD-accurate (game palette) */
+  --r-common:       #8b7355;   /* brown */
+  --r-uncommon:     #e3a516;   /* yellow */
+  --r-rare:         #1f9b4e;   /* green */
+  --r-veryrare:     #9a30c4;   /* purple */
+  --r-ultra:        #ff2dab;   /* pink/iridescent */
+  --r-event:        #e02828;   /* red (event) */
+  --perk-tier3:     #6e2cb0;
+  --perk-tier3-edge:#a04ce6;
 
   /* ─── shadcn/ui variable mapping ─── */
   --background: var(--bg-deep);
@@ -104,9 +105,15 @@ html {
 }
 
 /* ─── Body: background + atmosphere ─── */
+html {
+  font-size: 16px;
+}
 body {
   overflow-x: hidden;
   font-family: var(--font-sans, "Manrope", system-ui, sans-serif);
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--ink);
   background:
     radial-gradient(ellipse 1200px 700px at 50% 30%, rgba(184,67,31,.08), transparent 70%),
     radial-gradient(ellipse 900px 600px at 12% 80%, rgba(110,66,130,.06), transparent 70%),
@@ -186,12 +193,20 @@ h1, h2, h3, h4, h5, h6 {
 @layer components {
   .label-mono {
     font-family: var(--font-mono, "JetBrains Mono", ui-monospace, monospace);
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: .22em;
     text-transform: uppercase;
     color: var(--ink-mute);
     font-weight: 500;
   }
+
+  /* Rarity backgrounds for icon tiles (DBD-style) */
+  .rarity-bg-common   { background: linear-gradient(140deg, #5a4a37, #2f261d); }
+  .rarity-bg-uncommon { background: linear-gradient(140deg, #8e6312, #3f2c08); }
+  .rarity-bg-rare     { background: linear-gradient(140deg, #166a36, #082e17); }
+  .rarity-bg-veryrare { background: linear-gradient(140deg, #5a1d75, #260a32); }
+  .rarity-bg-ultra    { background: linear-gradient(140deg, #a51a72, #41062c); }
+  .rarity-bg-event    { background: linear-gradient(140deg, #921b1b, #3a0808); }
 
   .animate-fade-up       { animation: fade-up 0.4s ease both; }
   .animate-fade-out      { animation: fade-out 0.22s ease both; }
@@ -291,6 +306,7 @@ h1, h2, h3, h4, h5, h6 {
   .rarity-rare     { color: var(--r-rare); }
   .rarity-veryrare { color: var(--r-veryrare); }
   .rarity-ultra    { color: var(--r-ultra); }
+  .rarity-event    { color: var(--r-event); }
 
   .ritual-mode-card {
     display: flex;
@@ -314,5 +330,40 @@ h1, h2, h3, h4, h5, h6 {
     padding: 18px 16px;
     border: 1px solid var(--line-1);
     background: rgba(20,17,15,.5);
+  }
+
+  /* ─── Diamond-of-diamonds layout (4 perks arranged as a giant diamond) ───
+     Top / Left+Right / Bottom — classic DBD bloodweb-style cluster.
+     CSS grid 3×3, where corners stay empty:
+            . T .
+            L . R
+            . B .
+  */
+  .diamond-cluster {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    justify-items: center;
+    align-items: center;
+    /* Negative gap pulls neighbouring diamonds so their corners touch — like in the game */
+    gap: 0;
+    width: 100%;
+    max-width: 360px;
+    margin: 0 auto;
+  }
+  @media (min-width: 481px) {
+    .diamond-cluster {
+      max-width: 460px;
+    }
+  }
+  .diamond-cluster > .diamond-slot-top    { grid-column: 2; grid-row: 1; }
+  .diamond-cluster > .diamond-slot-left   { grid-column: 1; grid-row: 2; }
+  .diamond-cluster > .diamond-slot-right  { grid-column: 3; grid-row: 2; }
+  .diamond-cluster > .diamond-slot-bottom { grid-column: 2; grid-row: 3; }
+  /* Pull rows so diamond tips meet — vertical overlap = ~25% of slot height */
+  .diamond-cluster > .diamond-slot-left,
+  .diamond-cluster > .diamond-slot-right {
+    margin-top: -28%;
+    margin-bottom: -28%;
   }
 }

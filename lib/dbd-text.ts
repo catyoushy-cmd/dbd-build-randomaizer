@@ -42,17 +42,25 @@ export function formatDbdText(
     )
     // {Input.*} → generic label
     .replace(/\{Input\.[^}]+\}/g, 'кнопку активной способности')
-    // {Tunable.PREFIX.KEY} or {Tunable.PREFIX.KEY%}
-    .replace(/\{Tunable\.(?:[^.}]+\.)?([^}%]+)(%?)\}/g, (_, keyRaw, pct) => {
+    // {Tunable.PREFIX.KEY} | {Tunable.PREFIX.KEY%} | followed by optional literal "%"
+    // Source data sometimes writes `{...%}%` — eat the trailing `%` so we don't get "125%%".
+    .replace(/\{Tunable\.(?:[^.}]+\.)?([^}%]+)(%?)\}(%?)/g, (_, keyRaw, pct, trailing) => {
+      const wantsPct = pct === '%' || trailing === '%';
       if (tunables) {
-        const key = keyRaw.toLowerCase() + pct; // e.g. "hasteduration" or "haste%"
-        const vals = tunables[key];
-        if (vals && vals.length > 0) {
-          const maxVal = vals[vals.length - 1]; // last = highest tier
-          return pct ? `${maxVal}%` : String(maxVal);
+        // tunables may key as either "hasteduration" or "haste%duration" — try both
+        const keyVariants = [
+          keyRaw.toLowerCase() + pct,
+          keyRaw.toLowerCase(),
+        ];
+        for (const k of keyVariants) {
+          const vals = tunables[k];
+          if (vals && vals.length > 0) {
+            const maxVal = vals[vals.length - 1]; // last = highest tier
+            return wantsPct ? `${maxVal}%` : String(maxVal);
+          }
         }
       }
-      return pct ? '?%' : '?';
+      return wantsPct ? '?%' : '?';
     })
     // collapse whitespace
     .replace(/\n{3,}/g, '\n\n')

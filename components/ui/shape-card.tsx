@@ -19,13 +19,35 @@ export function rarityColor(rarity: string): string {
     case 'veryrare':  return 'var(--r-veryrare)';
     case 'ultra-rare':
     case 'ultra':     return 'var(--r-ultra)';
+    case 'event':     return 'var(--r-event)';
     default:          return 'var(--ink-faint)';
+  }
+}
+
+/** Normalize rarity string for CSS class suffix (e.g. "very-rare" → "veryrare"). */
+export function rarityKey(rarity: string): string {
+  return rarity.replace(/-/g, '').toLowerCase();
+}
+
+/** Human-readable rarity label in Russian. */
+export function rarityLabel(rarity: string): string {
+  const key = rarityKey(rarity);
+  switch (key) {
+    case 'common':    return 'обычная';
+    case 'uncommon':  return 'необычная';
+    case 'rare':      return 'редкая';
+    case 'veryrare':  return 'очень редкая';
+    case 'ultra':
+    case 'ultrarare': return 'легендарная';
+    case 'event':     return 'ивент';
+    default:          return rarity;
   }
 }
 
 type ShapeCardProps = {
   shape?: SlotShape;
-  size?: number;
+  /** Side length. Number → pixels. String → any CSS length (e.g. "clamp(96px, 24vw, 132px)"). */
+  size?: number | string;
   /** outer ring colour (usually rarity) */
   ringColor?: string;
   /** inner tint for gradient background */
@@ -113,8 +135,8 @@ export function ShapeCard({
       onClick={onClick}
       style={{
         position: 'relative',
-        width: size,
-        height: size,
+        width: typeof size === 'number' ? `${size}px` : size,
+        height: typeof size === 'number' ? `${size}px` : size,
         cursor: onClick ? 'pointer' : 'default',
         filter: dim ? 'grayscale(.6) brightness(.55)' : 'none',
         transition: 'filter .3s ease, transform .3s ease',

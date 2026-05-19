@@ -2,13 +2,29 @@
 
 import { PerkCard } from '@/app/roll/PerkCard';
 import { AddonCard } from '@/app/roll/AddonCard';
-import { ShapeCard, rarityColor } from '@/components/ui/shape-card';
+import { ShapeCard, rarityColor, rarityLabel } from '@/components/ui/shape-card';
 import { IconImg } from '@/components/ui/icon-img';
 import { Tooltip, TooltipTrigger, TooltipContent } from '@/components/ui/tooltip';
+import { EntityTooltipBody } from '@/components/ui/entity-tooltip';
 import { cn } from '@/lib/utils';
 import { formatDbdText } from '@/lib/dbd-text';
+import { useIsMobile } from '@/lib/use-media-query';
 import type { Build } from '@/lib/data';
 import type { PinState } from '@/lib/random/pinning';
+
+const ITEM_TYPE_LABEL: Record<string, string> = {
+  flashlight: 'Фонарик',
+  medkit:     'Аптечка',
+  toolbox:    'Инструменты',
+  map:        'Карта',
+  key:        'Ключ',
+};
+
+const ROLE_LABEL_OFFERING: Record<string, string> = {
+  survivor: 'Выживший',
+  killer:   'Убийца',
+  both:     'Общее',
+};
 
 type Props = {
   build: Build;
@@ -32,6 +48,9 @@ export function ResultView({
   onRerollAddons,
   onRerollOffering,
 }: Props) {
+  const isMobile = useIsMobile();
+  const perkSize = isMobile ? 104 : 132;
+
   return (
     <div className="flex flex-col gap-7">
 
@@ -53,18 +72,77 @@ export function ResultView({
         </div>
       )}
 
-      {/* ── Perks ── */}
+      {/* ── Perks: diamond-of-diamonds layout ── */}
       <RitualSection title="Перки" label="4 жребия">
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 justify-items-center">
-          {build.perks.map((perk, i) => (
-            <PerkCard
-              key={perk.id}
-              perk={perk}
-              pinned={pins?.perks[i]}
-              onTogglePin={onTogglePerkPin ? () => onTogglePerkPin(i) : undefined}
-            />
-          ))}
+        <div className="diamond-cluster">
+          {/* Top */}
+          <div className="diamond-slot-top">
+            {build.perks[0] && (
+              <PerkCard
+                perk={build.perks[0]}
+                pinned={pins?.perks[0]}
+                onTogglePin={onTogglePerkPin ? () => onTogglePerkPin(0) : undefined}
+                hideCaption
+                size={perkSize}
+              />
+            )}
+          </div>
+          {/* Left */}
+          <div className="diamond-slot-left">
+            {build.perks[1] && (
+              <PerkCard
+                perk={build.perks[1]}
+                pinned={pins?.perks[1]}
+                onTogglePin={onTogglePerkPin ? () => onTogglePerkPin(1) : undefined}
+                hideCaption
+                size={perkSize}
+              />
+            )}
+          </div>
+          {/* Right */}
+          <div className="diamond-slot-right">
+            {build.perks[2] && (
+              <PerkCard
+                perk={build.perks[2]}
+                pinned={pins?.perks[2]}
+                onTogglePin={onTogglePerkPin ? () => onTogglePerkPin(2) : undefined}
+                hideCaption
+                size={perkSize}
+              />
+            )}
+          </div>
+          {/* Bottom */}
+          <div className="diamond-slot-bottom">
+            {build.perks[3] && (
+              <PerkCard
+                perk={build.perks[3]}
+                pinned={pins?.perks[3]}
+                onTogglePin={onTogglePerkPin ? () => onTogglePerkPin(3) : undefined}
+                hideCaption
+                size={perkSize}
+              />
+            )}
+          </div>
         </div>
+
+        {/* Perk names list below cluster */}
+        <ul className="mt-4 grid grid-cols-2 gap-x-4 gap-y-1 max-w-[480px] mx-auto list-none m-0 p-0">
+          {build.perks.map((perk, i) => (
+            <li
+              key={perk.id}
+              className={cn(
+                'flex items-center gap-2 font-sans text-[13px] leading-tight py-1',
+                pins?.perks[i] ? 'text-dbd-bone' : 'text-ink',
+              )}
+            >
+              <span className="label-mono text-[10px] text-ink-faint shrink-0 w-3">{i + 1}.</span>
+              <span className="truncate">{perk.name.ru}</span>
+              {pins?.perks[i] && (
+                <span className="text-dbd-accent text-[10px] shrink-0">✦</span>
+              )}
+            </li>
+          ))}
+        </ul>
       </RitualSection>
 
       {/* ── Survivor: Item + Addons ── */}
@@ -211,23 +289,15 @@ function ItemSlot({
           </El>
         }
       />
-      <TooltipContent
-        side="top"
-        style={{
-          maxWidth: 280,
-          textAlign: 'left',
-          background: 'linear-gradient(to bottom, rgba(20,17,15,.97), rgba(11,9,8,.97))',
-          border: '1px solid var(--line-2)',
-          borderRadius: 0,
-          padding: '12px 14px',
-        }}
-      >
-        <div className="font-sans font-bold text-[14px] text-dbd-bone">{item.name.ru}</div>
-        {item.description?.ru && (
-          <div className="text-[12px] text-ink leading-[1.5] mt-2 whitespace-pre-line">
-            {formatDbdText(item.description.ru)}
-          </div>
-        )}
+      <TooltipContent side="top" style={{ background: 'transparent', border: 'none', padding: 0 }}>
+        <EntityTooltipBody
+          title={item.name.ru}
+          subtitle={{ text: rarityLabel(item.rarity ?? 'common').toUpperCase(), color: ring }}
+          meta={[
+            { label: 'Тип', value: ITEM_TYPE_LABEL[item.type] ?? item.type },
+          ]}
+          description={item.description?.ru ? formatDbdText(item.description.ru) : undefined}
+        />
       </TooltipContent>
     </Tooltip>
   );
@@ -289,23 +359,15 @@ function OfferingSlot({
           </El>
         }
       />
-      <TooltipContent
-        side="top"
-        style={{
-          maxWidth: 280,
-          textAlign: 'left',
-          background: 'linear-gradient(to bottom, rgba(20,17,15,.97), rgba(11,9,8,.97))',
-          border: '1px solid var(--line-2)',
-          borderRadius: 0,
-          padding: '12px 14px',
-        }}
-      >
-        <div className="font-sans font-bold text-[14px] text-dbd-bone">{offering.name.ru}</div>
-        {offering.description?.ru && (
-          <div className="text-[12px] text-ink leading-[1.5] mt-2 whitespace-pre-line">
-            {formatDbdText(offering.description.ru)}
-          </div>
-        )}
+      <TooltipContent side="top" style={{ background: 'transparent', border: 'none', padding: 0 }}>
+        <EntityTooltipBody
+          title={offering.name.ru}
+          subtitle={{ text: rarityLabel(offering.rarity ?? 'common').toUpperCase(), color: ring }}
+          meta={[
+            { label: 'Сторона', value: ROLE_LABEL_OFFERING[offering.role] ?? offering.role },
+          ]}
+          description={offering.description?.ru ? formatDbdText(offering.description.ru) : undefined}
+        />
       </TooltipContent>
     </Tooltip>
   );

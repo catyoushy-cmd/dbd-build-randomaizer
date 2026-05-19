@@ -5,8 +5,16 @@ import { ShapeCard } from '@/components/ui/shape-card';
 import { cn } from '@/lib/utils';
 import { IconImg } from '@/components/ui/icon-img';
 import { Tooltip, TooltipTrigger, TooltipContent } from '@/components/ui/tooltip';
+import { EntityTooltipBody } from '@/components/ui/entity-tooltip';
 import type { Perk } from '@/lib/data';
 import { formatDbdText } from '@/lib/dbd-text';
+
+const ROLE_LABEL_PERK: Record<string, string> = {
+  gen: 'Ген', 'chase-escape': 'Побег', info: 'Инфо', altruism: 'Альтруизм',
+  exhaustion: 'Истощение', boon: 'Дарование', meme: 'Мем',
+  slowdown: 'Замедление', 'chase-power': 'Погоня', aura: 'Аура',
+  hex: 'Гекс', endgame: 'Финал', stealth: 'Скрытность',
+};
 
 /* All perks are displayed as tier-III purple (design spec) */
 const PERK_RING = 'var(--perk-tier3-edge)';
@@ -16,17 +24,28 @@ type Props = {
   perk: Perk;
   pinned?: boolean;
   onTogglePin?: () => void;
+  /** Diamond side length in px. Default 132. */
+  size?: number;
+  /** Hide the name caption below (used when in a tight diamond cluster). */
+  hideCaption?: boolean;
 };
 
-export function PerkCard({ perk, pinned = false, onTogglePin }: Props) {
+export function PerkCard({
+  perk,
+  pinned = false,
+  onTogglePin,
+  size = 132,
+  hideCaption = false,
+}: Props) {
   const [hovered, setHovered] = useState(false);
+  const iconSize = Math.round(size * 0.66);
 
   return (
     <Tooltip>
       <TooltipTrigger
         render={
           <div
-            className="flex flex-col items-center gap-[10px] cursor-pointer pb-1"
+            className="flex flex-col items-center gap-2 cursor-pointer pb-1"
             onClick={onTogglePin}
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
@@ -36,15 +55,15 @@ export function PerkCard({ perk, pinned = false, onTogglePin }: Props) {
               className="transition-[filter] duration-[250ms]"
               style={{
                 filter: hovered
-                  ? 'drop-shadow(0 0 18px rgba(126,81,179,.55))'
+                  ? 'drop-shadow(0 0 18px rgba(160,76,230,.6))'
                   : pinned
-                  ? 'drop-shadow(0 0 12px rgba(184,67,31,.4))'
-                  : 'none',
+                  ? 'drop-shadow(0 0 14px rgba(210,74,31,.45))'
+                  : 'drop-shadow(0 0 6px rgba(0,0,0,.5))',
               }}
             >
               <ShapeCard
                 shape="diamond"
-                size={118}
+                size={size}
                 ringColor={PERK_RING}
                 innerTint={PERK_TINT}
                 pinned={pinned}
@@ -52,58 +71,47 @@ export function PerkCard({ perk, pinned = false, onTogglePin }: Props) {
                 <IconImg
                   src={perk.icon}
                   alt={perk.name.ru}
-                  size={52}
+                  size={iconSize}
                   fallback={<PerkSigil glyph={perk.tier ?? '?'} />}
                 />
               </ShapeCard>
             </div>
 
             {/* Perk name below */}
-            <div className="text-center max-w-[120px]">
-              <span
-                className={cn(
-                  'block font-sans text-[11px] font-semibold leading-[1.3] tracking-[.04em] transition-colors duration-200',
-                  pinned ? 'text-dbd-bone' : 'text-ink-mute',
-                )}
-              >
-                {perk.name.ru}
-              </span>
-              {pinned && (
-                <span className="label-mono text-[9px] text-dbd-accent mt-[2px] block">
-                  заперт
+            {!hideCaption && (
+              <div className="text-center" style={{ maxWidth: size }}>
+                <span
+                  className={cn(
+                    'block font-sans text-[13px] font-semibold leading-[1.25] tracking-[.02em] transition-colors duration-200',
+                    pinned ? 'text-dbd-bone' : 'text-ink',
+                  )}
+                >
+                  {perk.name.ru}
                 </span>
-              )}
-            </div>
+                {pinned && (
+                  <span className="label-mono text-[10px] text-dbd-accent mt-[3px] block">
+                    заперт
+                  </span>
+                )}
+              </div>
+            )}
           </div>
         }
       />
-      <TooltipContent
-        side="top"
-        style={{
-          maxWidth: 280,
-          textAlign: 'left',
-          background: 'linear-gradient(to bottom, rgba(28,23,32,.97), rgba(11,9,12,.97))',
-          border: '1px solid var(--perk-tier3)',
-          borderRadius: 0,
-          padding: '14px 16px',
-          boxShadow: '0 18px 40px rgba(0,0,0,.6)',
-        }}
-      >
-        <div className="label-mono text-[9px]" style={{ color: 'var(--perk-tier3-edge)' }}>
-          УР. III · перк
-        </div>
-        <div className="font-sans font-bold text-[15px] text-dbd-bone mt-1">
-          {perk.name.ru}
-        </div>
-        <div className="h-px my-[10px] bg-gradient-to-r from-line-2 to-transparent" />
-        <div className="text-[12px] text-ink leading-[1.55] whitespace-pre-line">
-          {formatDbdText(perk.description.ru, perk.tunables)}
-        </div>
-        {perk.character && (
-          <div className="label-mono text-[9px] text-ink-faint mt-[10px]">
-            {perk.character}
-          </div>
-        )}
+      <TooltipContent side="top" style={{ background: 'transparent', border: 'none', padding: 0 }}>
+        <EntityTooltipBody
+          variant="perk"
+          title={perk.name.ru}
+          subtitle={{ text: 'УР. III · перк', color: 'var(--perk-tier3-edge)' }}
+          meta={[
+            ...(perk.tier ? [{ label: 'Тир', value: <span className="font-bold text-dbd-bone">{perk.tier}</span> }] : []),
+            ...(perk.roles?.length
+              ? [{ label: 'Роли', value: perk.roles.map((r) => ROLE_LABEL_PERK[r] ?? r).join(', ') }]
+              : []),
+          ]}
+          description={formatDbdText(perk.description.ru, perk.tunables)}
+          footer={perk.character ? `Персонаж: ${perk.character}` : undefined}
+        />
       </TooltipContent>
     </Tooltip>
   );
