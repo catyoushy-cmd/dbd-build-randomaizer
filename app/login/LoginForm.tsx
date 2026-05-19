@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import { createClient } from '@/lib/supabase/client';
-import { Loader2, Mail } from 'lucide-react';
 
 export function LoginForm({ next }: { next: string }) {
   const [email, setEmail] = useState('');
@@ -34,12 +33,14 @@ export function LoginForm({ next }: { next: string }) {
 
   if (sent) {
     return (
-      <div className="space-y-3 text-center py-2">
-        <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-primary/15">
-          <Mail size={20} className="text-primary" />
+      <div className="flex flex-col items-center gap-3 py-2 text-center">
+        <div className="w-12 h-12 border border-dbd-accent bg-[rgba(184,67,31,.1)] flex items-center justify-center">
+          <span className="text-dbd-accent text-xl">✉</span>
         </div>
-        <p className="text-sm font-medium">Письмо отправлено на {email}</p>
-        <p className="text-xs text-muted-foreground">
+        <p className="font-sans font-semibold text-[13px] text-dbd-bone m-0">
+          Письмо отправлено на {email}
+        </p>
+        <p className="text-[12px] text-ink-mute m-0">
           Открой письмо и нажми на ссылку — тебя перебросит обратно.
         </p>
       </div>
@@ -47,25 +48,28 @@ export function LoginForm({ next }: { next: string }) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-3">
+    <form onSubmit={handleSubmit} className="flex flex-col gap-3">
       <input
         type="email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         placeholder="твой@email.com"
         required
-        className="w-full rounded-lg border border-border bg-secondary/30 px-3 py-2.5 text-sm placeholder:text-muted-foreground focus:outline-none focus:border-ring focus:ring-2 focus:ring-ring/30 transition-colors"
+        className={[
+          'w-full bg-bg-2 border border-line-2 px-3 py-[10px]',
+          'font-sans text-[13px] text-ink placeholder:text-ink-faint',
+          'outline-none focus:border-dbd-accent transition-colors duration-150',
+        ].join(' ')}
       />
       {error && (
-        <p className="text-xs text-destructive">{error}</p>
+        <p className="text-[12px] text-dbd-blood m-0">{error}</p>
       )}
       <button
         type="submit"
         disabled={loading || !email.trim()}
-        className="w-full rounded-lg bg-primary py-2.5 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+        className="ritual-btn ritual-btn-primary py-[11px] text-[12px] disabled:opacity-50 disabled:cursor-not-allowed"
       >
-        {loading && <Loader2 size={14} className="animate-spin" />}
-        Отправить magic link
+        {loading ? '...' : 'Отправить magic link'}
       </button>
     </form>
   );

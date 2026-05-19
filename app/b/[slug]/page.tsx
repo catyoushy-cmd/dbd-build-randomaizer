@@ -4,7 +4,7 @@ import { createClient } from '@/lib/supabase/server';
 import { rollBuild } from '@/lib/random/algorithm';
 import { applyPins } from '@/lib/random/pinning';
 import { KILLERS, PERKS, ITEMS, ADDONS, OFFERINGS } from '@/lib/data';
-import { ShareBuildView } from '@/app/build/[code]/ShareBuildView';
+import { ResultView } from '@/components/build/ResultView';
 import type { Pins } from '@/lib/random/pinning';
 
 type Props = { params: { slug: string } };
@@ -55,29 +55,38 @@ export default async function SavedBuildPage({ params }: Props) {
   const rollUrl = `/roll?role=${row.role}&char=${row.killer_id ?? 'any'}&mode=${row.mode}&seed=${row.seed}`;
 
   return (
-    <main className="mx-auto max-w-2xl px-4 py-8 space-y-6">
-      <div className="flex items-start justify-between gap-4">
-        <div>
-          <Link href="/" className="text-xs text-muted-foreground hover:text-foreground transition-colors mb-2 block">
-            ← На главную
-          </Link>
-          <h1 className="text-2xl font-bold">
-            {row.role === 'killer' ? '🔪' : '🧍'} {characterLabel}
-          </h1>
-          <p className="text-sm text-muted-foreground mt-1">
-            {modeLabel[row.mode] ?? row.mode}
-            {row.note && <span className="ml-2 text-foreground/70">— {row.note}</span>}
-          </p>
-        </div>
-        <Link
-          href={rollUrl}
-          className="shrink-0 rounded-lg border border-primary bg-primary/10 px-4 py-2 text-sm font-medium text-primary hover:bg-primary/20 transition-colors"
-        >
-          Скопировать себе →
+    <main className="mx-auto max-w-[600px] px-5 sm:px-10 pt-10 sm:pt-12 pb-12 sm:pb-20">
+      {/* ── Page header ── */}
+      <div className="mb-8">
+        <Link href="/" className="label-mono text-[10px] text-ink-faint no-underline hover:text-ink-mute transition-colors mb-4 block">
+          ← Алтарь
         </Link>
+
+        <div className="flex items-start justify-between gap-4 border border-line-2 bg-bg-1 p-5">
+          <div>
+            <span className="label-mono text-[9px] text-ink-faint block mb-1">
+              {row.role === 'killer' ? 'убийца' : 'выживший'} · {modeLabel[row.mode] ?? row.mode}
+            </span>
+            <h1 className="m-0 text-[22px] font-extrabold text-dbd-bone tracking-[-0.01em]">
+              {characterLabel}
+            </h1>
+            {row.note && (
+              <p className="m-0 mt-2 text-[13px] text-ink-mute italic">
+                {row.note}
+              </p>
+            )}
+          </div>
+          <Link
+            href={rollUrl}
+            className="ritual-btn ritual-btn-ghost shrink-0 px-4 py-2 text-[11px] no-underline"
+          >
+            Скопировать себе →
+          </Link>
+        </div>
       </div>
 
-      <ShareBuildView build={finalBuild} />
+      {/* ── Build display (readonly) ── */}
+      <ResultView build={finalBuild} />
     </main>
   );
 }

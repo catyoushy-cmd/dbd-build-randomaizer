@@ -29,6 +29,23 @@
   --font-sans: var(--font-manrope);
   --font-mono: var(--font-jetbrains);
   --font-display: var(--font-manrope);
+
+  /* ── Ritual palette → Tailwind utilities ── */
+  --color-bg-deep:    var(--bg-deep);
+  --color-bg-1:       var(--bg-1);
+  --color-bg-2:       var(--bg-2);
+  --color-bg-3:       var(--bg-3);
+  --color-line-1:     var(--line-1);
+  --color-line-2:     var(--line-2);
+  --color-line-ember: var(--line-ember);
+  --color-ink:        var(--ink);
+  --color-ink-mute:   var(--ink-mute);
+  --color-ink-faint:  var(--ink-faint);
+  --color-dbd-accent: var(--dbd-accent);
+  --color-dbd-glow:   var(--dbd-accent-glow);
+  --color-dbd-blood:  var(--dbd-blood);
+  --color-dbd-bone:   var(--dbd-bone);
+  --color-dbd-brass:  var(--dbd-brass);
 }
 
 :root {
@@ -129,22 +146,13 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--dbd-bone);
 }
 
-.label-mono {
-  font-family: var(--font-mono, "JetBrains Mono", ui-monospace, monospace);
-  font-size: 11px;
-  letter-spacing: .22em;
-  text-transform: uppercase;
-  color: var(--ink-mute);
-  font-weight: 500;
-}
-
 /* ─── Ritual selection highlight ─── */
 ::selection {
   background: var(--dbd-accent);
   color: #fff;
 }
 
-/* ─── Animations ─── */
+/* ─── Keyframes (global, outside layers) ─── */
 @keyframes fade-up {
   from { opacity: 0; transform: translateY(8px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -165,7 +173,7 @@ h1, h2, h3, h4, h5, h6 {
   50%       { box-shadow: 0 0 32px rgba(232,101,30,.5); }
 }
 
-@keyframes hover-lift {
+@keyframes hover-lift-kf {
   to { transform: translateY(-2px); }
 }
 
@@ -174,134 +182,137 @@ h1, h2, h3, h4, h5, h6 {
   to   { opacity: 1; transform: scale(1); }
 }
 
-.animate-fade-up       { animation: fade-up 0.4s ease both; }
-.animate-fade-out      { animation: fade-out 0.22s ease both; }
-.animate-ring-pulse    { animation: ring-pulse 1.5s ease-in-out infinite; }
-.animate-ritual-glow   { animation: ritual-glow-pulse 2s ease-in-out infinite; }
-.animate-stagger       { animation: stagger-reveal 0.35s ease both; }
+/* ─── Component classes (Tailwind utilities override these) ─── */
+@layer components {
+  .label-mono {
+    font-family: var(--font-mono, "JetBrains Mono", ui-monospace, monospace);
+    font-size: 11px;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    font-weight: 500;
+  }
 
-/* ─── Hover lift ─── */
-.hover-lift {
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-}
-.hover-lift:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 24px rgba(0,0,0,.5);
-}
+  .animate-fade-up       { animation: fade-up 0.4s ease both; }
+  .animate-fade-out      { animation: fade-out 0.22s ease both; }
+  .animate-ring-pulse    { animation: ring-pulse 1.5s ease-in-out infinite; }
+  .animate-ritual-glow   { animation: ritual-glow-pulse 2s ease-in-out infinite; }
+  .animate-stagger       { animation: stagger-reveal 0.35s ease both; }
 
-/* ─── Ritual divider line ─── */
-.ritual-divider {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  color: var(--ink-faint);
-  margin: 8px 0;
-}
-.ritual-divider::before,
-.ritual-divider::after {
-  content: "";
-  flex: 1;
-  height: 1px;
-}
-.ritual-divider::before {
-  background: linear-gradient(to right, transparent, var(--line-2));
-}
-.ritual-divider::after {
-  background: linear-gradient(to left, transparent, var(--line-2));
-}
+  .hover-lift {
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .hover-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(0,0,0,.5);
+  }
 
-/* ─── Ritual button base ─── */
-.ritual-btn {
-  font-family: var(--font-sans, "Manrope", system-ui, sans-serif);
-  font-weight: 700;
-  letter-spacing: .18em;
-  text-transform: uppercase;
-  border-radius: 0;
-  cursor: pointer;
-  transition: all .18s ease;
-  border: 1px solid;
-  position: relative;
-  overflow: hidden;
-}
-.ritual-btn::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(255,255,255,0);
-  transition: background .18s ease;
-}
-.ritual-btn:hover::after {
-  background: rgba(255,255,255,.04);
-}
+  .ritual-divider {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    color: var(--ink-faint);
+    margin: 8px 0;
+  }
+  .ritual-divider::before,
+  .ritual-divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+  }
+  .ritual-divider::before {
+    background: linear-gradient(to right, transparent, var(--line-2));
+  }
+  .ritual-divider::after {
+    background: linear-gradient(to left, transparent, var(--line-2));
+  }
 
-/* ─── Primary action button ─── */
-.ritual-btn-primary {
-  background: var(--dbd-accent);
-  color: #fff;
-  border-color: var(--dbd-accent-glow);
-  box-shadow: 0 0 0 1px rgba(0,0,0,.5),
-              0 0 24px rgba(232,101,30,.25),
-              inset 0 0 0 1px rgba(255,255,255,.08);
-}
-.ritual-btn-primary:hover {
-  box-shadow: 0 0 0 1px rgba(0,0,0,.5),
-              0 0 40px rgba(232,101,30,.4),
-              inset 0 0 0 1px rgba(255,255,255,.12);
-}
+  .ritual-btn {
+    font-family: var(--font-sans, "Manrope", system-ui, sans-serif);
+    font-weight: 700;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    border-radius: 0;
+    cursor: pointer;
+    transition: all .18s ease;
+    border: 1px solid;
+    position: relative;
+    overflow: hidden;
+  }
+  .ritual-btn::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255,255,255,0);
+    transition: background .18s ease;
+  }
+  .ritual-btn:hover::after {
+    background: rgba(255,255,255,.04);
+  }
 
-/* ─── Ghost button ─── */
-.ritual-btn-ghost {
-  background: transparent;
-  color: var(--ink-mute);
-  border-color: var(--line-2);
-}
-.ritual-btn-ghost:hover {
-  color: var(--ink);
-  border-color: var(--line-ember);
-}
+  .ritual-btn-primary {
+    background: var(--dbd-accent);
+    color: #fff;
+    border-color: var(--dbd-accent-glow);
+    box-shadow: 0 0 0 1px rgba(0,0,0,.5),
+                0 0 24px rgba(232,101,30,.25),
+                inset 0 0 0 1px rgba(255,255,255,.08);
+  }
+  .ritual-btn-primary:hover {
+    box-shadow: 0 0 0 1px rgba(0,0,0,.5),
+                0 0 40px rgba(232,101,30,.4),
+                inset 0 0 0 1px rgba(255,255,255,.12);
+  }
 
-/* ─── Shape card clip-path shapes ─── */
-.shape-diamond {
-  clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
-  -webkit-clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
-}
-.shape-pentagon {
-  clip-path: polygon(50% 0, 100% 36.32%, 80.9% 95.1%, 19.1% 95.1%, 0 36.32%);
-  -webkit-clip-path: polygon(50% 0, 100% 36.32%, 80.9% 95.1%, 19.1% 95.1%, 0 36.32%);
-}
-.shape-rect {
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-}
+  .ritual-btn-ghost {
+    background: transparent;
+    color: var(--ink-mute);
+    border-color: var(--line-2);
+  }
+  .ritual-btn-ghost:hover {
+    color: var(--ink);
+    border-color: var(--line-ember);
+  }
 
-/* ─── Rarity text colours (utility classes) ─── */
-.rarity-common   { color: var(--r-common); }
-.rarity-uncommon { color: var(--r-uncommon); }
-.rarity-rare     { color: var(--r-rare); }
-.rarity-veryrare { color: var(--r-veryrare); }
-.rarity-ultra    { color: var(--r-ultra); }
+  .shape-diamond {
+    clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+    -webkit-clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+  }
+  .shape-pentagon {
+    clip-path: polygon(50% 0, 100% 36.32%, 80.9% 95.1%, 19.1% 95.1%, 0 36.32%);
+    -webkit-clip-path: polygon(50% 0, 100% 36.32%, 80.9% 95.1%, 19.1% 95.1%, 0 36.32%);
+  }
+  .shape-rect {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
 
-/* ─── Home page mode card hover ─── */
-.ritual-mode-card {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  padding: 20px 18px;
-  border: 1px solid var(--line-2);
-  background: var(--bg-1);
-  text-decoration: none;
-  transition: border-color .2s ease, background .2s ease;
-}
-.ritual-mode-card:hover {
-  border-color: var(--line-ember);
-  background: var(--bg-2);
-}
+  .rarity-common   { color: var(--r-common); }
+  .rarity-uncommon { color: var(--r-uncommon); }
+  .rarity-rare     { color: var(--r-rare); }
+  .rarity-veryrare { color: var(--r-veryrare); }
+  .rarity-ultra    { color: var(--r-ultra); }
 
-/* ─── Home page step card ─── */
-.ritual-step-card {
-  display: flex;
-  align-items: flex-start;
-  gap: 16px;
-  padding: 18px 16px;
-  border: 1px solid var(--line-1);
-  background: rgba(20,17,15,.5);
+  .ritual-mode-card {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 20px 18px;
+    border: 1px solid var(--line-2);
+    background: var(--bg-1);
+    text-decoration: none;
+    transition: border-color .2s ease, background .2s ease;
+  }
+  .ritual-mode-card:hover {
+    border-color: var(--line-ember);
+    background: var(--bg-2);
+  }
+
+  .ritual-step-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 18px 16px;
+    border: 1px solid var(--line-1);
+    background: rgba(20,17,15,.5);
+  }
 }

@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import { decode, IncompatibleVersionError } from '@/lib/url/encode';
 import { rollBuild } from '@/lib/random/algorithm';
 import { KILLERS, SURVIVORS } from '@/lib/data';
-import { ShareBuildView } from './ShareBuildView';
+import { ResultView } from '@/components/build/ResultView';
 
 type Props = {
   params: { code: string };
@@ -32,15 +32,13 @@ export default function BuildPage({ params }: Props) {
 
   if (incompatible || !decodeResult) {
     return (
-      <main className="mx-auto max-w-2xl px-4 py-12 text-center space-y-4">
-        <h1 className="text-2xl font-bold">Устаревший формат</h1>
-        <p className="text-muted-foreground">
-          Этот билд создан старой версией данных и не может быть воспроизведён точно.
+      <main className="mx-auto max-w-[600px] px-5 sm:px-10 pt-16 pb-20 text-center flex flex-col gap-4 items-center">
+        <span className="label-mono text-[10px] text-ink-faint">Ошибка</span>
+        <h1 className="m-0 text-[28px] font-extrabold text-dbd-bone">Устаревший формат</h1>
+        <p className="text-[14px] text-ink-mute max-w-[340px] leading-[1.6]">
+          Этот билд создан старой версией и не может быть воспроизведён точно.
         </p>
-        <Link
-          href="/roll"
-          className="inline-block rounded-lg bg-primary px-6 py-2.5 text-sm font-semibold text-primary-foreground hover:opacity-90 transition-opacity"
-        >
+        <Link href="/roll" className="ritual-btn ritual-btn-primary px-8 py-3 text-[13px] no-underline mt-2">
           Создать новый билд
         </Link>
       </main>
@@ -70,29 +68,33 @@ export default function BuildPage({ params }: Props) {
   const rollUrl = `/roll?role=${build.role}&char=${input.killerId ?? input.survivorId ?? 'any'}&mode=${build.mode}&seed=${build.seed}`;
 
   return (
-    <main className="mx-auto max-w-2xl px-4 py-8 space-y-6">
-      {/* Header */}
-      <div className="flex items-start justify-between gap-4">
-        <div>
-          <Link href="/" className="text-xs text-muted-foreground hover:text-foreground transition-colors mb-2 block">
-            ← На главную
-          </Link>
-          <h1 className="text-2xl font-bold">
-            {build.role === 'killer' ? '🔪' : '🧍'} {characterLabel}
-          </h1>
-          <p className="text-sm text-muted-foreground mt-1">
-            {modeLabel[build.mode] ?? build.mode}
-          </p>
-        </div>
-        <Link
-          href={rollUrl}
-          className="shrink-0 rounded-lg border border-primary bg-primary/10 px-4 py-2 text-sm font-medium text-primary hover:bg-primary/20 transition-colors"
-        >
-          Скопировать себе →
+    <main className="mx-auto max-w-[600px] px-5 sm:px-10 pt-10 sm:pt-12 pb-12 sm:pb-20">
+      {/* ── Page header ── */}
+      <div className="mb-8">
+        <Link href="/" className="label-mono text-[10px] text-ink-faint no-underline hover:text-ink-mute transition-colors mb-4 block">
+          ← Алтарь
         </Link>
+
+        <div className="flex items-start justify-between gap-4 border border-line-2 bg-bg-1 p-5">
+          <div>
+            <span className="label-mono text-[9px] text-ink-faint block mb-1">
+              {build.role === 'killer' ? 'убийца' : 'выживший'} · {modeLabel[build.mode] ?? build.mode}
+            </span>
+            <h1 className="m-0 text-[22px] font-extrabold text-dbd-bone tracking-[-0.01em]">
+              {characterLabel}
+            </h1>
+          </div>
+          <Link
+            href={rollUrl}
+            className="ritual-btn ritual-btn-ghost shrink-0 px-4 py-2 text-[11px] no-underline"
+          >
+            Скопировать себе →
+          </Link>
+        </div>
       </div>
 
-      <ShareBuildView build={build} />
+      {/* ── Build display (readonly) ── */}
+      <ResultView build={build} />
     </main>
   );
 }

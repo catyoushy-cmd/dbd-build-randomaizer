@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { ShapeCard } from '@/components/ui/shape-card';
+import { cn } from '@/lib/utils';
 import { IconImg } from '@/components/ui/icon-img';
 import { Tooltip, TooltipTrigger, TooltipContent } from '@/components/ui/tooltip';
 import type { Perk } from '@/lib/data';
@@ -25,27 +26,20 @@ export function PerkCard({ perk, pinned = false, onTogglePin }: Props) {
       <TooltipTrigger
         render={
           <div
-            style={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              gap: 10,
-              cursor: 'pointer',
-              paddingBottom: 4,
-            }}
+            className="flex flex-col items-center gap-[10px] cursor-pointer pb-1"
             onClick={onTogglePin}
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
             aria-label={`${perk.name.ru}${pinned ? ' (закреплён)' : ''}`}
           >
             <div
+              className="transition-[filter] duration-[250ms]"
               style={{
                 filter: hovered
                   ? 'drop-shadow(0 0 18px rgba(126,81,179,.55))'
                   : pinned
                   ? 'drop-shadow(0 0 12px rgba(184,67,31,.4))'
                   : 'none',
-                transition: 'filter .25s ease',
               }}
             >
               <ShapeCard
@@ -65,26 +59,17 @@ export function PerkCard({ perk, pinned = false, onTogglePin }: Props) {
             </div>
 
             {/* Perk name below */}
-            <div style={{ textAlign: 'center', maxWidth: 120 }}>
+            <div className="text-center max-w-[120px]">
               <span
-                style={{
-                  display: 'block',
-                  fontFamily: 'var(--font-sans, Manrope, system-ui)',
-                  fontSize: 11,
-                  fontWeight: 600,
-                  color: pinned ? 'var(--dbd-bone)' : 'var(--ink-mute)',
-                  lineHeight: 1.3,
-                  letterSpacing: '.04em',
-                  transition: 'color .2s ease',
-                }}
+                className={cn(
+                  'block font-sans text-[11px] font-semibold leading-[1.3] tracking-[.04em] transition-colors duration-200',
+                  pinned ? 'text-dbd-bone' : 'text-ink-mute',
+                )}
               >
                 {perk.name.ru}
               </span>
               {pinned && (
-                <span
-                  className="label-mono"
-                  style={{ fontSize: 9, color: 'var(--dbd-accent)', marginTop: 2, display: 'block' }}
-                >
+                <span className="label-mono text-[9px] text-dbd-accent mt-[2px] block">
                   заперт
                 </span>
               )}
@@ -104,42 +89,18 @@ export function PerkCard({ perk, pinned = false, onTogglePin }: Props) {
           boxShadow: '0 18px 40px rgba(0,0,0,.6)',
         }}
       >
-        <div className="label-mono" style={{ color: 'var(--perk-tier3-edge)', fontSize: 9 }}>
+        <div className="label-mono text-[9px]" style={{ color: 'var(--perk-tier3-edge)' }}>
           УР. III · перк
         </div>
-        <div
-          style={{
-            fontFamily: 'var(--font-sans, Manrope, system-ui)',
-            fontWeight: 700,
-            fontSize: 15,
-            color: 'var(--dbd-bone)',
-            marginTop: 4,
-          }}
-        >
+        <div className="font-sans font-bold text-[15px] text-dbd-bone mt-1">
           {perk.name.ru}
         </div>
-        <div
-          style={{
-            height: 1,
-            margin: '10px 0',
-            background: 'linear-gradient(to right, var(--line-2), transparent)',
-          }}
-        />
-        <div
-          style={{
-            fontSize: 12,
-            color: 'var(--ink)',
-            lineHeight: 1.55,
-            whiteSpace: 'pre-line',
-          }}
-        >
+        <div className="h-px my-[10px] bg-gradient-to-r from-line-2 to-transparent" />
+        <div className="text-[12px] text-ink leading-[1.55] whitespace-pre-line">
           {formatDbdText(perk.description.ru, perk.tunables)}
         </div>
         {perk.character && (
-          <div
-            className="label-mono"
-            style={{ marginTop: 10, fontSize: 9, color: 'var(--ink-faint)' }}
-          >
+          <div className="label-mono text-[9px] text-ink-faint mt-[10px]">
             {perk.character}
           </div>
         )}
