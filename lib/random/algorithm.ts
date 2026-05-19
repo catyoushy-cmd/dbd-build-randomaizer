@@ -89,8 +89,9 @@ function rollEfficient(
   rng: () => number,
   role: 'survivor' | 'killer',
   killerId: string | null,
+  buildCores: BuildCore[],
 ): Omit<Build, 'seed' | 'role' | 'killerId' | 'survivorId' | 'mode'> & { buildCore?: BuildCore; fallback?: boolean } {
-  const cores = BUILD_CORES.filter(c => c.role === role && c.mode === 'efficient');
+  const cores = buildCores.filter(c => c.role === role && c.mode === 'efficient');
   const core = pickOne(cores, rng);
 
   const pool = perkPool(role);
@@ -141,8 +142,9 @@ function rollFun(
   rng: () => number,
   role: 'survivor' | 'killer',
   killerId: string | null,
+  buildCores: BuildCore[],
 ): Omit<Build, 'seed' | 'role' | 'killerId' | 'survivorId' | 'mode'> & { buildCore?: BuildCore; fallback?: boolean } {
-  const cores = BUILD_CORES.filter(c => c.role === role && c.mode === 'fun');
+  const cores = buildCores.filter(c => c.role === role && c.mode === 'fun');
   const core = pickOne(cores, rng);
 
   const pool = perkPool(role);
@@ -193,9 +195,10 @@ function rollFun(
   return { perks, item, addons, offering, buildCore: core };
 }
 
-export function rollBuild(input: BuildInput): Build {
+export function rollBuild(input: BuildInput, buildCores?: BuildCore[]): Build {
   const { role, killerId = null, survivorId = null, mode, seed } = input;
   const rng = mulberry32(seed);
+  const cores = buildCores ?? BUILD_CORES;
 
   let result: Omit<Build, 'seed' | 'role' | 'killerId' | 'survivorId' | 'mode'> & {
     buildCore?: BuildCore;
@@ -206,9 +209,9 @@ export function rollBuild(input: BuildInput): Build {
     if (mode === 'random') {
       result = rollRandom(rng, role, killerId);
     } else if (mode === 'efficient') {
-      result = rollEfficient(rng, role, killerId);
+      result = rollEfficient(rng, role, killerId, cores);
     } else {
-      result = rollFun(rng, role, killerId);
+      result = rollFun(rng, role, killerId, cores);
     }
   } catch {
     result = { ...rollRandom(mulberry32(seed), role, killerId), fallback: true };

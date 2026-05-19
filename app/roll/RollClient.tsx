@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { useRouter, useSearchParams, usePathname } from 'next/navigation';
 import { toast } from 'sonner';
 import { rollBuild, type BuildInput } from '@/lib/random/algorithm';
+import type { BuildCore } from '@/lib/data';
 import {
   applyPins,
   EMPTY_PIN_STATE,
@@ -23,6 +24,10 @@ import { cn } from '@/lib/utils';
 import { BuildResult } from './BuildResult';
 import type { Build, BuildMode } from '@/lib/data';
 
+type Props = {
+  buildCores?: BuildCore[];
+};
+
 const MODE_OPTIONS: { value: BuildMode; label: string; glyph: string; desc: string }[] = [
   { value: 'random',    label: 'Рандом',        glyph: '⚄', desc: 'Полная лотерея' },
   { value: 'efficient', label: 'Эффективность', glyph: '⚡', desc: 'Синергичный' },
@@ -31,7 +36,7 @@ const MODE_OPTIONS: { value: BuildMode; label: string; glyph: string; desc: stri
 
 const ALL_DATA = { perks: PERKS, items: ITEMS, addons: ADDONS, offerings: OFFERINGS };
 
-export function RollClient() {
+export function RollClient({ buildCores }: Props) {
   const router       = useRouter();
   const searchParams = useSearchParams();
   const pathname     = usePathname();
@@ -65,7 +70,7 @@ export function RollClient() {
           mode: m,
           seed,
         };
-        setBuild(rollBuild(input));
+        setBuild(rollBuild(input, buildCores));
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -94,7 +99,7 @@ export function RollClient() {
       seed,
     };
 
-    let newBuild = rollBuild(input);
+    let newBuild = rollBuild(input, buildCores);
 
     if (build && hasAnyPins(pins)) {
       newBuild = applyPins(newBuild, pinStateToApiPins(pins, build), ALL_DATA);
@@ -123,25 +128,25 @@ export function RollClient() {
       label:  `${roleLabel} / ${charLabel} / ${modeLabel}`,
       ts:     Date.now(),
     });
-  }, [role, charId, mode, build, pins, updateUrl]);
+  }, [role, charId, mode, build, pins, updateUrl, buildCores]);
 
   const handleRerollAddons = useCallback(() => {
     if (!build) return;
     const newSeed = crypto.getRandomValues(new Uint32Array(1))[0];
-    const tempBuild = rollBuild({ role: build.role, killerId: build.killerId, survivorId: build.survivorId, mode: build.mode, seed: newSeed });
+    const tempBuild = rollBuild({ role: build.role, killerId: build.killerId, survivorId: build.survivorId, mode: build.mode, seed: newSeed }, buildCores);
     const nextAddons = pins.addons.map((p, i) =>
       p ? build.addons[i] : (tempBuild.addons[i] ?? build.addons[i])
     );
     const nextItem = pins.item ? build.item : (build.role === 'survivor' ? (tempBuild.item ?? build.item) : null);
     setBuild({ ...build, addons: nextAddons, item: nextItem });
-  }, [build, pins]);
+  }, [build, pins, buildCores]);
 
   const handleRerollOffering = useCallback(() => {
     if (!build || pins.offering) return;
     const newSeed = crypto.getRandomValues(new Uint32Array(1))[0];
-    const tempBuild = rollBuild({ role: build.role, killerId: build.killerId, survivorId: build.survivorId, mode: build.mode, seed: newSeed });
+    const tempBuild = rollBuild({ role: build.role, killerId: build.killerId, survivorId: build.survivorId, mode: build.mode, seed: newSeed }, buildCores);
     setBuild({ ...build, offering: tempBuild.offering });
-  }, [build, pins]);
+  }, [build, pins, buildCores]);
 
   const shareUrl = build
     ? `${typeof window !== 'undefined' ? window.location.origin : ''}/build/${encodeShort(build)}`

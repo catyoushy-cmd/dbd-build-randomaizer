@@ -49,6 +49,8 @@ export function Header() {
         <nav className="hidden sm:flex items-center gap-0.5">
           <NavTab href="/" active={isHome}>Алтарь</NavTab>
           <NavTab href="/roll" active={pathname?.startsWith('/roll')}>Жребий</NavTab>
+          <NavTab href="/perks" active={pathname?.startsWith('/perks')}>Перки</NavTab>
+          <NavTab href="/offerings" active={pathname?.startsWith('/offerings')}>Подношения</NavTab>
         </nav>
 
         {/* Right action */}
