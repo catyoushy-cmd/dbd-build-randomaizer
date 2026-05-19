@@ -1,10 +1,11 @@
-import { SURVIVORS, PERKS } from '@/lib/data';
+import { fetchSurvivors, fetchPerks } from '@/lib/data/content-db';
 import { IconImg } from '@/components/ui/icon-img';
 
 export const revalidate = 3600;
 
 export default async function SurvivorsPage() {
-  const survivorPerkCount = PERKS.filter((p) => p.role === 'survivor').length;
+  const [SURVIVORS, perks] = await Promise.all([fetchSurvivors(), fetchPerks()]);
+  const survivorPerkCount = perks.filter((p) => p.role === 'survivor').length;
 
   return (
     <div className="mx-auto max-w-[1100px] px-5 sm:px-10 pt-10 sm:pt-12 pb-16">

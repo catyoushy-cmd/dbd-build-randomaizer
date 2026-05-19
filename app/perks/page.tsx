@@ -1,12 +1,15 @@
-import { PERKS } from '@/lib/data';
+import { fetchPerks } from '@/lib/data/content-db';
 import { fetchOverrides, applyOverrides } from '@/lib/data/overrides';
 import { PerksGrid } from './PerksGrid';
 
 export const revalidate = 3600; // ISR — 1 hour
 
 export default async function PerksPage() {
-  const overrides = await fetchOverrides('perk');
-  const perks = applyOverrides(PERKS, overrides);
+  const [perksRaw, overrides] = await Promise.all([
+    fetchPerks(),
+    fetchOverrides('perk'),
+  ]);
+  const perks = applyOverrides(perksRaw, overrides);
 
   // Sort: S → A → B → C → no tier
   const TIER_ORDER = ['S', 'A', 'B', 'C'];

@@ -1,13 +1,12 @@
 import Link from 'next/link';
-import { KILLERS, PERKS } from '@/lib/data';
+import { fetchKillers, fetchPerks } from '@/lib/data/content-db';
 import { IconImg } from '@/components/ui/icon-img';
 
 export const revalidate = 3600;
 
 export default async function KillersPage() {
-  // Count personal perks per killer (perks where perk.character is killer's index/id)
-  // Our data has perk.character as a free-form string; just count perks where role=killer.
-  const killerPerkCount = PERKS.filter((p) => p.role === 'killer').length;
+  const [KILLERS, perks] = await Promise.all([fetchKillers(), fetchPerks()]);
+  const killerPerkCount = perks.filter((p) => p.role === 'killer').length;
 
   return (
     <div className="mx-auto max-w-[1100px] px-5 sm:px-10 pt-10 sm:pt-12 pb-16">

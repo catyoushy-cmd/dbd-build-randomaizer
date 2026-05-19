@@ -1,12 +1,15 @@
-import { OFFERINGS } from '@/lib/data';
+import { fetchOfferings } from '@/lib/data/content-db';
 import { fetchOverrides, applyOverrides } from '@/lib/data/overrides';
 import { OfferingsGrid } from './OfferingsGrid';
 
 export const revalidate = 3600;
 
 export default async function OfferingsPage() {
-  const overrides = await fetchOverrides('offering');
-  const offerings = applyOverrides(OFFERINGS, overrides);
+  const [offeringsRaw, overrides] = await Promise.all([
+    fetchOfferings(),
+    fetchOverrides('offering'),
+  ]);
+  const offerings = applyOverrides(offeringsRaw, overrides);
 
   return (
     <div className="mx-auto max-w-[1100px] px-5 sm:px-10 pt-10 sm:pt-12 pb-16">
