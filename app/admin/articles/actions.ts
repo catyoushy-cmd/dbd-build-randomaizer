@@ -25,7 +25,7 @@ export async function saveArticleAction(formData: FormData) {
     category,
     published,
     cover_url,
-    author_id: user.id,
+    author_id: user?.id ?? null,
   };
 
   const { error } = await supabase

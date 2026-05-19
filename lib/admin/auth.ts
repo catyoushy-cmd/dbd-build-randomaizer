@@ -3,17 +3,26 @@ import { createClient } from '@/lib/supabase/server';
 
 /**
  * Server-side admin guard.
- * Checks that the current user's email is in the ADMIN_EMAILS env var.
- * Redirects to /login if not authenticated or not an admin.
+ *
+ * Auth mode is controlled by the ADMIN_EMAILS env var:
+ *   - Not set / empty → guard disabled (open access, for local dev/testing)
+ *   - Set to comma-separated emails → only those users can access /admin
+ *
+ * To re-enable: add ADMIN_EMAILS=your@email.com to .env.local
  */
 export async function requireAdmin() {
-  const supabase = createClient();
-  const { data: { user } } = await supabase.auth.getUser();
-
   const adminEmails = (process.env.ADMIN_EMAILS ?? '')
     .split(',')
     .map((e) => e.trim().toLowerCase())
     .filter(Boolean);
+
+  // Guard disabled — ADMIN_EMAILS not configured
+  if (adminEmails.length === 0) {
+    return null;
+  }
+
+  const supabase = createClient();
+  const { data: { user } } = await supabase.auth.getUser();
 
   if (!user || !adminEmails.includes((user.email ?? '').toLowerCase())) {
     redirect('/login?next=/admin');
