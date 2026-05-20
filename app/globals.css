@@ -332,6 +332,32 @@ h1, h2, h3, h4, h5, h6 {
     background: rgba(20,17,15,.5);
   }
 
+  /* ─── DBD description: tunable tiers + keywords ─── */
+  .tier-vals {
+    display: inline;
+    white-space: nowrap;
+    font-weight: 700;
+  }
+  .tier-sep {
+    color: var(--ink-faint);
+    margin: 0 1px;
+    font-weight: 400;
+  }
+  .tunable-t1 { color: #c9a44f; }   /* tier 1 = brown/yellow */
+  .tunable-t2 { color: #5fb858; }   /* tier 2 = green */
+  .tunable-t3 { color: #c75bff; }   /* tier 3 = purple/iridescent */
+
+  .dbd-keyword {
+    color: var(--dbd-accent-glow);
+    font-weight: 600;
+    border-bottom: 1px dotted rgba(245,112,37,.45);
+    cursor: help;
+  }
+  .dbd-keyword:hover {
+    color: #ff9a4a;
+    border-bottom-color: rgba(255,154,74,.7);
+  }
+
   /* ─── Wiki article prose ─── */
   .wiki-prose h1,
   .wiki-prose h2,
@@ -399,25 +425,26 @@ h1, h2, h3, h4, h5, h6 {
     grid-template-rows: auto auto auto;
     justify-items: center;
     align-items: center;
-    /* Negative gap pulls neighbouring diamonds so their corners touch — like in the game */
-    gap: 0;
+    /* Minimal gap so neighbouring diamond corners almost touch — compact, in-game look */
+    gap: 4px;
     width: 100%;
-    max-width: 360px;
+    max-width: 320px;
     margin: 0 auto;
   }
   @media (min-width: 481px) {
     .diamond-cluster {
-      max-width: 460px;
+      max-width: 420px;
+      gap: 6px;
     }
   }
   .diamond-cluster > .diamond-slot-top    { grid-column: 2; grid-row: 1; }
   .diamond-cluster > .diamond-slot-left   { grid-column: 1; grid-row: 2; }
   .diamond-cluster > .diamond-slot-right  { grid-column: 3; grid-row: 2; }
   .diamond-cluster > .diamond-slot-bottom { grid-column: 2; grid-row: 3; }
-  /* Pull rows so diamond tips meet — vertical overlap = ~25% of slot height */
+  /* Pull rows so diamond tips meet — vertical overlap ≈ ~38% of slot height */
   .diamond-cluster > .diamond-slot-left,
   .diamond-cluster > .diamond-slot-right {
-    margin-top: -28%;
-    margin-bottom: -28%;
+    margin-top: -38%;
+    margin-bottom: -38%;
   }
 }

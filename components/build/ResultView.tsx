@@ -1,5 +1,6 @@
 'use client';
 
+import { toast } from 'sonner';
 import { PerkCard } from '@/app/roll/PerkCard';
 import { AddonCard } from '@/app/roll/AddonCard';
 import { ShapeCard, rarityColor, rarityLabel } from '@/components/ui/shape-card';
@@ -11,6 +12,15 @@ import { formatDbdText } from '@/lib/dbd-text';
 import { useIsMobile } from '@/lib/use-media-query';
 import type { Build } from '@/lib/data';
 import type { PinState } from '@/lib/random/pinning';
+
+async function copyPerkName(name: string) {
+  try {
+    await navigator.clipboard.writeText(name);
+    toast.success(`Скопировано: ${name}`);
+  } catch {
+    toast.error('Не удалось скопировать');
+  }
+}
 
 const ITEM_TYPE_LABEL: Record<string, string> = {
   flashlight: 'Фонарик',
@@ -75,7 +85,7 @@ export function ResultView({
       {/* ── Perks: diamond-of-diamonds layout ── */}
       <RitualSection title="Перки" label="4 жребия">
         <div className="diamond-cluster">
-          {/* Top */}
+          {/* Top → tooltip above */}
           <div className="diamond-slot-top">
             {build.perks[0] && (
               <PerkCard
@@ -84,10 +94,11 @@ export function ResultView({
                 onTogglePin={onTogglePerkPin ? () => onTogglePerkPin(0) : undefined}
                 hideCaption
                 size={perkSize}
+                tooltipSide="top"
               />
             )}
           </div>
-          {/* Left */}
+          {/* Left → tooltip to the left */}
           <div className="diamond-slot-left">
             {build.perks[1] && (
               <PerkCard
@@ -96,10 +107,11 @@ export function ResultView({
                 onTogglePin={onTogglePerkPin ? () => onTogglePerkPin(1) : undefined}
                 hideCaption
                 size={perkSize}
+                tooltipSide={isMobile ? 'top' : 'left'}
               />
             )}
           </div>
-          {/* Right */}
+          {/* Right → tooltip to the right */}
           <div className="diamond-slot-right">
             {build.perks[2] && (
               <PerkCard
@@ -108,10 +120,11 @@ export function ResultView({
                 onTogglePin={onTogglePerkPin ? () => onTogglePerkPin(2) : undefined}
                 hideCaption
                 size={perkSize}
+                tooltipSide={isMobile ? 'top' : 'right'}
               />
             )}
           </div>
-          {/* Bottom */}
+          {/* Bottom → tooltip below */}
           <div className="diamond-slot-bottom">
             {build.perks[3] && (
               <PerkCard
@@ -120,23 +133,34 @@ export function ResultView({
                 onTogglePin={onTogglePerkPin ? () => onTogglePerkPin(3) : undefined}
                 hideCaption
                 size={perkSize}
+                tooltipSide="bottom"
               />
             )}
           </div>
         </div>
 
-        {/* Perk names list below cluster */}
+        {/* Perk names list below cluster — clicking a name copies it to the clipboard */}
         <ul className="mt-4 grid grid-cols-2 gap-x-4 gap-y-1 max-w-[480px] mx-auto list-none m-0 p-0">
           {build.perks.map((perk, i) => (
             <li
               key={perk.id}
               className={cn(
                 'flex items-center gap-2 font-sans text-[13px] leading-tight py-1',
-                pins?.perks[i] ? 'text-dbd-bone' : 'text-ink',
               )}
             >
               <span className="label-mono text-[10px] text-ink-faint shrink-0 w-3">{i + 1}.</span>
-              <span className="truncate">{perk.name.ru}</span>
+              <button
+                type="button"
+                onClick={() => copyPerkName(perk.name.ru)}
+                title="Скопировать название"
+                className={cn(
+                  'truncate text-left bg-transparent border-0 p-0 cursor-pointer transition-colors hover:text-dbd-accent',
+                  pins?.perks[i] ? 'text-dbd-bone font-semibold' : 'text-ink',
+                )}
+                style={{ borderBottom: '1px dotted rgba(180, 167, 145, .25)' }}
+              >
+                {perk.name.ru}
+              </button>
               {pins?.perks[i] && (
                 <span className="text-dbd-accent text-[10px] shrink-0">✦</span>
               )}

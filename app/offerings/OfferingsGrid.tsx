@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from 'react';
 import { cn } from '@/lib/utils';
-import { formatDbdText } from '@/lib/dbd-text';
+import { splitDescription, formatDbdText } from '@/lib/dbd-text';
 import { rarityColor, rarityKey, rarityLabel } from '@/components/ui/shape-card';
 import { EntityModal } from '@/components/ui/entity-modal';
 import { IconImg } from '@/components/ui/icon-img';
@@ -12,179 +12,279 @@ type Props = {
   offerings: Offering[];
 };
 
-const ROLE_OPTIONS = [
-  { value: '',         label: 'Все',       count: (l: Offering[]) => l.length },
-  { value: 'survivor', label: 'Выжившие',  count: (l: Offering[]) => l.filter(o => o.role === 'survivor').length },
-  { value: 'killer',   label: 'Убийцы',    count: (l: Offering[]) => l.filter(o => o.role === 'killer').length },
-  { value: 'both',     label: 'Общие',     count: (l: Offering[]) => l.filter(o => o.role === 'both').length },
-] as const;
+type Role = '' | 'survivor' | 'killer' | 'both';
+
+const ROLE_OPTIONS: { value: Role; label: string }[] = [
+  { value: '',         label: 'Все' },
+  { value: 'survivor', label: 'Выжившим' },
+  { value: 'killer',   label: 'Убийцам' },
+  { value: 'both',     label: 'Общие' },
+];
+
+const ROLE_LABEL: Record<string, string> = {
+  survivor: 'Выжившим',
+  killer:   'Убийцам',
+  both:     'Общее',
+};
+
+const RARITY_ORDER = ['ultra', 'ultra-rare', 'very-rare', 'veryrare', 'rare', 'uncommon', 'common'] as const;
+
+function rarityScore(r?: string): number {
+  const i = RARITY_ORDER.indexOf((r ?? 'common') as typeof RARITY_ORDER[number]);
+  return i === -1 ? 99 : i;
+}
 
 export function OfferingsGrid({ offerings }: Props) {
-  const [roleFilter, setRoleFilter] = useState<'' | 'survivor' | 'killer' | 'both'>('');
-  const [query, setQuery] = useState('');
-  const [selected, setSelected] = useState<Offering | null>(null);
+  const [roleFilter, setRoleFilter]   = useState<Role>('');
+  const [query, setQuery]             = useState('');
+  const [showEvent, setShowEvent]     = useState(false);
+  const [selected, setSelected]       = useState<Offering | null>(null);
+
+  const isGlobalSearch = query.trim().length > 0;
+
+  const visible = useMemo(() => {
+    return offerings.filter((o) => showEvent || o.available_by_default !== false);
+  }, [offerings, showEvent]);
+
+  const counts = useMemo(() => {
+    const m: Record<string, number> = { '': visible.length };
+    visible.forEach((o) => { m[o.role] = (m[o.role] ?? 0) + 1; });
+    return m;
+  }, [visible]);
 
   const filtered = useMemo(() => {
-    const q = query.toLowerCase();
-    return offerings.filter((o) => {
-      // Role filter: empty = all; survivor/killer = role match OR 'both'; 'both' = only 'both'
-      if (roleFilter === 'survivor' && o.role !== 'survivor' && o.role !== 'both') return false;
-      if (roleFilter === 'killer'   && o.role !== 'killer'   && o.role !== 'both') return false;
-      if (roleFilter === 'both'     && o.role !== 'both') return false;
-      if (!q) return true;
-      return (
-        o.name.ru?.toLowerCase().includes(q) ||
-        o.name.en?.toLowerCase().includes(q) ||
-        o.id.includes(q)
+    const q = query.toLowerCase().trim();
+    let list = visible;
+
+    if (isGlobalSearch) {
+      list = list.filter(
+        (o) =>
+          o.name.ru?.toLowerCase().includes(q) ||
+          o.name.en?.toLowerCase().includes(q) ||
+          o.id.includes(q),
       );
+    } else if (roleFilter) {
+      list = list.filter((o) => o.role === roleFilter);
+    }
+
+    return list.sort((a, b) => {
+      const r = rarityScore(a.rarity) - rarityScore(b.rarity);
+      return r !== 0 ? r : (a.name.ru ?? '').localeCompare(b.name.ru ?? '');
     });
-  }, [offerings, query, roleFilter]);
+  }, [visible, roleFilter, query, isGlobalSearch]);
+
+  // Group by role for non-search view
+  const groups = useMemo(() => {
+    const m: Record<string, Offering[]> = {};
+    filtered.forEach((o) => { (m[o.role] ??= []).push(o); });
+    return m;
+  }, [filtered]);
 
   return (
     <div className="flex flex-col gap-5">
-      {/* Controls */}
-      <div className="flex flex-wrap items-center gap-3">
-        {/* Role filter */}
-        <div className="flex gap-1">
-          {ROLE_OPTIONS.map((opt) => (
-            <button
-              key={opt.value}
-              onClick={() => setRoleFilter(opt.value)}
-              className={cn(
-                'px-3 py-2 label-mono text-[11px] border transition-colors duration-150',
-                roleFilter === opt.value
-                  ? 'border-line-ember text-dbd-bone bg-[rgba(184,67,31,.12)]'
-                  : 'border-line-1 text-ink-mute hover:border-line-2 hover:text-ink',
-              )}
-            >
-              {opt.label} ({opt.count(offerings)})
-            </button>
-          ))}
-        </div>
+      {/* Role tabs */}
+      <div className="flex flex-wrap gap-1">
+        {ROLE_OPTIONS.map((opt) => (
+          <button
+            key={opt.value}
+            onClick={() => setRoleFilter(opt.value)}
+            disabled={isGlobalSearch}
+            className={cn(
+              'px-3 py-2 label-mono text-[11px] border transition-colors duration-150',
+              isGlobalSearch && 'opacity-50',
+              roleFilter === opt.value && !isGlobalSearch
+                ? 'border-line-ember text-dbd-bone bg-[rgba(184,67,31,.12)]'
+                : 'border-line-1 text-ink-mute hover:border-line-2 hover:text-ink',
+            )}
+          >
+            {opt.label} ({opt.value === '' ? counts[''] : (counts[opt.value] ?? 0)})
+          </button>
+        ))}
+      </div>
 
-        {/* Search */}
-        <input
-          type="search"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          placeholder="Поиск подношений..."
-          className="flex-1 min-w-[180px] max-w-[280px] bg-bg-2 border border-line-2 px-3 py-2 font-sans text-[13px] text-ink placeholder:text-ink-faint focus:border-dbd-accent outline-none"
-        />
+      {/* Search + event toggle */}
+      <div className="flex flex-wrap items-center gap-3">
+        <div className="relative flex-1 min-w-[200px] max-w-[420px]">
+          <input
+            type="search"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Поиск по всем подношениям..."
+            className="w-full bg-bg-2 border-2 border-line-2 px-4 py-2.5 font-sans text-[14px] text-ink placeholder:text-ink-faint focus:border-dbd-accent outline-none transition-colors duration-150"
+          />
+          {isGlobalSearch && (
+            <span className="absolute right-3 top-1/2 -translate-y-1/2 label-mono text-[9px] text-dbd-accent pointer-events-none">
+              ГЛОБАЛЬНЫЙ
+            </span>
+          )}
+        </div>
+        <label className="flex items-center gap-2 cursor-pointer">
+          <input
+            type="checkbox"
+            checked={showEvent}
+            onChange={(e) => setShowEvent(e.target.checked)}
+            className="accent-dbd-accent w-4 h-4"
+          />
+          <span className="font-sans text-[13px] text-ink-mute">Показать ивент-подношения</span>
+        </label>
       </div>
 
       <p className="label-mono text-[11px] text-ink-mute">{filtered.length} подношений</p>
 
-      {/* Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-        {filtered.map((offering) => (
-          <OfferingRow key={offering.id} offering={offering} onOpen={() => setSelected(offering)} />
-        ))}
-      </div>
+      {/* Render */}
+      {filtered.length === 0 ? (
+        <p className="text-ink-mute text-[14px] italic py-8 text-center">Ничего не найдено</p>
+      ) : isGlobalSearch ? (
+        // Flat list during global search
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+          {filtered.map((o) => <OfferingRow key={o.id} offering={o} onOpen={() => setSelected(o)} />)}
+        </div>
+      ) : (
+        // Grouped by role
+        <div className="flex flex-col gap-6">
+          {(['survivor', 'killer', 'both'] as const).map((r) => groups[r]?.length ? (
+            <RoleSection key={r} role={r} offerings={groups[r]} onOpen={setSelected} />
+          ) : null)}
+        </div>
+      )}
 
-      {/* Modal */}
       <EntityModal open={!!selected} onClose={() => setSelected(null)}>
-        {selected && <OfferingModalBody offering={selected} />}
+        {selected && <OfferingModalBody offering={selected} allOfferings={offerings} onPick={setSelected} />}
       </EntityModal>
     </div>
   );
 }
 
-const ROLE_LABEL: Record<string, string> = {
-  survivor: 'Выживший',
-  killer:   'Убийца',
-  both:     'Общее',
-};
+function RoleSection({
+  role, offerings, onOpen,
+}: {
+  role: 'survivor' | 'killer' | 'both';
+  offerings: Offering[];
+  onOpen: (o: Offering) => void;
+}) {
+  const accent = role === 'killer' ? 'var(--dbd-blood)' : role === 'survivor' ? 'var(--dbd-accent)' : 'var(--dbd-brass)';
+  return (
+    <section>
+      <div className="flex items-center gap-3 mb-3">
+        <h2 className="m-0 label-mono text-[12px] tracking-[.2em] font-semibold" style={{ color: accent }}>
+          {ROLE_LABEL[role]}
+        </h2>
+        <span className="label-mono text-[10px] text-ink-faint">({offerings.length})</span>
+        <div className="flex-1 h-px" style={{ background: `linear-gradient(to right, ${accent}55, transparent)` }} />
+      </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        {offerings.map((o) => <OfferingRow key={o.id} offering={o} onOpen={() => onOpen(o)} />)}
+      </div>
+    </section>
+  );
+}
 
-function OfferingRow({ offering, onOpen }: { offering: Offering; onOpen: () => void }) {
-  const rk = rarityKey(offering.rarity ?? 'common');
-  const ringColor = rarityColor(offering.rarity ?? 'common');
+function OfferingRow({ offering: o, onOpen }: { offering: Offering; onOpen: () => void }) {
+  const rk = rarityKey(o.rarity ?? 'common');
+  const ringColor = rarityColor(o.rarity ?? 'common');
+  const isEvent = o.available_by_default === false;
 
   return (
     <button
       onClick={onOpen}
       className="flex items-center gap-3 px-4 py-3 text-left border border-line-1 bg-bg-1 hover:border-line-ember hover:bg-bg-2 transition-colors duration-150 cursor-pointer"
     >
-      {/* Icon with rarity background tile */}
       <div
-        className={cn('w-12 h-12 shrink-0 border flex items-center justify-center overflow-hidden', `rarity-bg-${rk}`)}
+        className={cn('w-12 h-12 shrink-0 border-2 flex items-center justify-center overflow-hidden', `rarity-bg-${rk}`)}
         style={{ borderColor: ringColor }}
       >
-        <IconImg
-          src={offering.icon}
-          alt={offering.name.ru || offering.name.en}
-          size={42}
-          fallback={<span className="text-ink-faint text-base">✦</span>}
-        />
+        <IconImg src={o.icon} alt={o.name.ru || o.name.en} size={42} fallback={<span className="text-ink-faint">✦</span>} />
       </div>
-
-      {/* Name */}
       <div className="flex flex-col flex-1 min-w-0">
-        <span className="font-sans text-[14px] font-semibold text-dbd-bone truncate">
-          {offering.name.ru || offering.name.en}
-        </span>
-        <span className="font-sans text-[12px] truncate" style={{ color: ringColor }}>
-          {rarityLabel(offering.rarity ?? 'common')}
-        </span>
+        <span className="font-sans text-[14px] font-semibold text-dbd-bone leading-tight truncate">{o.name.ru || o.name.en}</span>
+        <span className="font-sans text-[12px] mt-0.5 truncate" style={{ color: ringColor }}>{rarityLabel(o.rarity ?? 'common')}</span>
       </div>
-
-      {/* Role badge */}
-      <span className="label-mono text-[10px] px-2 py-1 border border-line-2 text-ink-mute shrink-0">
-        {ROLE_LABEL[offering.role] ?? offering.role}
+      <span className="label-mono text-[9px] px-2 py-0.5 border border-line-2 text-ink-mute shrink-0">
+        {ROLE_LABEL[o.role]}
       </span>
+      {isEvent && (
+        <span className="label-mono text-[9px] text-ink-faint shrink-0">event</span>
+      )}
     </button>
   );
 }
 
-function OfferingModalBody({ offering }: { offering: Offering }) {
-  const rk = rarityKey(offering.rarity ?? 'common');
-  const ringColor = rarityColor(offering.rarity ?? 'common');
+/* ───────── Modal ───────── */
+
+function OfferingModalBody({
+  offering: o, allOfferings, onPick,
+}: {
+  offering: Offering;
+  allOfferings: Offering[];
+  onPick: (o: Offering) => void;
+}) {
+  const rk = rarityKey(o.rarity ?? 'common');
+  const ringColor = rarityColor(o.rarity ?? 'common');
+  const { mechanics, flavor } = splitDescription(o.description?.ru);
+
+  const similar = useMemo(() => {
+    return allOfferings
+      .filter((x) => x.id !== o.id && x.role === o.role && x.available_by_default !== false)
+      .sort((a, b) => rarityScore(a.rarity) - rarityScore(b.rarity))
+      .slice(0, 6);
+  }, [allOfferings, o.id, o.role]);
 
   return (
     <div className="p-6 flex flex-col gap-5">
       <div className="flex items-start gap-4">
         <div
-          className={cn('w-16 h-16 shrink-0 border flex items-center justify-center overflow-hidden', `rarity-bg-${rk}`)}
+          className={cn('w-20 h-20 shrink-0 border-2 flex items-center justify-center overflow-hidden', `rarity-bg-${rk}`)}
           style={{ borderColor: ringColor }}
         >
-          <IconImg
-            src={offering.icon}
-            alt={offering.name.ru}
-            size={56}
-            fallback={<span className="text-ink-faint">✦</span>}
-          />
+          <IconImg src={o.icon} alt={o.name.ru} size={72} fallback={<span className="text-ink-faint">✦</span>} />
         </div>
         <div className="flex flex-col gap-1 flex-1 min-w-0 pt-1">
-          <h2 className="m-0 font-sans font-bold text-[20px] text-dbd-bone leading-tight">
-            {offering.name.ru || offering.name.en}
-          </h2>
-          <span className="font-sans text-[13px] text-ink-mute">{offering.name.en}</span>
+          <h2 className="m-0 font-sans font-bold text-[22px] text-dbd-bone leading-tight">{o.name.ru || o.name.en}</h2>
+          <span className="font-sans text-[13px] text-ink-mute">{o.name.en}</span>
+          <div className="flex items-center gap-2 mt-1 flex-wrap">
+            <span className="label-mono text-[11px] font-semibold" style={{ color: ringColor }}>{rarityLabel(o.rarity ?? 'common')}</span>
+            <span className="text-ink-faint">·</span>
+            <span className="label-mono text-[11px] text-ink-mute">{ROLE_LABEL[o.role]}</span>
+          </div>
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-3">
-        <MetaCell label="Редкость" value={rarityLabel(offering.rarity ?? 'common')} color={ringColor} />
-        <MetaCell label="Сторона"  value={ROLE_LABEL[offering.role] ?? offering.role} />
-      </div>
-
-      {(offering.description?.ru || offering.description?.en) && (
-        <div className="flex flex-col gap-2 pt-2 border-t border-line-1">
-          <span className="label-mono text-[11px] text-ink-mute">Описание</span>
-          <p className="m-0 font-sans text-[14px] text-ink leading-[1.6] whitespace-pre-line">
-            {formatDbdText(offering.description?.ru || offering.description?.en)}
-          </p>
+      {mechanics && (
+        <div className="flex flex-col gap-2">
+          <span className="label-mono text-[10px] text-ink-mute">Механика</span>
+          <p className="m-0 font-sans text-[14px] text-ink leading-[1.65] whitespace-pre-line">{formatDbdText(mechanics)}</p>
         </div>
       )}
-    </div>
-  );
-}
 
-function MetaCell({ label, value, color }: { label: string; value: string; color?: string }) {
-  return (
-    <div className="flex flex-col gap-1 border border-line-1 bg-bg-2 px-3 py-2">
-      <span className="label-mono text-[10px] text-ink-faint">{label}</span>
-      <span className="font-sans text-[13px] font-semibold" style={{ color: color ?? 'var(--ink)' }}>
-        {value}
-      </span>
+      {flavor && (
+        <div className="flex flex-col gap-2 pt-2 border-t border-line-1">
+          <span className="label-mono text-[10px] text-ink-faint">Описание</span>
+          <p className="m-0 font-sans text-[13px] text-ink-mute italic leading-[1.6] whitespace-pre-line">{flavor}</p>
+        </div>
+      )}
+
+      {similar.length > 0 && (
+        <div className="flex flex-col gap-3 pt-2 border-t border-line-1">
+          <span className="label-mono text-[10px] text-ink-mute">Похожие подношения</span>
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+            {similar.map((s) => (
+              <button
+                key={s.id}
+                onClick={() => onPick(s)}
+                className="flex items-center gap-2 px-2 py-2 border border-line-1 bg-bg-2 hover:border-line-ember transition-colors duration-150 text-left cursor-pointer"
+              >
+                <div
+                  className={cn('w-9 h-9 shrink-0 border flex items-center justify-center overflow-hidden', `rarity-bg-${rarityKey(s.rarity ?? 'common')}`)}
+                  style={{ borderColor: rarityColor(s.rarity ?? 'common') }}
+                >
+                  <IconImg src={s.icon} alt={s.name.ru} size={32} fallback={null} />
+                </div>
+                <span className="font-sans text-[12px] text-ink leading-tight truncate">{s.name.ru || s.name.en}</span>
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 }

@@ -2,14 +2,17 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { createClient } from '@/lib/supabase/server';
 import { renderMarkdown } from '@/lib/markdown';
+import { CategoryCover } from '@/lib/category-cover';
 
 export const revalidate = 600;
 
 const CATEGORY_LABEL: Record<string, string> = {
+  beginner:    'Для новичков',
   guide:       'Гайд',
   'tier-list': 'Тир-лист',
-  beginner:    'Для новичков',
   meta:        'Мета',
+  tips:        'Советы',
+  lore:        'Лор',
   other:       'Другое',
 };
 
@@ -20,11 +23,14 @@ export async function generateMetadata({ params }: Props) {
     const supabase = createClient();
     const { data } = await supabase
       .from('wiki_articles')
-      .select('title')
+      .select('title, excerpt')
       .eq('slug', params.slug)
       .eq('published', true)
       .single();
-    return { title: data ? `${data.title} · DBD Wiki` : 'Статья · DBD Wiki' };
+    return {
+      title: data ? `${data.title} · DBD Wiki` : 'Статья · DBD Wiki',
+      description: data?.excerpt ?? undefined,
+    };
   } catch {
     return { title: 'Статья · DBD Wiki' };
   }
@@ -34,7 +40,7 @@ export default async function ArticlePage({ params }: Props) {
   const supabase = createClient();
   const { data, error } = await supabase
     .from('wiki_articles')
-    .select('id, slug, title, body_md, category, cover_url, created_at')
+    .select('id, slug, title, excerpt, body_md, category, cover_url, created_at')
     .eq('slug', params.slug)
     .eq('published', true)
     .single();
@@ -47,11 +53,21 @@ export default async function ArticlePage({ params }: Props) {
   }).format(new Date(data.created_at));
 
   return (
-    <article className="mx-auto max-w-[760px] px-5 sm:px-10 pt-10 sm:pt-12 pb-20">
-      <div className="mb-6">
+    <article className="mx-auto max-w-[820px] px-5 sm:px-10 pt-8 sm:pt-12 pb-20">
+      <div className="mb-5">
         <Link href="/wiki" className="label-mono text-[10px] text-ink-mute hover:text-ink no-underline">
           ← Все статьи
         </Link>
+      </div>
+
+      {/* Cover banner */}
+      <div className="aspect-[16/6] w-full mb-6 overflow-hidden border border-line-1 bg-bg-2">
+        {data.cover_url ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img src={data.cover_url} alt="" className="w-full h-full object-cover" />
+        ) : (
+          <CategoryCover category={data.category} className="w-full h-full" />
+        )}
       </div>
 
       <header className="mb-8 pb-6 border-b border-line-1 flex flex-col gap-3">
@@ -61,9 +77,14 @@ export default async function ArticlePage({ params }: Props) {
           </span>
           <span className="label-mono text-[10px] text-ink-faint">{created}</span>
         </div>
-        <h1 className="m-0 text-[32px] font-extrabold text-dbd-bone leading-[1.1] tracking-[-0.01em]">
+        <h1 className="m-0 text-[32px] sm:text-[36px] font-extrabold text-dbd-bone leading-[1.05] tracking-[-0.01em]">
           {data.title}
         </h1>
+        {data.excerpt && (
+          <p className="m-0 font-sans text-[15.5px] text-ink-mute italic leading-[1.55]">
+            {data.excerpt}
+          </p>
+        )}
       </header>
 
       <div

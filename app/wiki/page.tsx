@@ -1,13 +1,16 @@
 import Link from 'next/link';
 import { createClient } from '@/lib/supabase/server';
+import { CategoryCover } from '@/lib/category-cover';
 
 export const revalidate = 600;
 
 const CATEGORY_LABEL: Record<string, string> = {
+  beginner:    'Для новичков',
   guide:       'Гайд',
   'tier-list': 'Тир-лист',
-  beginner:    'Для новичков',
   meta:        'Мета',
+  tips:        'Советы',
+  lore:        'Лор',
   other:       'Другое',
 };
 
@@ -15,6 +18,7 @@ type Article = {
   id: string;
   slug: string;
   title: string;
+  excerpt: string | null;
   category: string;
   cover_url: string | null;
   created_at: string;
@@ -25,7 +29,7 @@ async function fetchArticles(): Promise<Article[]> {
     const supabase = createClient();
     const { data } = await supabase
       .from('wiki_articles')
-      .select('id, slug, title, category, cover_url, created_at')
+      .select('id, slug, title, excerpt, category, cover_url, created_at')
       .eq('published', true)
       .order('created_at', { ascending: false });
     return (data ?? []) as Article[];
@@ -45,14 +49,13 @@ function fmtDate(iso: string): string {
 export default async function WikiIndexPage() {
   const articles = await fetchArticles();
 
-  // Group by category
   const byCat: Record<string, Article[]> = {};
   for (const a of articles) (byCat[a.category] ??= []).push(a);
 
-  const CAT_ORDER = ['beginner', 'guide', 'tier-list', 'meta', 'other'];
+  const CAT_ORDER = ['beginner', 'guide', 'tier-list', 'meta', 'tips', 'lore', 'other'];
 
   return (
-    <div className="mx-auto max-w-[920px] px-5 sm:px-10 pt-10 sm:pt-12 pb-20">
+    <div className="mx-auto max-w-[1100px] px-5 sm:px-10 pt-10 sm:pt-12 pb-20">
       <div className="mb-8">
         <span className="label-mono text-[11px] text-ink-mute">Вики</span>
         <h1 className="mt-2 text-[28px] font-extrabold text-dbd-bone">Гайды и тир-листы</h1>
@@ -70,30 +73,53 @@ export default async function WikiIndexPage() {
           </p>
         </div>
       ) : (
-        <div className="flex flex-col gap-8">
+        <div className="flex flex-col gap-10">
           {CAT_ORDER.filter((c) => byCat[c]?.length).map((cat) => (
             <section key={cat}>
-              <h2 className="m-0 mb-3 label-mono text-[11px] text-dbd-accent tracking-[.18em]">
+              <h2 className="m-0 mb-4 label-mono text-[12px] text-dbd-accent tracking-[.2em]">
                 {CATEGORY_LABEL[cat] ?? cat}
               </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {byCat[cat].map((a) => (
-                  <Link
-                    key={a.id}
-                    href={`/wiki/${a.slug}`}
-                    className="flex flex-col gap-2 p-5 border border-line-1 bg-bg-1 hover:border-line-ember hover:bg-bg-2 transition-colors no-underline cursor-pointer"
-                  >
-                    <span className="label-mono text-[10px] text-ink-faint">{fmtDate(a.created_at)}</span>
-                    <h3 className="m-0 font-sans font-bold text-[16px] text-dbd-bone leading-tight">
-                      {a.title}
-                    </h3>
-                  </Link>
-                ))}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {byCat[cat].map((a) => <ArticleCard key={a.id} article={a} />)}
               </div>
             </section>
           ))}
         </div>
       )}
     </div>
+  );
+}
+
+function ArticleCard({ article: a }: { article: Article }) {
+  return (
+    <Link
+      href={`/wiki/${a.slug}`}
+      className="group flex flex-col border border-line-1 bg-bg-1 hover:border-line-ember transition-colors duration-150 no-underline overflow-hidden"
+    >
+      <div className="aspect-[16/9] w-full overflow-hidden bg-bg-2 border-b border-line-1">
+        {a.cover_url ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img src={a.cover_url} alt="" className="w-full h-full object-cover" />
+        ) : (
+          <CategoryCover category={a.category} className="w-full h-full" />
+        )}
+      </div>
+      <div className="flex flex-col gap-2 p-5">
+        <div className="flex items-center gap-2">
+          <span className="label-mono text-[10px] px-2 py-0.5 border border-line-2 text-dbd-accent">
+            {CATEGORY_LABEL[a.category] ?? a.category}
+          </span>
+          <span className="label-mono text-[10px] text-ink-faint">{fmtDate(a.created_at)}</span>
+        </div>
+        <h3 className="m-0 font-sans font-bold text-[17px] text-dbd-bone leading-tight group-hover:text-dbd-accent transition-colors">
+          {a.title}
+        </h3>
+        {a.excerpt && (
+          <p className="m-0 font-sans text-[13px] text-ink-mute leading-[1.55] line-clamp-2">
+            {a.excerpt}
+          </p>
+        )}
+      </div>
+    </Link>
   );
 }

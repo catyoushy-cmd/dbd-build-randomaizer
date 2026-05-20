@@ -1,12 +1,13 @@
-import { fetchItems } from '@/lib/data/content-db';
+import { fetchItems, fetchAddons } from '@/lib/data/content-db';
 import { fetchOverrides, applyOverrides } from '@/lib/data/overrides';
 import { ItemsGrid } from './ItemsGrid';
 
 export const revalidate = 3600;
 
 export default async function ItemsPage() {
-  const [itemsRaw, overrides] = await Promise.all([
+  const [itemsRaw, addons, overrides] = await Promise.all([
     fetchItems(),
+    fetchAddons(),
     fetchOverrides('item'),
   ]);
   const items = applyOverrides(itemsRaw, overrides);
@@ -16,13 +17,13 @@ export default async function ItemsPage() {
       <div className="mb-8">
         <span className="label-mono text-[11px] text-ink-mute">Энциклопедия</span>
         <h1 className="mt-2 text-[28px] font-extrabold text-dbd-bone">Предметы выживших</h1>
-        <p className="mt-2 font-sans text-[14px] text-ink-mute max-w-[560px]">
-          {items.length} предметов разных типов. К каждому подходят свои аддоны — посмотреть их можно в разделе{' '}
-          <a href="/addons" className="text-dbd-accent hover:text-dbd-glow underline-offset-4 hover:underline">Аддоны</a>.
+        <p className="mt-2 font-sans text-[14px] text-ink-mute max-w-[640px]">
+          Базовые предметы Dead by Daylight, сгруппированные по типу. К каждому подходят свои аддоны —
+          смотрите прямо в карточке.
         </p>
       </div>
 
-      <ItemsGrid items={items} />
+      <ItemsGrid items={items} addons={addons} />
     </div>
   );
 }
