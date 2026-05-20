@@ -332,6 +332,60 @@ h1, h2, h3, h4, h5, h6 {
     background: rgba(20,17,15,.5);
   }
 
+  /* ─── Wiki article prose ─── */
+  .wiki-prose h1,
+  .wiki-prose h2,
+  .wiki-prose h3 {
+    margin: 2rem 0 0.75rem;
+    color: var(--dbd-bone);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  .wiki-prose h1 { font-size: 22px; }
+  .wiki-prose h2 { font-size: 19px; }
+  .wiki-prose h3 { font-size: 16px; color: var(--dbd-accent); text-transform: uppercase; letter-spacing: .12em; }
+  .wiki-prose p {
+    margin: 1rem 0;
+  }
+  .wiki-prose ul {
+    margin: 1rem 0;
+    padding-left: 1.25rem;
+    list-style: disc;
+  }
+  .wiki-prose li {
+    margin: 0.25rem 0;
+  }
+  .wiki-prose strong { color: var(--dbd-bone); font-weight: 700; }
+  .wiki-prose em     { color: var(--ink); font-style: italic; }
+  .wiki-prose a      {
+    color: var(--dbd-accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: rgba(210,74,31,.4);
+  }
+  .wiki-prose a:hover { text-decoration-color: var(--dbd-accent); }
+  .wiki-prose code   {
+    background: var(--bg-2);
+    border: 1px solid var(--line-1);
+    padding: 1px 6px;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--dbd-bone);
+  }
+  .wiki-prose pre {
+    background: var(--bg-2);
+    border: 1px solid var(--line-2);
+    padding: 14px 16px;
+    margin: 1.25rem 0;
+    overflow-x: auto;
+  }
+  .wiki-prose pre code {
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 13px;
+  }
+
   /* ─── Diamond-of-diamonds layout (4 perks arranged as a giant diamond) ───
      Top / Left+Right / Bottom — classic DBD bloodweb-style cluster.
      CSS grid 3×3, where corners stay empty:

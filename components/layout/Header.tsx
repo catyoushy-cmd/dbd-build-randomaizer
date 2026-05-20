@@ -32,6 +32,7 @@ const NAV_ITEMS = [
   { href: '/items',     label: 'Предметы',   match: (p: string) => p.startsWith('/items') },
   { href: '/addons',    label: 'Аддоны',     match: (p: string) => p.startsWith('/addons') },
   { href: '/offerings', label: 'Подношения', match: (p: string) => p.startsWith('/offerings') },
+  { href: '/wiki',      label: 'Гайды',      match: (p: string) => p.startsWith('/wiki') },
 ];
 
 export function Header() {
