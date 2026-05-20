@@ -26,7 +26,7 @@ export async function fetchPerks(): Promise<Perk[]> {
     const supabase = createClient();
     const { data, error } = await supabase
       .from('perks')
-      .select('id,name,role,character,icon,description,tunables,roles,synergy_groups,tier,deprecated')
+      .select('id,name,role,character,character_slug,icon,description,tunables,roles,synergy_groups,tier,deprecated')
       .order('id');
     if (error || !data?.length) {
       if (error) console.warn('[content-db] perks fallback:', error.message);
@@ -37,6 +37,7 @@ export async function fetchPerks(): Promise<Perk[]> {
       name:           r.name as Perk['name'],
       role:           r.role,
       character:      r.character ?? null,
+      character_slug: r.character_slug ?? null,
       icon:           r.icon ?? '',
       description:    r.description as Perk['description'],
       tunables:       r.tunables ?? undefined,
@@ -99,7 +100,7 @@ export async function fetchItems(): Promise<Item[]> {
     const supabase = createClient();
     const { data, error } = await supabase
       .from('items')
-      .select('id,type,name,description,rarity,icon')
+      .select('id,type,name,description,rarity,icon,available_by_default')
       .order('id');
     if (error || !data?.length) return ITEMS_JSON as Item[];
     return data.map((r) => ({
@@ -109,6 +110,7 @@ export async function fetchItems(): Promise<Item[]> {
       description: r.description as Item['description'],
       rarity:      (r.rarity ?? 'common') as Item['rarity'],
       icon:        r.icon ?? '',
+      available_by_default: r.available_by_default ?? true,
     }));
   } catch {
     return ITEMS_JSON as Item[];
@@ -122,7 +124,7 @@ export async function fetchAddons(): Promise<Addon[]> {
     const supabase = createClient();
     const { data, error } = await supabase
       .from('addons')
-      .select('id,name,description,scope,rarity,tags,icon')
+      .select('id,name,description,scope,rarity,tags,icon,available_by_default')
       .order('id');
     if (error || !data?.length) return ADDONS_JSON as Addon[];
     return data.map((r) => ({
@@ -133,6 +135,7 @@ export async function fetchAddons(): Promise<Addon[]> {
       rarity:      (r.rarity ?? 'common') as Addon['rarity'],
       tags:        (r.tags ?? []) as Addon['tags'],
       icon:        r.icon ?? '',
+      available_by_default: r.available_by_default ?? true,
     }));
   } catch {
     return ADDONS_JSON as Addon[];
@@ -146,7 +149,7 @@ export async function fetchOfferings(): Promise<Offering[]> {
     const supabase = createClient();
     const { data, error } = await supabase
       .from('offerings')
-      .select('id,name,description,role,rarity,tags,icon')
+      .select('id,name,description,role,rarity,tags,icon,available_by_default')
       .order('id');
     if (error || !data?.length) return OFFERINGS_JSON as Offering[];
     return data.map((r) => ({
@@ -157,6 +160,7 @@ export async function fetchOfferings(): Promise<Offering[]> {
       rarity:      r.rarity ?? 'common',
       tags:        (r.tags ?? []) as Offering['tags'],
       icon:        r.icon ?? '',
+      available_by_default: r.available_by_default ?? true,
     }));
   } catch {
     return OFFERINGS_JSON as Offering[];

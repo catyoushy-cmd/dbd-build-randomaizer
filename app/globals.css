@@ -73,7 +73,7 @@
   --r-uncommon:     #e3a516;   /* yellow */
   --r-rare:         #1f9b4e;   /* green */
   --r-veryrare:     #9a30c4;   /* purple */
-  --r-ultra:        #ff2dab;   /* pink/iridescent */
+  --r-ultra:        #ff3fb2;   /* pink/iridescent — punchier than #ff2dab */
   --r-event:        #e02828;   /* red (event) */
   --perk-tier3:     #6e2cb0;
   --perk-tier3-edge:#a04ce6;
@@ -205,7 +205,7 @@ h1, h2, h3, h4, h5, h6 {
   .rarity-bg-uncommon { background: linear-gradient(140deg, #8e6312, #3f2c08); }
   .rarity-bg-rare     { background: linear-gradient(140deg, #166a36, #082e17); }
   .rarity-bg-veryrare { background: linear-gradient(140deg, #5a1d75, #260a32); }
-  .rarity-bg-ultra    { background: linear-gradient(140deg, #a51a72, #41062c); }
+  .rarity-bg-ultra    { background: linear-gradient(140deg, #d62a8c, #54103a); }
   .rarity-bg-event    { background: linear-gradient(140deg, #921b1b, #3a0808); }
 
   .animate-fade-up       { animation: fade-up 0.4s ease both; }

@@ -72,6 +72,7 @@ const mappers = {
     name:           p.name ?? {},
     role:           p.role,
     character:      p.character ?? null,
+    character_slug: p.character_slug ?? null,
     icon:           p.icon ?? null,
     description:    p.description ?? {},
     tunables:       p.tunables ?? null,
@@ -98,6 +99,7 @@ const mappers = {
     description: it.description ?? {},
     rarity:      it.rarity ?? null,
     icon:        it.icon ?? null,
+    available_by_default: it.available_by_default ?? true,
   }),
   addons: (a) => ({
     id:          a.id,
@@ -107,6 +109,7 @@ const mappers = {
     rarity:      a.rarity ?? null,
     tags:        a.tags ?? [],
     icon:        a.icon ?? null,
+    available_by_default: a.available_by_default ?? true,
   }),
   offerings: (o) => ({
     id:          o.id,
@@ -116,6 +119,7 @@ const mappers = {
     rarity:      o.rarity ?? null,
     tags:        o.tags ?? [],
     icon:        o.icon ?? null,
+    available_by_default: o.available_by_default ?? true,
   }),
 };
 

@@ -7,6 +7,7 @@ export type ContentOverride = {
   description_ru?: string | null;
   tier?: string | null;
   deprecated?: boolean | null;
+  available_by_default?: boolean | null;
 };
 
 /** Fetch all overrides for a given entity type. Cached at ISR level by Next.js. */
@@ -27,10 +28,16 @@ export async function fetchOverrides(entityType: string): Promise<Map<string, Co
 }
 
 /** Merge an array of data items with their overrides. */
-export function applyOverrides<T extends { id: string; name?: { ru?: string }; description?: { ru?: string }; tier?: string; deprecated?: boolean }>(
-  items: T[],
-  overrides: Map<string, ContentOverride>,
-): T[] {
+export function applyOverrides<
+  T extends {
+    id: string;
+    name?: { ru?: string };
+    description?: { ru?: string };
+    tier?: string;
+    deprecated?: boolean;
+    available_by_default?: boolean;
+  },
+>(items: T[], overrides: Map<string, ContentOverride>): T[] {
   return items.map((item) => {
     const ov = overrides.get(item.id);
     if (!ov) return item;
@@ -45,6 +52,7 @@ export function applyOverrides<T extends { id: string; name?: { ru?: string }; d
       }),
       ...(ov.tier != null && { tier: ov.tier }),
       ...(ov.deprecated != null && { deprecated: ov.deprecated }),
+      ...(ov.available_by_default != null && { available_by_default: ov.available_by_default }),
     };
   });
 }

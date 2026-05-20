@@ -128,7 +128,7 @@
       "en": "Tremendously increases the chance of spawning the Hatch in the Killer Shack, if the map has a Killer Shack.Secret.",
       "ru": "Чрезвычайно повышает шанс появления люка в хижине убийцы, если она есть на карте.Тайна."
     },
-    "role": "both",
+    "role": "survivor",
     "rarity": "common",
     "tags": [
       "efficient"
@@ -145,7 +145,7 @@
       "en": "Grants 100% bonus Bloodpoints in the Deviousness category.",
       "ru": "Дает 100% бонусных очков крови в категории «Хитрость»."
     },
-    "role": "both",
+    "role": "survivor",
     "rarity": "rare",
     "tags": [
       "efficient"
@@ -162,7 +162,7 @@
       "en": "Grants 100% bonus Bloodpoints in the Sacrifice category.",
       "ru": "Дает 100% бонусных очков крови в категории «Жертвоприношение»."
     },
-    "role": "both",
+    "role": "survivor",
     "rarity": "rare",
     "tags": [
       "efficient"
@@ -179,7 +179,7 @@
       "en": "Grants 100% bonus Bloodpoints in the Hunting category.",
       "ru": "Дает 100% бонусных очков крови в категории «Охота»."
     },
-    "role": "both",
+    "role": "survivor",
     "rarity": "rare",
     "tags": [
       "efficient"
@@ -196,7 +196,7 @@
       "en": "Grants 100% bonus Bloodpoints in the Brutality category.",
       "ru": "Дает 100% бонусных очков крови в категории «Жестокость»."
     },
-    "role": "both",
+    "role": "survivor",
     "rarity": "rare",
     "tags": [
       "efficient"
@@ -213,7 +213,7 @@
       "en": "Tremendously increases the chances of being sent to the Autohaven Wreckers when burnt.Secret.Does not stack.",
       "ru": "Чрезвычайно увеличивает шансы отправиться на карту «Свалка Автохевен» после сожжения.Тайна.Эффект не суммируется."
     },
-    "role": "both",
+    "role": "survivor",
     "rarity": "rare",
     "tags": [
       "efficient"
@@ -230,7 +230,7 @@
       "en": "Unlocks the ability to attempt to unhook yourself for all Survivors. Increases all Survivors' luck by 2% .",
       "ru": "Все выжившие получают возможность пытаться слезть с крюка. Повышает удачу всех выживших на 2% ."
     },
-    "role": "both",
+    "role": "killer",
     "rarity": "rare",
     "tags": [
       "efficient"
@@ -247,7 +247,7 @@
       "en": "Allows you to take on the role of The Shape for the next trial. Your current perks and add-ons will not be used. Secret.",
       "ru": "Позволяет стать Тенью в следующем матче. Ваши текущие навыки и улучшения не будут использоваться. Секретное подношение."
     },
-    "role": "both",
+    "role": "survivor",
     "rarity": "visceral",
     "tags": [
       "meme"
@@ -264,7 +264,7 @@
       "en": "Burning this offering grants you protection against the loss of your add-ons at the end of the trial.Secret.",
       "ru": "Сжигание данного подношения дает вам защиту от потери улучшений по окончании матча.Тайна."
     },
-    "role": "both",
+    "role": "survivor",
     "rarity": "veryrare",
     "tags": [
       "efficient"
@@ -281,7 +281,7 @@
       "en": "Reveals the aura of the basement hooks to you for 20 seconds at the start of the trial. Tremendously increases the chance of spawning the basement in the Killer Shack, if the map has a Killer Shack.Secret.",
       "ru": "Показывает вам ауру крюков в подвале на 20 сек. в начале матча. Чрезвычайно повышает шанс появления подвала в хижине убийцы, если она есть на карте.Тайна."
     },
-    "role": "both",
+    "role": "survivor",
     "rarity": "common",
     "tags": [
       "efficient"
@@ -315,7 +315,7 @@
       "en": "Grants 50% bonus Bloodpoints in the Objective category. Personal.",
       "ru": "Дает 50% бонусных очков крови в категории «Цели». Личное подношение."
     },
-    "role": "both",
+    "role": "survivor",
     "rarity": "common",
     "tags": [
       "efficient"
@@ -332,7 +332,7 @@
       "en": "Allows you to take on the role of The Cannibal for the next trial. Your current perks and add-ons will not be used. Secret.",
       "ru": "Позволяет вам стать Каннибалом в следующем матче. Ваши текущие навыки и улучшения не будут использоваться. Секретное подношение."
     },
-    "role": "both",
+    "role": "survivor",
     "rarity": "visceral",
     "tags": [
       "meme"
@@ -383,7 +383,7 @@
       "en": "Unlocks the ability to attempt to unhook yourself. Increases your luck by 1% . Secret.",
       "ru": "Дает возможность попытаться слезть с крюка. Повышает вашу удачу на 1% . Тайна."
     },
-    "role": "both",
+    "role": "survivor",
     "rarity": "common",
     "tags": [],
     "icon": "/icons/offerings/chalk-pouch.png"
@@ -432,7 +432,7 @@
       "en": "Slightly lessens the Dark Mist.Secret.",
       "ru": "Темный туман слегка рассеивается .Тайна."
     },
-    "role": "both",
+    "role": "survivor",
     "rarity": "common",
     "tags": [
       "troll"
@@ -466,7 +466,7 @@
       "en": "Unlocks the ability to attempt to unhook yourself. Increases your luck by 2% . Secret.",
       "ru": "Дает возможность попытаться слезть с крюка. Повышает вашу удачу на 2% . Тайна."
     },
-    "role": "both",
+    "role": "survivor",
     "rarity": "uncommon",
     "tags": [
       "efficient"
@@ -483,7 +483,7 @@
       "en": "Calls upon The Entity for a dimmed moonlight .",
       "ru": "Призывает Сущность сделать лунный свет тусклым ."
     },
-    "role": "both",
+    "role": "survivor",
     "rarity": "uncommon",
     "tags": [
       "troll"
@@ -500,7 +500,7 @@
       "en": "Grants 50% bonus Bloodpoints in the Survival category. Personal.",
       "ru": "Дает 50% бонусных очков крови в категории «Выживание». Личное подношение."
     },
-    "role": "both",
+    "role": "survivor",
     "rarity": "common",
     "tags": [
       "efficient"
@@ -534,7 +534,7 @@
       "en": "Grants 10 000 post-trial bloodpoints upon performing any Mori on the last Survivor. Secret.",
       "ru": "После матча дарует 10 000 очков крови при использовании мори на последнем выжившем. Секретное."
     },
-    "role": "both",
+    "role": "killer",
     "rarity": "uncommon",
     "tags": [
       "efficient"
@@ -568,7 +568,7 @@
       "en": "Grants 75% bonus Bloodpoints in the Deviousness category.",
       "ru": "Дает 75% бонусных очков крови в категории «Хитрость»."
     },
-    "role": "both",
+    "role": "survivor",
     "rarity": "uncommon",
     "tags": [
       "efficient"
@@ -585,7 +585,7 @@
       "en": "Grants 75% bonus Bloodpoints in the Sacrifice category.",
       "ru": "Дает 75% бонусных очков крови в категории «Жертвоприношение»."
     },
-    "role": "both",
+    "role": "survivor",
     "rarity": "uncommon",
     "tags": [
       "efficient"
@@ -602,7 +602,7 @@
       "en": "Grants 75% bonus Bloodpoints in the Hunting category.",
       "ru": "Дает 75% бонусных очков крови в категории «Охота»."
     },
-    "role": "both",
+    "role": "survivor",
     "rarity": "uncommon",
     "tags": [
       "efficient"
@@ -619,7 +619,7 @@
       "en": "Grants 75% bonus Bloodpoints in the Brutality category.",
       "ru": "Дает 75% бонусных очков крови в категории «Жестокость»."
     },
-    "role": "both",
+    "role": "survivor",
     "rarity": "uncommon",
     "tags": [
       "efficient"
@@ -636,7 +636,7 @@
       "en": "Grants the ability to kill all Survivors who have reached the second Hook State by your hand during the next trial.Secret.",
       "ru": "Дарует возможность убить всех выживших , которых вы перед этим подвесили на крюк, и которые достигли на нем второй стадии , в следующем матче.Секретное."
     },
-    "role": "both",
+    "role": "killer",
     "rarity": "visceral",
     "tags": [
       "troll"
@@ -704,7 +704,7 @@
       "en": "Slightly thickens the Dark Mist.Secret.",
       "ru": "Слегка сгущает Темный туман.Тайна."
     },
-    "role": "both",
+    "role": "survivor",
     "rarity": "common",
     "tags": [
       "troll"
@@ -857,7 +857,7 @@
       "en": "Calls upon The Entity for the brightest moonlight .",
       "ru": "Призывает Сущность сделать лунный свет очень ярким ."
     },
-    "role": "both",
+    "role": "survivor",
     "rarity": "veryrare",
     "tags": [
       "troll"
@@ -908,7 +908,7 @@
       "en": "Allows you to take on the role of The Pig for the next trial. Your current perks and add-ons will not be used. Secret.",
       "ru": "Позволяет стать Свиньей в следующем матче. Ваши текущие навыки и улучшения не будут использоваться. Секретное подношение."
     },
-    "role": "both",
+    "role": "survivor",
     "rarity": "visceral",
     "tags": [
       "meme"
@@ -1010,7 +1010,7 @@
       "en": "Moderately thickens the Dark Mist.Secret.",
       "ru": "Умеренно сгущает Темный туман.Тайна."
     },
-    "role": "both",
+    "role": "survivor",
     "rarity": "uncommon",
     "tags": [
       "troll"
@@ -1078,7 +1078,7 @@
       "en": "Unlocks the ability to attempt to unhook yourself. Increases your luck by 3% .Secret.",
       "ru": "Дает возможность попытаться слезть с крюка. Повышает вашу удачу на 3% .Тайна."
     },
-    "role": "both",
+    "role": "survivor",
     "rarity": "rare",
     "tags": [
       "efficient"
@@ -1095,7 +1095,7 @@
       "en": "Grants the ability to kill one Survivor who has reached the second Hook State by your hand during the next trial.Secret.",
       "ru": "Дарует возможность убить одного из выживших , которого вы перед этим повесили на крюк, и который достигли на нем второй стадии , в следующем матче.Секретное."
     },
-    "role": "both",
+    "role": "killer",
     "rarity": "rare",
     "tags": [
       "troll"
@@ -1248,7 +1248,7 @@
       "en": "Allows you to take on the role of The Hag for the next trial. Your current perks and add-ons will not be used. Secret.",
       "ru": "Позволяет вам стать Ведьмой в следующем матче. Ваши текущие навыки и улучшения не будут использоваться. Секретное подношение."
     },
-    "role": "both",
+    "role": "survivor",
     "rarity": "visceral",
     "tags": [
       "meme"
@@ -1265,7 +1265,7 @@
       "en": "Greatly thickens the Dark Mist.Secret.",
       "ru": "Сильно сгущает Темный туман.Тайна."
     },
-    "role": "both",
+    "role": "survivor",
     "rarity": "veryrare",
     "tags": [
       "troll"
@@ -1282,7 +1282,7 @@
       "en": "Calls upon The Entity for the darkest moonlight .",
       "ru": "Призывает Сущность сделать лунный свет очень тусклым ."
     },
-    "role": "both",
+    "role": "survivor",
     "rarity": "visceral",
     "tags": [
       "troll"
@@ -1350,7 +1350,7 @@
       "en": "Grants 50% bonus Bloodpoints in the Altruism category. Personal.",
       "ru": "Дает 50% бонусных очков крови в категории «Альтруизм». Личное подношение."
     },
-    "role": "both",
+    "role": "survivor",
     "rarity": "common",
     "tags": [
       "efficient"
@@ -1384,7 +1384,7 @@
       "en": "Calls upon The Entity to Considerably decrease the distance between sacrificial hooks appearing in the world.Secret.",
       "ru": "Призывает Сущность значительно уменьшить расстояние между крюками для жертвоприношений.Тайна."
     },
-    "role": "both",
+    "role": "killer",
     "rarity": "veryrare",
     "tags": [
       "troll"
@@ -1435,7 +1435,7 @@
       "en": "Calls upon The Entity for a brighter moonlight .",
       "ru": "Призывает Сущность сделать лунный свет ярче ."
     },
-    "role": "both",
+    "role": "survivor",
     "rarity": "uncommon",
     "tags": [
       "troll"
@@ -1469,7 +1469,7 @@
       "en": "Grants 50% bonus Bloodpoints in the Deviousness category.",
       "ru": "Дает 50% бонусных очков крови в категории «Хитрость»."
     },
-    "role": "both",
+    "role": "survivor",
     "rarity": "common",
     "tags": [
       "efficient"
@@ -1571,7 +1571,7 @@
       "en": "Grants 25% bonus Bloodpoints in all categories. Personal.",
       "ru": "Дает 25% бонусных очков крови во всех категориях. Личное подношение."
     },
-    "role": "both",
+    "role": "killer",
     "rarity": "uncommon",
     "tags": [
       "efficient"
@@ -1622,7 +1622,7 @@
       "en": "Allows you to take on the role of The Doctor for the next trial. Your current perks and add-ons will not be used. Secret.",
       "ru": "Позволяет примерить на себя роль Доктора в следующем испытании. Ваши текущие навыки и улучшения использованы не будут. Секретное подношение."
     },
-    "role": "both",
+    "role": "survivor",
     "rarity": "visceral",
     "tags": [
       "meme"
@@ -1656,7 +1656,7 @@
       "en": "Grants 50% bonus Bloodpoints in the Sacrifice category.",
       "ru": "Дает 50% бонусных очков крови в категории «Жертвоприношение»."
     },
-    "role": "both",
+    "role": "survivor",
     "rarity": "common",
     "tags": [
       "efficient"
@@ -1673,7 +1673,7 @@
       "en": "All Survivors start the trial separated. Secret.",
       "ru": "Все Выжившие начинают матч порознь. Секретное подношение."
     },
-    "role": "both",
+    "role": "killer",
     "rarity": "veryrare",
     "tags": [
       "troll"
@@ -1690,7 +1690,7 @@
       "en": "Calls on The Entity to nullify any offerings that would change the Survivors' starting locations. Secret.",
       "ru": "Призывает Сущность отменить все подношения, которые меняют места появления выживших. Тайна."
     },
-    "role": "both",
+    "role": "killer",
     "rarity": "uncommon",
     "tags": [
       "troll"
@@ -1707,7 +1707,7 @@
       "en": "You start the trial with someone else. Secret.",
       "ru": "Матч начинается рядом с союзником. Секретное подношение."
     },
-    "role": "both",
+    "role": "killer",
     "rarity": "uncommon",
     "tags": [
       "troll"
@@ -1741,7 +1741,7 @@
       "en": "Allows you to take on the role of The Nightmare for the next trial. Your current perks and add-ons will not be used. Secret.",
       "ru": "Позволяет стать Кошмаром в следующем матче. Ваши текущие навыки и улучшения не будут использоваться. Секретное подношение."
     },
-    "role": "both",
+    "role": "survivor",
     "rarity": "visceral",
     "tags": [
       "meme"
@@ -1758,7 +1758,7 @@
       "en": "Grants 50% bonus Bloodpoints in the Hunting category.",
       "ru": "Дает 50% бонусных очков крови в категории «Охота»."
     },
-    "role": "both",
+    "role": "survivor",
     "rarity": "common",
     "tags": [
       "efficient"
@@ -1792,7 +1792,7 @@
       "en": "Tremendously increases the chances of being sent to Haddonfield when burnt.Secret.Does not stack.",
       "ru": "Чрезвычайно увеличивает шансы отправиться на карту «Хэддонфилд» после сожжения.Тайна.Эффект не суммируется."
     },
-    "role": "both",
+    "role": "survivor",
     "rarity": "rare",
     "tags": [
       "efficient"
@@ -1843,7 +1843,7 @@
       "en": "Grants 50% bonus Bloodpoints in the Boldness category. Personal.",
       "ru": "Дает 50% бонусных очков крови в категории «Храбрость». Личное подношение."
     },
-    "role": "both",
+    "role": "survivor",
     "rarity": "common",
     "tags": [
       "efficient"
@@ -1860,7 +1860,7 @@
       "en": "Grants 50% bonus Bloodpoints in the Brutality category.",
       "ru": "Дает 50% бонусных очков крови в категории «Жестокость»."
     },
-    "role": "both",
+    "role": "survivor",
     "rarity": "common",
     "tags": [
       "efficient"
@@ -1928,7 +1928,7 @@
       "en": "Reveals the aura of the basement hooks to you for 20 seconds at the start of the trial. Tremendously increases the chance of spawning the basement in the main building, if the map has a main building.Secret.",
       "ru": "Показывает вам ауру крюков в подвале на 20 сек. в начале матча. Чрезвычайно повышает шанс появления подвала в основном здании, если оно есть на карте.Тайна."
     },
-    "role": "both",
+    "role": "survivor",
     "rarity": "common",
     "tags": [
       "efficient"
@@ -1979,7 +1979,7 @@
       "en": "Tremendously increases the chance of spawning the Hatch in the main building, if the map has a main building.Secret.",
       "ru": "Чрезвычайно повышает шанс появления люка в основном здании, если оно есть на карте.Тайна."
     },
-    "role": "both",
+    "role": "survivor",
     "rarity": "common",
     "tags": [
       "efficient"
@@ -2013,7 +2013,7 @@
       "en": "You start the trial as far as possible from the Killer. Secret.",
       "ru": "Вы начинаете матч как можно дальше от Убийцы. Секретное подношение."
     },
-    "role": "both",
+    "role": "killer",
     "rarity": "uncommon",
     "tags": [
       "troll"
@@ -2064,7 +2064,7 @@
       "en": "Burning this offering grants you protection against the loss of your item and add-ons.Secret.",
       "ru": "Сжигание этого подношения дает вам защиту от потери улучшений.Тайна."
     },
-    "role": "both",
+    "role": "survivor",
     "rarity": "veryrare",
     "tags": [
       "efficient"
