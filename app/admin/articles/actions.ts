@@ -16,6 +16,7 @@ export async function saveArticleAction(formData: FormData) {
   const category   = (formData.get('category') as string) || 'guide';
   const published  = formData.get('published') === 'true';
   const cover_url  = (formData.get('cover_url') as string | null)?.trim() || null;
+  const excerpt    = (formData.get('excerpt') as string | null)?.trim() || null;
 
   const row = {
     ...(id ? { id } : {}),
@@ -25,6 +26,7 @@ export async function saveArticleAction(formData: FormData) {
     category,
     published,
     cover_url,
+    excerpt,
     author_id: user?.id ?? null,
   };
 

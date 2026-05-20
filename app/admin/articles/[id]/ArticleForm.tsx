@@ -89,6 +89,18 @@ export function ArticleForm({ article, isNew }: Props) {
         />
       </div>
 
+      <div className="flex flex-col gap-1">
+        <label className="label-mono text-[9px] text-ink-mute">Короткое описание (excerpt)</label>
+        <textarea
+          name="excerpt"
+          defaultValue={(article?.excerpt as string) ?? ''}
+          rows={2}
+          maxLength={280}
+          placeholder="1–2 предложения. Покажется на главной и в списке /wiki под заголовком."
+          className="bg-bg-2 border border-line-2 px-3 py-2 font-sans text-[13px] text-ink placeholder:text-ink-faint focus:border-dbd-accent outline-none transition-colors duration-150 resize-y"
+        />
+      </div>
+
       {/* Markdown editor with preview toggle */}
       <div className="flex flex-col gap-2">
         <div className="flex items-center justify-between">

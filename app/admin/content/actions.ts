@@ -14,6 +14,12 @@ export async function saveOverrideAction(formData: FormData) {
   const tier        = (formData.get('tier') as string | null) || null;
   const deprecated  = formData.get('deprecated') === 'true' ? true : null;
 
-  await upsertOverride({ entity_type, entity_id, name_ru, description_ru, tier, deprecated });
+  // available_by_default is a tri-state form field: 'true' / 'false' / '' (clear override)
+  const availRaw = formData.get('available_by_default') as string | null;
+  const available_by_default =
+    availRaw === 'true'  ? true :
+    availRaw === 'false' ? false : null;
+
+  await upsertOverride({ entity_type, entity_id, name_ru, description_ru, tier, deprecated, available_by_default });
   revalidatePath('/admin/content');
 }

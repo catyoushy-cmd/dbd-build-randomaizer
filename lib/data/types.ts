@@ -22,6 +22,8 @@ export type Perk = {
   name: { en: string; ru: string };
   role: 'survivor' | 'killer';
   character: string | null;
+  /** Slug into killers.json / survivors.json. null = generic perk. */
+  character_slug?: string | null;
   icon: string;
   description: { en: string; ru: string };
   tunables?: Record<string, number[] | undefined>;
@@ -51,8 +53,10 @@ export type Item = {
   type: ItemType;
   name: { en: string; ru: string };
   description?: { en: string; ru: string };
-  rarity: 'common' | 'uncommon' | 'rare' | 'very-rare';
+  rarity: 'common' | 'uncommon' | 'rare' | 'very-rare' | 'veryrare' | 'ultra-rare' | 'ultra';
   icon: string;
+  /** false = event/spec/anniversary — filtered out of the random pool and default encyclopedia. */
+  available_by_default?: boolean;
 };
 
 export type AddonTag = 'efficient' | 'meme' | 'troll';
@@ -64,9 +68,10 @@ export type Addon = {
   scope:
     | { type: 'killer'; killerId: string }
     | { type: 'item'; itemType: ItemType };
-  rarity: 'common' | 'uncommon' | 'rare' | 'very-rare' | 'ultra-rare';
+  rarity: 'common' | 'uncommon' | 'rare' | 'very-rare' | 'veryrare' | 'ultra-rare' | 'ultra';
   tags: AddonTag[];
   icon: string;
+  available_by_default?: boolean;
 };
 
 export type OfferingTag = 'efficient' | 'meme' | 'troll';
@@ -79,6 +84,7 @@ export type Offering = {
   rarity: string;
   tags: OfferingTag[];
   icon: string;
+  available_by_default?: boolean;
 };
 
 export type BuildMode = 'random' | 'efficient' | 'fun';

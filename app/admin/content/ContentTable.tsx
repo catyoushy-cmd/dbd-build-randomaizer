@@ -13,6 +13,7 @@ type Item = {
   descriptionRu: string;
   tier: string;
   deprecated: boolean;
+  availableByDefault: boolean;
   override?: ContentOverride;
 };
 
@@ -20,11 +21,13 @@ type Props = {
   items: Item[];
   entityType: string;
   query: string;
+  /** Whether to show the availability toggle (off for perks — they don't have the field). */
+  showAvailability?: boolean;
 };
 
 const TIERS = ['', 'S', 'A', 'B', 'C'];
 
-export function ContentTable({ items, entityType, query: initialQuery }: Props) {
+export function ContentTable({ items, entityType, query: initialQuery, showAvailability = false }: Props) {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -74,6 +77,7 @@ export function ContentTable({ items, entityType, query: initialQuery }: Props) 
             onEdit={() => setEditId(editId === item.id ? null : item.id)}
             isPending={isPending}
             startTransition={startTransition}
+            showAvailability={showAvailability}
           />
         ))}
       </div>
@@ -88,6 +92,7 @@ function ItemRow({
   onEdit,
   isPending,
   startTransition,
+  showAvailability,
 }: {
   item: Item;
   entityType: string;
@@ -95,11 +100,15 @@ function ItemRow({
   onEdit: () => void;
   isPending: boolean;
   startTransition: (fn: () => void) => void;
+  showAvailability: boolean;
 }) {
   const [nameRu, setNameRu] = useState(item.override?.name_ru ?? item.nameRu);
   const [descRu, setDescRu] = useState(item.override?.description_ru ?? item.descriptionRu);
   const [tier, setTier] = useState(item.override?.tier ?? item.tier ?? '');
   const [deprecated, setDeprecated] = useState(item.override?.deprecated ?? item.deprecated ?? false);
+  const [availableByDefault, setAvailableByDefault] = useState(
+    item.override?.available_by_default ?? item.availableByDefault ?? true,
+  );
 
   const hasOverride = !!item.override;
 
@@ -112,6 +121,9 @@ function ItemRow({
       fd.set('description_ru', descRu);
       fd.set('tier', tier);
       fd.set('deprecated', deprecated ? 'true' : 'false');
+      if (showAvailability) {
+        fd.set('available_by_default', availableByDefault ? 'true' : 'false');
+      }
       await saveOverrideAction(fd);
       onEdit();
     });
@@ -137,6 +149,9 @@ function ItemRow({
         )}>
           {nameRu || '—'}
           {hasOverride && <span className="ml-1 text-dbd-accent text-[9px]">●</span>}
+          {showAvailability && !availableByDefault && (
+            <span className="ml-2 label-mono text-[9px] text-ink-faint">[event]</span>
+          )}
         </span>
 
         {/* Tier */}
@@ -208,7 +223,7 @@ function ItemRow({
             />
           </div>
 
-          <div className="flex items-center gap-4">
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
             <label className="flex items-center gap-2 cursor-pointer">
               <input
                 type="checkbox"
@@ -218,6 +233,17 @@ function ItemRow({
               />
               <span className="font-sans text-[12px] text-ink-mute">Deprecated (скрыть из роллов)</span>
             </label>
+            {showAvailability && (
+              <label className="flex items-center gap-2 cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={availableByDefault}
+                  onChange={(e) => setAvailableByDefault(e.target.checked)}
+                  className="accent-dbd-accent"
+                />
+                <span className="font-sans text-[12px] text-ink-mute">Доступен по умолчанию (default-пул)</span>
+              </label>
+            )}
           </div>
 
           <div className="flex items-center gap-3">
