@@ -21,16 +21,31 @@ function perkPool(role: 'survivor' | 'killer'): Perk[] {
   return PERKS.filter(p => p.role === role && !p.deprecated);
 }
 
+function itemPool(): Item[] {
+  return ITEMS.filter(i => i.available_by_default !== false);
+}
+
 function addonPoolForKiller(killerId: string): Addon[] {
-  return ADDONS.filter(a => a.scope.type === 'killer' && a.scope.killerId === killerId);
+  return ADDONS.filter(a =>
+    a.scope.type === 'killer' &&
+    a.scope.killerId === killerId &&
+    a.available_by_default !== false,
+  );
 }
 
 function addonPoolForItem(itemType: ItemType): Addon[] {
-  return ADDONS.filter(a => a.scope.type === 'item' && a.scope.itemType === itemType);
+  return ADDONS.filter(a =>
+    a.scope.type === 'item' &&
+    a.scope.itemType === itemType &&
+    a.available_by_default !== false,
+  );
 }
 
 function offeringPool(role: 'survivor' | 'killer'): Offering[] {
-  return OFFERINGS.filter(o => o.role === role || o.role === 'both' || (o.role as string) === 'any');
+  return OFFERINGS.filter(o =>
+    (o.role === role || o.role === 'both' || (o.role as string) === 'any') &&
+    o.available_by_default !== false,
+  );
 }
 
 function rollRandom(rng: () => number, role: 'survivor' | 'killer', killerId: string | null): Omit<Build, 'seed' | 'role' | 'killerId' | 'survivorId' | 'mode'> {
@@ -40,7 +55,7 @@ function rollRandom(rng: () => number, role: 'survivor' | 'killer', killerId: st
   let addons: Addon[];
 
   if (role === 'survivor') {
-    item = pickOne(ITEMS, rng);
+    item = pickOne(itemPool(), rng);
     addons = pickN(addonPoolForItem(item.type), 2, rng);
   } else {
     addons = killerId
@@ -119,9 +134,10 @@ function rollEfficient(
   let addons: Addon[];
 
   if (role === 'survivor') {
+    const base = itemPool();
     const preferredType = core.preferred_item_type;
-    const itemPool = preferredType ? ITEMS.filter(i => i.type === preferredType) : ITEMS;
-    item = itemPool.length > 0 ? pickOne(itemPool, rng) : pickOne(ITEMS, rng);
+    const pool = preferredType ? base.filter(i => i.type === preferredType) : base;
+    item = pool.length > 0 ? pickOne(pool, rng) : pickOne(base, rng);
     const aPool = addonPoolForItem(item.type);
     const efficientAddons = aPool.filter(a => a.tags.includes('efficient'));
     addons = pickN(efficientAddons.length >= 2 ? efficientAddons : aPool, 2, rng);
@@ -176,9 +192,10 @@ function rollFun(
   let addons: Addon[];
 
   if (role === 'survivor') {
+    const base = itemPool();
     const preferredType = core.preferred_item_type;
-    const itemPool = preferredType ? ITEMS.filter(i => i.type === preferredType) : ITEMS;
-    item = itemPool.length > 0 ? pickOne(itemPool, rng) : pickOne(ITEMS, rng);
+    const pool = preferredType ? base.filter(i => i.type === preferredType) : base;
+    item = pool.length > 0 ? pickOne(pool, rng) : pickOne(base, rng);
     const aPool = addonPoolForItem(item.type);
     const memeAddons = aPool.filter(a => a.tags.includes('meme') || a.tags.includes('troll'));
     addons = pickN(memeAddons.length >= 2 ? memeAddons : aPool, 2, rng);

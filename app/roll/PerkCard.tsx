@@ -28,6 +28,8 @@ type Props = {
   size?: number;
   /** Hide the name caption below (used when in a tight diamond cluster). */
   hideCaption?: boolean;
+  /** Tooltip position. Defaults to 'top'. */
+  tooltipSide?: 'top' | 'bottom' | 'left' | 'right';
 };
 
 export function PerkCard({
@@ -36,6 +38,7 @@ export function PerkCard({
   onTogglePin,
   size = 132,
   hideCaption = false,
+  tooltipSide = 'top',
 }: Props) {
   const [hovered, setHovered] = useState(false);
   const iconSize = Math.round(size * 0.66);
@@ -98,7 +101,7 @@ export function PerkCard({
           </div>
         }
       />
-      <TooltipContent side="top" style={{ background: 'transparent', border: 'none', padding: 0 }}>
+      <TooltipContent side={tooltipSide} style={{ background: 'transparent', border: 'none', padding: 0 }}>
         <EntityTooltipBody
           variant="perk"
           title={perk.name.ru}
