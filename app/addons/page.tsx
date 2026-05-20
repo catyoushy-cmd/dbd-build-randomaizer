@@ -1,4 +1,4 @@
-import { ADDONS, KILLERS } from '@/lib/data';
+import { fetchAddons, fetchKillers } from '@/lib/data/content-db';
 import { fetchOverrides, applyOverrides } from '@/lib/data/overrides';
 import { AddonsExplorer } from './AddonsExplorer';
 
@@ -9,8 +9,12 @@ type Props = {
 };
 
 export default async function AddonsPage({ searchParams }: Props) {
-  const overrides = await fetchOverrides('addon');
-  const addons = applyOverrides(ADDONS, overrides);
+  const [addonsRaw, killers, overrides] = await Promise.all([
+    fetchAddons(),
+    fetchKillers(),
+    fetchOverrides('addon'),
+  ]);
+  const addons = applyOverrides(addonsRaw, overrides);
 
   // Initial selection from query params
   const initialKiller = searchParams.killer ?? null;
@@ -29,7 +33,7 @@ export default async function AddonsPage({ searchParams }: Props) {
 
       <AddonsExplorer
         addons={addons}
-        killers={KILLERS}
+        killers={killers}
         initialKiller={initialKiller}
         initialItem={initialItem}
       />

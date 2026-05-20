@@ -1,12 +1,15 @@
-import { ITEMS } from '@/lib/data';
+import { fetchItems } from '@/lib/data/content-db';
 import { fetchOverrides, applyOverrides } from '@/lib/data/overrides';
 import { ItemsGrid } from './ItemsGrid';
 
 export const revalidate = 3600;
 
 export default async function ItemsPage() {
-  const overrides = await fetchOverrides('item');
-  const items = applyOverrides(ITEMS, overrides);
+  const [itemsRaw, overrides] = await Promise.all([
+    fetchItems(),
+    fetchOverrides('item'),
+  ]);
+  const items = applyOverrides(itemsRaw, overrides);
 
   return (
     <div className="mx-auto max-w-[1100px] px-5 sm:px-10 pt-10 sm:pt-12 pb-16">
