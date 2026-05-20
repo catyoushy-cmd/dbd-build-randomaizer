@@ -20,6 +20,8 @@ const ENDPOINTS: { method: string; path: string; query?: string; desc: string; e
   { method: 'GET', path: '/api/v1/addons/{id}',       desc: 'Один аддон по slug.' },
   { method: 'GET', path: '/api/v1/offerings',         query: '?role=survivor|killer|both&rarity=...', desc: 'Подношения.' },
   { method: 'GET', path: '/api/v1/offerings/{id}',    desc: 'Одно подношение по slug.' },
+  { method: 'GET', path: '/api/v1/status-effects',    query: '?category=debuff|buff|aura|general|status', desc: 'Игровые состояния (Истощение, Кровотечение, Стойкость и т.п.).' },
+  { method: 'GET', path: '/api/v1/status-effects/{id}', desc: 'Одно состояние по slug или по source_key (например, "Exhausted").', example: '/api/v1/status-effects/exhausted' },
 ];
 
 export default function ApiDocsPage() {

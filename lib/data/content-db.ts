@@ -15,8 +15,9 @@ import SURVIVORS_JSON  from '@/data/survivors.json';
 import ITEMS_JSON      from '@/data/items.json';
 import ADDONS_JSON     from '@/data/addons.json';
 import OFFERINGS_JSON  from '@/data/offerings.json';
+import STATUS_EFFECTS_JSON from '@/data/status-effects.json';
 import type {
-  Perk, Killer, Survivor, Item, Addon, Offering,
+  Perk, Killer, Survivor, Item, Addon, Offering, StatusEffect,
 } from '@/lib/data/types';
 
 /* ───────── Perks ───────── */
@@ -164,6 +165,30 @@ export async function fetchOfferings(): Promise<Offering[]> {
     }));
   } catch {
     return OFFERINGS_JSON as Offering[];
+  }
+}
+
+/* ───────── Status effects ───────── */
+
+export async function fetchStatusEffects(): Promise<StatusEffect[]> {
+  try {
+    const supabase = createClient();
+    const { data, error } = await supabase
+      .from('status_effects')
+      .select('id,source_key,name,description,category,icon')
+      .order('category')
+      .order('id');
+    if (error || !data?.length) return STATUS_EFFECTS_JSON as StatusEffect[];
+    return data.map((r) => ({
+      id:          r.id,
+      source_key:  r.source_key ?? null,
+      name:        r.name as StatusEffect['name'],
+      description: r.description as StatusEffect['description'],
+      category:    (r.category ?? 'status') as StatusEffect['category'],
+      icon:        r.icon ?? null,
+    }));
+  } catch {
+    return STATUS_EFFECTS_JSON as StatusEffect[];
   }
 }
 

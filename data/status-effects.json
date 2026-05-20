@@ -1,0 +1,142 @@
+[
+  {
+    "id": "exhausted",
+    "source_key": "Exhausted",
+    "name": { "en": "Exhausted", "ru": "Истощение" },
+    "description": {
+      "en": "Prevents the use of any Exhaustion-based perks. Exhaustion does not recover while running.",
+      "ru": "Запрещает использование перков с пометкой «истощение». Истощение не восстанавливается, пока вы бежите."
+    },
+    "category": "debuff"
+  },
+  {
+    "id": "broken",
+    "source_key": "Broken",
+    "name": { "en": "Broken", "ru": "Сломлен" },
+    "description": {
+      "en": "Cannot be healed past the injured state.",
+      "ru": "Не можете быть вылечены до здорового состояния."
+    },
+    "category": "debuff"
+  },
+  {
+    "id": "hemorrhage",
+    "source_key": "Hemorrhage",
+    "name": { "en": "Hemorrhage", "ru": "Кровотечение" },
+    "description": {
+      "en": "Healing progress regresses while not being healed. Increases blood pool size of injured survivors.",
+      "ru": "Прогресс лечения откатывается, пока выживший не получает лечение. Увеличивает кровавый след за ранеными."
+    },
+    "category": "debuff"
+  },
+  {
+    "id": "mangled",
+    "source_key": "Mangled",
+    "name": { "en": "Mangled", "ru": "Повреждение" },
+    "description": {
+      "en": "Healing speed is reduced by 25%.",
+      "ru": "Скорость лечения снижается на 25%."
+    },
+    "category": "debuff"
+  },
+  {
+    "id": "blindness",
+    "source_key": "Blindness",
+    "name": { "en": "Blindness", "ru": "Слепота" },
+    "description": {
+      "en": "Cannot see auras of allies, generators, totems, items or hooks.",
+      "ru": "Не видите ауры союзников, генераторов, тотемов, предметов и крюков."
+    },
+    "category": "debuff"
+  },
+  {
+    "id": "exposed",
+    "source_key": "Exposed",
+    "name": { "en": "Exposed", "ru": "Незащищённость" },
+    "description": {
+      "en": "Can be put into the dying state from a single basic attack, regardless of the current health state.",
+      "ru": "Может быть положен на землю одним базовым ударом убийцы, независимо от текущего состояния здоровья."
+    },
+    "category": "debuff"
+  },
+  {
+    "id": "oblivious",
+    "source_key": "Oblivious",
+    "name": { "en": "Oblivious", "ru": "Забвение" },
+    "description": {
+      "en": "Cannot hear the Killer's Terror Radius.",
+      "ru": "Не слышите радиус ужаса убийцы."
+    },
+    "category": "debuff"
+  },
+  {
+    "id": "hindered",
+    "source_key": "Hindered",
+    "name": { "en": "Hindered", "ru": "Помеха" },
+    "description": {
+      "en": "Movement speed is reduced for the duration.",
+      "ru": "Скорость движения снижена на время действия."
+    },
+    "category": "debuff"
+  },
+  {
+    "id": "endurance",
+    "source_key": "Endurance",
+    "name": { "en": "Endurance", "ru": "Стойкость" },
+    "description": {
+      "en": "The next damage that would put you into the dying state instead applies the Deep Wound status.",
+      "ru": "Следующая атака, которая положила бы вас на землю, вместо этого накладывает «Глубокую рану»."
+    },
+    "category": "buff"
+  },
+  {
+    "id": "haste",
+    "source_key": "Haste",
+    "name": { "en": "Haste", "ru": "Бодрость" },
+    "description": {
+      "en": "Movement speed is increased by a percentage for the duration.",
+      "ru": "Скорость движения увеличена на указанный процент на время действия."
+    },
+    "category": "buff"
+  },
+  {
+    "id": "elusive",
+    "source_key": "Elusive",
+    "name": { "en": "Elusive", "ru": "Неуловимость" },
+    "description": {
+      "en": "Scratch marks are not left for the duration.",
+      "ru": "Не оставляете царапин на время действия."
+    },
+    "category": "buff"
+  },
+  {
+    "id": "undetectable",
+    "source_key": "Undetectable",
+    "name": { "en": "Undetectable", "ru": "Необнаруживаемость" },
+    "description": {
+      "en": "Terror Radius is suppressed, Red Stain is removed, and aura cannot be read.",
+      "ru": "Радиус ужаса подавлен, красное пятно скрыто, ауру нельзя прочитать."
+    },
+    "category": "buff"
+  },
+  {
+    "id": "deep-wound",
+    "source_key": "DeepWound",
+    "name": { "en": "Deep Wound", "ru": "Глубокая рана" },
+    "description": {
+      "en": "A bleed-out timer starts. The survivor must mend within the timer or fall into the dying state.",
+      "ru": "Запускается таймер кровотечения. Выжившему нужно перевязать рану до истечения времени, иначе он упадёт."
+    },
+    "category": "debuff"
+  },
+  {
+    "id": "incapacitated",
+    "source_key": "Incapacitated",
+    "name": { "en": "Incapacitated", "ru": "Беспомощность" },
+    "description": {
+      "en": "Cannot perform any conspicuous actions (repair, heal, sabotage, totem cleansing, etc.).",
+      "ru": "Запрещены все «заметные» действия — починка, лечение, саботаж, очищение тотемов и т.д."
+    },
+    "category": "debuff"
+  }
+]

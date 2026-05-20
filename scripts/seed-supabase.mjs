@@ -121,6 +121,18 @@ const mappers = {
     icon:        o.icon ?? null,
     available_by_default: o.available_by_default ?? true,
   }),
+  'status-effects': (s) => ({
+    id:          s.id,
+    source_key:  s.source_key ?? null,
+    name:        s.name ?? {},
+    description: s.description ?? {},
+    category:    s.category ?? 'status',
+    icon:        s.icon ?? null,
+  }),
+};
+
+const TABLE_NAME_BY_FILE = {
+  'status-effects': 'status_effects',
 };
 
 async function seedTable(table) {
@@ -135,12 +147,13 @@ async function seedTable(table) {
   }
 
   const rows = [...byId.values()].map(mappers[table]);
-  await upsertBatch(table, rows);
+  const tableName = TABLE_NAME_BY_FILE[table] ?? table;
+  await upsertBatch(tableName, rows);
 }
 
 async function main() {
   const arg = process.argv[2] ?? 'all';
-  const all = ['killers', 'survivors', 'items', 'offerings', 'perks', 'addons'];
+  const all = ['killers', 'survivors', 'items', 'offerings', 'perks', 'addons', 'status-effects'];
   const tables = arg === 'all' ? all : [arg];
   for (const t of tables) {
     if (!mappers[t]) { console.error(`Unknown table: ${t}`); process.exit(1); }

@@ -2,55 +2,64 @@
 
 import { Fragment } from 'react';
 import { parseDbdText, type DbdSegment } from '@/lib/dbd-text';
+import { KeywordTooltip } from '@/components/build/KeywordTooltip';
+import type { StatusEffect } from '@/lib/data';
 
 type Props = {
   raw: string | undefined;
   tunables?: Record<string, number[] | undefined>;
   /** Coloured tier values (only meaningful when `tunables` carries multi-tier arrays). */
   colorTiers?: boolean;
+  /** Map source-key → StatusEffect (used to attach tooltips to keywords). */
+  effectsBySourceKey?: Map<string, StatusEffect>;
 };
 
 /**
  * Render DBD description AST.
  *   - Tunable values: shown inline as «t1 / t2 / t3» with each tier in its
  *     own colour (yellow / green / purple — matches the in-game tier ramp).
- *   - Keywords («Истощение», etc.): wrapped in <span.dbd-keyword> with a
- *     subtle dotted accent underline (tooltip-on-hover comes later).
+ *   - Keywords («Истощение», etc.): wrapped in a tooltip that resolves to
+ *     the status effect description if the dictionary contains it.
  *   - Bullets: small dot + line break before the item.
  */
-export function PerkDescription({ raw, tunables, colorTiers = true }: Props) {
+export function PerkDescription({ raw, tunables, colorTiers = true, effectsBySourceKey }: Props) {
   const segments = parseDbdText(raw, tunables);
   if (segments.length === 0) return null;
 
   return (
     <p className="font-sans text-[14px] text-ink leading-[1.65] m-0">
       {segments.map((seg, i) => (
-        <Fragment key={i}>{renderSegment(seg, colorTiers)}</Fragment>
+        <Fragment key={i}>{renderSegment(seg, colorTiers, effectsBySourceKey)}</Fragment>
       ))}
     </p>
   );
 }
 
-function renderSegment(seg: DbdSegment, colorTiers: boolean) {
+function renderSegment(seg: DbdSegment, colorTiers: boolean, effects?: Map<string, StatusEffect>) {
   switch (seg.type) {
     case 'text':
       return <span>{seg.value}</span>;
 
-    case 'keyword':
+    case 'keyword': {
+      const effect = effects?.get(seg.key);
+      const inner = <>«{seg.label}»</>;
+      if (effect) {
+        return <KeywordTooltip effect={effect}>{inner}</KeywordTooltip>;
+      }
       return (
         <span
           className="dbd-keyword"
           data-keyword={seg.key}
           aria-label={`Состояние: ${seg.label}`}
         >
-          «{seg.label}»
+          {inner}
         </span>
       );
+    }
 
     case 'tunable': {
       const [t1, t2, t3] = seg.values;
       if (!colorTiers || (t1 === t2 && t2 === t3)) {
-        // No variance: render the value once
         return <strong className="text-dbd-bone">{t3}</strong>;
       }
       return (
