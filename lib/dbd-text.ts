@@ -24,20 +24,34 @@
  *    them however it wants (e.g. styled <li>).
  */
 
+/**
+ * Official RU translations from the localised DBD client / fandom wiki.
+ * Keep in sync with data/status-effects.json (the encyclopedia source of truth).
+ */
 const KEYWORDS: Record<string, string> = {
+  // Survivor debuffs
   Blindness:       'Слепота',
-  Broken:          'Сломлен',
-  Elusive:         'Неуловимость',
-  Endurance:       'Стойкость',
-  Exhausted:       'Истощение',
-  Exposed:         'Незащищённость',
-  Haste:           'Бодрость',
+  Broken:          'Ослабление',
+  Exhausted:       'Усталость',
+  Exposed:         'Уязвимость',
   Hemorrhage:      'Кровотечение',
-  Hindered:        'Помеха',
-  Mangled:         'Повреждение',
-  Oblivious:       'Забвение',
-  Undetectable:    'Необнаруживаемость',
-  undetectable:    'Необнаруживаемость',
+  Hindered:        'Замедление',
+  Incapacitated:   'Обездвиживание',
+  Mangled:         'Травма',
+  Oblivious:       'Забывчивость',
+  DeepWound:       'Глубокая рана',
+  Cursed:          'Проклятие',
+  // Buffs / movement
+  Elusive:         'Ускользание',
+  Endurance:       'Стойкость',
+  Haste:           'Спешка',
+  Undetectable:    'Незаметность',
+  undetectable:    'Незаметность',
+  Blessed:         'Благословение',
+  // Killer / special
+  KillerEndurance: 'Хладнокровие',
+  Glyph:           'Символ',
+  Reveal:          'Раскрыт',
 };
 
 /** Result segment types for the rich parser. */
