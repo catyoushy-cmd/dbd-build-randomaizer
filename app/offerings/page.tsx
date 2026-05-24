@@ -1,12 +1,13 @@
-import { fetchOfferings } from '@/lib/data/content-db';
+import { fetchOfferings, fetchStatusEffects } from '@/lib/data/content-db';
 import { fetchOverrides, applyOverrides } from '@/lib/data/overrides';
 import { OfferingsGrid } from './OfferingsGrid';
 
 export const revalidate = 3600;
 
 export default async function OfferingsPage() {
-  const [offeringsRaw, overrides] = await Promise.all([
+  const [offeringsRaw, statusEffects, overrides] = await Promise.all([
     fetchOfferings(),
+    fetchStatusEffects(),
     fetchOverrides('offering'),
   ]);
   const offerings = applyOverrides(offeringsRaw, overrides);
@@ -21,7 +22,7 @@ export default async function OfferingsPage() {
         </p>
       </div>
 
-      <OfferingsGrid offerings={offerings} />
+      <OfferingsGrid offerings={offerings} statusEffects={statusEffects} />
     </div>
   );
 }

@@ -6,8 +6,8 @@ import { cn } from '@/lib/utils';
 import { IconImg } from '@/components/ui/icon-img';
 import { Tooltip, TooltipTrigger, TooltipContent } from '@/components/ui/tooltip';
 import { EntityTooltipBody } from '@/components/ui/entity-tooltip';
+import { DbdDescription } from '@/components/build/DbdDescription';
 import type { Perk } from '@/lib/data';
-import { formatDbdText } from '@/lib/dbd-text';
 
 const ROLE_LABEL_PERK: Record<string, string> = {
   gen: 'Ген', 'chase-escape': 'Побег', info: 'Инфо', altruism: 'Альтруизм',
@@ -112,7 +112,7 @@ export function PerkCard({
               ? [{ label: 'Роли', value: perk.roles.map((r) => ROLE_LABEL_PERK[r] ?? r).join(', ') }]
               : []),
           ]}
-          description={formatDbdText(perk.description.ru, perk.tunables)}
+          description={<DbdDescription raw={perk.description.ru} tunables={perk.tunables} size="sm" />}
           footer={perk.character ? `Персонаж: ${perk.character}` : undefined}
         />
       </TooltipContent>

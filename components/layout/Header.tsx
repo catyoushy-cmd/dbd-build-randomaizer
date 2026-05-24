@@ -68,6 +68,15 @@ export function Header() {
 
         {/* Right side */}
         <div className="flex items-center gap-2 shrink-0">
+          {/* Global search */}
+          <Link
+            href="/search"
+            aria-label="Поиск"
+            className="w-10 h-10 flex items-center justify-center border border-line-2 text-ink-mute hover:text-dbd-bone hover:border-line-ember transition-colors no-underline"
+          >
+            <SearchIcon />
+          </Link>
+
           {/* Mobile menu toggle */}
           <button
             type="button"
@@ -146,6 +155,15 @@ function BurgerIcon() {
   return (
     <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
       <path d="M2 4h14M2 9h14M2 14h14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function SearchIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+      <circle cx="8" cy="8" r="5" stroke="currentColor" strokeWidth="1.5" />
+      <path d="m12 12 4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
     </svg>
   );
 }

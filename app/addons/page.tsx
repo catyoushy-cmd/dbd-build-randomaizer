@@ -1,4 +1,4 @@
-import { fetchAddons, fetchKillers, fetchItems } from '@/lib/data/content-db';
+import { fetchAddons, fetchKillers, fetchItems, fetchStatusEffects } from '@/lib/data/content-db';
 import { fetchOverrides, applyOverrides } from '@/lib/data/overrides';
 import { AddonsExplorer } from './AddonsExplorer';
 
@@ -9,10 +9,11 @@ type Props = {
 };
 
 export default async function AddonsPage({ searchParams }: Props) {
-  const [addonsRaw, killers, items, overrides] = await Promise.all([
+  const [addonsRaw, killers, items, statusEffects, overrides] = await Promise.all([
     fetchAddons(),
     fetchKillers(),
     fetchItems(),
+    fetchStatusEffects(),
     fetchOverrides('addon'),
   ]);
   const addons = applyOverrides(addonsRaw, overrides);
@@ -32,6 +33,7 @@ export default async function AddonsPage({ searchParams }: Props) {
         addons={addons}
         killers={killers}
         items={items}
+        statusEffects={statusEffects}
         initialKiller={searchParams.killer ?? null}
         initialItem={searchParams.item ?? null}
       />

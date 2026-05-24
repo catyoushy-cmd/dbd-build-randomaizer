@@ -5,8 +5,8 @@ import { cn } from '@/lib/utils';
 import { IconImg } from '@/components/ui/icon-img';
 import { Tooltip, TooltipTrigger, TooltipContent } from '@/components/ui/tooltip';
 import { EntityTooltipBody } from '@/components/ui/entity-tooltip';
+import { DbdDescription } from '@/components/build/DbdDescription';
 import type { Addon } from '@/lib/data';
-import { formatDbdText } from '@/lib/dbd-text';
 
 type Props = {
   addon: Addon;
@@ -77,7 +77,7 @@ export function AddonCard({ addon, pinned = false, onTogglePin }: Props) {
         <EntityTooltipBody
           title={addon.name.ru}
           subtitle={{ text: rarityLabel(addon.rarity).toUpperCase(), color: ring }}
-          description={addon.description?.ru ? formatDbdText(addon.description.ru) : undefined}
+          description={addon.description?.ru ? <DbdDescription raw={addon.description.ru} size="sm" /> : undefined}
         />
       </TooltipContent>
     </Tooltip>
