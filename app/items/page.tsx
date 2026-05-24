@@ -1,13 +1,14 @@
-import { fetchItems, fetchAddons } from '@/lib/data/content-db';
+import { fetchItems, fetchAddons, fetchStatusEffects } from '@/lib/data/content-db';
 import { fetchOverrides, applyOverrides } from '@/lib/data/overrides';
 import { ItemsGrid } from './ItemsGrid';
 
 export const revalidate = 3600;
 
 export default async function ItemsPage() {
-  const [itemsRaw, addons, overrides] = await Promise.all([
+  const [itemsRaw, addons, statusEffects, overrides] = await Promise.all([
     fetchItems(),
     fetchAddons(),
+    fetchStatusEffects(),
     fetchOverrides('item'),
   ]);
   const items = applyOverrides(itemsRaw, overrides);
@@ -23,7 +24,7 @@ export default async function ItemsPage() {
         </p>
       </div>
 
-      <ItemsGrid items={items} addons={addons} />
+      <ItemsGrid items={items} addons={addons} statusEffects={statusEffects} />
     </div>
   );
 }

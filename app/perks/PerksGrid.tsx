@@ -1,6 +1,7 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
+import { useSearchParams, useRouter, usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import { EntityModal } from '@/components/ui/entity-modal';
 import { IconImg } from '@/components/ui/icon-img';
@@ -37,10 +38,40 @@ export function PerksGrid({ perks, killers, survivors, statusEffects }: Props) {
     return m;
   }, [statusEffects]);
 
+  const searchParams = useSearchParams();
+  const router       = useRouter();
+  const pathname     = usePathname();
+
   const [tab, setTab]       = useState<'survivor' | 'killer'>('survivor');
   const [query, setQuery]   = useState('');
   const [activeTag, setTag] = useState<string | null>(null);
   const [selected, setSelected] = useState<Perk | null>(null);
+
+  // Open modal when ?focus=<id> is present
+  useEffect(() => {
+    const focus = searchParams.get('focus');
+    if (!focus) return;
+    const target = perks.find((p) => p.id === focus);
+    if (!target) return;
+    // Switch tab to match the perk's role if necessary
+    setTab(target.role);
+    setSelected(target);
+    // Scroll the corresponding card into view once it renders
+    setTimeout(() => {
+      const el = document.querySelector(`[data-perk-id="${focus}"]`);
+      el?.scrollIntoView({ block: 'center', behavior: 'smooth' });
+    }, 50);
+  }, [searchParams, perks]);
+
+  // Sync ?focus when modal closes (drop the param)
+  const handleCloseModal = () => {
+    setSelected(null);
+    if (searchParams.get('focus')) {
+      const next = new URLSearchParams(searchParams.toString());
+      next.delete('focus');
+      router.replace(`${pathname}${next.toString() ? `?${next}` : ''}`, { scroll: false });
+    }
+  };
 
   const filtered = useMemo(() => {
     const q = query.toLowerCase().trim();
@@ -160,7 +191,7 @@ export function PerksGrid({ perks, killers, survivors, statusEffects }: Props) {
       </div>
 
       {/* Modal */}
-      <EntityModal open={!!selected} onClose={() => setSelected(null)}>
+      <EntityModal open={!!selected} onClose={handleCloseModal}>
         {selected && (
           <PerkModalBody
             perk={selected}
@@ -193,19 +224,19 @@ function CharacterGroup({
   return (
     <section>
       <header className="flex items-center gap-3 mb-3 pb-2 border-b border-line-1">
-        <div className="w-10 h-10 shrink-0 border border-line-2 bg-bg-2 flex items-center justify-center overflow-hidden">
+        <div className="w-12 h-12 shrink-0 border border-line-2 bg-bg-2 flex items-center justify-center overflow-hidden">
           {character ? (
             <IconImg
               src={character.icon}
               alt={character.name.ru}
-              size={36}
-              fallback={<span className="text-ink-faint text-[18px]">⌧</span>}
+              size={44}
+              fallback={<span className="text-ink-faint text-[20px]">⌧</span>}
             />
           ) : (
-            <span className="text-dbd-accent text-[18px]">⌘</span>
+            <span className="text-dbd-accent text-[20px]">⌘</span>
           )}
         </div>
-        <h2 className="m-0 font-sans font-bold text-[15px] text-dbd-bone">
+        <h2 className="m-0 font-sans font-bold text-[16px] text-dbd-bone">
           {character ? character.name.ru : 'Общие перки'}
         </h2>
         {'power' in (character ?? {}) && (character as Killer).power && (
@@ -233,22 +264,23 @@ function plural(n: number) {
 function PerkRow({ perk, onOpen }: { perk: Perk; onOpen: () => void }) {
   return (
     <button
+      data-perk-id={perk.id}
       onClick={onOpen}
-      className="flex items-center gap-3 px-4 py-3 text-left border border-line-1 bg-bg-1 hover:border-line-ember hover:bg-bg-2 transition-colors duration-150 cursor-pointer"
+      className="flex items-center gap-3.5 px-4 py-3.5 text-left border border-line-1 bg-bg-1 hover:border-line-ember hover:bg-bg-2 transition-colors duration-150 cursor-pointer"
     >
-      <div className="w-14 h-14 shrink-0 border border-line-2 bg-bg-2 flex items-center justify-center overflow-hidden">
+      <div className="w-[72px] h-[72px] shrink-0 border border-line-2 bg-bg-2 flex items-center justify-center overflow-hidden">
         <IconImg
           src={perk.icon}
           alt={perk.name.ru || perk.name.en}
-          size={52}
-          fallback={<span className="text-ink-faint text-[18px]">⚙</span>}
+          size={68}
+          fallback={<span className="text-ink-faint text-[20px]">⚙</span>}
         />
       </div>
       <div className="flex flex-col flex-1 min-w-0">
-        <span className="font-sans text-[14px] font-semibold text-dbd-bone leading-tight truncate">
+        <span className="font-sans text-[15px] font-semibold text-dbd-bone leading-tight truncate">
           {perk.name.ru || perk.name.en}
         </span>
-        <span className="font-sans text-[12px] text-ink-mute mt-0.5 truncate">{perk.name.en}</span>
+        <span className="font-sans text-[12px] text-ink-mute mt-1 truncate">{perk.name.en}</span>
       </div>
     </button>
   );

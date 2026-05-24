@@ -8,7 +8,8 @@ type Props = {
   title: string;
   subtitle?: { text: string; color?: string };
   meta?: Meta[];
-  description?: string;
+  /** Either a plain string OR a pre-rendered ReactNode (e.g. <DbdDescription>). */
+  description?: string | ReactNode;
   footer?: string;
   /** Visual variant: standard (warm tones) or perk (purple ritual tones). */
   variant?: 'standard' | 'perk';
@@ -85,9 +86,13 @@ export function EntityTooltipBody({
           {(!meta || meta.length === 0) && (
             <div className="h-px bg-gradient-to-r from-line-2 to-transparent" />
           )}
-          <p className="m-0 font-sans text-[12.5px] text-ink leading-[1.55] whitespace-pre-line">
-            {description}
-          </p>
+          {typeof description === 'string' ? (
+            <p className="m-0 font-sans text-[12.5px] text-ink leading-[1.55] whitespace-pre-line">
+              {description}
+            </p>
+          ) : (
+            description
+          )}
         </>
       )}
 

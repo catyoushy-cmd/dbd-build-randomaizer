@@ -6,8 +6,9 @@ import { cn } from '@/lib/utils';
 import { rarityColor, rarityKey, rarityLabel } from '@/components/ui/shape-card';
 import { EntityModal } from '@/components/ui/entity-modal';
 import { IconImg } from '@/components/ui/icon-img';
-import { splitDescription, formatDbdText } from '@/lib/dbd-text';
-import type { Addon, Killer, Item } from '@/lib/data';
+import { splitDescription } from '@/lib/dbd-text';
+import { DbdDescription } from '@/components/build/DbdDescription';
+import type { Addon, Killer, Item, StatusEffect } from '@/lib/data';
 
 type Mode = 'killer' | 'item';
 
@@ -15,6 +16,7 @@ type Props = {
   addons: Addon[];
   killers: Killer[];
   items: Item[];
+  statusEffects?: StatusEffect[];
   initialKiller: string | null;
   initialItem: string | null;
 };
@@ -43,7 +45,16 @@ function rarityScore(r?: string): number {
   return i === -1 ? 99 : i;
 }
 
-export function AddonsExplorer({ addons, killers, items, initialKiller, initialItem }: Props) {
+export function AddonsExplorer({ addons, killers, items, statusEffects, initialKiller, initialItem }: Props) {
+  const effectsBySourceKey = useMemo(() => {
+    const m = new Map<string, StatusEffect>();
+    for (const e of statusEffects ?? []) {
+      if (e.source_key) m.set(e.source_key, e);
+      m.set(e.id, e);
+    }
+    return m;
+  }, [statusEffects]);
+
   const router = useRouter();
   const pathname = usePathname();
 
@@ -187,6 +198,7 @@ export function AddonsExplorer({ addons, killers, items, initialKiller, initialI
             killers={killers}
             items={items}
             allAddons={addons}
+            effectsBySourceKey={effectsBySourceKey}
             onPick={setSelected}
           />
         )}
@@ -312,12 +324,13 @@ function AddonRow({ addon, onOpen }: { addon: Addon; onOpen: () => void }) {
 /* ───────── Modal ───────── */
 
 function AddonModalBody({
-  addon, killers, items, allAddons, onPick,
+  addon, killers, items, allAddons, effectsBySourceKey, onPick,
 }: {
   addon: Addon;
   killers: Killer[];
   items: Item[];
   allAddons: Addon[];
+  effectsBySourceKey: Map<string, StatusEffect>;
   onPick: (a: Addon) => void;
 }) {
   const rk = rarityKey(addon.rarity ?? 'common');
@@ -376,7 +389,7 @@ function AddonModalBody({
       {mechanics && (
         <div className="flex flex-col gap-2">
           <span className="label-mono text-[10px] text-ink-mute">Механика</span>
-          <p className="m-0 font-sans text-[14px] text-ink leading-[1.65] whitespace-pre-line">{formatDbdText(mechanics)}</p>
+          <DbdDescription raw={mechanics} effectsBySourceKey={effectsBySourceKey} />
         </div>
       )}
 

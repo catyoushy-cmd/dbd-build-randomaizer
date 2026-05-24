@@ -7,8 +7,8 @@ import { ShapeCard, rarityColor, rarityLabel } from '@/components/ui/shape-card'
 import { IconImg } from '@/components/ui/icon-img';
 import { Tooltip, TooltipTrigger, TooltipContent } from '@/components/ui/tooltip';
 import { EntityTooltipBody } from '@/components/ui/entity-tooltip';
+import { DbdDescription } from '@/components/build/DbdDescription';
 import { cn } from '@/lib/utils';
-import { formatDbdText } from '@/lib/dbd-text';
 import { useIsMobile } from '@/lib/use-media-query';
 import type { Build } from '@/lib/data';
 import type { PinState } from '@/lib/random/pinning';
@@ -320,7 +320,7 @@ function ItemSlot({
           meta={[
             { label: 'Тип', value: ITEM_TYPE_LABEL[item.type] ?? item.type },
           ]}
-          description={item.description?.ru ? formatDbdText(item.description.ru) : undefined}
+          description={item.description?.ru ? <DbdDescription raw={item.description.ru} size="sm" /> : undefined}
         />
       </TooltipContent>
     </Tooltip>
@@ -390,7 +390,7 @@ function OfferingSlot({
           meta={[
             { label: 'Сторона', value: ROLE_LABEL_OFFERING[offering.role] ?? offering.role },
           ]}
-          description={offering.description?.ru ? formatDbdText(offering.description.ru) : undefined}
+          description={offering.description?.ru ? <DbdDescription raw={offering.description.ru} size="sm" /> : undefined}
         />
       </TooltipContent>
     </Tooltip>

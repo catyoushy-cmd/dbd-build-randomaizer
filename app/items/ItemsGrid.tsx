@@ -8,12 +8,14 @@ import { EntityModal } from '@/components/ui/entity-modal';
 import { IconImg } from '@/components/ui/icon-img';
 import { Tooltip, TooltipTrigger, TooltipContent } from '@/components/ui/tooltip';
 import { EntityTooltipBody } from '@/components/ui/entity-tooltip';
-import { splitDescription, formatDbdText } from '@/lib/dbd-text';
-import type { Item, Addon } from '@/lib/data';
+import { splitDescription } from '@/lib/dbd-text';
+import { DbdDescription } from '@/components/build/DbdDescription';
+import type { Item, Addon, StatusEffect } from '@/lib/data';
 
 type Props = {
   items: Item[];
   addons: Addon[];
+  statusEffects?: StatusEffect[];
 };
 
 const ITEM_TYPE_LABEL: Record<string, string> = {
@@ -46,7 +48,16 @@ function rarityScore(r?: string): number {
   return RARITY_RANK[r ?? 'common'] ?? 99;
 }
 
-export function ItemsGrid({ items, addons }: Props) {
+export function ItemsGrid({ items, addons, statusEffects }: Props) {
+  const effectsBySourceKey = useMemo(() => {
+    const m = new Map<string, StatusEffect>();
+    for (const e of statusEffects ?? []) {
+      if (e.source_key) m.set(e.source_key, e);
+      m.set(e.id, e);
+    }
+    return m;
+  }, [statusEffects]);
+
   const [typeFilter, setTypeFilter]   = useState<string>('');
   const [query, setQuery]             = useState('');
   const [showEvent, setShowEvent]     = useState(false);
@@ -137,6 +148,7 @@ export function ItemsGrid({ items, addons }: Props) {
             item={selected}
             allItems={items}
             allAddons={addons}
+            effectsBySourceKey={effectsBySourceKey}
             onPick={setSelected}
           />
         )}
@@ -198,11 +210,13 @@ function ItemModalBody({
   item,
   allItems,
   allAddons,
+  effectsBySourceKey,
   onPick,
 }: {
   item: Item;
   allItems: Item[];
   allAddons: Addon[];
+  effectsBySourceKey: Map<string, StatusEffect>;
   onPick: (i: Item) => void;
 }) {
   const rk = rarityKey(item.rarity ?? 'common');
@@ -252,9 +266,7 @@ function ItemModalBody({
       {mechanics && (
         <div className="flex flex-col gap-2">
           <span className="label-mono text-[10px] text-ink-mute">Механика</span>
-          <p className="m-0 font-sans text-[14px] text-ink leading-[1.65] whitespace-pre-line">
-            {formatDbdText(mechanics)}
-          </p>
+          <DbdDescription raw={mechanics} effectsBySourceKey={effectsBySourceKey} />
         </div>
       )}
 
@@ -333,7 +345,11 @@ function AddonChip({ addon }: { addon: Addon }) {
         <EntityTooltipBody
           title={addon.name.ru}
           subtitle={{ text: rarityLabel(addon.rarity).toUpperCase(), color: ringColor }}
-          description={addon.description?.ru ? formatDbdText(addon.description.ru) : undefined}
+          description={
+            addon.description?.ru
+              ? <DbdDescription raw={addon.description.ru} size="sm" />
+              : undefined
+          }
         />
       </TooltipContent>
     </Tooltip>

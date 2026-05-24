@@ -2,14 +2,16 @@
 
 import { useState, useMemo } from 'react';
 import { cn } from '@/lib/utils';
-import { splitDescription, formatDbdText } from '@/lib/dbd-text';
+import { splitDescription } from '@/lib/dbd-text';
+import { DbdDescription } from '@/components/build/DbdDescription';
 import { rarityColor, rarityKey, rarityLabel } from '@/components/ui/shape-card';
 import { EntityModal } from '@/components/ui/entity-modal';
 import { IconImg } from '@/components/ui/icon-img';
-import type { Offering } from '@/lib/data';
+import type { Offering, StatusEffect } from '@/lib/data';
 
 type Props = {
   offerings: Offering[];
+  statusEffects?: StatusEffect[];
 };
 
 type Role = '' | 'survivor' | 'killer' | 'both';
@@ -34,7 +36,16 @@ function rarityScore(r?: string): number {
   return i === -1 ? 99 : i;
 }
 
-export function OfferingsGrid({ offerings }: Props) {
+export function OfferingsGrid({ offerings, statusEffects }: Props) {
+  const effectsBySourceKey = useMemo(() => {
+    const m = new Map<string, StatusEffect>();
+    for (const e of statusEffects ?? []) {
+      if (e.source_key) m.set(e.source_key, e);
+      m.set(e.id, e);
+    }
+    return m;
+  }, [statusEffects]);
+
   const [roleFilter, setRoleFilter]   = useState<Role>('');
   const [query, setQuery]             = useState('');
   const [showEvent, setShowEvent]     = useState(false);
@@ -149,7 +160,14 @@ export function OfferingsGrid({ offerings }: Props) {
       )}
 
       <EntityModal open={!!selected} onClose={() => setSelected(null)}>
-        {selected && <OfferingModalBody offering={selected} allOfferings={offerings} onPick={setSelected} />}
+        {selected && (
+          <OfferingModalBody
+            offering={selected}
+            allOfferings={offerings}
+            effectsBySourceKey={effectsBySourceKey}
+            onPick={setSelected}
+          />
+        )}
       </EntityModal>
     </div>
   );
@@ -212,10 +230,11 @@ function OfferingRow({ offering: o, onOpen }: { offering: Offering; onOpen: () =
 /* ───────── Modal ───────── */
 
 function OfferingModalBody({
-  offering: o, allOfferings, onPick,
+  offering: o, allOfferings, effectsBySourceKey, onPick,
 }: {
   offering: Offering;
   allOfferings: Offering[];
+  effectsBySourceKey: Map<string, StatusEffect>;
   onPick: (o: Offering) => void;
 }) {
   const rk = rarityKey(o.rarity ?? 'common');
@@ -252,7 +271,7 @@ function OfferingModalBody({
       {mechanics && (
         <div className="flex flex-col gap-2">
           <span className="label-mono text-[10px] text-ink-mute">Механика</span>
-          <p className="m-0 font-sans text-[14px] text-ink leading-[1.65] whitespace-pre-line">{formatDbdText(mechanics)}</p>
+          <DbdDescription raw={mechanics} effectsBySourceKey={effectsBySourceKey} />
         </div>
       )}
 
