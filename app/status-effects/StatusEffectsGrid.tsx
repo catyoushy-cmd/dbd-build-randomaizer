@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from 'react';
 import { cn } from '@/lib/utils';
+import { IconImg } from '@/components/ui/icon-img';
 import type { StatusEffect } from '@/lib/data';
 
 type Props = {
@@ -129,19 +130,33 @@ function FilterChip({
 function EffectCard({ effect: e }: { effect: StatusEffect }) {
   const accent = CATEGORY_COLOR[e.category] ?? 'var(--ink-mute)';
   return (
-    <article className="flex flex-col gap-2 p-4 border border-line-1 bg-bg-1">
-      <header className="flex items-center gap-2">
-        <h3 className="m-0 font-sans font-bold text-[15px] text-dbd-bone leading-tight">
-          {e.name.ru || e.name.en}
-        </h3>
-        <span className="label-mono text-[9px] px-2 py-0.5 border" style={{ borderColor: accent, color: accent }}>
-          {CATEGORY_LABEL[e.category] ?? e.category}
-        </span>
-        <span className="ml-auto font-sans text-[12px] text-ink-faint">{e.name.en}</span>
-      </header>
-      {e.description?.ru && (
-        <p className="m-0 font-sans text-[13px] text-ink-mute leading-[1.55]">{e.description.ru}</p>
-      )}
+    <article className="flex gap-3 p-4 border border-line-1 bg-bg-1">
+      {/* Icon */}
+      <div
+        className="w-14 h-14 shrink-0 border bg-bg-2 flex items-center justify-center overflow-hidden"
+        style={{ borderColor: accent }}
+      >
+        <IconImg
+          src={e.icon ?? undefined}
+          alt={e.name.ru}
+          size={48}
+          fallback={<span className="text-ink-faint text-[20px]">·</span>}
+        />
+      </div>
+      <div className="flex flex-col gap-2 flex-1 min-w-0">
+        <header className="flex items-center gap-2 flex-wrap">
+          <h3 className="m-0 font-sans font-bold text-[15px] text-dbd-bone leading-tight">
+            {e.name.ru || e.name.en}
+          </h3>
+          <span className="label-mono text-[9px] px-2 py-0.5 border" style={{ borderColor: accent, color: accent }}>
+            {CATEGORY_LABEL[e.category] ?? e.category}
+          </span>
+          <span className="ml-auto font-sans text-[12px] text-ink-faint">{e.name.en}</span>
+        </header>
+        {e.description?.ru && (
+          <p className="m-0 font-sans text-[13px] text-ink-mute leading-[1.55]">{e.description.ru}</p>
+        )}
+      </div>
     </article>
   );
 }

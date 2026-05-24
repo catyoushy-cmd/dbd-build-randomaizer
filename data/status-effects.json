@@ -2,42 +2,50 @@
   {
     "id": "exhausted",
     "source_key": "Exhausted",
-    "name": { "en": "Exhausted", "ru": "Истощение" },
+    "name": { "en": "Exhausted", "ru": "Усталость" },
     "description": {
       "en": "Prevents the use of any Exhaustion-based perks. Exhaustion does not recover while running.",
-      "ru": "Запрещает использование перков с пометкой «истощение». Истощение не восстанавливается, пока вы бежите."
+      "ru": "Запрещает использование перков с пометкой «усталость». Усталость не восстанавливается, пока вы бежите."
     },
-    "category": "debuff"
+    "category": "debuff",
+    "icon": "/icons/status-effects/exhausted.png",
+    "wiki_file": "iconStatusEffects_exhausted.png"
   },
   {
     "id": "broken",
     "source_key": "Broken",
-    "name": { "en": "Broken", "ru": "Сломлен" },
+    "name": { "en": "Broken", "ru": "Ослабление" },
     "description": {
       "en": "Cannot be healed past the injured state.",
-      "ru": "Не можете быть вылечены до здорового состояния."
+      "ru": "Не можете быть вылечены до здорового состояния — остаётесь раненым."
     },
-    "category": "debuff"
+    "category": "debuff",
+    "icon": "/icons/status-effects/broken.png",
+    "wiki_file": "iconStatusEffects_broken.png"
   },
   {
     "id": "hemorrhage",
     "source_key": "Hemorrhage",
     "name": { "en": "Hemorrhage", "ru": "Кровотечение" },
     "description": {
-      "en": "Healing progress regresses while not being healed. Increases blood pool size of injured survivors.",
-      "ru": "Прогресс лечения откатывается, пока выживший не получает лечение. Увеличивает кровавый след за ранеными."
+      "en": "Healing progress regresses while not being healed. Increases the blood pool size left by injured survivors.",
+      "ru": "Прогресс лечения откатывается, пока вас не лечат. Раненые оставляют больше кровавых следов."
     },
-    "category": "debuff"
+    "category": "debuff",
+    "icon": "/icons/status-effects/hemorrhage.png",
+    "wiki_file": "iconStatusEffects_bleeding.png"
   },
   {
     "id": "mangled",
     "source_key": "Mangled",
-    "name": { "en": "Mangled", "ru": "Повреждение" },
+    "name": { "en": "Mangled", "ru": "Травма" },
     "description": {
       "en": "Healing speed is reduced by 25%.",
-      "ru": "Скорость лечения снижается на 25%."
+      "ru": "Скорость лечения снижена на 25%."
     },
-    "category": "debuff"
+    "category": "debuff",
+    "icon": "/icons/status-effects/mangled.png",
+    "wiki_file": "IconStatusEffects_mangled.png"
   },
   {
     "id": "blindness",
@@ -47,37 +55,57 @@
       "en": "Cannot see auras of allies, generators, totems, items or hooks.",
       "ru": "Не видите ауры союзников, генераторов, тотемов, предметов и крюков."
     },
-    "category": "debuff"
+    "category": "debuff",
+    "icon": "/icons/status-effects/blindness.png",
+    "wiki_file": "iconStatusEffects_vision.png"
   },
   {
     "id": "exposed",
     "source_key": "Exposed",
-    "name": { "en": "Exposed", "ru": "Незащищённость" },
+    "name": { "en": "Exposed", "ru": "Уязвимость" },
     "description": {
       "en": "Can be put into the dying state from a single basic attack, regardless of the current health state.",
-      "ru": "Может быть положен на землю одним базовым ударом убийцы, независимо от текущего состояния здоровья."
+      "ru": "Один базовый удар убийцы кладёт вас на землю, независимо от текущего состояния здоровья."
     },
-    "category": "debuff"
+    "category": "debuff",
+    "icon": "/icons/status-effects/exposed.png",
+    "wiki_file": "iconStatusEffects_exposed.png"
   },
   {
     "id": "oblivious",
     "source_key": "Oblivious",
-    "name": { "en": "Oblivious", "ru": "Забвение" },
+    "name": { "en": "Oblivious", "ru": "Забывчивость" },
     "description": {
       "en": "Cannot hear the Killer's Terror Radius.",
       "ru": "Не слышите радиус ужаса убийцы."
     },
-    "category": "debuff"
+    "category": "debuff",
+    "icon": "/icons/status-effects/oblivious.png",
+    "wiki_file": "iconStatusEffects_oblivious.png"
   },
   {
     "id": "hindered",
     "source_key": "Hindered",
-    "name": { "en": "Hindered", "ru": "Помеха" },
+    "name": { "en": "Hindered", "ru": "Замедление" },
     "description": {
       "en": "Movement speed is reduced for the duration.",
       "ru": "Скорость движения снижена на время действия."
     },
-    "category": "debuff"
+    "category": "debuff",
+    "icon": "/icons/status-effects/hindered.png",
+    "wiki_file": "IconStatusEffects_hindered2.png"
+  },
+  {
+    "id": "incapacitated",
+    "source_key": "Incapacitated",
+    "name": { "en": "Incapacitated", "ru": "Обездвиживание" },
+    "description": {
+      "en": "Cannot perform any conspicuous actions (repair, heal, sabotage, totem cleansing, etc.).",
+      "ru": "Запрещены все «заметные» действия: ремонт, лечение, саботаж, очищение тотемов и т.д."
+    },
+    "category": "debuff",
+    "icon": "/icons/status-effects/incapacitated.png",
+    "wiki_file": "iconStatusEffects_incapacitated.png"
   },
   {
     "id": "endurance",
@@ -87,37 +115,45 @@
       "en": "The next damage that would put you into the dying state instead applies the Deep Wound status.",
       "ru": "Следующая атака, которая положила бы вас на землю, вместо этого накладывает «Глубокую рану»."
     },
-    "category": "buff"
+    "category": "buff",
+    "icon": "/icons/status-effects/endurance.png",
+    "wiki_file": "iconStatusEffects_vulnerability.png"
   },
   {
     "id": "haste",
     "source_key": "Haste",
-    "name": { "en": "Haste", "ru": "Бодрость" },
+    "name": { "en": "Haste", "ru": "Спешка" },
     "description": {
       "en": "Movement speed is increased by a percentage for the duration.",
       "ru": "Скорость движения увеличена на указанный процент на время действия."
     },
-    "category": "buff"
+    "category": "buff",
+    "icon": "/icons/status-effects/haste.png",
+    "wiki_file": "iconStatusEffects_speed.png"
   },
   {
     "id": "elusive",
     "source_key": "Elusive",
-    "name": { "en": "Elusive", "ru": "Неуловимость" },
+    "name": { "en": "Elusive", "ru": "Ускользание" },
     "description": {
       "en": "Scratch marks are not left for the duration.",
       "ru": "Не оставляете царапин на время действия."
     },
-    "category": "buff"
+    "category": "buff",
+    "icon": "/icons/status-effects/elusive.png",
+    "wiki_file": "T_UI_iconStatusEffects_elusive.png"
   },
   {
     "id": "undetectable",
     "source_key": "Undetectable",
-    "name": { "en": "Undetectable", "ru": "Необнаруживаемость" },
+    "name": { "en": "Undetectable", "ru": "Незаметность" },
     "description": {
       "en": "Terror Radius is suppressed, Red Stain is removed, and aura cannot be read.",
       "ru": "Радиус ужаса подавлен, красное пятно скрыто, ауру нельзя прочитать."
     },
-    "category": "buff"
+    "category": "buff",
+    "icon": "/icons/status-effects/undetectable.png",
+    "wiki_file": "iconStatusEffects_undetectable.png"
   },
   {
     "id": "deep-wound",
@@ -125,18 +161,70 @@
     "name": { "en": "Deep Wound", "ru": "Глубокая рана" },
     "description": {
       "en": "A bleed-out timer starts. The survivor must mend within the timer or fall into the dying state.",
-      "ru": "Запускается таймер кровотечения. Выжившему нужно перевязать рану до истечения времени, иначе он упадёт."
+      "ru": "Запускается таймер кровотечения. До его истечения нужно перевязать рану, иначе выживший упадёт."
     },
-    "category": "debuff"
+    "category": "debuff",
+    "icon": "/icons/status-effects/deep-wound.png",
+    "wiki_file": "iconStatusEffects_deepWound.png"
   },
   {
-    "id": "incapacitated",
-    "source_key": "Incapacitated",
-    "name": { "en": "Incapacitated", "ru": "Беспомощность" },
+    "id": "cursed",
+    "source_key": "Cursed",
+    "name": { "en": "Cursed", "ru": "Проклятие" },
     "description": {
-      "en": "Cannot perform any conspicuous actions (repair, heal, sabotage, totem cleansing, etc.).",
-      "ru": "Запрещены все «заметные» действия — починка, лечение, саботаж, очищение тотемов и т.д."
+      "en": "An active hex totem is affecting you. The hex perk is suppressed when the totem is cleansed.",
+      "ru": "На вас действует активный тотем-гекс. Эффект пропадёт, если очистить соответствующий тотем."
     },
-    "category": "debuff"
+    "category": "debuff",
+    "icon": "/icons/status-effects/cursed.png",
+    "wiki_file": "iconStatusEffects_cleansing.png"
+  },
+  {
+    "id": "blessed",
+    "source_key": "Blessed",
+    "name": { "en": "Blessed", "ru": "Благословение" },
+    "description": {
+      "en": "A nearby boon totem grants a survivor perk effect within its aura.",
+      "ru": "Поблизости горит благословлённый тотем — он даёт эффект перка-дарования в радиусе ауры."
+    },
+    "category": "buff",
+    "icon": "/icons/status-effects/blessed.png",
+    "wiki_file": "IconStatusEffects_blessed.png"
+  },
+  {
+    "id": "killer-endurance",
+    "source_key": "KillerEndurance",
+    "name": { "en": "Killer Endurance", "ru": "Хладнокровие" },
+    "description": {
+      "en": "The killer is briefly immune to stuns, blinds and other interruptions.",
+      "ru": "Убийца на короткое время невосприимчив к оглушениям, ослеплению и другим прерываниям."
+    },
+    "category": "buff",
+    "icon": "/icons/status-effects/killer-endurance.png",
+    "wiki_file": "iconStatusEffects_killerEndurance.png"
+  },
+  {
+    "id": "glyph",
+    "source_key": "Glyph",
+    "name": { "en": "Glyph", "ru": "Символ" },
+    "description": {
+      "en": "An archive challenge glyph is active. Interacting with it grants archive progress.",
+      "ru": "Активен глиф архива — взаимодействие с ним продвигает задание архива."
+    },
+    "category": "general",
+    "icon": "/icons/status-effects/glyph.png",
+    "wiki_file": "iconStatusEffects_glyph.png"
+  },
+  {
+    "id": "reveal",
+    "source_key": "Reveal",
+    "name": { "en": "Reveal", "ru": "Раскрыт" },
+    "description": {
+      "en": "The killer's aura is revealed to nearby survivors for a short duration.",
+      "ru": "Аура убийцы видна выжившим поблизости в течение короткого времени."
+    },
+    "category": "aura",
+    "icon": "/icons/status-effects/reveal.png",
+    "wiki_file": "IconStatusEffects_reveal.png"
   }
 ]
