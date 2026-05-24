@@ -5,6 +5,7 @@ const NAV_ITEMS = [
   { href: '/admin', label: 'Дашборд' },
   { href: '/admin/build-cores', label: 'BuildCores' },
   { href: '/admin/content', label: 'Контент' },
+  { href: '/admin/status-effects', label: 'Состояния' },
   { href: '/admin/articles', label: 'Статьи' },
 ];
 

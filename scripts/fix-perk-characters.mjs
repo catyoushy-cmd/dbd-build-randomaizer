@@ -24,7 +24,22 @@ const DATA = path.join(ROOT, 'data');
 
 const KILLER_OFFSET = 268435456;
 
-function resolveSlug(role, character, survivors, killers) {
+/**
+ * Hand-curated overrides for perks that have an empty `character` field
+ * in the source data but are known to belong to a specific character.
+ * Extend this map as we identify more orphaned perks.
+ */
+const MANUAL_OVERRIDES = {
+  // Dwight's teachable perks (S00 / character index 0 not used by tricky)
+  bond:          'dwight-fairfield',
+  leader:        'dwight-fairfield',
+  'prove-thyself': 'dwight-fairfield',
+};
+
+function resolveSlug(role, character, survivors, killers, id) {
+  // Manual override wins
+  if (MANUAL_OVERRIDES[id]) return MANUAL_OVERRIDES[id];
+
   if (character === '' || character == null) return null;
   const n = Number(character);
   if (!Number.isFinite(n)) return null;
@@ -49,7 +64,7 @@ async function main() {
   const unresolvedSample = [];
 
   for (const p of perks) {
-    const slug = resolveSlug(p.role, p.character ?? '', survivors, killers);
+    const slug = resolveSlug(p.role, p.character ?? '', survivors, killers, p.id);
     const current = 'character_slug' in p ? p.character_slug : undefined;
 
     if (current !== slug) {

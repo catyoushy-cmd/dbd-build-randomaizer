@@ -5,12 +5,13 @@ import { cn } from '@/lib/utils';
 import { EntityModal } from '@/components/ui/entity-modal';
 import { IconImg } from '@/components/ui/icon-img';
 import { PerkDescription } from '@/components/build/PerkDescription';
-import type { Perk, Killer, Survivor } from '@/lib/data';
+import type { Perk, Killer, Survivor, StatusEffect } from '@/lib/data';
 
 type Props = {
   perks: Perk[];
   killers: Killer[];
   survivors: Survivor[];
+  statusEffects: StatusEffect[];
 };
 
 const ROLE_LABEL: Record<string, string> = {
@@ -26,7 +27,16 @@ const ROLE_LABEL: Record<string, string> = {
 const QUICK_TAGS_SURVIVOR = ['gen', 'chase-escape', 'info', 'exhaustion', 'healing', 'altruism', 'totem'];
 const QUICK_TAGS_KILLER   = ['slowdown', 'chase-power', 'aura', 'hex', 'stealth', 'endgame', 'info'];
 
-export function PerksGrid({ perks, killers, survivors }: Props) {
+export function PerksGrid({ perks, killers, survivors, statusEffects }: Props) {
+  const effectsBySourceKey = useMemo(() => {
+    const m = new Map<string, StatusEffect>();
+    for (const e of statusEffects) {
+      if (e.source_key) m.set(e.source_key, e);
+      m.set(e.id, e); // also key by slug
+    }
+    return m;
+  }, [statusEffects]);
+
   const [tab, setTab]       = useState<'survivor' | 'killer'>('survivor');
   const [query, setQuery]   = useState('');
   const [activeTag, setTag] = useState<string | null>(null);
@@ -155,6 +165,7 @@ export function PerksGrid({ perks, killers, survivors }: Props) {
           <PerkModalBody
             perk={selected}
             character={resolveCharacter(selected, killers, survivors)}
+            effectsBySourceKey={effectsBySourceKey}
           />
         )}
       </EntityModal>
@@ -245,7 +256,7 @@ function PerkRow({ perk, onOpen }: { perk: Perk; onOpen: () => void }) {
 
 /* ───────── Modal ───────── */
 
-function PerkModalBody({ perk, character }: { perk: Perk; character: Killer | Survivor | null }) {
+function PerkModalBody({ perk, character, effectsBySourceKey }: { perk: Perk; character: Killer | Survivor | null; effectsBySourceKey: Map<string, StatusEffect> }) {
   return (
     <div className="p-6 flex flex-col gap-5">
       {/* Header */}
@@ -289,7 +300,11 @@ function PerkModalBody({ perk, character }: { perk: Perk; character: Killer | Su
       <div className="flex flex-col gap-2">
         <span className="label-mono text-[10px] text-ink-mute">Описание</span>
         <div className="border-l-2 border-line-ember pl-4">
-          <PerkDescription raw={perk.description.ru} tunables={perk.tunables} />
+          <PerkDescription
+            raw={perk.description.ru}
+            tunables={perk.tunables}
+            effectsBySourceKey={effectsBySourceKey}
+          />
         </div>
       </div>
 

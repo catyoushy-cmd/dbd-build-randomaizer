@@ -21,6 +21,8 @@ export async function GET(req: Request) {
       addon:     `${origin}/api/v1/addons/{id}`,
       offerings: `${origin}/api/v1/offerings`,
       offering:  `${origin}/api/v1/offerings/{id}`,
+      status_effects: `${origin}/api/v1/status-effects`,
+      status_effect:  `${origin}/api/v1/status-effects/{id}`,
       bundle:    `${origin}/api/v1/all`,
     },
     notes: [

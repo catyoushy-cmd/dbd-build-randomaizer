@@ -182,6 +182,14 @@ export default async function Home() {
             desc="Влияют на матч и карту"
           />
         </div>
+
+        {/* Bonus link to status effects */}
+        <Link
+          href="/status-effects"
+          className="label-mono text-[10px] text-ink-mute hover:text-dbd-accent no-underline self-end mt-2"
+        >
+          + Игровые состояния (Истощение, Кровотечение, …) →
+        </Link>
       </section>
 
       {/* ── Latest articles ── */}

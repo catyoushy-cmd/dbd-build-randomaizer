@@ -1,14 +1,15 @@
-import { fetchPerks, fetchKillers, fetchSurvivors } from '@/lib/data/content-db';
+import { fetchPerks, fetchKillers, fetchSurvivors, fetchStatusEffects } from '@/lib/data/content-db';
 import { fetchOverrides, applyOverrides } from '@/lib/data/overrides';
 import { PerksGrid } from './PerksGrid';
 
 export const revalidate = 3600;
 
 export default async function PerksPage() {
-  const [perksRaw, killers, survivors, overrides] = await Promise.all([
+  const [perksRaw, killers, survivors, statusEffects, overrides] = await Promise.all([
     fetchPerks(),
     fetchKillers(),
     fetchSurvivors(),
+    fetchStatusEffects(),
     fetchOverrides('perk'),
   ]);
   const perks = applyOverrides(perksRaw, overrides);
@@ -26,7 +27,7 @@ export default async function PerksPage() {
         </p>
       </div>
 
-      <PerksGrid perks={active} killers={killers} survivors={survivors} />
+      <PerksGrid perks={active} killers={killers} survivors={survivors} statusEffects={statusEffects} />
     </div>
   );
 }

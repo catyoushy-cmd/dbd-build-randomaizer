@@ -87,6 +87,18 @@ export type Offering = {
   available_by_default?: boolean;
 };
 
+export type StatusEffectCategory = 'debuff' | 'buff' | 'general' | 'aura' | 'status';
+
+export type StatusEffect = {
+  id: string;
+  /** Raw {Keyword.X} token from source descriptions, e.g. 'Exhausted'. */
+  source_key?: string | null;
+  name: { en: string; ru: string };
+  description?: { en: string; ru: string };
+  category: StatusEffectCategory;
+  icon?: string | null;
+};
+
 export type BuildMode = 'random' | 'efficient' | 'fun';
 
 export type BuildCore = {
