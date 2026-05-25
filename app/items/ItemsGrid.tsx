@@ -6,10 +6,17 @@ import { cn } from '@/lib/utils';
 import { rarityColor, rarityKey, rarityLabel } from '@/components/ui/shape-card';
 import { EntityModal } from '@/components/ui/entity-modal';
 import { IconImg } from '@/components/ui/icon-img';
+import { SimilarGrid } from '@/components/ui/similar-grid';
 import { Tooltip, TooltipTrigger, TooltipContent } from '@/components/ui/tooltip';
 import { EntityTooltipBody } from '@/components/ui/entity-tooltip';
 import { splitDescription } from '@/lib/dbd-text';
 import { DbdDescription } from '@/components/build/DbdDescription';
+import {
+  ITEM_TYPE_LABEL,
+  ITEM_TYPE_SINGULAR,
+  ITEM_TYPE_ORDER,
+  rarityScore,
+} from '@/lib/ui/labels';
 import type { Item, Addon, StatusEffect } from '@/lib/data';
 
 type Props = {
@@ -17,36 +24,6 @@ type Props = {
   addons: Addon[];
   statusEffects?: StatusEffect[];
 };
-
-const ITEM_TYPE_LABEL: Record<string, string> = {
-  flashlight: 'Фонарики',
-  medkit:     'Аптечки',
-  toolbox:    'Инструменты',
-  map:        'Карты',
-  key:        'Ключи',
-  misc:       'Особые',
-};
-const ITEM_TYPE_SINGULAR: Record<string, string> = {
-  flashlight: 'Фонарик',
-  medkit:     'Аптечка',
-  toolbox:    'Инструменты',
-  map:        'Карта',
-  key:        'Ключ',
-  misc:       'Особый предмет',
-};
-const ITEM_TYPE_ORDER = ['medkit', 'toolbox', 'flashlight', 'map', 'key', 'misc'] as const;
-
-const RARITY_RANK: Record<string, number> = {
-  'ultra-rare': 0, ultra: 0,
-  'very-rare':  1, veryrare: 1,
-  rare:         2,
-  uncommon:     3,
-  common:       4,
-};
-
-function rarityScore(r?: string): number {
-  return RARITY_RANK[r ?? 'common'] ?? 99;
-}
 
 export function ItemsGrid({ items, addons, statusEffects }: Props) {
   const effectsBySourceKey = useMemo(() => {
@@ -303,23 +280,7 @@ function ItemModalBody({
       {similar.length > 0 && (
         <div className="flex flex-col gap-3 pt-2 border-t border-line-1">
           <span className="label-mono text-[10px] text-ink-mute">Похожие предметы</span>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-            {similar.map((s) => (
-              <button
-                key={s.id}
-                onClick={() => onPick(s)}
-                className="flex items-center gap-2 px-2 py-2 border border-line-1 bg-bg-2 hover:border-line-ember transition-colors duration-150 text-left cursor-pointer"
-              >
-                <div
-                  className={cn('w-9 h-9 shrink-0 border flex items-center justify-center overflow-hidden', `rarity-bg-${rarityKey(s.rarity ?? 'common')}`)}
-                  style={{ borderColor: rarityColor(s.rarity ?? 'common') }}
-                >
-                  <IconImg src={s.icon} alt={s.name.ru} size={32} fallback={null} />
-                </div>
-                <span className="font-sans text-[12px] text-ink leading-tight truncate">{s.name.ru || s.name.en}</span>
-              </button>
-            ))}
-          </div>
+          <SimilarGrid items={similar} onPick={onPick} />
         </div>
       )}
     </div>

@@ -3,26 +3,14 @@
 import { useState, useMemo } from 'react';
 import { cn } from '@/lib/utils';
 import { IconImg } from '@/components/ui/icon-img';
+import {
+  STATUS_CATEGORY_LABEL_PLURAL as CATEGORY_LABEL,
+  STATUS_CATEGORY_COLOR as CATEGORY_COLOR,
+} from '@/lib/ui/labels';
 import type { StatusEffect } from '@/lib/data';
 
 type Props = {
   effects: StatusEffect[];
-};
-
-const CATEGORY_LABEL: Record<string, string> = {
-  debuff:  'Дебафы',
-  buff:    'Бафы',
-  general: 'Общие',
-  aura:    'Ауры',
-  status:  'Прочее',
-};
-
-const CATEGORY_COLOR: Record<string, string> = {
-  debuff:  'var(--r-rare)',
-  buff:    'var(--dbd-accent)',
-  aura:    'var(--dbd-brass)',
-  status:  'var(--ink-mute)',
-  general: 'var(--ink-mute)',
 };
 
 const ORDER: StatusEffect['category'][] = ['buff', 'debuff', 'aura', 'general', 'status'];

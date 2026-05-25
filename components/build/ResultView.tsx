@@ -10,6 +10,7 @@ import { EntityTooltipBody } from '@/components/ui/entity-tooltip';
 import { DbdDescription } from '@/components/build/DbdDescription';
 import { cn } from '@/lib/utils';
 import { useIsMobile } from '@/lib/use-media-query';
+import { ITEM_TYPE_SINGULAR as ITEM_TYPE_LABEL, PLAYER_ROLE_LABEL as ROLE_LABEL_OFFERING } from '@/lib/ui/labels';
 import type { Build } from '@/lib/data';
 import type { PinState } from '@/lib/random/pinning';
 
@@ -21,20 +22,6 @@ async function copyPerkName(name: string) {
     toast.error('Не удалось скопировать');
   }
 }
-
-const ITEM_TYPE_LABEL: Record<string, string> = {
-  flashlight: 'Фонарик',
-  medkit:     'Аптечка',
-  toolbox:    'Инструменты',
-  map:        'Карта',
-  key:        'Ключ',
-};
-
-const ROLE_LABEL_OFFERING: Record<string, string> = {
-  survivor: 'Выживший',
-  killer:   'Убийца',
-  both:     'Общее',
-};
 
 type Props = {
   build: Build;

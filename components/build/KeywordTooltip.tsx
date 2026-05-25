@@ -3,23 +3,11 @@
 import { Tooltip, TooltipTrigger, TooltipContent } from '@/components/ui/tooltip';
 import { EntityTooltipBody } from '@/components/ui/entity-tooltip';
 import { IconImg } from '@/components/ui/icon-img';
+import {
+  STATUS_CATEGORY_LABEL_SINGULAR as CATEGORY_LABEL,
+  STATUS_CATEGORY_COLOR as CATEGORY_COLOR,
+} from '@/lib/ui/labels';
 import type { StatusEffect } from '@/lib/data';
-
-const CATEGORY_LABEL: Record<string, string> = {
-  debuff:  'Дебаф',
-  buff:    'Баф',
-  general: 'Общее',
-  aura:    'Аура',
-  status:  'Состояние',
-};
-
-const CATEGORY_COLOR: Record<string, string> = {
-  debuff:  'var(--r-rare)',     // green-ish so it stays neutral despite being a "bad" effect
-  buff:    'var(--dbd-accent)',
-  aura:    'var(--dbd-brass)',
-  status:  'var(--ink-mute)',
-  general: 'var(--ink-mute)',
-};
 
 type Props = {
   effect: StatusEffect;

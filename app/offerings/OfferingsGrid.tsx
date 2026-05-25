@@ -7,6 +7,8 @@ import { DbdDescription } from '@/components/build/DbdDescription';
 import { rarityColor, rarityKey, rarityLabel } from '@/components/ui/shape-card';
 import { EntityModal } from '@/components/ui/entity-modal';
 import { IconImg } from '@/components/ui/icon-img';
+import { SimilarGrid } from '@/components/ui/similar-grid';
+import { PLAYER_ROLE_DATIVE, rarityScore } from '@/lib/ui/labels';
 import type { Offering, StatusEffect } from '@/lib/data';
 
 type Props = {
@@ -22,19 +24,6 @@ const ROLE_OPTIONS: { value: Role; label: string }[] = [
   { value: 'killer',   label: 'Убийцам' },
   { value: 'both',     label: 'Общие' },
 ];
-
-const ROLE_LABEL: Record<string, string> = {
-  survivor: 'Выжившим',
-  killer:   'Убийцам',
-  both:     'Общее',
-};
-
-const RARITY_ORDER = ['ultra', 'ultra-rare', 'very-rare', 'veryrare', 'rare', 'uncommon', 'common'] as const;
-
-function rarityScore(r?: string): number {
-  const i = RARITY_ORDER.indexOf((r ?? 'common') as typeof RARITY_ORDER[number]);
-  return i === -1 ? 99 : i;
-}
 
 export function OfferingsGrid({ offerings, statusEffects }: Props) {
   const effectsBySourceKey = useMemo(() => {
@@ -185,7 +174,7 @@ function RoleSection({
     <section>
       <div className="flex items-center gap-3 mb-3">
         <h2 className="m-0 label-mono text-[12px] tracking-[.2em] font-semibold" style={{ color: accent }}>
-          {ROLE_LABEL[role]}
+          {PLAYER_ROLE_DATIVE[role]}
         </h2>
         <span className="label-mono text-[10px] text-ink-faint">({offerings.length})</span>
         <div className="flex-1 h-px" style={{ background: `linear-gradient(to right, ${accent}55, transparent)` }} />
@@ -218,7 +207,7 @@ function OfferingRow({ offering: o, onOpen }: { offering: Offering; onOpen: () =
         <span className="font-sans text-[12px] mt-0.5 truncate" style={{ color: ringColor }}>{rarityLabel(o.rarity ?? 'common')}</span>
       </div>
       <span className="label-mono text-[9px] px-2 py-0.5 border border-line-2 text-ink-mute shrink-0">
-        {ROLE_LABEL[o.role]}
+        {PLAYER_ROLE_DATIVE[o.role]}
       </span>
       {isEvent && (
         <span className="label-mono text-[9px] text-ink-faint shrink-0">event</span>
@@ -263,7 +252,7 @@ function OfferingModalBody({
           <div className="flex items-center gap-2 mt-1 flex-wrap">
             <span className="label-mono text-[11px] font-semibold" style={{ color: ringColor }}>{rarityLabel(o.rarity ?? 'common')}</span>
             <span className="text-ink-faint">·</span>
-            <span className="label-mono text-[11px] text-ink-mute">{ROLE_LABEL[o.role]}</span>
+            <span className="label-mono text-[11px] text-ink-mute">{PLAYER_ROLE_DATIVE[o.role]}</span>
           </div>
         </div>
       </div>
@@ -285,23 +274,7 @@ function OfferingModalBody({
       {similar.length > 0 && (
         <div className="flex flex-col gap-3 pt-2 border-t border-line-1">
           <span className="label-mono text-[10px] text-ink-mute">Похожие подношения</span>
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-            {similar.map((s) => (
-              <button
-                key={s.id}
-                onClick={() => onPick(s)}
-                className="flex items-center gap-2 px-2 py-2 border border-line-1 bg-bg-2 hover:border-line-ember transition-colors duration-150 text-left cursor-pointer"
-              >
-                <div
-                  className={cn('w-9 h-9 shrink-0 border flex items-center justify-center overflow-hidden', `rarity-bg-${rarityKey(s.rarity ?? 'common')}`)}
-                  style={{ borderColor: rarityColor(s.rarity ?? 'common') }}
-                >
-                  <IconImg src={s.icon} alt={s.name.ru} size={32} fallback={null} />
-                </div>
-                <span className="font-sans text-[12px] text-ink leading-tight truncate">{s.name.ru || s.name.en}</span>
-              </button>
-            ))}
-          </div>
+          <SimilarGrid items={similar} onPick={onPick} smCols={3} />
         </div>
       )}
     </div>

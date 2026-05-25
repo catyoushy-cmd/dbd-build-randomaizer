@@ -1,13 +1,6 @@
 import Link from 'next/link';
 import { createServiceClient } from '@/lib/supabase/server';
-
-const CATEGORY_LABEL: Record<string, string> = {
-  debuff:  'Дебаф',
-  buff:    'Баф',
-  general: 'Общее',
-  aura:    'Аура',
-  status:  'Состояние',
-};
+import { STATUS_CATEGORY_LABEL_SINGULAR as CATEGORY_LABEL } from '@/lib/ui/labels';
 
 export default async function StatusEffectsAdminPage() {
   const supabase = createServiceClient();

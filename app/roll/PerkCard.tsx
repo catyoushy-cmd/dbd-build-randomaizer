@@ -7,14 +7,8 @@ import { IconImg } from '@/components/ui/icon-img';
 import { Tooltip, TooltipTrigger, TooltipContent } from '@/components/ui/tooltip';
 import { EntityTooltipBody } from '@/components/ui/entity-tooltip';
 import { DbdDescription } from '@/components/build/DbdDescription';
+import { PERK_TAG_LABEL } from '@/lib/ui/labels';
 import type { Perk } from '@/lib/data';
-
-const ROLE_LABEL_PERK: Record<string, string> = {
-  gen: 'Ген', 'chase-escape': 'Побег', info: 'Инфо', altruism: 'Альтруизм',
-  exhaustion: 'Истощение', boon: 'Дарование', meme: 'Мем',
-  slowdown: 'Замедление', 'chase-power': 'Погоня', aura: 'Аура',
-  hex: 'Гекс', endgame: 'Финал', stealth: 'Скрытность',
-};
 
 /* All perks are displayed as tier-III purple (design spec) */
 const PERK_RING = 'var(--perk-tier3-edge)';
@@ -109,7 +103,7 @@ export function PerkCard({
           meta={[
             ...(perk.tier ? [{ label: 'Тир', value: <span className="font-bold text-dbd-bone">{perk.tier}</span> }] : []),
             ...(perk.roles?.length
-              ? [{ label: 'Роли', value: perk.roles.map((r) => ROLE_LABEL_PERK[r] ?? r).join(', ') }]
+              ? [{ label: 'Роли', value: perk.roles.map((r) => PERK_TAG_LABEL[r] ?? r).join(', ') }]
               : []),
           ]}
           description={<DbdDescription raw={perk.description.ru} tunables={perk.tunables} size="sm" />}

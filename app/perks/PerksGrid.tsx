@@ -6,6 +6,7 @@ import { cn } from '@/lib/utils';
 import { EntityModal } from '@/components/ui/entity-modal';
 import { IconImg } from '@/components/ui/icon-img';
 import { PerkDescription } from '@/components/build/PerkDescription';
+import { PERK_TAG_LABEL } from '@/lib/ui/labels';
 import type { Perk, Killer, Survivor, StatusEffect } from '@/lib/data';
 
 type Props = {
@@ -13,15 +14,6 @@ type Props = {
   killers: Killer[];
   survivors: Survivor[];
   statusEffects: StatusEffect[];
-};
-
-const ROLE_LABEL: Record<string, string> = {
-  gen: 'Ген', 'chase-escape': 'Побег', info: 'Инфо', altruism: 'Альтруизм',
-  exhaustion: 'Истощение', boon: 'Дарование', meme: 'Мем',
-  slowdown: 'Замедление', 'chase-power': 'Погоня', aura: 'Аура',
-  hex: 'Гекс', endgame: 'Финал', stealth: 'Скрытность',
-  healing: 'Лечение', chest: 'Сундуки', item: 'Предметы',
-  totem: 'Тотемы', map: 'Карта', survival: 'Выживание',
 };
 
 // Quick-pick tag chips under the search input.
@@ -163,7 +155,7 @@ export function PerksGrid({ perks, killers, survivors, statusEffects }: Props) {
                 : 'border-line-1 text-ink-mute hover:border-line-2 hover:text-ink',
             )}
           >
-            {ROLE_LABEL[t] ?? t}
+            {PERK_TAG_LABEL[t] ?? t}
           </button>
         ))}
         {activeTag && (
@@ -347,7 +339,7 @@ function PerkModalBody({ perk, character, effectsBySourceKey }: { perk: Perk; ch
           <div className="flex flex-wrap gap-1.5">
             {perk.roles.map((r) => (
               <span key={r} className="label-mono text-[11px] px-2 py-1 border border-line-2 text-ink">
-                {ROLE_LABEL[r] ?? r}
+                {PERK_TAG_LABEL[r] ?? r}
               </span>
             ))}
           </div>
